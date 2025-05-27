@@ -7,6 +7,7 @@ import { MapPin, Users, AlertCircle } from 'lucide-react'
 import { UserRole } from '@prisma/client'
 import Link from 'next/link'
 import { api } from '@/lib/trpc'
+import { ClientCurrency } from '@/lib/format-date'
 
 interface PropertyOverviewProps {
   userRole: UserRole
@@ -102,7 +103,8 @@ export function PropertyOverview({ userRole }: PropertyOverviewProps) {
                   )}
                   {property.rentAmount && (
                     <div className="font-medium text-gray-900">
-                      {Number(property.rentAmount).toLocaleString()} {property.currency}/hó
+                      <ClientCurrency amount={Number(property.rentAmount)} currency={property.currency} />
+                      <span>/hó</span>
                     </div>
                   )}
                 </div>

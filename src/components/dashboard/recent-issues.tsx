@@ -7,6 +7,7 @@ import { CalendarDays, MapPin } from 'lucide-react'
 import { UserRole } from '@prisma/client'
 import Link from 'next/link'
 import { api } from '@/lib/trpc/client'
+import { ClientDate } from '@/lib/format-date'
 
 interface RecentIssuesProps {
   userRole: UserRole
@@ -99,7 +100,7 @@ export function RecentIssues({ userRole }: RecentIssuesProps) {
                   </div>
                   <div className="flex items-center text-xs text-gray-400">
                     <CalendarDays className="h-3 w-3 mr-1" />
-                    {new Date(issue.createdAt).toLocaleDateString('hu-HU')}
+                    <ClientDate date={issue.createdAt} />
                   </div>
                 </div>
                 <div className="flex flex-col items-end space-y-2">

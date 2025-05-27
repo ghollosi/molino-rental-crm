@@ -1,0 +1,1244 @@
+
+> molino-rental-crm@0.1.0 dev
+> next dev -p 3333
+
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.90:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1327ms
+ ✓ Compiled /middleware in 117ms (108 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1557ms (1009 modules)
+ GET / 200 in 1935ms
+ ✓ Compiled in 479ms (473 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 975ms (1292 modules)
+ GET /dashboard 200 in 1202ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ GET /api/auth/session 405 in 1775ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on offer.list: UNAUTHORIZED
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 1812ms
+ GET /api/auth/session 405 in 28ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on offer.list: UNAUTHORIZED
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 401 in 9ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 13ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on offer.list: UNAUTHORIZED
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 401 in 47ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 59ms
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ GET /dashboard/properties 200 in 555ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 100ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 17ms
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ GET /dashboard/owners 200 in 313ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on owner.list: UNAUTHORIZED
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 61ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on owner.list: UNAUTHORIZED
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 17ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on owner.list: UNAUTHORIZED
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 24ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on owner.list: UNAUTHORIZED
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
+   Reload env: .env
+ ✓ Compiled /dashboard/owners in 499ms (1425 modules)
+ GET /dashboard/owners 200 in 145ms
+ ✓ Compiled in 169ms (600 modules)
+ ✓ Compiled in 416ms (614 modules)
+ GET /dashboard/owners 200 in 15ms
+ GET /dashboard 200 in 51ms
+ ✓ Compiled /api/trpc/[trpc] in 442ms (942 modules)
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on offer.list: UNAUTHORIZED
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+❌ tRPC failed on issue.list: UNAUTHORIZED
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 651ms
+ ✓ Compiled /dashboard/properties in 146ms (951 modules)
+ GET /dashboard/properties 200 in 210ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 89ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 25ms
+ GET /dashboard/owners 200 in 56ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on owner.list: UNAUTHORIZED
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 30ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on owner.list: UNAUTHORIZED
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 83ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 681ms (1560 modules)
+ GET /dashboard/tenants 200 in 745ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 69ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 14ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 25ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 30ms
+ GET /dashboard/tenants 200 in 291ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ GET /api/auth/session 405 in 848ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 903ms
+ GET /api/auth/session 405 in 36ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 60ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 28ms
+   Reload env: .env
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ GET /dashboard/tenants 200 in 86ms
+ GET /dashboard/tenants 200 in 238ms
+ GET /api/auth/session 405 in 94ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 241ms
+ GET /api/auth/session 405 in 55ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on tenant.list: UNAUTHORIZED
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 10ms
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ ⚠ ./src/app/api/auth/[...nextauth]/route.ts
+export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+
+./src/app/api/auth/[...nextauth]/route.ts
+export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+
+Import trace for requested module:
+./src/app/api/auth/[...nextauth]/route.ts
+ GET /dashboard/properties 200 in 337ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 66ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 14ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 34ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: Error: no matching decryption secret
+    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
+    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
+    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
+    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
+    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
+    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
+    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
+    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
+    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+[31m[auth][details][0m: {}
+❌ tRPC failed on property.list: UNAUTHORIZED
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 27ms
+[?25h

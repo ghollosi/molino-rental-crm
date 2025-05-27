@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db"
 import authConfig from "./auth.config"
 
 export const {
-  handlers: { GET, POST },
+  handlers,
   auth,
   signIn,
   signOut,
