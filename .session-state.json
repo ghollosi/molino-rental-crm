@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-27T17:09:04.540Z",
+  "timestamp": "2025-05-27T17:14:04.537Z",
   "lastCommand": "start",
-  "currentFile": "dev.log",
-  "gitStatus": "M dev.log\n?? .checkpoints/20250527_103344/\n?? CLAUDE.md\n?? DEPLOYMENT.md\n?? prisma/seed.ts\n?? scripts/test-before-change.sh\n?? src/app/dashboard/contracts/\n?? src/app/dashboard/issues/\n?? src/app/dashboard/offers/\n?? src/app/dashboard/providers/\n?? src/app/error.tsx\n?? src/app/global-error.tsx\n?? src/server/routers/company.ts\n?? src/server/routers/contract.ts",
+  "currentFile": "none",
+  "gitStatus": "?? keep-server-running.sh",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
