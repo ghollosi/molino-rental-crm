@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-// import { signIn } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -25,11 +25,17 @@ export function LoginForm() {
     setError('')
 
     try {
-      // Temporarily bypass auth and go directly to dashboard
-      if (email === 'admin@molino.com' && password === 'admin123') {
-        router.push('/dashboard')
-      } else {
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      })
+
+      if (result?.error) {
         setError('Hibás email cím vagy jelszó')
+      } else {
+        router.push('/dashboard')
+        router.refresh()
       }
     } catch (error) {
       setError('Hiba történt a bejelentkezés során')

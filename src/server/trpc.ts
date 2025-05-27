@@ -1,7 +1,7 @@
 import { TRPCError, initTRPC } from '@trpc/server'
 import { type CreateNextContextOptions } from '@trpc/server/adapters/next'
 import { type Session } from 'next-auth'
-// import { auth } from '@/auth' // Ideiglenesen kikommentelve
+import { auth } from '@/auth'
 import { db } from '@/lib/db'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
@@ -18,17 +18,7 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
 }
 
 export const createTRPCContext = async (opts: { req?: Request }) => {
-  // Ideiglenesen mock session, amíg az auth probléma megoldódik
-  const session = {
-    user: {
-      id: '1',
-      email: 'admin@molino.com',
-      name: 'Admin User',
-      role: 'ADMIN',
-      language: 'HU'
-    },
-    expires: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString()
-  } as Session
+  const session = await auth()
 
   return createInnerTRPCContext({
     session,

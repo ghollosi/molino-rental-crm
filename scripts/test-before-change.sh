@@ -27,12 +27,12 @@ check_dev_server() {
 # TypeScript és ESLint ellenőrzés
 check_typescript() {
     echo -n "TypeScript ellenőrzése... "
-    if npm run typecheck > /dev/null 2>&1; then
+    if npm run type-check > /dev/null 2>&1; then
         echo -e "${GREEN}✓ OK${NC}"
         return 0
     else
         echo -e "${RED}✗ Hibák vannak${NC}"
-        npm run typecheck
+        npm run type-check
         return 1
     fi
 }
