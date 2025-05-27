@@ -28,25 +28,10 @@ A formátum a [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) alapján 
   - Statisztikák, Gyors műveletek
   - Legutóbbi hibabejelentések
   - Ingatlan áttekintő
-- Ingatlanok teljes CRUD funkciók (lista, létrehozás, részletek)
-- Tulajdonosok teljes CRUD funkciók
-- Bérlők teljes CRUD funkciók
-- Dashboard valós adatok integrálása
-- tRPC client konfiguráció
-- Fejlesztői környezet stabilizálása (dev-server.sh)
-- QUICK_START.md dokumentáció
 - Működő bejelentkezési folyamat
 - Admin felhasználó létrehozó script
 
 ### Módosítva - 2025-05-27
-- Sidebar navigációs linkek frissítve a helyes útvonalakra
-- Package.json beállítva a fix 3333-as portra
-- .env.local frissítve a 3333-as port használatára
-
-### Javítva - 2025-05-27
-- tRPC auth import hiba ideiglenesen megoldva
-- NextAuth konfiguráció egyszerűsítve a stabilitás érdekében
-- Port konfliktusok automatikus kezelése
 - Tailwind CSS v4-ről v3-ra downgrade (shadcn/ui kompatibilitás)
 - Route struktúra egyszerűsítése
 - Auth middleware ideiglenes egyszerűsítése

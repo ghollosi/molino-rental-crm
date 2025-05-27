@@ -18,14 +18,14 @@ import {
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
-  { name: 'Ingatlanok', href: '/properties', icon: Building },
-  { name: 'Tulajdonosok', href: '/owners', icon: Users },
-  { name: 'Bérlők', href: '/tenants', icon: User },
-  { name: 'Szolgáltatók', href: '/providers', icon: Wrench },
-  { name: 'Hibabejelentések', href: '/issues', icon: ClipboardList },
-  { name: 'Ajánlatok', href: '/offers', icon: FileText },
-  { name: 'Jelentések', href: '/reports', icon: BarChart3 },
-  { name: 'Beállítások', href: '/settings', icon: Settings },
+  { name: 'Ingatlanok', href: '/dashboard/properties', icon: Building },
+  { name: 'Tulajdonosok', href: '/dashboard/owners', icon: Users },
+  { name: 'Bérlők', href: '/dashboard/tenants', icon: User },
+  { name: 'Szolgáltatók', href: '/dashboard/providers', icon: Wrench },
+  { name: 'Hibabejelentések', href: '/dashboard/issues', icon: ClipboardList },
+  { name: 'Ajánlatok', href: '/dashboard/offers', icon: FileText },
+  { name: 'Jelentések', href: '/dashboard/reports', icon: BarChart3 },
+  { name: 'Beállítások', href: '/dashboard/settings', icon: Settings },
 ]
 
 export function Sidebar() {

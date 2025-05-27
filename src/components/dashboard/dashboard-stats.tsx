@@ -3,35 +3,53 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Building, Users, ClipboardList, FileText } from 'lucide-react'
 import { UserRole } from '@prisma/client'
+import { api } from '@/lib/trpc'
 
 interface DashboardStatsProps {
   userRole: UserRole
 }
 
 export function DashboardStats({ userRole }: DashboardStatsProps) {
-  // TODO: Replace with real data from tRPC
+  // Fetch real data
+  const { data: properties } = api.property.list.useQuery({ page: 1, limit: 1 })
+  const { data: issues } = api.issue.list.useQuery({ 
+    page: 1, 
+    limit: 1,
+    status: 'OPEN'
+  })
+  const { data: offers } = api.offer.list.useQuery({ 
+    page: 1, 
+    limit: 1,
+    status: 'SENT'
+  })
+  const { data: tenants } = api.tenant.list.useQuery({
+    page: 1,
+    limit: 1,
+    isActive: true
+  })
+
   const stats = [
     {
       title: 'Összes ingatlan',
-      value: '24',
+      value: properties?.pagination.total?.toString() || '0',
       icon: Building,
       description: 'Aktív ingatlanok',
     },
     {
       title: 'Aktív bérlők',
-      value: '18',
+      value: tenants?.pagination.total?.toString() || '0',
       icon: Users,
       description: 'Jelenleg bérlő',
     },
     {
       title: 'Nyitott hibák',
-      value: '7',
+      value: issues?.pagination.total?.toString() || '0',
       icon: ClipboardList,
       description: 'Megoldásra vár',
     },
     {
       title: 'Függő ajánlatok',
-      value: '3',
+      value: offers?.pagination.total?.toString() || '0',
       icon: FileText,
       description: 'Válaszra vár',
     },

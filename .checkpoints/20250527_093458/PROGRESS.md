@@ -2,8 +2,8 @@
 
 ## Aktuális státusz
 - **Jelenlegi fázis**: Core infrastruktúra és alapfunkciók
-- **Befejezett lépések**: 25/25 ✅
-- **Következő feladat**: Hibabejelentések, ajánlatok és szerződések kezelése
+- **Befejezett lépések**: 15/25
+- **Következő feladat**: További CRUD oldalak implementálása
 
 ## Fejlesztési napló
 
@@ -121,40 +121,3 @@
 - [ ] CRUD oldalak létrehozása (properties, owners, tenants)
 - [ ] Valós adatok megjelenítése a dashboard-on
 - [ ] Képfeltöltés implementálása
-### 2025-01-27 - Session #2
-**Elvégzett feladatok:**
-- ✅ Alapvető routing struktúra kialakítása
-- ✅ Kezdőoldal létrehozása (app/page.tsx)
-- ✅ Login oldal létrehozása (app/(auth)/login/page.tsx)
-- ✅ Register oldal létrehozása (app/(auth)/register/page.tsx)
-- ✅ Layout frissítése magyar nyelvű metaadatokkal
-- ✅ NextAuth alapkonfiguráció (ideiglenesen egyszerűsítve)
-- ✅ Prisma client inicializálása (src/lib/db.ts)
-- ✅ tRPC teljes struktúra és 8 router implementálása
-- ✅ Middleware és session kezelés
-- ✅ shadcn/ui komponensek telepítése és konfigurálása
-- ✅ Dashboard layout és komponensek
-- ✅ Védett útvonalak kialakítása
-- ✅ Admin felhasználó létrehozása (admin@molino.com / admin123)
-- ✅ Működő bejelentkezés és navigáció
-- ✅ Ingatlanok CRUD oldalak (lista, új, részletek)
-- ✅ Tulajdonosok CRUD oldalak (lista, új, részletek)
-- ✅ Bérlők CRUD oldalak (lista, új, részletek)
-- ✅ Dashboard valós adatok integrálása
-- ✅ tRPC client konfiguráció javítása
-- ✅ Fejlesztői környezet stabilizálása
-
-**Problémák és megoldások:**
-- Probléma: tRPC auth függvény nem található
-  - Megoldás: Ideiglenesen mock session használata
-- Probléma: Fejlesztői szerver indítási nehézségek
-  - Megoldás: Startup szkript létrehozása, fix 3333-as port
-
-**Létrehozott fájlok:**
-- /src/lib/trpc/client.ts
-- /src/lib/trpc/provider.tsx
-- /src/auth.ts és /src/lib/auth-config.ts
-- /scripts/dev-server.sh
-- /QUICK_START.md
-- Összes dashboard CRUD oldal (properties, owners, tenants)
-
