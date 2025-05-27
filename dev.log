@@ -1,55 +1,15 @@
 
 > molino-rental-crm@0.1.0 dev
-> npm run session:start && next dev -p 3333
+> next dev -p 3333
 
-
-> molino-rental-crm@0.1.0 session:start
-> tsx src/scripts/session-recovery.ts start
-
-=== PREVIOUS SESSION RECOVERY ===
-Last active: 2025-05-27T09:36:00.000Z
-Last command: checkpoint create
-Current file: PROGRESS.md
-Current phase: Core infrastruktúra és alapfunkciók
-
-Completed tasks:
-  ✓ Projekt inicializálás - Next.js app létrehozása TypeScript és Tailwind támogatással
-  ✓ DEVELOPMENT_DOCS.md fájl létrehozása (részlegesen - folytatása szükséges)
-  ✓ PROGRESS.md fájl létrehozása
-  ✓ CHANGELOG.md létrehozása
-  ✓ VS Code workspace konfigurálása (.vscode mappa és beállítások)
-  ✓ Alapvető könyvtárstruktúra létrehozása
-  ✓ Függőségek telepítése (Prisma, tRPC, NextAuth, shadcn/ui előkészítése)
-  ✓ Session recovery scriptek létrehozása
-  ✓ Prisma schema létrehozása és első migráció futtatása
-  ✓ PostgreSQL adatbázis létrehozása (molino_rental)
-  ✓ Alapvető routing struktúra kialakítása
-  ✓ Kezdőoldal létrehozása (app/page.tsx)
-  ✓ Login oldal létrehozása (app/(auth)/login/page.tsx)
-  ✓ Register oldal létrehozása (app/(auth)/register/page.tsx)
-  ✓ Layout frissítése magyar nyelvű metaadatokkal
-  ✓ NextAuth alapkonfiguráció (ideiglenesen egyszerűsítve)
-  ✓ Prisma client inicializálása (src/lib/db.ts)
-  ✓ tRPC teljes struktúra és 8 router implementálása
-  ✓ Middleware és session kezelés
-  ✓ shadcn/ui komponensek telepítése és konfigurálása
-  ✓ Dashboard layout és komponensek
-  ✓ Védett útvonalak kialakítása
-  ✓ Admin felhasználó létrehozása (admin@molino.com / admin123)
-  ✓ Működő bejelentkezés és navigáció
-
-Pending tasks:
-  - NextAuth konfiguráció
-  - tRPC setup
-  - Alapvető layout és routing létrehozása
-  - Autentikációs oldalak (login, register)
-  - További CRUD oldalak (properties, owners, tenants)
-  - NextAuth teljes implementáció helyreállítása
-  - Fájlfeltöltés és képkezelés
-  - Többnyelvűség (i18n) implementálása
-  - NextAuth teljes implementáció visszaállítása
-  - CRUD oldalak létrehozása (properties, owners, tenants)
-  - Valós adatok megjelenítése a dashboard-on
-  - Képfeltöltés implementálása
-================================
-
+ ⨯ Failed to start server
+Error: listen EADDRINUSE: address already in use :::3333
+    at <unknown> (Error: listen EADDRINUSE: address already in use :::3333)
+    at new Promise (<anonymous>) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 3333
+}
+[?25h

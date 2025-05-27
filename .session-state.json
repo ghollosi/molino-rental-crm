@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-27T08:32:20.727Z",
-  "lastCommand": "save",
-  "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M CHANGELOG.md\n M PROGRESS.md\n M package-lock.json\n M package.json\n M src/components/dashboard/dashboard-stats.tsx\n M src/components/dashboard/property-overview.tsx\n M src/components/dashboard/quick-actions.tsx\n M src/components/dashboard/recent-issues.tsx\n M src/components/layouts/sidebar.tsx\n M src/lib/auth.ts\n M src/lib/providers.tsx\n M src/server/trpc.ts\n?? .checkpoints/\n?? QUICK_START.md\n?? dev.log\n?? next-dev.log\n?? scripts/\n?? src/app/dashboard/owners/\n?? src/app/dashboard/properties/\n?? src/app/dashboard/tenants/\n?? src/auth.ts\n?? src/components/ui/table.tsx\n?? src/components/ui/tabs.tsx\n?? src/lib/auth-config.ts\n?? src/lib/trpc/",
+  "timestamp": "2025-05-27T17:09:04.540Z",
+  "lastCommand": "start",
+  "currentFile": "dev.log",
+  "gitStatus": "M dev.log\n?? .checkpoints/20250527_103344/\n?? CLAUDE.md\n?? DEPLOYMENT.md\n?? prisma/seed.ts\n?? scripts/test-before-change.sh\n?? src/app/dashboard/contracts/\n?? src/app/dashboard/issues/\n?? src/app/dashboard/offers/\n?? src/app/dashboard/providers/\n?? src/app/error.tsx\n?? src/app/global-error.tsx\n?? src/server/routers/company.ts\n?? src/server/routers/contract.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -57,7 +57,7 @@
     "tsx",
     "typescript"
   ],
-  "migrationStatus": "Environment variables loaded from .env\nPrisma schema loaded from prisma/schema.prisma\nDatasource \"db\": PostgreSQL database \"molino_rental\", schema \"public\" at \"localhost:5432\"\n\n1 migration found in prisma/migrations\n\nDatabase schema is up to date!",
+  "migrationStatus": "no migrations",
   "currentPhase": "Core infrastruktúra és alapfunkciók",
   "completedTasks": [
     "Projekt inicializálás - Next.js app létrehozása TypeScript és Tailwind támogatással",
