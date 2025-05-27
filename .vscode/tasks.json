@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Save Session State",
+      "type": "shell",
+      "command": "npm run session:save",
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Auto Save Progress",
+      "type": "shell",
+      "command": "watch -n 300 'npm run session:save'",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Development Session",
+      "type": "shell",
+      "command": "bash start-session.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated"
+      }
+    }
+  ]
+}

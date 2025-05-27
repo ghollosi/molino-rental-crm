@@ -1,0 +1,301 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR_ADMIN
+  OFFICE_ADMIN
+  OWNER
+  SERVICE_MANAGER
+  PROVIDER
+  TENANT
+}
+
+enum Language {
+  HU
+  EN
+  ES
+}
+
+enum PropertyType {
+  APARTMENT
+  HOUSE
+  OFFICE
+  COMMERCIAL
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  RENTED
+  MAINTENANCE
+}
+
+enum IssueCategory {
+  PLUMBING
+  ELECTRICAL
+  HVAC
+  STRUCTURAL
+  OTHER
+}
+
+enum IssuePriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum IssueStatus {
+  OPEN
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  CLOSED
+}
+
+enum OfferStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String
+  role          UserRole
+  language      Language  @default(HU)
+  phone         String?
+  isActive      Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  owner         Owner?
+  tenant        Tenant?
+  provider      Provider?
+  reportedIssues Issue[]  @relation("ReportedBy")
+  managedIssues  Issue[]  @relation("ManagedBy")
+  offers        Offer[]
+  statusChanges IssueTimeline[]
+}
+
+model Company {
+  id            String    @id @default(cuid())
+  name          String
+  taxNumber     String?
+  bankAccount   String?
+  
+  // Address
+  street        String?
+  city          String?
+  postalCode    String?
+  country       String?
+  
+  // Settings stored as JSON
+  settings      Json      @default("{}")
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Owner {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  // Personal Info
+  taxNumber     String?
+  bankAccount   String?
+  
+  // Billing Address
+  billingStreet     String?
+  billingCity       String?
+  billingPostalCode String?
+  billingCountry    String?
+  
+  properties    Property[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Property {
+  id            String    @id @default(cuid())
+  
+  // Address
+  street        String
+  city          String
+  postalCode    String?
+  country       String?
+  
+  // Coordinates
+  latitude      Float?
+  longitude     Float?
+  
+  // Relations
+  ownerId       String
+  owner         Owner     @relation(fields: [ownerId], references: [id])
+  currentTenantId String?
+  currentTenant  Tenant?   @relation(fields: [currentTenantId], references: [id])
+  
+  // Details
+  type          PropertyType
+  size          Float?    // m²
+  rooms         Int?
+  floor         Int?
+  rentAmount    Decimal?
+  currency      String    @default("EUR")
+  
+  photos        String[]  // Array of URLs
+  status        PropertyStatus @default(AVAILABLE)
+  
+  issues        Issue[]
+  offers        Offer[]
+  contracts     Contract[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Tenant {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  // Emergency Contact
+  emergencyName  String?
+  emergencyPhone String?
+  
+  isActive      Boolean   @default(true)
+  
+  properties    Property[]
+  contracts     Contract[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Contract {
+  id            String    @id @default(cuid())
+  
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  
+  tenantId      String
+  tenant        Tenant    @relation(fields: [tenantId], references: [id])
+  
+  startDate     DateTime
+  endDate       DateTime
+  rentAmount    Decimal
+  deposit       Decimal?
+  paymentDay    Int       // 1-31
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Provider {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  businessName  String
+  specialty     String[]  // Array of specialties
+  hourlyRate    Decimal?
+  currency      String    @default("EUR")
+  
+  // Availability stored as JSON
+  availability  Json      @default("{}")
+  
+  rating        Float?    @default(0)
+  
+  assignedIssues Issue[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Issue {
+  id            String    @id @default(cuid())
+  ticketNumber  String    @unique @default(cuid())
+  
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  
+  reportedById  String
+  reportedBy    User      @relation("ReportedBy", fields: [reportedById], references: [id])
+  
+  assignedToId  String?
+  assignedTo    Provider? @relation(fields: [assignedToId], references: [id])
+  
+  managedById   String?
+  managedBy     User?     @relation("ManagedBy", fields: [managedById], references: [id])
+  
+  title         String
+  description   String
+  category      IssueCategory
+  priority      IssuePriority @default(MEDIUM)
+  photos        String[]
+  
+  status        IssueStatus @default(OPEN)
+  
+  scheduledDate DateTime?
+  completedDate DateTime?
+  
+  timeline      IssueTimeline[]
+  offers        Offer[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model IssueTimeline {
+  id            String    @id @default(cuid())
+  
+  issueId       String
+  issue         Issue     @relation(fields: [issueId], references: [id])
+  
+  status        IssueStatus
+  changedById   String
+  changedBy     User      @relation(fields: [changedById], references: [id])
+  notes         String?
+  
+  timestamp     DateTime  @default(now())
+}
+
+model Offer {
+  id            String    @id @default(cuid())
+  offerNumber   String    @unique @default(cuid())
+  
+  issueId       String?
+  issue         Issue?    @relation(fields: [issueId], references: [id])
+  
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  
+  createdById   String
+  createdBy     User      @relation(fields: [createdById], references: [id])
+  
+  items         Json      // Array of items
+  laborCost     Decimal?
+  materialCost  Decimal?
+  totalAmount   Decimal
+  currency      String    @default("EUR")
+  
+  validUntil    DateTime
+  status        OfferStatus @default(DRAFT)
+  notes         String?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}

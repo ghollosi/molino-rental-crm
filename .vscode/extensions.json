@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "Prisma.prisma",
+    "bradlc.vscode-tailwindcss",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+    "aaron-bond.better-comments",
+    "PKief.material-icon-theme",
+    "wix.vscode-import-cost",
+    "ms-vscode.vscode-typescript-next"
+  ]
+}
