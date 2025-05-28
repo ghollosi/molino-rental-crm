@@ -101,44 +101,43 @@ export function OutstandingPayments() {
             return (
               <div 
                 key={payment.id} 
-                className={`flex items-center justify-between p-3 border rounded-lg transition-colors hover:bg-accent ${getUrgencyColor(daysOverdue)}`}
+                className={`p-4 border rounded-lg transition-colors hover:bg-accent ${getUrgencyColor(daysOverdue)}`}
               >
-                <div className="flex-1 space-y-1">
+                {/* Header row */}
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <AlertCircle className="h-4 w-4 text-muted-foreground" />
                     <span className="font-medium">{payment.tenantName}</span>
                     {getUrgencyBadge(daysOverdue)}
                   </div>
-                  
-                  <div className="text-sm text-muted-foreground">
-                    {payment.propertyAddress}
-                  </div>
-                  
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <DollarSign className="h-3 w-3" />
-                      {payment.amount.toLocaleString('hu-HU')} Ft
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      {daysOverdue > 0 ? `${daysOverdue} napja lejárt` : 'Ma esedékes'}
-                    </span>
+                  <div className="text-lg font-bold text-orange-600">
+                    {payment.amount.toLocaleString('hu-HU')} Ft
                   </div>
                 </div>
+                
+                {/* Property and timing info */}
+                <div className="flex items-center justify-between mb-3 text-sm text-muted-foreground">
+                  <span>{payment.propertyAddress}</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {daysOverdue > 0 ? `${daysOverdue} napja lejárt` : 'Ma esedékes'}
+                  </span>
+                </div>
 
+                {/* Action buttons */}
                 <div className="flex items-center gap-2">
-                  <Button size="sm" variant="outline" asChild>
+                  <Button size="sm" variant="outline" className="flex-1" asChild>
                     <Link href={`mailto:${payment.tenantEmail}?subject=Fizetési emlékeztető&body=Kedves ${payment.tenantName},%0A%0AEmlékezzük, hogy a ${payment.propertyAddress} bérleti díja (${payment.amount.toLocaleString('hu-HU')} Ft) esedékes.%0A%0AKöszönjük!`}>
                       <Mail className="h-3 w-3 mr-1" />
-                      Email
+                      Email küldés
                     </Link>
                   </Button>
                   
                   {payment.tenantPhone && (
-                    <Button size="sm" variant="outline" asChild>
+                    <Button size="sm" variant="outline" className="flex-1" asChild>
                       <Link href={`tel:${payment.tenantPhone}`}>
                         <Phone className="h-3 w-3 mr-1" />
-                        Hívás
+                        Telefonhívás
                       </Link>
                     </Button>
                   )}

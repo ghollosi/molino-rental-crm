@@ -86,8 +86,9 @@ export function ExpiringContracts() {
             )
             
             return (
-              <div key={contract.id} className="flex items-center justify-between p-3 border rounded-lg hover:bg-accent transition-colors">
-                <div className="space-y-1">
+              <div key={contract.id} className="p-4 border rounded-lg hover:bg-accent transition-colors">
+                {/* Header row */}
+                <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <FileText className="h-4 w-4 text-muted-foreground" />
                     <Link 
@@ -97,25 +98,27 @@ export function ExpiringContracts() {
                       {contract.property.street}, {contract.property.city}
                     </Link>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      {contract.tenant?.user?.name || 'Nincs bérlő'}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
-                      {new Date(contract.endDate).toLocaleDateString('hu-HU')}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
                   {getUrgencyBadge(daysUntilExpiry)}
-                  <Button size="sm" variant="outline" asChild>
-                    <Link href={`/dashboard/contracts/${contract.id}`}>
-                      Megtekintés
-                    </Link>
-                  </Button>
                 </div>
+                
+                {/* Contract details */}
+                <div className="flex items-center justify-between mb-3 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {contract.tenant?.user?.name || 'Nincs bérlő'}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" />
+                    {new Date(contract.endDate).toLocaleDateString('hu-HU')}
+                  </span>
+                </div>
+
+                {/* Action button */}
+                <Button size="sm" variant="outline" className="w-full" asChild>
+                  <Link href={`/dashboard/contracts/${contract.id}`}>
+                    Szerződés megtekintése
+                  </Link>
+                </Button>
               </div>
             )
           })}
