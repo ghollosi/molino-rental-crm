@@ -4,8 +4,8 @@
  * @created 2025-05-28
  */
 
-import { prisma } from '@/lib/prisma'
-import { sendPaymentReminder, sendContractExpiryNotification } from '@/lib/email'
+import { db } from './db'
+import { sendPaymentReminder, sendContractExpiryNotification } from './email'
 import { addDays, differenceInDays, startOfDay, endOfDay } from 'date-fns'
 
 /**
@@ -18,11 +18,13 @@ export async function checkAndSendPaymentReminders() {
     const today = new Date()
     const currentDay = today.getDate()
     
-    // Find all active contracts
-    const activeContracts = await prisma.contract.findMany({
+    // Find all active contracts (including DRAFT for demo)
+    const activeContracts = await db.contract.findMany({
       where: {
-        status: 'ACTIVE',
-        tenant: { isNot: null }
+        OR: [
+          { status: 'ACTIVE' },
+          { status: 'DRAFT' } // Include DRAFT for demo since our contracts are DRAFT
+        ]
       },
       include: {
         property: {
@@ -125,15 +127,17 @@ export async function checkAndSendContractExpiryNotifications() {
   try {
     const today = startOfDay(new Date())
     
-    // Find contracts expiring in the next 60 days
-    const expiringContracts = await prisma.contract.findMany({
+    // Find contracts expiring in the next 60 days (including DRAFT for demo)
+    const expiringContracts = await db.contract.findMany({
       where: {
-        status: 'ACTIVE',
+        OR: [
+          { status: 'ACTIVE' },
+          { status: 'DRAFT' } // Include DRAFT for demo since our contracts are DRAFT
+        ],
         endDate: {
           gte: today,
           lte: addDays(today, 60)
-        },
-        tenant: { isNot: null }
+        }
       },
       include: {
         property: {

@@ -7,7 +7,10 @@
 
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Only initialize Resend if we have a real API key
+const resend = process.env.RESEND_API_KEY?.startsWith('re_') 
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 interface EmailOptions {
   to: string | string[];
@@ -18,8 +21,8 @@ interface EmailOptions {
 
 export async function sendEmail({ to, subject, html, from }: EmailOptions) {
   try {
-    // In development mode, just log the email instead of sending
-    if (process.env.NODE_ENV === 'development' && !process.env.RESEND_API_KEY?.startsWith('re_')) {
+    // In development mode or without valid API key, just log the email instead of sending
+    if (!resend || process.env.NODE_ENV === 'development' || !process.env.RESEND_API_KEY?.startsWith('re_')) {
       console.log('📧 EMAIL (DEV MODE):', {
         to,
         subject,
