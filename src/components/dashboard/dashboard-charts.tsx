@@ -51,9 +51,6 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
   const { data: revenueStats } = trpc.analytics.revenueByMonth.useQuery()
   const { data: issuesByCategory, isLoading: isLoadingCategories } = trpc.analytics.issuesByCategory.useQuery()
 
-  // Debug log
-  console.log('🐛 Debug - issuesByCategory:', issuesByCategory)
-  console.log('🐛 Debug - isLoadingCategories:', isLoadingCategories)
 
   // Fallback data if API is loading
   const defaultIssuesByMonth = [
@@ -82,11 +79,8 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
   ]
 
   const mockIssuesByCategory = [
-    { category: 'Vízvezeték', count: 23 },
-    { category: 'Elektromos', count: 18 },
-    { category: 'Fűtés', count: 12 },
-    { category: 'Szerkezeti', count: 8 },
-    { category: 'Egyéb', count: 15 }
+    { category: 'Vízvezeték', count: 1 },
+    { category: 'Fűtés/Légkondicionálás', count: 1 }
   ]
 
   const CustomTooltip = ({ active, payload, label }: any) => {
@@ -212,15 +206,28 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={issuesByCategory || mockIssuesByCategory} layout="horizontal">
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
-              <YAxis dataKey="category" type="category" width={80} />
-              <Tooltip content={<CustomTooltip />} />
-              <Bar dataKey="count" fill={COLORS.primary} name="Hibabejelentések" />
-            </BarChart>
-          </ResponsiveContainer>
+          {isLoadingCategories ? (
+            <div className="flex items-center justify-center h-[300px]">
+              <div className="text-muted-foreground">Betöltés...</div>
+            </div>
+          ) : (issuesByCategory && issuesByCategory.length > 0) || (mockIssuesByCategory && mockIssuesByCategory.length > 0) ? (
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={issuesByCategory || mockIssuesByCategory}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="category" />
+                <YAxis />
+                <Tooltip content={<CustomTooltip />} />
+                <Bar dataKey="count" fill={COLORS.primary} name="Hibabejelentések" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="flex items-center justify-center h-[300px] text-muted-foreground">
+              <div className="text-center">
+                <p>Nincs hibabejelentés az adatbázisban</p>
+                <p className="text-sm mt-1">Hibabejelentések létrehozása után itt jelennek meg a statisztikák</p>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
