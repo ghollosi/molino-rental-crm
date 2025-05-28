@@ -243,66 +243,35 @@
 - ✅ Gyors tulajdonos létrehozás integrálva
 - ✅ Szerver stabilan fut háttérben
 
-### 2025-05-28 - Session #6 (Search, Filters & Bug Fixes)
-**Elvégzett feladatok:**
-- ✅ Keresés és szűrés funkciók minden lista oldalon
-  - Properties: keresés név alapján + típus/státusz szűrők
-  - Issues: keresés cím alapján + státusz/prioritás szűrők
-  - Automatikus lapozás reset szűrés/keresés módosításakor
-  - "Szűrők törlése" gomb hozzáadva
-- ✅ Radix UI Select komponens hiba javítása
-  - Problem: "A <Select.Item /> must have a value prop that is not an empty string"
-  - Megoldás: Üres string értékek cserélése 'all' értékre minden szűrőnél
-
-**CHECKPOINT LÉTREHOZVA: 20250528_074801**
-
-### 2025-05-28 - Session #7 (Complete Edit Functionality)
-**Elvégzett feladatok:**
-- ✅ MINDEN entitás szerkesztő funkciója elkészült
-  - **Tulajdonosok**: név, email, telefon, adószám, cég adatok szerkesztése
-  - **Bérlők**: felhasználói adatok + vészhelyzeti kapcsolat + aktív státusz
-  - **Ingatlanok**: teljes form minden mezővel, képfeltöltéssel
-  - **Szolgáltatók**: szakterületek dinamikus kezelése, óradíj, pénznem
-  - **Hibabejelentések**: cím, leírás, prioritás, kategória, státusz, képek
-  - **Ajánlatok**: komplex tételek kezelése, költségek, érvényesség (csak DRAFT állapotban)
-  - **Szerződések**: dátumok, bérleti díj, kaució, fizetési nap
-
-- ✅ Bérlők lista oldal javítása
-  - Problem: `data?.items` hibás property elérés
-  - Megoldás: `data?.tenants` és `data.pagination.*` használata
-
-- ✅ tRPC routerek frissítése
-  - Minden entitáshoz update mutation user és entitás adatok együttes kezelésével
-  - Megfelelő jogosultság ellenőrzések implementálva
-  - Hibakezelés és validáció minden mutationben
-
-- ✅ UI komponensek kiegészítése
-  - Checkbox komponens hozzáadva
-  - Textarea komponens hozzáadva  
-  - useToast hook egyszerűsített implementációval
-
-**Létrehozott fájlok:**
-- `/app/dashboard/owners/[id]/edit/page.tsx`
-- `/app/dashboard/tenants/[id]/edit/page.tsx`
-- `/app/dashboard/properties/[id]/edit/page.tsx`
-- `/app/dashboard/providers/[id]/edit/page.tsx`
-- `/app/dashboard/issues/[id]/edit/page.tsx`
-- `/app/dashboard/offers/[id]/edit/page.tsx`
-- `/app/dashboard/contracts/[id]/edit/page.tsx`
-- `/src/components/ui/checkbox.tsx`
-- `/src/components/ui/textarea.tsx`
-- `/src/hooks/use-toast.tsx`
-
-**CHECKPOINT LÉTREHOZVA: 20250528_091128**
-
-**Állapot:**
-✅ TELJES CRUD FUNKCIÓK minden entitáshoz
-✅ Konzisztens UI minden szerkesztő oldalon
-✅ Megfelelő validáció és hibakezelés
-✅ Jogosultságok alapú szerkesztési jogok
-
 **Következő lépések:**
+- [ ] Keresés és szűrés funkciók a lista oldalakon
 - [ ] Email értesítések hibabejelentésekhez
 - [ ] PDF/Excel export jelentésekhez
-- [ ] PWA funkciók (offline támogatás, telepíthetőség)
+
+### 2025-05-28 - Session #6 (Search & Filter Implementation)
+**Elvégzett feladatok:**
+- ✅ Keresés és szűrés funkciók az ingatlanok oldalon
+  - Valós idejű keresés cím vagy város alapján
+  - Típus szerinti szűrés (lakás, ház, iroda, üzlet)
+  - Státusz szerinti szűrés (elérhető, bérelt, karbantartás)
+  - Szűrők törlése gomb aktív szűrők esetén
+- ✅ Keresés és szűrés funkciók a hibabejelentések oldalon
+  - Keresés cím vagy leírás alapján
+  - Státusz szerinti szűrés (nyitott, hozzárendelt, folyamatban, befejezett, lezárt)
+  - Prioritás szerinti szűrés (sürgős, magas, közepes, alacsony)
+  - Magyar nyelvű címkék és státuszok
+- ✅ Automatikus oldal visszaállítás szűrő változtatáskor
+- ✅ Egységes szűrő felület minden lista oldalon
+- ✅ Továbbfejlesztett lapozás összesítő információval
+
+**Technikai részletek:**
+- Responsive design a szűrőknél (mobil/desktop)
+- Automatikus page reset szűrő változásnál
+- Tiszta, modern UI konzisztens design nyelvvel
+- Badge komponensek színkódolása státusz/prioritás alapján
+
+**Következő lépések:**
+- [ ] Keresés és szűrés a többi lista oldalon (owners, tenants, providers, offers, contracts)
+- [ ] Email értesítések hibabejelentésekhez
+- [ ] PDF/Excel export jelentésekhez
 
