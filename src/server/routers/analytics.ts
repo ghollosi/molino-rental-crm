@@ -82,6 +82,68 @@ export const analyticsRouter = createTRPCRouter({
       rentedProperties
     }
   }),
+
+  // Kintlévőségek részletes listája
+  getOutstandingPayments: protectedProcedure.query(async ({ ctx }) => {
+    const now = new Date()
+    const currentDay = now.getDate()
+    
+    // Get active or draft contracts (since we have DRAFT contracts in the system)
+    const contracts = await ctx.db.contract.findMany({
+      where: {
+        OR: [
+          { status: 'ACTIVE' },
+          { status: 'DRAFT' } // Include draft contracts for demo purposes
+        ],
+        startDate: { lte: now },
+        endDate: { gte: now }
+      },
+      include: {
+        tenant: {
+          include: {
+            user: {
+              select: {
+                name: true,
+                email: true,
+                phone: true
+              }
+            }
+          }
+        },
+        property: {
+          select: {
+            street: true,
+            city: true
+          }
+        }
+      }
+    })
+
+    // Calculate outstanding payments
+    const outstandingPayments = contracts
+      .filter(contract => {
+        // For demo: assume payments are overdue if payment day has passed this month
+        return contract.paymentDay < currentDay
+      })
+      .map(contract => {
+        const dueDate = new Date(now.getFullYear(), now.getMonth(), contract.paymentDay)
+        
+        return {
+          id: contract.id,
+          tenantName: contract.tenant?.user?.name || 'Ismeretlen bérlő',
+          tenantEmail: contract.tenant?.user?.email || '',
+          tenantPhone: contract.tenant?.user?.phone || null,
+          propertyAddress: `${contract.property.street}, ${contract.property.city}`,
+          amount: Number(contract.rentAmount || 0),
+          dueDate: dueDate,
+          daysOverdue: Math.max(0, currentDay - contract.paymentDay),
+          contractId: contract.id
+        }
+      })
+      .sort((a, b) => b.daysOverdue - a.daysOverdue) // Sort by most overdue first
+
+    return outstandingPayments
+  }),
   
   // Hibabejelentések havi bontásban
   issuesByMonth: protectedProcedure

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T16:39:27.527Z",
+  "timestamp": "2025-05-28T16:44:27.538Z",
   "lastCommand": "start",
   "currentFile": "none",
-  "gitStatus": "",
+  "gitStatus": "?? scripts/check-payment-data.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

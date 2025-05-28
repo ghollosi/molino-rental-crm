@@ -9,6 +9,7 @@ import { QuickActions } from '@/components/dashboard/quick-actions'
 import { PropertyOverview } from '@/components/dashboard/property-overview'
 import { FinancialSummary } from '@/src/components/dashboard/financial-summary'
 import { ExpiringContracts } from '@/src/components/dashboard/expiring-contracts'
+import { OutstandingPayments } from '@/src/components/dashboard/outstanding-payments'
 
 export default function DashboardPage() {
   const { data: session } = useSession()
@@ -32,9 +33,10 @@ export default function DashboardPage() {
 
       <EnhancedDashboardStats userRole={session.user.role} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <FinancialSummary userRole={session.user.role} />
         <ExpiringContracts />
+        <OutstandingPayments />
       </div>
 
       <DashboardCharts userRole={session.user.role} />
