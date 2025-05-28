@@ -84,8 +84,8 @@ export function RecentIssues({ userRole }: RecentIssuesProps) {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {issues?.items && issues.items.length > 0 ? (
-            issues.items.map((issue) => (
+          {issues?.issues && issues.issues.length > 0 ? (
+            issues.issues.map((issue) => (
               <div
                 key={issue.id}
                 className="flex items-start justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors"

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T07:12:09.080Z",
-  "lastCommand": "save",
+  "timestamp": "2025-05-28T07:14:26.183Z",
+  "lastCommand": "start",
   "currentFile": "none",
-  "gitStatus": "?? .checkpoints/20250528_091128/",
+  "gitStatus": "",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -136,11 +136,16 @@
     "Képfeltöltés működik ingatlanokhoz és hibákhoz",
     "Gyors tulajdonos létrehozás integrálva",
     "Szerver stabilan fut háttérben",
-    "Keresés és szűrés funkciók az ingatlanok oldalon",
-    "Keresés és szűrés funkciók a hibabejelentések oldalon",
-    "Automatikus oldal visszaállítás szűrő változtatáskor",
-    "Egységes szűrő felület minden lista oldalon",
-    "Továbbfejlesztett lapozás összesítő információval"
+    "Keresés és szűrés funkciók minden lista oldalon",
+    "Radix UI Select komponens hiba javítása",
+    "MINDEN entitás szerkesztő funkciója elkészült",
+    "Bérlők lista oldal javítása",
+    "tRPC routerek frissítése",
+    "UI komponensek kiegészítése",
+    "TELJES CRUD FUNKCIÓK minden entitáshoz",
+    "Konzisztens UI minden szerkesztő oldalon",
+    "Megfelelő validáció és hibakezelés",
+    "Jogosultságok alapú szerkesztési jogok"
   ],
   "pendingTasks": [
     "NextAuth konfiguráció",
@@ -152,11 +157,8 @@
     "Fájlfeltöltés és képkezelés",
     "Többnyelvűség (i18n) implementálása",
     "Képfeltöltés implementálása",
-    "Keresés és szűrés funkciók a lista oldalakon",
     "Email értesítések hibabejelentésekhez",
     "PDF/Excel export jelentésekhez",
-    "Keresés és szűrés a többi lista oldalon (owners, tenants, providers, offers, contracts)",
-    "Email értesítések hibabejelentésekhez",
-    "PDF/Excel export jelentésekhez"
+    "PWA funkciók (offline támogatás, telepíthetőség)"
   ]
 }
