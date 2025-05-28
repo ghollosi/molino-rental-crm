@@ -128,74 +128,76 @@ export default function ContractsPage() {
             </div>
           ) : (
             <>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Azonosító</TableHead>
-                    <TableHead>Ingatlan</TableHead>
-                    <TableHead>Bérlő</TableHead>
-                    <TableHead>Időtartam</TableHead>
-                    <TableHead>Havi bér</TableHead>
-                    <TableHead>Állapot</TableHead>
-                    <TableHead>Műveletek</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {data?.contracts.map((contract) => {
-                    const isExpired = new Date(contract.endDate) < new Date()
-                    const contractStatus = isExpired ? 'EXPIRED' : (contract.status || 'ACTIVE')
-                    
-                    return (
-                      <TableRow key={contract.id}>
-                        <TableCell className="font-medium">#{contract.id.slice(-6)}</TableCell>
-                        <TableCell>
-                          <div className="flex items-center gap-2">
-                            <Building className="w-4 h-4 text-gray-400" />
-                            <span>{contract.property.street}, {contract.property.city}</span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex items-center gap-2">
-                            <User className="w-4 h-4 text-gray-400" />
-                            <span>{contract.tenant.user.name}</span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-gray-400" />
-                            <span className="text-sm">
-                              {new Date(contract.startDate).toLocaleDateString('hu-HU')} - 
-                              {new Date(contract.endDate).toLocaleDateString('hu-HU')}
-                            </span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex items-center gap-2">
-                            <DollarSign className="w-4 h-4 text-gray-400" />
-                            <span className="font-medium">
-                              {contract.rentAmount.toLocaleString('hu-HU')} Ft
-                            </span>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          <Badge className={statusColors[contractStatus as keyof typeof statusColors]}>
-                            {statusLabels[contractStatus as keyof typeof statusLabels]}
-                          </Badge>
-                        </TableCell>
-                        <TableCell>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => router.push(`/dashboard/contracts/${contract.id}`)}
-                          >
-                            Részletek
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    )
-                  })}
-                </TableBody>
-              </Table>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Azonosító</TableHead>
+                      <TableHead>Ingatlan</TableHead>
+                      <TableHead>Bérlő</TableHead>
+                      <TableHead>Időtartam</TableHead>
+                      <TableHead>Havi bér</TableHead>
+                      <TableHead>Állapot</TableHead>
+                      <TableHead>Műveletek</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {data?.contracts.map((contract) => {
+                      const isExpired = new Date(contract.endDate) < new Date()
+                      const contractStatus = isExpired ? 'EXPIRED' : (contract.status || 'ACTIVE')
+                      
+                      return (
+                        <TableRow key={contract.id}>
+                          <TableCell className="font-medium">#{contract.id.slice(-6)}</TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <Building className="w-4 h-4 text-gray-400" />
+                              <span>{contract.property.street}, {contract.property.city}</span>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <User className="w-4 h-4 text-gray-400" />
+                              <span>{contract.tenant.user.name}</span>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <Calendar className="w-4 h-4 text-gray-400" />
+                              <span className="text-sm">
+                                {new Date(contract.startDate).toLocaleDateString('hu-HU')} - 
+                                {new Date(contract.endDate).toLocaleDateString('hu-HU')}
+                              </span>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <DollarSign className="w-4 h-4 text-gray-400" />
+                              <span className="font-medium">
+                                {contract.rentAmount.toLocaleString('hu-HU')} Ft
+                              </span>
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <Badge className={statusColors[contractStatus as keyof typeof statusColors]}>
+                              {statusLabels[contractStatus as keyof typeof statusLabels]}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => router.push(`/dashboard/contracts/${contract.id}`)}
+                            >
+                              Részletek
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      )
+                    })}
+                  </TableBody>
+                </Table>
+              </div>
 
               {data && data.pagination.totalPages > 1 && (
                 <div className="flex items-center justify-between mt-4">

@@ -72,61 +72,63 @@ export default function TenantsPage() {
             <div className="p-8 text-center">Betöltés...</div>
           ) : data?.tenants && data.tenants.length > 0 ? (
             <>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Név</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Telefon</TableHead>
-                    <TableHead>Aktív szerződések</TableHead>
-                    <TableHead>Regisztráció</TableHead>
-                    <TableHead className="text-right">Műveletek</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {data.tenants.map((tenant: any) => (
-                    <TableRow key={tenant.id}>
-                      <TableCell className="font-medium">
-                        {tenant.user.name}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <Mail className="mr-2 h-4 w-4 text-gray-400" />
-                          {tenant.user.email}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        {tenant.user.phone ? (
-                          <div className="flex items-center">
-                            <Phone className="mr-2 h-4 w-4 text-gray-400" />
-                            {tenant.user.phone}
-                          </div>
-                        ) : (
-                          <span className="text-gray-400">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <FileText className="mr-2 h-4 w-4 text-gray-400" />
-                          {tenant._count?.contracts || 0}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        {new Date(tenant.user.createdAt).toLocaleDateString('hu-HU')}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => router.push(`/dashboard/tenants/${tenant.id}`)}
-                        >
-                          Részletek
-                        </Button>
-                      </TableCell>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Név</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Telefon</TableHead>
+                      <TableHead>Aktív szerződések</TableHead>
+                      <TableHead>Regisztráció</TableHead>
+                      <TableHead className="text-right">Műveletek</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {data.tenants.map((tenant: any) => (
+                      <TableRow key={tenant.id}>
+                        <TableCell className="font-medium">
+                          {tenant.user.name}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <Mail className="mr-2 h-4 w-4 text-gray-400" />
+                            {tenant.user.email}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          {tenant.user.phone ? (
+                            <div className="flex items-center">
+                              <Phone className="mr-2 h-4 w-4 text-gray-400" />
+                              {tenant.user.phone}
+                            </div>
+                          ) : (
+                            <span className="text-gray-400">-</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <FileText className="mr-2 h-4 w-4 text-gray-400" />
+                            {tenant._count?.contracts || 0}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          {new Date(tenant.user.createdAt).toLocaleDateString('hu-HU')}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => router.push(`/dashboard/tenants/${tenant.id}`)}
+                          >
+                            Részletek
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
 
               {(data?.pagination?.totalPages || 1) > 1 && (
                 <div className="flex items-center justify-between p-4 border-t">

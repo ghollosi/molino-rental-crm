@@ -149,68 +149,70 @@ export default function IssuesPage() {
             <div className="p-8 text-center">Betöltés...</div>
           ) : data?.issues && data.issues.length > 0 ? (
             <>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Státusz</TableHead>
-                    <TableHead>Cím</TableHead>
-                    <TableHead>Ingatlan</TableHead>
-                    <TableHead>Bejelentő</TableHead>
-                    <TableHead>Prioritás</TableHead>
-                    <TableHead>Létrehozva</TableHead>
-                    <TableHead className="text-right">Műveletek</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {data.issues.map((issue) => (
-                    <TableRow key={issue.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-2">
-                          {getStatusIcon(issue.status)}
-                          <Badge variant={getStatusColor(issue.status)}>
-                            {issue.status}
-                          </Badge>
-                        </div>
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        {issue.title}
-                      </TableCell>
-                      <TableCell>
-                        {issue.property ? (
-                          <Link 
-                            href={`/dashboard/properties/${issue.property.id}`}
-                            className="text-blue-600 hover:underline"
-                          >
-                            {issue.property.street}, {issue.property.city}
-                          </Link>
-                        ) : (
-                          <span className="text-gray-400">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        {issue.reportedBy.name}
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant={getPriorityColor(issue.priority)}>
-                          {issue.priority}
-                        </Badge>
-                      </TableCell>
-                      <TableCell>
-                        {new Date(issue.createdAt).toLocaleDateString('hu-HU')}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => router.push(`/dashboard/issues/${issue.id}`)}
-                        >
-                          Részletek
-                        </Button>
-                      </TableCell>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Státusz</TableHead>
+                      <TableHead>Cím</TableHead>
+                      <TableHead>Ingatlan</TableHead>
+                      <TableHead>Bejelentő</TableHead>
+                      <TableHead>Prioritás</TableHead>
+                      <TableHead>Létrehozva</TableHead>
+                      <TableHead className="text-right">Műveletek</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {data.issues.map((issue) => (
+                      <TableRow key={issue.id}>
+                        <TableCell>
+                          <div className="flex items-center gap-2">
+                            {getStatusIcon(issue.status)}
+                            <Badge variant={getStatusColor(issue.status)}>
+                              {issue.status}
+                            </Badge>
+                          </div>
+                        </TableCell>
+                        <TableCell className="font-medium">
+                          {issue.title}
+                        </TableCell>
+                        <TableCell>
+                          {issue.property ? (
+                            <Link 
+                              href={`/dashboard/properties/${issue.property.id}`}
+                              className="text-blue-600 hover:underline"
+                            >
+                              {issue.property.street}, {issue.property.city}
+                            </Link>
+                          ) : (
+                            <span className="text-gray-400">-</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          {issue.reportedBy.name}
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant={getPriorityColor(issue.priority)}>
+                            {issue.priority}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          {new Date(issue.createdAt).toLocaleDateString('hu-HU')}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => router.push(`/dashboard/issues/${issue.id}`)}
+                          >
+                            Részletek
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
 
               {data.pagination.totalPages > 1 && (
                 <div className="flex items-center justify-between p-4 border-t">

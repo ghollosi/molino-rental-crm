@@ -93,10 +93,10 @@ export default function PropertiesPage() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Cím</TableHead>
-                    <TableHead>Típus</TableHead>
-                    <TableHead>Tulajdonos</TableHead>
-                    <TableHead>Bérlő</TableHead>
-                    <TableHead>Bérleti díj</TableHead>
+                    <TableHead className="hidden sm:table-cell">Típus</TableHead>
+                    <TableHead className="hidden md:table-cell">Tulajdonos</TableHead>
+                    <TableHead className="hidden lg:table-cell">Bérlő</TableHead>
+                    <TableHead className="hidden sm:table-cell">Bérleti díj</TableHead>
                     <TableHead>Státusz</TableHead>
                     <TableHead className="text-right">Műveletek</TableHead>
                   </TableRow>
@@ -116,14 +116,14 @@ export default function PropertiesPage() {
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell>{getTypeLabel(property.type)}</TableCell>
-                      <TableCell>
+                      <TableCell className="hidden sm:table-cell">{getTypeLabel(property.type)}</TableCell>
+                      <TableCell className="hidden md:table-cell">
                         {property.owner?.user?.name || '-'}
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="hidden lg:table-cell">
                         {property.currentTenant?.user?.name || '-'}
                       </TableCell>
-                      <TableCell>
+                      <TableCell className="hidden sm:table-cell">
                         {property.rentAmount
                           ? `${Number(property.rentAmount).toLocaleString()} ${
                               property.currency
@@ -132,18 +132,18 @@ export default function PropertiesPage() {
                       </TableCell>
                       <TableCell>{getStatusBadge(property.status)}</TableCell>
                       <TableCell className="text-right">
-                        <div className="flex items-center justify-end space-x-2">
-                          <Button variant="ghost" size="sm" asChild>
+                        <div className="flex items-center justify-end space-x-1">
+                          <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
                             <Link href={`/dashboard/properties/${property.id}`}>
                               <Eye className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm" asChild>
+                          <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
                             <Link href={`/dashboard/properties/${property.id}/edit`}>
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button variant="ghost" size="icon" className="h-8 w-8">
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

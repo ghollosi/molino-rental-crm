@@ -115,63 +115,65 @@ export default function OwnersPage() {
             <div className="p-8 text-center">Betöltés...</div>
           ) : data?.owners && data.owners.length > 0 ? (
             <>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Név</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Telefon</TableHead>
-                    <TableHead>Ingatlanok</TableHead>
-                    <TableHead>Típus</TableHead>
-                    <TableHead className="text-right">Műveletek</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {data.owners.map((owner) => (
-                    <TableRow key={owner.id}>
-                      <TableCell className="font-medium">
-                        {owner.user.name}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <Mail className="mr-2 h-4 w-4 text-gray-400" />
-                          {owner.user.email}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        {owner.user.phone ? (
-                          <div className="flex items-center">
-                            <Phone className="mr-2 h-4 w-4 text-gray-400" />
-                            {owner.user.phone}
-                          </div>
-                        ) : (
-                          <span className="text-gray-400">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center">
-                          <Building className="mr-2 h-4 w-4 text-gray-400" />
-                          {owner._count?.properties || 0}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <Badge variant={(owner as any).isCompany ? 'default' : 'secondary'}>
-                          {(owner as any).isCompany ? 'Cég' : 'Magánszemély'}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => router.push(`/dashboard/owners/${owner.id}`)}
-                        >
-                          Részletek
-                        </Button>
-                      </TableCell>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Név</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Telefon</TableHead>
+                      <TableHead>Ingatlanok</TableHead>
+                      <TableHead>Típus</TableHead>
+                      <TableHead className="text-right">Műveletek</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {data.owners.map((owner) => (
+                      <TableRow key={owner.id}>
+                        <TableCell className="font-medium">
+                          {owner.user.name}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <Mail className="mr-2 h-4 w-4 text-gray-400" />
+                            {owner.user.email}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          {owner.user.phone ? (
+                            <div className="flex items-center">
+                              <Phone className="mr-2 h-4 w-4 text-gray-400" />
+                              {owner.user.phone}
+                            </div>
+                          ) : (
+                            <span className="text-gray-400">-</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center">
+                            <Building className="mr-2 h-4 w-4 text-gray-400" />
+                            {owner._count?.properties || 0}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant={(owner as any).isCompany ? 'default' : 'secondary'}>
+                            {(owner as any).isCompany ? 'Cég' : 'Magánszemély'}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => router.push(`/dashboard/owners/${owner.id}`)}
+                          >
+                            Részletek
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
 
               {data.pagination.totalPages > 1 && (
                 <div className="flex items-center justify-between p-4 border-t">

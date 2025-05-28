@@ -17,7 +17,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
         isCollapsed ? "md:pl-20" : "md:pl-64"
       )}>
         <Header />
-        <main className="p-3 md:p-6 min-h-screen">
+        <main className="p-3 md:p-6 min-h-screen overflow-x-hidden">
           {children}
         </main>
       </div>

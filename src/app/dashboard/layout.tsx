@@ -11,7 +11,7 @@ export default function DashboardLayout({
       <Sidebar />
       <div className="md:pl-64">
         <Header />
-        <main className="p-6">
+        <main className="p-3 sm:p-6 overflow-x-hidden">
           {children}
         </main>
       </div>

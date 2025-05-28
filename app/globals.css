@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile overflow fixes */
+@layer utilities {
+  .mobile-table-container {
+    @apply -mx-6 px-6 overflow-x-auto;
+  }
+  
+  @media (max-width: 640px) {
+    .mobile-table-container table {
+      @apply min-w-[600px];
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

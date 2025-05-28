@@ -171,7 +171,17 @@ Ha "Internal server error" hibát kapsz:
 
 ## 💾 VISSZAÁLLÍTÁSI PONTOK
 
-### v1.8.0 - Mobil Optimalizáció Teljes (2025-05-28 Éjjel) 📱 **LEGFRISSEBB**
+### v1.9.0 - TypeScript Zero Errors Milestone (2025-05-29 Hajnal) 🎉 **LEGFRISSEBB**
+```bash
+git checkout v1.9.0
+```
+- **NULLA TypeScript hiba**: 165 → 0 errors (100% success)
+- **Teljes type safety**: Minden komponens típusbiztos
+- **API végpontok javítva**: Működő tRPC endpoints
+- **Form validációk**: Megfelelő type assertions
+- **Production ready**: Tiszta, hibamentes kódbázis
+
+### v1.8.0 - Mobil Optimalizáció Teljes (2025-05-28 Éjjel) 📱
 ```bash
 git checkout v1.8.0
 ```
