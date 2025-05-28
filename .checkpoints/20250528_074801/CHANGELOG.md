@@ -7,16 +7,6 @@ A formátum a [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) alapján 
 
 ## [Unreleased]
 
-### Javítva - 2025-05-28
-- Radix UI Select komponens üres érték hiba - az üres stringek 'all' értékre cserélve
-
-### Hozzáadva - 2025-05-28
-- Összecsukható oldalsáv Context API-val
-- Képfeltöltési funkció ingatlanokhoz és hibabejelentésekhez
-- Gyors tulajdonos létrehozás modal az ingatlan formoknál
-- Keresés és szűrés az ingatlanok listájában (típus és státusz szerint)
-- Keresés és szűrés a hibabejelentések listájában (státusz és prioritás szerint)
-
 ### Hozzáadva - 2025-05-27
 - NextAuth.js v5 konfiguráció bcryptjs támogatással
 - Prisma client inicializálása és adatbázis kapcsolat
