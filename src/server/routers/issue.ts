@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 import { sendEmail, emailTemplates, sendIssueNotification } from '@/lib/email'
+import { WorkflowEngine } from '@/lib/workflow'
 
 export const issueRouter = createTRPCRouter({
   list: protectedProcedure
@@ -278,6 +279,14 @@ export const issueRouter = createTRPCRouter({
         // Don't throw error to prevent issue creation failure
       }
 
+      // Trigger workflow automation
+      try {
+        await WorkflowEngine.onIssueCreated(issue.id)
+      } catch (error) {
+        console.error('Failed to execute workflow:', error)
+        // Don't throw error to prevent issue creation failure
+      }
+
       return issue
     }),
 
@@ -342,6 +351,15 @@ export const issueRouter = createTRPCRouter({
           managedBy: true,
         },
       })
+
+      // Trigger workflow automation if photos were added
+      if (data.photos && data.photos.length > 0) {
+        try {
+          await WorkflowEngine.onPhotoAdded(id, data.photos)
+        } catch (error) {
+          console.error('Failed to execute photo workflow:', error)
+        }
+      }
 
       return updatedIssue
     }),
@@ -497,6 +515,13 @@ export const issueRouter = createTRPCRouter({
         }
       } catch (error) {
         console.error('Failed to send issue assigned email:', error)
+      }
+
+      // Trigger workflow automation
+      try {
+        await WorkflowEngine.onIssueAssigned(input.id, input.providerId)
+      } catch (error) {
+        console.error('Failed to execute assignment workflow:', error)
       }
 
       return issue
