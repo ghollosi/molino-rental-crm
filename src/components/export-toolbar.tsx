@@ -76,24 +76,26 @@ export function ExportToolbar({ entityType, title }: ExportToolbarProps) {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-1">
       <Button
         variant="outline"
         size="sm"
         onClick={handlePDFExport}
         disabled={isExporting}
+        className="px-2 sm:px-3"
       >
-        <Download className="h-4 w-4 mr-2" />
-        PDF
+        <Download className="h-4 w-4 sm:mr-2" />
+        <span className="hidden sm:inline">PDF</span>
       </Button>
       <Button
         variant="outline"
         size="sm"
         onClick={handleExcelExport}
         disabled={isExporting}
+        className="px-2 sm:px-3"
       >
-        <FileSpreadsheet className="h-4 w-4 mr-2" />
-        Excel
+        <FileSpreadsheet className="h-4 w-4 sm:mr-2" />
+        <span className="hidden sm:inline">Excel</span>
       </Button>
     </div>
   );

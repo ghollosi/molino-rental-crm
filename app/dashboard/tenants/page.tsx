@@ -37,11 +37,11 @@ export default function TenantsPage() {
 
   return (
     <div className="container mx-auto py-6 px-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Bérlők</h1>
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold">Bérlők</h1>
+        <div className="flex flex-wrap items-center gap-2">
           <ExportToolbar entityType="tenants" title="Bérlők" />
-          <Button asChild>
+          <Button asChild size="sm" className="w-full sm:w-auto">
             <Link href="/dashboard/tenants/new">
               <Plus className="mr-2 h-4 w-4" />
               Új bérlő
