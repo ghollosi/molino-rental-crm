@@ -69,6 +69,27 @@ enum OfferStatus {
   EXPIRED
 }
 
+enum ContractStatus {
+  DRAFT
+  PENDING_SIGNATURES
+  TENANT_SIGNED
+  FULLY_SIGNED
+  ACTIVE
+  EXPIRED
+  TERMINATED
+  CANCELLED
+}
+
+enum ContractTemplateCategory {
+  RENTAL
+  COMMERCIAL
+  SUBLEASE
+  SEASONAL
+  STUDENT
+  CORPORATE
+  OTHER
+}
+
 model User {
   id            String    @id @default(cuid())
   email         String    @unique
@@ -187,6 +208,7 @@ model Tenant {
 
 model Contract {
   id            String    @id @default(cuid())
+  contractNumber String?  @unique
   
   propertyId    String
   property      Property  @relation(fields: [propertyId], references: [id])
@@ -194,11 +216,60 @@ model Contract {
   tenantId      String
   tenant        Tenant    @relation(fields: [tenantId], references: [id])
   
+  templateId    String?
+  template      ContractTemplate? @relation(fields: [templateId], references: [id])
+  
   startDate     DateTime
   endDate       DateTime
   rentAmount    Decimal
   deposit       Decimal?
   paymentDay    Int       // 1-31
+  
+  // Contract content and metadata
+  title         String?
+  content       String?   // Generated contract content from template
+  variables     Json?     // Template variables used for generation
+  status        ContractStatus @default(DRAFT)
+  
+  // Signatures
+  tenantSigned      Boolean   @default(false)
+  tenantSignedAt    DateTime?
+  tenantSignature   String?   // Digital signature data
+  
+  landlordSigned    Boolean   @default(false)
+  landlordSignedAt  DateTime?
+  landlordSignature String?   // Digital signature data
+  
+  // Files
+  pdfUrl        String?   // Generated PDF file URL
+  attachments   Json?     // Additional attachments
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model ContractTemplate {
+  id            String    @id @default(cuid())
+  
+  name          String
+  description   String?
+  category      ContractTemplateCategory @default(RENTAL)
+  
+  // Template content with variables
+  title         String
+  content       String    // HTML template with {{variable}} placeholders
+  variables     Json      // Available variables schema
+  
+  // Settings
+  isActive      Boolean   @default(true)
+  isDefault     Boolean   @default(false)
+  language      Language  @default(HU)
+  
+  // Usage tracking
+  usageCount    Int       @default(0)
+  
+  // Generated contracts
+  contracts     Contract[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt

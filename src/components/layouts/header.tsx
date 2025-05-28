@@ -12,19 +12,14 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Bell, LogOut, Settings, User } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { useSession, signOut } from 'next-auth/react'
 
 export function Header() {
   const router = useRouter()
-  
-  // Temporarily hardcode user info
-  const mockSession = {
-    user: {
-      name: 'Admin User',
-      email: 'admin@molino.com'
-    }
-  }
+  const { data: session } = useSession()
 
   const handleSignOut = async () => {
+    await signOut({ redirect: false })
     router.push('/login')
   }
 
@@ -49,7 +44,7 @@ export function Header() {
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
                   <AvatarFallback>
-                    {mockSession?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    {session?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
                   </AvatarFallback>
                 </Avatar>
               </Button>
@@ -58,19 +53,24 @@ export function Header() {
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium leading-none">
-                    {mockSession?.user?.name}
+                    {session?.user?.name}
                   </p>
                   <p className="text-xs leading-none text-muted-foreground">
-                    {mockSession?.user?.email}
+                    {session?.user?.email}
                   </p>
+                  {session?.user?.phone && (
+                    <p className="text-xs leading-none text-muted-foreground">
+                      {session.user.phone}
+                    </p>
+                  )}
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => router.push('/dashboard/settings')}>
                 <User className="mr-2 h-4 w-4" />
                 <span>Profil</span>
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => router.push('/dashboard/settings')}>
                 <Settings className="mr-2 h-4 w-4" />
                 <span>Beállítások</span>
               </DropdownMenuItem>

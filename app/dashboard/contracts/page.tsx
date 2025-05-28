@@ -51,10 +51,20 @@ export default function ContractsPage() {
           <h1 className="text-3xl font-bold">Szerződések</h1>
           <p className="text-gray-500">Bérleti szerződések kezelése</p>
         </div>
-        <Button onClick={() => router.push('/dashboard/contracts/new')}>
-          <Plus className="w-4 h-4 mr-2" />
-          Új szerződés
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={() => router.push('/dashboard/contracts/templates')}>
+            <FileText className="w-4 h-4 mr-2" />
+            Sablonok
+          </Button>
+          <Button variant="outline" onClick={() => router.push('/dashboard/contracts/generate')}>
+            <FileText className="w-4 h-4 mr-2" />
+            Generálás
+          </Button>
+          <Button onClick={() => router.push('/dashboard/contracts/new')}>
+            <Plus className="w-4 h-4 mr-2" />
+            Új szerződés
+          </Button>
+        </div>
       </div>
 
       <Card>

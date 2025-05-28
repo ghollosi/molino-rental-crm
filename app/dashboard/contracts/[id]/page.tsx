@@ -126,6 +126,9 @@ export default function ContractDetailPage() {
           <Button onClick={() => router.push(`/dashboard/contracts/${contractId}/edit`)}>
             Szerkesztés
           </Button>
+          <Button variant="outline" onClick={() => router.push(`/dashboard/contracts/${contractId}/signature`)}>
+            Aláírás
+          </Button>
         </div>
       </div>
 

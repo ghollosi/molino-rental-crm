@@ -26,6 +26,7 @@ export const {
         session.user.email = token.email!
         session.user.role = token.role
         session.user.language = token.language
+        session.user.phone = token.phone
       }
 
       return session
@@ -41,6 +42,7 @@ export const {
           name: true,
           role: true,
           language: true,
+          phone: true,
         }
       })
 
@@ -50,6 +52,7 @@ export const {
       token.email = existingUser.email
       token.role = existingUser.role
       token.language = existingUser.language
+      token.phone = existingUser.phone
 
       return token
     },

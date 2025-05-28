@@ -24,16 +24,37 @@ const propertySchema = z.object({
   postalCode: z.string().optional(),
   country: z.string().optional(),
   type: z.enum(['APARTMENT', 'HOUSE', 'OFFICE', 'COMMERCIAL']),
-  size: z.string().optional().transform(val => val ? parseFloat(val) : undefined),
-  rooms: z.string().optional().transform(val => val ? parseInt(val) : undefined),
-  floor: z.string().optional().transform(val => val ? parseInt(val) : undefined),
-  rentAmount: z.string().optional().transform(val => val ? parseFloat(val) : undefined),
+  size: z.union([z.string(), z.number()]).optional().transform(val => {
+    if (val === undefined || val === null || val === '') return undefined
+    if (typeof val === 'number') return val
+    const parsed = parseFloat(val)
+    return isNaN(parsed) ? undefined : parsed
+  }),
+  rooms: z.union([z.string(), z.number()]).optional().transform(val => {
+    if (val === undefined || val === null || val === '') return undefined
+    if (typeof val === 'number') return val
+    const parsed = parseInt(val)
+    return isNaN(parsed) ? undefined : parsed
+  }),
+  floor: z.union([z.string(), z.number()]).optional().transform(val => {
+    if (val === undefined || val === null || val === '') return undefined
+    if (typeof val === 'number') return val
+    const parsed = parseInt(val)
+    return isNaN(parsed) ? undefined : parsed
+  }),
+  rentAmount: z.union([z.string(), z.number()]).optional().transform(val => {
+    if (val === undefined || val === null || val === '') return undefined
+    if (typeof val === 'number') return val
+    const parsed = parseFloat(val)
+    return isNaN(parsed) ? undefined : parsed
+  }),
   currency: z.string().default('HUF'),
   ownerId: z.string().min(1, 'Kötelező megadni a tulajdonost'),
-  photos: z.array(z.string()).optional().default([]),
+  photos: z.array(z.string()).optional(),
 })
 
 type PropertyFormData = z.input<typeof propertySchema>
+type PropertyParsedData = z.output<typeof propertySchema>
 
 export default function NewPropertyPage() {
   const router = useRouter()
@@ -53,6 +74,7 @@ export default function NewPropertyPage() {
       currency: 'HUF',
       country: 'Magyarország',
       photos: [],
+      type: 'APARTMENT',
     },
   })
 
@@ -62,18 +84,86 @@ export default function NewPropertyPage() {
   })
 
   const createMutation = api.property.create.useMutation({
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log('Property created successfully:', data)
       router.push('/dashboard/properties')
     },
     onError: (error) => {
+      console.error('Property creation error:', error)
       setError(error.message || 'Hiba történt az ingatlan létrehozása során')
     },
   })
 
   const onSubmit = (data: PropertyFormData) => {
     setError('')
-    const parsed = propertySchema.parse(data)
-    createMutation.mutate(parsed as any)
+    console.log('=== PROPERTY FORM SUBMIT ===')
+    console.log('Raw form data:', JSON.stringify(data, null, 2))
+    console.log('Photos state:', photos)
+    console.log('Type value:', data.type)
+    console.log('Owner ID:', data.ownerId)
+    
+    // Check for missing required fields
+    if (!data.street) {
+      setError('Kötelező megadni az utcát')
+      return
+    }
+    if (!data.city) {
+      setError('Kötelező megadni a várost')
+      return
+    }
+    if (!data.ownerId) {
+      setError('Kötelező megadni a tulajdonost')
+      return
+    }
+    if (!data.type) {
+      setError('Kötelező megadni az ingatlan típusát')
+      return
+    }
+    
+    // Filter out blob URLs and replace with empty array for now
+    const cleanPhotos = photos.filter(url => !url.startsWith('blob:'))
+    
+    // Ensure photos are included in the data
+    const dataWithPhotos = {
+      ...data,
+      photos: cleanPhotos.length > 0 ? cleanPhotos : undefined
+    }
+    
+    console.log('Data with photos:', JSON.stringify(dataWithPhotos, null, 2))
+    
+    try {
+      // Validate the data
+      const parsed: PropertyParsedData = propertySchema.parse(dataWithPhotos)
+      console.log('Parsed successfully:', parsed)
+      
+      // Submit to server
+      console.log('Calling createMutation with data:', parsed)
+      createMutation.mutate(parsed)
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        console.error('=== VALIDATION ERROR ===')
+        console.error('Error count:', error.errors.length)
+        error.errors.forEach((err, index) => {
+          console.error(`Error ${index + 1}:`, JSON.stringify({
+            path: err.path,
+            message: err.message,
+            code: err.code,
+            received: err.received,
+            expected: err.expected
+          }, null, 2))
+        })
+        
+        const errorMessages = error.errors.map(e => {
+          const field = e.path.join('.')
+          return `${field}: ${e.message}`
+        }).join(', ')
+        
+        setError(`Hibás mezők: ${errorMessages}`)
+      } else {
+        console.error('Unexpected error:', error)
+        setError('Váratlan hiba történt')
+      }
+    }
   }
 
   return (
@@ -95,7 +185,10 @@ export default function NewPropertyPage() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={(e) => {
+        console.log('Form submit event triggered')
+        handleSubmit(onSubmit)(e)
+      }} className="space-y-6">
         {error && (
           <Alert variant="destructive">
             <AlertDescription>{error}</AlertDescription>
@@ -115,7 +208,8 @@ export default function NewPropertyPage() {
                 <Label htmlFor="type">Típus*</Label>
                 <Select
                   onValueChange={(value) => setValue('type', value as any)}
-                  defaultValue={watch('type')}
+                  defaultValue="APARTMENT"
+                  value={watch('type')}
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Válasszon típust" />
@@ -305,8 +399,9 @@ export default function NewPropertyPage() {
             <ImageUpload
               value={photos}
               onChange={(newPhotos) => {
+                console.log('Photos changed:', newPhotos)
                 setPhotos(newPhotos)
-                setValue('photos', newPhotos)
+                setValue('photos', newPhotos, { shouldValidate: true })
               }}
               maxFiles={10}
             />

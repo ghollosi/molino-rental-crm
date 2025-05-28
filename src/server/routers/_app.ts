@@ -8,6 +8,7 @@ import { providerRouter } from './provider'
 import { issueRouter } from './issue'
 import { offerRouter } from './offer'
 import { contractRouter } from './contract'
+import { contractsRouter } from './contracts'
 import { analyticsRouter } from './analytics'
 
 export const appRouter = createTRPCRouter({
@@ -20,6 +21,7 @@ export const appRouter = createTRPCRouter({
   issue: issueRouter,
   offer: offerRouter,
   contract: contractRouter,
+  contracts: contractsRouter,
   analytics: analyticsRouter,
 })
 

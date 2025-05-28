@@ -61,7 +61,7 @@ Ha "Internal server error" hibát kapsz:
 3. Futtasd: `./scripts/test-before-change.sh`
 4. Ellenőrizd a .env fájlt (PORT=3333)
 
-## Új funkciók (2025-05-28)
+## Új funkciók (2025-05-28 - Frissítve)
 
 ### Email rendszer
 - **Email tesztelés**: Settings → Email → Test Email
@@ -145,3 +145,25 @@ Ha "Internal server error" hibát kapsz:
 ⚠️ SOHA ne változtass kódot anélkül, hogy előtte lefuttatnád a tesztelő scriptet!
 ⚠️ A szerver a 3333-as porton fut, NEM a 3000-en!
 ⚠️ PWA cache törléséhez: Settings → PWA → Cache törlése
+
+## Legutóbbi javítások (2025-05-28 Délután)
+
+### Képfeltöltés javítás ✅
+- **Probléma**: Blob URL-ek validációs hibát okoztak
+- **Megoldás**: Valós fájl mentés `/public/uploads` mappába
+- **Érintett**: Property creation form
+
+### Form validáció javítás ✅
+- **Probléma**: Number vs String típus eltérések
+- **Megoldás**: Zod union típusok használata
+- **Schema**: Elfogadja mind string, mind number inputokat
+
+### Session cache probléma ✅
+- **Probléma**: NextAuth nem frissíti automatikusan a session adatokat
+- **Megoldás**: Kijelentkezés + újra bejelentkezés szükséges
+- **Debug**: `/api/debug-session` endpoint elérhető
+
+### Contract Templates rendszer ✅
+- **Új funkció**: Teljes szerződés sablon kezelés
+- **UI**: Templates admin, generálás, digitális aláírás
+- **API**: Contracts tRPC router

@@ -37,10 +37,13 @@ export function ImageUpload({
         })
 
         if (!response.ok) {
-          throw new Error('Upload failed')
+          const errorData = await response.text()
+          console.error('Upload response error:', errorData)
+          throw new Error('Upload failed: ' + response.status)
         }
 
         const data = await response.json()
+        console.log('Upload successful, URL:', data.url)
         return data.url
       })
 
@@ -48,9 +51,9 @@ export function ImageUpload({
       onChange([...value, ...newUrls].slice(0, maxFiles))
     } catch (error) {
       console.error('Upload error:', error)
-      // For fallback, use object URLs
-      const newUrls = Array.from(files).map(file => URL.createObjectURL(file))
-      onChange([...value, ...newUrls].slice(0, maxFiles))
+      // Don't add blob URLs to the form - they cause validation errors
+      alert('Képfeltöltési hiba történt. Kérjük próbálja újra később.')
+      // Don't change the value if upload failed
     } finally {
       setIsUploading(false)
     }

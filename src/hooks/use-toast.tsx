@@ -52,3 +52,9 @@ export function useToast() {
   }
   return context
 }
+
+// Export toast function for convenience
+export const toast = (options: Omit<Toast, "id">) => {
+  // This is a stub for direct usage
+  console.warn("toast() called outside of component context. Use useToast() hook instead.")
+}

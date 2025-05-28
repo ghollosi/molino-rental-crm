@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
-import { writeFile } from 'fs/promises'
+import { writeFile, mkdir } from 'fs/promises'
 import path from 'path'
+import { existsSync } from 'fs'
 
 export async function POST(request: Request) {
   try {
@@ -22,11 +23,28 @@ export async function POST(request: Request) {
     // Create upload directory if it doesn't exist
     const uploadDir = path.join(process.cwd(), 'public', 'uploads')
     
-    // For now, just return a mock URL
-    // In production, you'd upload to S3, Cloudinary, etc.
-    const url = `/uploads/${uniqueFilename}`
-    
-    return NextResponse.json({ url })
+    try {
+      if (!existsSync(uploadDir)) {
+        await mkdir(uploadDir, { recursive: true })
+      }
+      
+      // Write file to disk
+      const filePath = path.join(uploadDir, uniqueFilename)
+      await writeFile(filePath, buffer)
+      
+      // Return the URL
+      const url = `/uploads/${uniqueFilename}`
+      
+      return NextResponse.json({ url })
+    } catch (fsError) {
+      console.error('File system error:', fsError)
+      // If file write fails, return a data URL as fallback
+      const base64 = Buffer.from(buffer).toString('base64')
+      const mimeType = file.type || 'image/jpeg'
+      const dataUrl = `data:${mimeType};base64,${base64}`
+      
+      return NextResponse.json({ url: dataUrl })
+    }
   } catch (error) {
     console.error('Upload error:', error)
     return NextResponse.json(

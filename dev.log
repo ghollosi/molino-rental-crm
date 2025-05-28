@@ -2813,3 +2813,464 @@ Database update successful: {
  GET /dashboard 200 in 36ms
  GET /dashboard 200 in 14ms
  GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 153ms
+ GET /api/auth/session 200 in 45ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 39ms
+ GET /api/auth/session 200 in 36ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/contracts in 2.9s (2638 modules)
+ GET /dashboard/contracts 200 in 3099ms
+ GET /dashboard/contracts 200 in 14ms
+ ✓ Compiled /api/trpc/[trpc] in 353ms (1579 modules)
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1189ms
+ GET /dashboard/settings 200 in 84ms
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:38:12.032Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 182ms
+ GET /dashboard 200 in 379ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 299ms
+ GET /dashboard/settings 200 in 24ms
+ GET /login 200 in 66ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/providers 200 in 77ms
+ GET /api/auth/csrf 200 in 9ms
+ POST /api/auth/callback/credentials? 200 in 308ms
+ GET /api/auth/session 200 in 9ms
+ GET /dashboard 200 in 30ms
+ GET /dashboard 200 in 27ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 87ms
+ GET /dashboard/settings 200 in 34ms
+ ✓ Compiled in 445ms (1180 modules)
+ GET /dashboard/settings 200 in 29ms
+ GET /dashboard 200 in 54ms
+ GET /dashboard 200 in 216ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 376ms
+ ✓ Compiled in 1008ms (1180 modules)
+ GET /dashboard 200 in 31ms
+ ✓ Compiled in 1477ms (2759 modules)
+ GET /dashboard 200 in 155ms
+ GET /dashboard 200 in 414ms
+ GET /api/auth/session 200 in 149ms
+ GET /api/auth/session 200 in 29ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 530ms
+ ✓ Compiled in 1286ms (2761 modules)
+ GET /dashboard 200 in 68ms
+ GET /dashboard 200 in 70ms
+ GET /api/auth/session 200 in 826ms
+ GET /api/auth/session 200 in 20ms
+ GET /dashboard/settings 200 in 106ms
+ ✓ Compiled in 1925ms (2719 modules)
+ GET /dashboard/settings 200 in 1611ms
+ GET /dashboard 200 in 1610ms
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET /dashboard 200 in 24ms
+ GET /dashboard/settings 200 in 36ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 655ms (1458 modules)
+ GET /api/auth/session 200 in 905ms
+ GET /api/auth/session 200 in 7ms
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (130kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ GET /api/auth/session 200 in 234ms
+ GET /api/auth/session 200 in 58ms
+ GET /api/auth/session 200 in 246ms
+ GET /api/auth/session 200 in 51ms
+ GET /api/auth/session 200 in 131ms
+ GET /api/auth/session 200 in 48ms
+ GET /api/auth/session 200 in 96ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 42ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 39ms
+ GET /api/auth/session 200 in 49ms
+ GET /api/auth/session 200 in 67ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 81ms
+ GET /api/auth/session 200 in 15ms
+ GET /api/auth/session 200 in 41ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/auth/session 200 in 48ms
+ GET /api/auth/session 200 in 42ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 54ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 28ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 73ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 66ms
+ GET /api/auth/session 200 in 16ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 4.2s (2477 modules)
+ GET /dashboard/properties 200 in 4701ms
+ GET /dashboard/properties 200 in 13ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1023ms (1591 modules)
+ GET /dashboard 200 in 87ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 2351ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 170ms
+ GET /dashboard 200 in 441ms
+ ✓ Compiled /api/auth/[...nextauth] in 327ms (1593 modules)
+ GET /api/auth/session 200 in 443ms
+ GET /api/auth/session 200 in 12ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 351ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 10ms
+ GET /api/auth/session 200 in 59ms
+ GET /api/auth/session 200 in 29ms
+ GET /api/auth/session 200 in 54ms
+ GET /api/auth/session 200 in 14ms
+ GET /dashboard/settings 200 in 106ms
+ GET /dashboard 200 in 41ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 138ms
+ GET /dashboard/properties 200 in 44ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 517ms
+ ○ Compiling /dashboard/properties/new ...
+ ✓ Compiled /dashboard/properties/new in 1712ms (2827 modules)
+ GET /dashboard/properties/new 200 in 1790ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 105ms
+ POST /api/trpc/owner.quickCreate?batch=1 200 in 338ms
+ GET /api/auth/session 200 in 27ms
+ GET /api/auth/session 200 in 9ms
+ GET /dashboard/properties 200 in 74ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 632ms
+ GET /dashboard/properties/new 200 in 36ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 17ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 1613ms (2838 modules)
+ GET /dashboard/owners 200 in 1818ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 360ms
+ GET /dashboard/properties 200 in 26ms
+ GET /dashboard/properties/new 200 in 61ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 1766ms (2009 modules)
+ POST /api/upload 200 in 1949ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1148ms (2013 modules)
+ GET /uploads/1748441669055-873517291-snapshot_camera_ds_2cd1327g0_l20220613aawrk13608406_101_2025._03._22._12_24_51.jpg 404 in 1321ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1458ms (952 modules)
+ GET /api/auth/session 200 in 1673ms
+ GET /api/auth/session 200 in 1667ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 178ms
+ GET /api/auth/session 200 in 173ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 9ms
+ GET /api/auth/session 200 in 262ms
+ GET /api/auth/session 200 in 289ms
+ GET /api/auth/session 200 in 64ms
+ GET /api/auth/session 200 in 67ms
+ ✓ Compiled in 3.5s (2254 modules)
+ ✓ Compiled in 1265ms (2005 modules)
+ ✓ Compiled in 641ms (1221 modules)
+ ✓ Compiled in 428ms (1221 modules)
+ ✓ Compiled in 355ms (1470 modules)
+ ✓ Compiled in 1519ms (2005 modules)
+ ✓ Compiled in 698ms (2005 modules)
+ ✓ Compiled in 562ms (2005 modules)
+ ✓ Compiled in 719ms (1221 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 2.3s (1329 modules)
+ GET /dashboard 200 in 2722ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2s (1618 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 4387ms
+ ✓ Compiled in 624ms (1221 modules)
+ ✓ Compiled in 1164ms (2005 modules)
+ ✓ Compiled in 790ms (1221 modules)
+ ✓ Compiled in 357ms (1221 modules)
+ ✓ Compiled in 1159ms (2005 modules)
+ ✓ Compiled in 1303ms (2005 modules)
+ ✓ Compiled in 1237ms (1221 modules)
+ ✓ Compiled in 712ms (1221 modules)
+ ✓ Compiled in 381ms (1221 modules)
+ ✓ Compiled in 310ms (1221 modules)
+ ✓ Compiled in 357ms (1221 modules)
+ ✓ Compiled in 363ms (1221 modules)
+ ✓ Compiled in 383ms (1221 modules)
+ ✓ Compiled in 384ms (1221 modules)
+ ✓ Compiled in 634ms (1221 modules)
+ ✓ Compiled in 432ms (1221 modules)
+ ✓ Compiled in 327ms (1221 modules)
+ ✓ Compiled in 579ms (1221 modules)
+ ✓ Compiled in 396ms (1221 modules)
+ ✓ Compiled in 395ms (1221 modules)
+ GET /dashboard/properties 200 in 430ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1141ms (1073 modules)
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 2208ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 1517ms (1085 modules)
+ GET /dashboard/settings 200 in 1629ms
+ GET /dashboard/properties/new 200 in 329ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 741ms (1087 modules)
+ GET /api/auth/session 200 in 1039ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 609ms
+ GET /dashboard/properties 200 in 97ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 81ms
+ GET /dashboard/properties/new 200 in 33ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 1225ms (802 modules)
+ POST /api/upload 200 in 1386ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 549ms (2013 modules)
+ GET /uploads/1748445963624-598159638-snapshot_camera_ds_2cd1327g0_l20220613aawrk13608406_101_2025._03._22._12_24_51.jpg 404 in 665ms
+ ✓ Compiled in 5.7s (2005 modules)
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 940ms (1073 modules)
+ GET /dashboard/properties/new 200 in 1987ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 2945ms
+ ✓ Compiled in 967ms (2294 modules)
+ GET /dashboard/properties/new 200 in 60ms
+ ✓ Compiled in 434ms (1221 modules)
+ GET /dashboard/properties/new 200 in 27ms
+ ✓ Compiled in 1857ms (2005 modules)
+ GET /dashboard/properties/new 200 in 309ms
+ ✓ Compiled /api/trpc/[trpc] in 500ms (1073 modules)
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1076ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 16ms
+ ✓ Compiled in 1219ms (2294 modules)
+ GET /dashboard/properties 200 in 54ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 2.1s (1618 modules)
+ GET /dashboard 200 in 2776ms
+ ✓ Compiled in 5.5s (2839 modules)
+ GET /dashboard 200 in 43ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 2416ms
+ ✓ Compiled in 1194ms (2831 modules)
+ GET /dashboard 200 in 72ms
+ ✓ Compiled in 732ms (2831 modules)
+ GET /dashboard 200 in 49ms
+ ✓ Compiled /login in 420ms (1329 modules)
+ GET /login 200 in 754ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1163ms (1497 modules)
+ GET /api/auth/session 200 in 1292ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/providers 200 in 106ms
+ GET /api/auth/csrf 200 in 8ms
+ POST /api/auth/callback/credentials? 200 in 221ms
+ GET /api/auth/session 200 in 8ms
+ GET /dashboard 200 in 62ms
+ GET /dashboard 200 in 31ms
+ ✓ Compiled /api/trpc/[trpc] in 366ms (1612 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 727ms
+ GET /dashboard/properties 200 in 54ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 30ms
+ GET /dashboard/properties/new 200 in 21ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 17ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 1371ms (1341 modules)
+ POST /api/upload 200 in 1520ms
+ GET /dashboard/properties/new 200 in 62ms
+ ✓ Compiled /api/trpc/[trpc] in 3.1s (2542 modules)
+ ✓ Compiled in 0ms (1610 modules)
+ GET /dashboard/properties/new 200 in 866ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 1378ms
+ ✓ Compiled in 850ms (2831 modules)
+ GET /dashboard/properties/new 200 in 73ms
+ GET /dashboard 200 in 49ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 590ms
+ ✓ Compiled in 768ms (2831 modules)
+ GET /dashboard 200 in 34ms
+ ✓ Compiled in 819ms (2831 modules)
+ GET /dashboard 200 in 34ms
+ ✓ Compiled in 3.2s (2831 modules)
+ GET /dashboard 200 in 57ms
+ ✓ Compiled in 726ms (2542 modules)
+ GET /dashboard 200 in 233ms
+ ✓ Compiled in 867ms (2542 modules)
+ GET /dashboard 200 in 57ms
+ ✓ Compiled in 663ms (2542 modules)
+ GET /dashboard 200 in 307ms
+ ✓ Compiled in 865ms (2542 modules)
+ GET /dashboard 200 in 46ms
+ ✓ Compiled in 639ms (2542 modules)
+ GET /dashboard 200 in 32ms
+ GET /login 200 in 243ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1930ms (1489 modules)
+ GET /api/auth/session 200 in 2173ms
+ GET /api/auth/session 200 in 4ms
+ GET /api/auth/providers 200 in 61ms
+ GET /api/auth/csrf 200 in 12ms
+ POST /api/auth/callback/credentials? 200 in 326ms
+ GET /api/auth/session 200 in 22ms
+ GET /dashboard 200 in 72ms
+ GET /dashboard 200 in 33ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1520ms (1612 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1848ms
+ GET /dashboard/properties 200 in 64ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 15ms
+ GET /dashboard/properties/new 200 in 24ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 45ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 1495ms (1614 modules)
+ POST /api/upload 200 in 1548ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.5s (2552 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 2680ms
+ ✓ Compiled /api/trpc/[trpc] in 3s (2542 modules)
+ ✓ Compiled in 0ms (1610 modules)
+ GET /dashboard/properties/new 200 in 873ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 1536ms
+ GET /login 200 in 185ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1274ms (1612 modules)
+ GET /api/auth/session 200 in 1385ms
+ GET /api/auth/session 200 in 31ms
+ GET /api/auth/providers 200 in 26ms
+ GET /api/auth/csrf 200 in 9ms
+ POST /api/auth/callback/credentials? 200 in 279ms
+ GET /api/auth/session 200 in 8ms
+ GET /dashboard 200 in 63ms
+ GET /dashboard 200 in 30ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 161ms
+ GET /dashboard/properties 200 in 47ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 57ms
+ GET /dashboard/properties/new 200 in 31ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 15ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 1236ms (1616 modules)
+ POST /api/upload 200 in 1305ms
+ POST /api/trpc/property.create?batch=1 200 in 443ms
+ GET /dashboard/properties 200 in 56ms
+ GET /dashboard/properties 200 in 51ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2s (2839 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 2165ms
+ GET /dashboard/properties 200 in 18ms
+ ✓ Compiled in 3.2s (2542 modules)
+ GET /dashboard/properties 200 in 233ms
+ ✓ Compiled in 807ms (2542 modules)
+ GET /dashboard/properties 200 in 60ms
+ ✓ Compiled /api/trpc/[trpc] in 2s (2542 modules)
+ ✓ Compiled in 1ms (1610 modules)
+ GET /dashboard/properties 200 in 883ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1676ms
+ ✓ Compiled in 469ms (1221 modules)
+ GET /dashboard/properties 200 in 79ms
+ ✓ Compiled in 460ms (1221 modules)
+ GET /dashboard/properties 200 in 36ms
+ ✓ Compiled in 356ms (1221 modules)
+ GET /dashboard/properties 200 in 36ms
+ ✓ Compiled in 529ms (1221 modules)
+ GET /dashboard/properties 200 in 56ms
+ ✓ Compiled /api/trpc/[trpc] in 3.4s (2542 modules)
+ ✓ Compiled in 0ms (1610 modules)
+ GET /dashboard/properties 200 in 1000ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 2459ms
+Properties data: undefined
+ GET /dashboard/properties 200 in 302ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1878ms (2821 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 2030ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1563ms (1613 modules)
+ GET /api/auth/session 200 in 1962ms
+ GET /api/auth/session 200 in 15ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1415ms
+ ○ Compiling /dashboard/properties/[id] ...
+ ✓ Compiled /dashboard/properties/[id] in 1793ms (2834 modules)
+ GET /dashboard/properties/cmb84cez00004i8a5i3rgczhg 200 in 2481ms
+ GET /api/trpc/property.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb84cez00004i8a5i3rgczhg%22%7D%7D 200 in 147ms
+ GET /dashboard/properties 200 in 35ms
+Properties data: undefined
+ GET /dashboard/properties 200 in 292ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/auth/session 200 in 6ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 311ms
+ GET /api/auth/session 200 in 27ms
+ GET /api/auth/session 200 in 22ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 1484ms (1600 modules)
+ GET /dashboard/settings 200 in 1700ms
+ GET /dashboard 200 in 407ms
+ GET /api/auth/session 200 in 56ms
+ GET /api/auth/session 200 in 6ms
+ GET /api/auth/session 200 in 58ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 241ms
+ GET /dashboard/settings 200 in 16ms
+ GET /dashboard 200 in 27ms
+ ✓ Compiled in 1749ms (1224 modules)
+ GET /dashboard 200 in 59ms
+ GET /dashboard/settings 200 in 60ms
+ ✓ Compiled in 3.8s (2774 modules)
+ GET /dashboard 200 in 3484ms
+ GET /dashboard/settings 200 in 3490ms
+ GET /dashboard/settings 200 in 40ms
+ GET /dashboard 200 in 40ms
+ ✓ Compiled in 424ms (1224 modules)
+ GET /dashboard/settings 200 in 42ms
+ GET /dashboard 200 in 43ms
+ GET /login 200 in 242ms
+ ✓ Compiled /api/auth/[...nextauth] in 459ms (1469 modules)
+ GET /api/auth/session 200 in 621ms
+ GET /api/auth/session 200 in 5ms
+ GET /api/auth/providers 200 in 20ms
+ GET /api/auth/csrf 200 in 22ms
+[31m[auth][error][0m CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+    at Module.callback (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/callback/index.js:246:23)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:70:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+ POST /api/auth/callback/credentials? 200 in 298ms
+ GET /api/auth/session 200 in 5ms
+ GET /api/auth/providers 200 in 42ms
+ GET /api/auth/csrf 200 in 9ms
+ POST /api/auth/callback/credentials? 200 in 124ms
+ GET /api/auth/session 200 in 6ms
+ GET /dashboard 200 in 56ms
+ GET /dashboard 200 in 14ms
+ ✓ Compiled /api/trpc/[trpc] in 447ms (1592 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 942ms

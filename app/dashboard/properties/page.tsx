@@ -25,13 +25,16 @@ export default function PropertiesPage() {
   const [typeFilter, setTypeFilter] = useState<string>('all')
   const [statusFilter, setStatusFilter] = useState<string>('all')
 
-  const { data, isLoading } = api.property.list.useQuery({
+  const { data, isLoading, refetch } = api.property.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
     type: typeFilter !== 'all' ? typeFilter as any : undefined,
     status: statusFilter !== 'all' ? statusFilter as any : undefined,
   })
+  
+  // Log the data when it changes
+  console.log('Properties data:', data)
 
   const getStatusBadge = (status: string) => {
     const variants: Record<string, 'default' | 'secondary' | 'destructive'> = {
@@ -71,6 +74,15 @@ export default function PropertiesPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <Button 
+            variant="outline"
+            onClick={() => {
+              console.log('Refreshing properties...')
+              refetch()
+            }}
+          >
+            Frissítés
+          </Button>
           <ExportToolbar entityType="properties" title="Ingatlanok" />
           <Button asChild>
             <Link href="/dashboard/properties/new">
