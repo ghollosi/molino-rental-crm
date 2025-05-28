@@ -77,6 +77,7 @@ export default function NewTenantPage() {
                   id="name"
                   {...register('name', { required: 'A név megadása kötelező' })}
                   placeholder="Teljes név"
+                  autoComplete="name"
                 />
                 {errors.name && (
                   <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
@@ -96,6 +97,7 @@ export default function NewTenantPage() {
                     }
                   })}
                   placeholder="berlo@example.com"
+                  autoComplete="email"
                 />
                 {errors.email && (
                   <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
@@ -115,6 +117,7 @@ export default function NewTenantPage() {
                     }
                   })}
                   placeholder="Legalább 6 karakter"
+                  autoComplete="new-password"
                 />
                 {errors.password && (
                   <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>
@@ -127,6 +130,7 @@ export default function NewTenantPage() {
                   id="phone"
                   {...register('phone')}
                   placeholder="+36 20 123 4567"
+                  autoComplete="tel"
                 />
               </div>
 
@@ -136,6 +140,7 @@ export default function NewTenantPage() {
                   id="address"
                   {...register('address')}
                   placeholder="1234 Budapest, Példa utca 12."
+                  autoComplete="street-address"
                 />
               </div>
 
@@ -149,6 +154,7 @@ export default function NewTenantPage() {
                       id="emergencyContact"
                       {...register('emergencyContact')}
                       placeholder="Kapcsolattartó teljes neve"
+                      autoComplete="name"
                     />
                   </div>
 
@@ -158,6 +164,7 @@ export default function NewTenantPage() {
                       id="emergencyPhone"
                       {...register('emergencyPhone')}
                       placeholder="+36 20 987 6543"
+                      autoComplete="tel"
                     />
                   </div>
                 </div>

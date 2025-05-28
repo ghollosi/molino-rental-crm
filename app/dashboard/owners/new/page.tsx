@@ -121,6 +121,7 @@ export default function NewOwnerPage() {
                         required: isCompany ? 'A cégnév megadása kötelező' : false 
                       })}
                       placeholder="Cég hivatalos neve"
+                      autoComplete="organization"
                     />
                     {errors.companyName && (
                       <p className="text-sm text-red-500 mt-1">{errors.companyName.message}</p>

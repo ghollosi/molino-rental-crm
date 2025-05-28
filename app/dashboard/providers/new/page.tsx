@@ -158,7 +158,7 @@ export default function NewProviderPage() {
               <div>
                 <Label htmlFor="user">Felhasználó kiválasztása *</Label>
                 <Select value={selectedUserId} onValueChange={setSelectedUserId}>
-                  <SelectTrigger>
+                  <SelectTrigger id="user">
                     <SelectValue placeholder="Válasszon felhasználót..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -183,6 +183,7 @@ export default function NewProviderPage() {
                   id="businessName"
                   {...register('businessName', { required: 'A cégnév megadása kötelező' })}
                   placeholder="Pl. Kovács János EV"
+                  autoComplete="organization"
                 />
                 {errors.businessName && (
                   <p className="text-sm text-red-500 mt-1">{errors.businessName.message}</p>

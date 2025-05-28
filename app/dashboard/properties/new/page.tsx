@@ -276,6 +276,7 @@ export default function NewPropertyPage() {
                 id="street"
                 placeholder="pl. Kossuth Lajos utca 15"
                 {...register('street')}
+                autoComplete="address-line1"
               />
               {errors.street && (
                 <p className="text-sm text-red-500">{errors.street.message}</p>
@@ -289,6 +290,7 @@ export default function NewPropertyPage() {
                   id="city"
                   placeholder="pl. Budapest"
                   {...register('city')}
+                  autoComplete="address-level2"
                 />
                 {errors.city && (
                   <p className="text-sm text-red-500">{errors.city.message}</p>
@@ -301,6 +303,7 @@ export default function NewPropertyPage() {
                   id="postalCode"
                   placeholder="pl. 1051"
                   {...register('postalCode')}
+                  autoComplete="postal-code"
                 />
               </div>
 
@@ -310,6 +313,7 @@ export default function NewPropertyPage() {
                   id="country"
                   placeholder="pl. Magyarország"
                   {...register('country')}
+                  autoComplete="country-name"
                 />
               </div>
             </div>

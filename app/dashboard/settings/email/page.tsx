@@ -98,6 +98,7 @@ export default function EmailSettingsPage() {
                 placeholder="test@example.com"
                 value={testEmail}
                 onChange={(e) => setTestEmail(e.target.value)}
+                autoComplete="email"
               />
             </div>
 

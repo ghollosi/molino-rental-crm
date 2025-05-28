@@ -134,7 +134,7 @@ export default function NewIssuePage() {
                   value={watch('priority')}
                   onValueChange={(value) => setValue('priority', value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger id="priority">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -152,7 +152,7 @@ export default function NewIssuePage() {
                   value={watch('category')}
                   onValueChange={(value) => setValue('category', value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger id="category">
                     <SelectValue placeholder="Válasszon kategóriát" />
                   </SelectTrigger>
                   <SelectContent>
@@ -174,7 +174,7 @@ export default function NewIssuePage() {
                   value={watchPropertyId}
                   onValueChange={(value) => setValue('propertyId', value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger id="propertyId">
                     <SelectValue placeholder="Válasszon ingatlant" />
                   </SelectTrigger>
                   <SelectContent>

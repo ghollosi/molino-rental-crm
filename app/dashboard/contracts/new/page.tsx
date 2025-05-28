@@ -129,7 +129,7 @@ export default function NewContractPage() {
                   Ingatlan *
                 </Label>
                 <Select onValueChange={(value) => setValue('propertyId', value)}>
-                  <SelectTrigger>
+                  <SelectTrigger id="property">
                     <SelectValue placeholder="Válasszon ingatlant" />
                   </SelectTrigger>
                   <SelectContent>
@@ -151,7 +151,7 @@ export default function NewContractPage() {
                   Bérlő *
                 </Label>
                 <Select onValueChange={(value) => setValue('tenantId', value)}>
-                  <SelectTrigger>
+                  <SelectTrigger id="tenant">
                     <SelectValue placeholder="Válasszon bérlőt" />
                   </SelectTrigger>
                   <SelectContent>

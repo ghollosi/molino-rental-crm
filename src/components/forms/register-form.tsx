@@ -102,6 +102,7 @@ export function RegisterForm() {
                 onChange={(e) => handleChange('name', e.target.value)}
                 required
                 disabled={registerMutation.isPending}
+                autoComplete="name"
               />
             </div>
 
@@ -115,6 +116,7 @@ export function RegisterForm() {
                 onChange={(e) => handleChange('email', e.target.value)}
                 required
                 disabled={registerMutation.isPending}
+                autoComplete="email"
               />
             </div>
 
@@ -125,7 +127,7 @@ export function RegisterForm() {
                 onValueChange={(value) => handleChange('role', value)}
                 disabled={registerMutation.isPending}
               >
-                <SelectTrigger>
+                <SelectTrigger id="role">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -143,7 +145,7 @@ export function RegisterForm() {
                 onValueChange={(value) => handleChange('language', value)}
                 disabled={registerMutation.isPending}
               >
-                <SelectTrigger>
+                <SelectTrigger id="language">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -165,6 +167,7 @@ export function RegisterForm() {
                   onChange={(e) => handleChange('password', e.target.value)}
                   required
                   disabled={registerMutation.isPending}
+                  autoComplete="new-password"
                 />
                 <Button
                   type="button"
@@ -194,6 +197,7 @@ export function RegisterForm() {
                   onChange={(e) => handleChange('confirmPassword', e.target.value)}
                   required
                   disabled={registerMutation.isPending}
+                  autoComplete="new-password"
                 />
                 <Button
                   type="button"

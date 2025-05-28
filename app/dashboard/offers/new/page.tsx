@@ -165,7 +165,7 @@ export default function NewOfferPage() {
                   onValueChange={(value) => setValue('propertyId', value)}
                   {...register('propertyId', { required: 'Az ingatlan kiválasztása kötelező' })}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger id="propertyId">
                     <SelectValue placeholder="Válasszon ingatlant" />
                   </SelectTrigger>
                   <SelectContent>
@@ -201,7 +201,7 @@ export default function NewOfferPage() {
                   value={watchIssueId || undefined}
                   onValueChange={(value) => setValue('issueId', value || undefined)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger id="issueId">
                     <SelectValue placeholder="Válasszon hibabejelentést (opcionális)" />
                   </SelectTrigger>
                   <SelectContent>
