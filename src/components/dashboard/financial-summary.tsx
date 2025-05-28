@@ -42,8 +42,8 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
         <CardDescription>Bevételek és kintlévőségek áttekintése</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {/* Havi bevétel */}
+        <div className="grid grid-cols-2 gap-4">
+          {/* Első sor: Havi és Éves bevétel */}
           <div className="space-y-2">
             <div className="flex items-center text-sm text-muted-foreground">
               <DollarSign className="mr-1 h-3 w-3" />
@@ -52,23 +52,15 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
             <div className="text-2xl font-bold">
               {data.monthlyRevenue.toLocaleString('hu-HU')} Ft
             </div>
-            <div className="flex items-center text-xs">
+            <div className="text-xs text-muted-foreground">
               {data.revenueChange >= 0 ? (
-                <>
-                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
-                  <span className="text-green-500">+{data.revenueChange}%</span>
-                </>
+                <span className="text-green-600">+{data.revenueChange}% hónaphoz képest</span>
               ) : (
-                <>
-                  <TrendingDown className="mr-1 h-3 w-3 text-red-500" />
-                  <span className="text-red-500">{data.revenueChange}%</span>
-                </>
+                <span className="text-red-600">{data.revenueChange}% hónaphoz képest</span>
               )}
-              <span className="text-muted-foreground ml-1">előző hónaphoz képest</span>
             </div>
           </div>
 
-          {/* Éves bevétel */}
           <div className="space-y-2">
             <div className="flex items-center text-sm text-muted-foreground">
               <DollarSign className="mr-1 h-3 w-3" />
@@ -82,7 +74,7 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
             </div>
           </div>
 
-          {/* Kintlévőségek */}
+          {/* Második sor: Kintlévőségek és Kihasználtság */}
           <div className="space-y-2">
             <div className="flex items-center text-sm text-muted-foreground">
               <AlertCircle className="mr-1 h-3 w-3" />
@@ -96,7 +88,6 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
             </div>
           </div>
 
-          {/* Kihasználtság */}
           <div className="space-y-2">
             <div className="flex items-center text-sm text-muted-foreground">
               <TrendingUp className="mr-1 h-3 w-3" />
