@@ -137,30 +137,30 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1">
-          <TabsTrigger value="profile" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
-            <User className="h-4 w-4" />
-            <span className="text-xs">Profil</span>
+        <TabsList className="h-auto flex-wrap grid grid-cols-3 sm:grid-cols-6 gap-1 p-1">
+          <TabsTrigger value="profile" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <User className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Profil</span>
           </TabsTrigger>
-          <TabsTrigger value="company" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
-            <Building className="h-4 w-4" />
-            <span className="text-xs">Cég</span>
+          <TabsTrigger value="company" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Building className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Cég</span>
           </TabsTrigger>
-          <TabsTrigger value="email" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
-            <Mail className="h-4 w-4" />
-            <span className="text-xs">Email</span>
+          <TabsTrigger value="email" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Mail className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Email</span>
           </TabsTrigger>
-          <TabsTrigger value="notifications" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
-            <Bell className="h-4 w-4" />
-            <span className="text-xs">Értesítés</span>
+          <TabsTrigger value="notifications" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Bell className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Értesítések</span>
           </TabsTrigger>
-          <TabsTrigger value="workflow" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
-            <Workflow className="h-4 w-4" />
-            <span className="text-xs">Workflow</span>
+          <TabsTrigger value="workflow" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Workflow className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Workflow</span>
           </TabsTrigger>
-          <TabsTrigger value="security" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
-            <Shield className="h-4 w-4" />
-            <span className="text-xs">Biztonság</span>
+          <TabsTrigger value="security" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Shield className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Biztonság</span>
           </TabsTrigger>
         </TabsList>
 
