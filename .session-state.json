@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T20:59:28.243Z",
+  "timestamp": "2025-05-28T21:04:28.262Z",
   "lastCommand": "start",
-  "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M app/dashboard/issues/new/page.tsx\n M app/dashboard/offers/new/page.tsx\n M app/dashboard/owners/new/page.tsx\n M app/dashboard/properties/new/page.tsx\n M app/dashboard/tenants/new/page.tsx\n M src/components/forms/login-form.tsx\n M src/components/forms/register-form.tsx",
+  "currentFile": "none",
+  "gitStatus": "",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

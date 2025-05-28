@@ -5,6 +5,43 @@ Minden jelentős változás dokumentálva van ebben a fájlban.
 A formátum a [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) alapján készült,
 és a projekt követi a [Semantic Versioning](https://semver.org/spec/v2.0.0.html) szabványt.
 
+## [1.10.0] - 2025-05-29
+
+### 🎉 Major Milestones
+- **Teljes mobil reszponzivitás** - Minden oldal mobilra optimalizálva
+- **Nulla TypeScript hiba** - 165 → 0 hiba javítva
+- **Form hozzáférhetőség** - Minden űrlap megfelelően címkézve
+
+### ✨ Újdonságok
+- Mobil-optimalizált navigáció hamburger menüvel
+- Reszponzív táblázatok ikon gombokkal mobilon
+- Export eszköztár csak ikon megjelenítéssel kis képernyőn
+- 3 oszlopos tab elrendezés mobilon a beállítások oldalon
+- Progresszív betűméret skálázás minden töréspontnál
+
+### 🐛 Hibajavítások
+- Táblázat túlcsordulási problémák javítva minden entitás oldalon
+- Export eszköztár gombok túlcsordulás javítva
+- Beállítások oldal tab-ek átfedés javítva mobilon
+- Form label-input kapcsolatok javítva
+- Hiányzó autocomplete attribútumok hozzáadva
+- Minden böngésző konzol figyelmeztetés megoldva
+
+### 🔧 Technikai fejlesztések
+- overflow-x-hidden hozzáadva a fő elrendezésekhez
+- flex-wrap implementálva a gomb csoportoknál
+- Kevésbé fontos táblázat oszlopok elrejtése mobilon
+- Padding optimalizálás mobil eszközökre (p-3 vs p-6)
+- Megfelelő ID-k hozzáadva minden form select triggerhez
+
+## [1.9.0] - 2025-05-29
+
+### 🎯 Főbb eredmény
+- **NULLA TypeScript hiba** - Teljes típusbiztonság elérve
+- 165 TypeScript fordítási hiba javítva
+- Minden komponens megfelelően típusozva
+- API végpontok helyes típusdefiníciókkal
+
 ## [Unreleased]
 
 ### Hozzáadva - 2025-05-28 (Este)
