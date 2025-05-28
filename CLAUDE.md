@@ -150,6 +150,7 @@ Ha "Internal server error" hibát kapsz:
 - **Jelentések teszt**: Dashboard → Jelentések → PDF/Excel letöltés
 - **Profil teszt**: Settings → Profil → Név módosítás és mentés
 - **Dashboard widgets teszt**: `/dashboard/test-widgets` - Widget teszt oldal (frissített layout)
+- **Mobil teszt**: Chrome DevTools → Device Mode vagy `MobileTest.runFullTest()` - **ÚJ!**
 - **Health check**: `/api/health-check`
 - **Workflow cron**: `/api/cron/workflow` (GET/POST)
 - **Notification cron**: `/api/cron/notifications` (GET/POST)
@@ -157,16 +158,81 @@ Ha "Internal server error" hibát kapsz:
 - **Debug script**: `npx tsx src/scripts/check-user-data.ts`
 - **Analytics debug**: `npx tsx scripts/check-all-dashboard-data.ts`
 - **Issues debug**: `npx tsx scripts/check-issues-data.ts`
-- **Email system test**: `npx tsx scripts/test-email-system.ts` - **ÚJ!**
-- **Scheduled tasks test**: `npx tsx scripts/test-scheduled-tasks.ts` - **ÚJ!**
-- **Payment data check**: `npx tsx scripts/test-outstanding-payments.ts` - **ÚJ!**
-- **Cron logic test**: `npx tsx scripts/test-cron-logic.ts` - **ÚJ!**
+- **Email system test**: `npx tsx scripts/test-email-system.ts`
+- **Scheduled tasks test**: `npx tsx scripts/test-scheduled-tasks.ts`
+- **Payment data check**: `npx tsx scripts/test-outstanding-payments.ts`
+- **Cron logic test**: `npx tsx scripts/test-cron-logic.ts`
 
 ## FIGYELEM!
 
 ⚠️ SOHA ne változtass kódot anélkül, hogy előtte lefuttatnád a tesztelő scriptet!
 ⚠️ A szerver a 3333-as porton fut, NEM a 3000-en!
 ⚠️ PWA cache törléséhez: Settings → PWA → Cache törlése
+
+## 💾 VISSZAÁLLÍTÁSI PONTOK
+
+### v1.8.0 - Mobil Optimalizáció Teljes (2025-05-28 Éjjel) 📱 **LEGFRISSEBB**
+```bash
+git checkout v1.8.0
+```
+- **Teljes mobil támogatás**: Hamburger navigation + responsive layout
+- **Touch-friendly UI**: 44px+ touch targets, optimalizált spacing
+- **Progressive typography**: Mobile-first responsive font scaling
+- **Cross-device kompatibilitás**: iPhone SE (375px) → Desktop (1200px+)
+- **Mobil tesztelési csomag**: Automated testing + comprehensive guides
+- **Production ready**: 93% mobil score, teljes funkcionalitás
+
+### v1.7.0 - Dashboard Quick Wins + UI Fixes (2025-05-28 Este) 🚀
+```bash
+git checkout v1.7.0
+```
+- **3 fő dashboard widget**: Pénzügyi összesítő, Lejáró szerződések, Kintlévőségek
+- **Email notification rendszer**: Production ready Resend integráció
+- **Scheduled tasks**: Automatikus cron job értesítések
+- **UI/UX javítások**: Layout problémák megoldva, színes design
+- **Valós adatok**: 530K Ft bevétel, 2 kintlévőség, 1 lejáró szerződés
+
+### v1.6.0 - Quick Wins Alapok (2025-05-28 Délután) 📊
+```bash
+git checkout v1.6.0
+```
+- **Email rendszer**: Resend integráció fejlesztői móddal
+- **Alapvető dashboard widgetek**: Financial summary implementáció
+- **Notification system**: Email templates és logic
+- **Első quick wins**: Dashboard funkciók alapjai
+
+### v1.5.0 és korábbiak - Stabil alap funkciók 🏗️
+```bash
+git tag --list  # Összes verzió listája
+```
+- Alapvető CRUD műveletek
+- PWA támogatás  
+- Export funkciók
+- Authentication
+- Adatbázis struktúra
+
+## 🔄 Visszaállítási útmutató
+
+**Biztonságos visszaállítás:**
+```bash
+# 1. Mentsd a jelenlegi munkád
+git add . && git commit -m "Work in progress backup"
+
+# 2. Váltás korábbi verzióra
+git checkout v1.8.0
+
+# 3. Új branch létrehozása (ha módosítani szeretnél)
+git checkout -b feature/my-changes
+
+# 4. Visszatérés main-re
+git checkout main
+```
+
+**Vészhelyzeti visszaállítás:**
+```bash
+# Ha minden megy rosszul, térj vissza a legutóbbi stabil verzióra
+git reset --hard v1.8.0
+```
 
 ## Legutóbbi fejlesztések (2025-05-28 Este/Éjjel)
 
