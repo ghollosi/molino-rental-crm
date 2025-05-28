@@ -248,3 +248,30 @@
 - [ ] Email értesítések hibabejelentésekhez
 - [ ] PDF/Excel export jelentésekhez
 
+### 2025-05-28 - Session #6 (Search & Filter Implementation)
+**Elvégzett feladatok:**
+- ✅ Keresés és szűrés funkciók az ingatlanok oldalon
+  - Valós idejű keresés cím vagy város alapján
+  - Típus szerinti szűrés (lakás, ház, iroda, üzlet)
+  - Státusz szerinti szűrés (elérhető, bérelt, karbantartás)
+  - Szűrők törlése gomb aktív szűrők esetén
+- ✅ Keresés és szűrés funkciók a hibabejelentések oldalon
+  - Keresés cím vagy leírás alapján
+  - Státusz szerinti szűrés (nyitott, hozzárendelt, folyamatban, befejezett, lezárt)
+  - Prioritás szerinti szűrés (sürgős, magas, közepes, alacsony)
+  - Magyar nyelvű címkék és státuszok
+- ✅ Automatikus oldal visszaállítás szűrő változtatáskor
+- ✅ Egységes szűrő felület minden lista oldalon
+- ✅ Továbbfejlesztett lapozás összesítő információval
+
+**Technikai részletek:**
+- Responsive design a szűrőknél (mobil/desktop)
+- Automatikus page reset szűrő változásnál
+- Tiszta, modern UI konzisztens design nyelvvel
+- Badge komponensek színkódolása státusz/prioritás alapján
+
+**Következő lépések:**
+- [ ] Keresés és szűrés a többi lista oldalon (owners, tenants, providers, offers, contracts)
+- [ ] Email értesítések hibabejelentésekhez
+- [ ] PDF/Excel export jelentésekhez
+
