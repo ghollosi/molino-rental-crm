@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Building, Users, ClipboardList, FileText } from 'lucide-react'
 import { UserRole } from '@prisma/client'
-import { api } from '@/lib/trpc'
+import { trpc } from '@/src/lib/trpc'
 
 interface DashboardStatsProps {
   userRole: UserRole
@@ -11,18 +11,18 @@ interface DashboardStatsProps {
 
 export function DashboardStats({ userRole }: DashboardStatsProps) {
   // Fetch real data
-  const { data: properties } = api.property.list.useQuery({ page: 1, limit: 1 })
-  const { data: issues } = api.issue.list.useQuery({ 
+  const { data: properties } = trpc.property.list.useQuery({ page: 1, limit: 1 })
+  const { data: issues } = trpc.issue.list.useQuery({ 
     page: 1, 
     limit: 1,
     status: 'OPEN'
   })
-  const { data: offers } = api.offer.list.useQuery({ 
+  const { data: offers } = trpc.offer.list.useQuery({ 
     page: 1, 
     limit: 1,
     status: 'SENT'
   })
-  const { data: tenants } = api.tenant.list.useQuery({
+  const { data: tenants } = trpc.tenant.list.useQuery({
     page: 1,
     limit: 1,
     isActive: true

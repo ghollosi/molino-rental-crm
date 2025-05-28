@@ -52,30 +52,28 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
   const { data: issuesByCategory, isLoading: isLoadingCategories } = trpc.analytics.issuesByCategory.useQuery()
 
 
-  // Fallback data if API is loading
+  // Fallback data if API is loading (based on real data)
   const defaultIssuesByMonth = [
-    { month: 'Jan', issues: 12, resolved: 8 },
-    { month: 'Feb', issues: 19, resolved: 15 },
-    { month: 'Már', issues: 15, resolved: 12 },
-    { month: 'Ápr', issues: 25, resolved: 20 },
-    { month: 'Máj', issues: 32, resolved: 28 },
-    { month: 'Jún', issues: 18, resolved: 16 }
+    { month: 'Dec', issues: 0, resolved: 0 },
+    { month: 'Jan', issues: 0, resolved: 0 },
+    { month: 'Feb', issues: 0, resolved: 0 },
+    { month: 'Már', issues: 0, resolved: 0 },
+    { month: 'Ápr', issues: 0, resolved: 0 },
+    { month: 'Máj', issues: 2, resolved: 0 }
   ]
 
   const mockPropertiesByStatus = [
-    { name: 'Elérhető', value: 15, color: COLORS.secondary },
-    { name: 'Bérelt', value: 45, color: COLORS.primary },
-    { name: 'Karbantartás', value: 8, color: COLORS.warning },
-    { name: 'Nem elérhető', value: 3, color: COLORS.danger }
+    { name: 'Elérhető', value: 2, color: COLORS.secondary },
+    { name: 'Bérelt', value: 2, color: COLORS.primary }
   ]
 
   const mockRevenueByMonth = [
-    { month: 'Jan', revenue: 125000, expenses: 45000 },
-    { month: 'Feb', revenue: 132000, expenses: 48000 },
-    { month: 'Már', revenue: 128000, expenses: 52000 },
-    { month: 'Ápr', revenue: 145000, expenses: 49000 },
-    { month: 'Máj', revenue: 158000, expenses: 51000 },
-    { month: 'Jún', revenue: 167000, expenses: 53000 }
+    { month: 'Dec', revenue: 530000, expenses: 159000 },
+    { month: 'Jan', revenue: 530000, expenses: 159000 },
+    { month: 'Feb', revenue: 530000, expenses: 159000 },
+    { month: 'Már', revenue: 530000, expenses: 159000 },
+    { month: 'Ápr', revenue: 530000, expenses: 159000 },
+    { month: 'Máj', revenue: 530000, expenses: 159000 }
   ]
 
   const mockIssuesByCategory = [

@@ -3,14 +3,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Building, Users, ClipboardList, FileText, TrendingUp, TrendingDown, Activity } from 'lucide-react'
 import { UserRole } from '@prisma/client'
-import { api } from '@/lib/trpc'
+import { trpc } from '@/src/lib/trpc'
 
 interface EnhancedDashboardStatsProps {
   userRole: UserRole
 }
 
 export function EnhancedDashboardStats({ userRole }: EnhancedDashboardStatsProps) {
-  const { data: stats } = api.analytics.dashboardStats.useQuery()
+  const { data: stats } = trpc.analytics.dashboardStats.useQuery()
 
   const statCards = [
     {

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { MapPin, Users, AlertCircle } from 'lucide-react'
 import { UserRole } from '@prisma/client'
 import Link from 'next/link'
-import { api } from '@/lib/trpc'
+import { trpc } from '@/src/lib/trpc'
 import { ClientCurrency } from '@/lib/format-date'
 
 interface PropertyOverviewProps {
@@ -14,7 +14,7 @@ interface PropertyOverviewProps {
 }
 
 export function PropertyOverview({ userRole }: PropertyOverviewProps) {
-  const { data } = api.property.list.useQuery({
+  const { data } = trpc.property.list.useQuery({
     page: 1,
     limit: 5,
   })

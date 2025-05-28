@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
-import { api } from '@/lib/trpc'
+import { trpc } from '@/src/lib/trpc'
 import Link from 'next/link'
 
 export function RegisterForm() {
@@ -27,7 +27,7 @@ export function RegisterForm() {
   const [success, setSuccess] = useState('')
   const router = useRouter()
 
-  const registerMutation = api.auth.register.useMutation({
+  const registerMutation = trpc.auth.register.useMutation({
     onSuccess: () => {
       setSuccess('Sikeres regisztráció! Átirányítás a bejelentkezési oldalra...')
       setTimeout(() => {
