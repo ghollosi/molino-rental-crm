@@ -98,22 +98,29 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
   }
 
   return (
-    <div className="space-y-6">
-      {/* Hibabejelentések trends */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="space-y-4 md:space-y-6">
+      {/* Hibabejelentések trends - stack on mobile */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Hibabejelentések trendje</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg md:text-xl">Hibabejelentések trendje</CardTitle>
+            <CardDescription className="text-sm">
               Havi hibabejelentések és megoldások száma
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}>
               <BarChart data={issueStats || defaultIssuesByMonth}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis />
+                <XAxis 
+                  dataKey="month" 
+                  fontSize={12}
+                  tick={{ fontSize: 12 }}
+                />
+                <YAxis 
+                  fontSize={12}
+                  tick={{ fontSize: 12 }}
+                />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="issues" fill={COLORS.warning} name="Beérkezett" />
                 <Bar dataKey="resolved" fill={COLORS.secondary} name="Megoldott" />
@@ -125,13 +132,13 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
         {/* Ingatlanok státusz megoszlása */}
         <Card>
           <CardHeader>
-            <CardTitle>Ingatlanok állapota</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg md:text-xl">Ingatlanok állapota</CardTitle>
+            <CardDescription className="text-sm">
               Ingatlanok megoszlása státusz szerint
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
                   data={propertyStats || mockPropertiesByStatus}
@@ -139,9 +146,10 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
                   cy="50%"
                   labelLine={false}
                   label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                  outerRadius={80}
+                  outerRadius={70}
                   fill="#8884d8"
                   dataKey="value"
+                  fontSize={12}
                 >
                   {(propertyStats || mockPropertiesByStatus).map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -154,20 +162,28 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
         </Card>
       </div>
 
-      {/* Bevételek és kiadások */}
+      {/* Bevételek és kiadások - reduced height on mobile */}
       <Card>
         <CardHeader>
-          <CardTitle>Pénzügyi áttekintés</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-lg md:text-xl">Pénzügyi áttekintés</CardTitle>
+          <CardDescription className="text-sm">
             Havi bevételek és kiadások trendje
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={revenueStats || mockRevenueByMonth}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis tickFormatter={(value) => `${(value / 1000).toFixed(0)}K Ft`} />
+              <XAxis 
+                dataKey="month" 
+                fontSize={12}
+                tick={{ fontSize: 12 }}
+              />
+              <YAxis 
+                tickFormatter={(value) => `${(value / 1000).toFixed(0)}K`} 
+                fontSize={12}
+                tick={{ fontSize: 12 }}
+              />
               <Tooltip 
                 content={<CustomTooltip />}
                 formatter={(value: number) => [`${value.toLocaleString()} Ft`, '']}
@@ -195,34 +211,44 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
         </CardContent>
       </Card>
 
-      {/* Hibabejelentések kategória szerint */}
+      {/* Hibabejelentések kategória szerint - mobile friendly */}
       <Card>
         <CardHeader>
-          <CardTitle>Hibabejelentések kategóriák szerint</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-lg md:text-xl">Hibabejelentések kategóriák szerint</CardTitle>
+          <CardDescription className="text-sm">
             A leggyakoribb hibabejelentési kategóriák
           </CardDescription>
         </CardHeader>
         <CardContent>
           {isLoadingCategories ? (
-            <div className="flex items-center justify-center h-[300px]">
-              <div className="text-muted-foreground">Betöltés...</div>
+            <div className="flex items-center justify-center h-[250px]">
+              <div className="text-muted-foreground text-sm">Betöltés...</div>
             </div>
           ) : (issuesByCategory && issuesByCategory.length > 0) || (mockIssuesByCategory && mockIssuesByCategory.length > 0) ? (
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250}>
               <BarChart data={issuesByCategory || mockIssuesByCategory}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="category" />
-                <YAxis />
+                <XAxis 
+                  dataKey="category" 
+                  fontSize={10}
+                  tick={{ fontSize: 10 }}
+                  angle={-45}
+                  textAnchor="end"
+                  height={60}
+                />
+                <YAxis 
+                  fontSize={12}
+                  tick={{ fontSize: 12 }}
+                />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="count" fill={COLORS.primary} name="Hibabejelentések" />
               </BarChart>
             </ResponsiveContainer>
           ) : (
-            <div className="flex items-center justify-center h-[300px] text-muted-foreground">
+            <div className="flex items-center justify-center h-[250px] text-muted-foreground">
               <div className="text-center">
-                <p>Nincs hibabejelentés az adatbázisban</p>
-                <p className="text-sm mt-1">Hibabejelentések létrehozása után itt jelennek meg a statisztikák</p>
+                <p className="text-sm">Nincs hibabejelentés az adatbázisban</p>
+                <p className="text-xs mt-1">Hibabejelentések létrehozása után itt jelennek meg a statisztikák</p>
               </div>
             </div>
           )}

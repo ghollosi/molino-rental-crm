@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T16:54:27.575Z",
+  "timestamp": "2025-05-28T17:24:27.723Z",
   "lastCommand": "start",
-  "currentFile": "none",
-  "gitStatus": "",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M app/dashboard/layout.tsx\n M app/dashboard/page.tsx\n M src/components/dashboard/dashboard-charts.tsx\n M src/components/dashboard/enhanced-dashboard-stats.tsx\n M src/components/dashboard/expiring-contracts.tsx\n M src/components/dashboard/financial-summary.tsx\n M src/components/dashboard/outstanding-payments.tsx\n M src/components/dashboard/property-overview.tsx\n M src/components/dashboard/quick-actions.tsx\n M src/components/dashboard/recent-issues.tsx\n M src/components/layouts/header.tsx\n M src/components/layouts/sidebar.tsx\n M src/contexts/sidebar-context.tsx\n?? scripts/mobile-test-automated.js\n?? scripts/mobile-test-guide.md\n?? scripts/mobile-test-report.md",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

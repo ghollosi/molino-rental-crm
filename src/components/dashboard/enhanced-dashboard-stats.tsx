@@ -93,37 +93,37 @@ export function EnhancedDashboardStats({ userRole }: EnhancedDashboardStatsProps
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
       {filteredStats.map((stat) => {
         const colors = getColorClasses(stat.color)
         
         return (
           <Card key={stat.title} className="overflow-hidden">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-xs md:text-sm font-medium text-gray-600 leading-tight">
                 {stat.title}
               </CardTitle>
-              <div className={`p-2 rounded-lg ${colors.bg}`}>
-                <stat.icon className={`h-4 w-4 ${colors.icon}`} />
+              <div className={`p-1.5 md:p-2 rounded-lg ${colors.bg}`}>
+                <stat.icon className={`h-3 w-3 md:h-4 md:w-4 ${colors.icon}`} />
               </div>
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-gray-900 mb-1">
+            <CardContent className="pt-0">
+              <div className="text-lg md:text-2xl font-bold text-gray-900 mb-1">
                 {stat.value.toLocaleString()}
               </div>
-              <p className="text-xs text-gray-500 mb-3">
+              <p className="text-xs text-gray-500 mb-2 md:mb-3">
                 {stat.subtitle}
               </p>
               
-              {/* Trend indicator */}
+              {/* Trend indicator - simplified on mobile */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-1">
                   {getTrendIcon(stat.trend)}
                   <span className="text-xs font-medium">
-                    {stat.trend.toFixed(1)}%
+                    {stat.trend.toFixed(0)}%
                   </span>
                 </div>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-400 hidden md:inline">
                   {stat.trendLabel}
                 </span>
               </div>

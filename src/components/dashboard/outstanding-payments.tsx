@@ -124,20 +124,32 @@ export function OutstandingPayments() {
                   </span>
                 </div>
 
-                {/* Action buttons */}
-                <div className="flex items-center gap-2">
-                  <Button size="sm" variant="outline" className="flex-1" asChild>
+                {/* Action buttons - mobile optimized */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="flex-1 h-10 sm:h-8 text-sm" 
+                    asChild
+                  >
                     <Link href={`mailto:${payment.tenantEmail}?subject=Fizetési emlékeztető&body=Kedves ${payment.tenantName},%0A%0AEmlékezzük, hogy a ${payment.propertyAddress} bérleti díja (${payment.amount.toLocaleString('hu-HU')} Ft) esedékes.%0A%0AKöszönjük!`}>
-                      <Mail className="h-3 w-3 mr-1" />
-                      Email küldés
+                      <Mail className="h-4 w-4 mr-2" />
+                      <span className="hidden sm:inline">Email küldés</span>
+                      <span className="sm:hidden">Email</span>
                     </Link>
                   </Button>
                   
                   {payment.tenantPhone && (
-                    <Button size="sm" variant="outline" className="flex-1" asChild>
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1 h-10 sm:h-8 text-sm" 
+                      asChild
+                    >
                       <Link href={`tel:${payment.tenantPhone}`}>
-                        <Phone className="h-3 w-3 mr-1" />
-                        Telefonhívás
+                        <Phone className="h-4 w-4 mr-2" />
+                        <span className="hidden sm:inline">Telefonhívás</span>
+                        <span className="sm:hidden">Hívás</span>
                       </Link>
                     </Button>
                   )}

@@ -55,24 +55,24 @@ export function QuickActions({ userRole }: QuickActionsProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Gyors műveletek</CardTitle>
+        <CardTitle className="text-lg md:text-xl">Gyors műveletek</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 gap-3">
+        <div className="grid grid-cols-1 gap-2 md:gap-3">
           {actions.map((action) => (
             <Button
               key={action.title}
               variant="outline"
-              className="h-auto p-4 justify-start"
+              className="h-auto p-3 md:p-4 justify-start text-left"
               asChild
             >
               <Link href={action.href}>
-                <div className={`p-2 rounded-md ${action.color} mr-4`}>
-                  <action.icon className="h-5 w-5 text-white" />
+                <div className={`p-1.5 md:p-2 rounded-md ${action.color} mr-3 md:mr-4 flex-shrink-0`}>
+                  <action.icon className="h-4 w-4 md:h-5 md:w-5 text-white" />
                 </div>
-                <div className="text-left">
-                  <div className="font-medium">{action.title}</div>
-                  <div className="text-sm text-gray-500">{action.description}</div>
+                <div className="min-w-0 flex-1">
+                  <div className="font-medium text-sm md:text-base truncate">{action.title}</div>
+                  <div className="text-xs md:text-sm text-gray-500 truncate">{action.description}</div>
                 </div>
               </Link>
             </Button>

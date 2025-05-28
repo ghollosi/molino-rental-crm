@@ -35,38 +35,95 @@ const navigation = [
 
 export function Sidebar() {
   const pathname = usePathname()
-  const { isCollapsed, toggleCollapse } = useSidebar()
+  const { isCollapsed, toggleCollapse, isMobileOpen, setIsMobileOpen } = useSidebar()
 
   return (
-    <div className={cn(
-      "hidden md:flex md:flex-col md:fixed md:inset-y-0 transition-all duration-300",
-      isCollapsed ? "md:w-20" : "md:w-64"
-    )}>
-      <div className="flex flex-col flex-grow bg-white border-r border-gray-200 overflow-y-auto">
-        <div className="flex items-center flex-shrink-0 px-4 py-6 relative">
-          {!isCollapsed && (
-            <h1 className="text-xl font-bold text-gray-900">
-              Molino RENTAL
-            </h1>
-          )}
-          {isCollapsed && (
-            <h1 className="text-xl font-bold text-gray-900 text-center w-full">
-              MR
-            </h1>
-          )}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-white border border-gray-200 shadow-sm hover:shadow-md"
-            onClick={toggleCollapse}
-          >
-            {isCollapsed ? (
-              <ChevronRight className="h-4 w-4" />
-            ) : (
-              <ChevronLeft className="h-4 w-4" />
-            )}
-          </Button>
+    <>
+      {/* Mobile sidebar overlay */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setIsMobileOpen(false)} />
+          <div className="relative flex-1 flex flex-col max-w-xs w-full bg-white">
+            <div className="absolute top-0 right-0 -mr-12 pt-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-1 h-10 w-10 text-white"
+                onClick={() => setIsMobileOpen(false)}
+              >
+                <span className="sr-only">Close sidebar</span>
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+            </div>
+            <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+              <div className="flex-shrink-0 flex items-center px-4">
+                <h1 className="text-xl font-bold text-gray-900">
+                  Molino RENTAL
+                </h1>
+              </div>
+              <nav className="mt-5 flex-1 px-2 space-y-1">
+                {navigation.map((item) => {
+                  const isActive = item.href === '/dashboard' 
+                    ? pathname === '/dashboard'
+                    : pathname?.startsWith(item.href)
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMobileOpen(false)}
+                      className={cn(
+                        'group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors',
+                        isActive
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      )}
+                    >
+                      <item.icon
+                        className={cn(
+                          'mr-3 h-5 w-5 flex-shrink-0',
+                          isActive ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'
+                        )}
+                      />
+                      <span className="truncate">{item.name}</span>
+                    </Link>
+                  )
+                })}
+              </nav>
+            </div>
+          </div>
         </div>
+      )}
+
+      {/* Desktop sidebar */}
+      <div className={cn(
+        "hidden md:flex md:flex-col md:fixed md:inset-y-0 transition-all duration-300 z-30",
+        isCollapsed ? "md:w-20" : "md:w-64"
+      )}>
+        <div className="flex flex-col flex-grow bg-white border-r border-gray-200 overflow-y-auto">
+          <div className="flex items-center flex-shrink-0 px-4 py-6 relative">
+            {!isCollapsed && (
+              <h1 className="text-xl font-bold text-gray-900">
+                Molino RENTAL
+              </h1>
+            )}
+            {isCollapsed && (
+              <h1 className="text-xl font-bold text-gray-900 text-center w-full">
+                MR
+              </h1>
+            )}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-white border border-gray-200 shadow-sm hover:shadow-md"
+              onClick={toggleCollapse}
+            >
+              {isCollapsed ? (
+                <ChevronRight className="h-4 w-4" />
+              ) : (
+                <ChevronLeft className="h-4 w-4" />
+              )}
+            </Button>
+          </div>
         <div className="flex-grow flex flex-col">
           <nav className="flex-1 px-2 space-y-1">
             {navigation.map((item) => {
@@ -103,5 +160,6 @@ export function Sidebar() {
         </div>
       </div>
     </div>
+    </>
   )
 }

@@ -113,10 +113,16 @@ export function ExpiringContracts() {
                   </span>
                 </div>
 
-                {/* Action button */}
-                <Button size="sm" variant="outline" className="w-full" asChild>
+                {/* Action button - mobile optimized */}
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="w-full h-10 sm:h-8 text-sm" 
+                  asChild
+                >
                   <Link href={`/dashboard/contracts/${contract.id}`}>
-                    Szerződés megtekintése
+                    <span className="hidden sm:inline">Szerződés megtekintése</span>
+                    <span className="sm:hidden">Megtekintés</span>
                   </Link>
                 </Button>
               </div>

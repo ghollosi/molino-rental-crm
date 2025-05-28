@@ -10,13 +10,15 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Bell, LogOut, Settings, User } from 'lucide-react'
+import { Bell, LogOut, Settings, User, Menu } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
+import { useSidebar } from '@/contexts/sidebar-context'
 
 export function Header() {
   const router = useRouter()
   const { data: session } = useSession()
+  const { toggle } = useSidebar()
 
   const handleSignOut = async () => {
     await signOut({ redirect: false })
@@ -25,8 +27,17 @@ export function Header() {
 
   return (
     <header className="bg-white border-b border-gray-200">
-      <div className="flex items-center justify-between px-6 py-4">
+      <div className="flex items-center justify-between px-4 md:px-6 py-4">
         <div className="flex items-center space-x-4">
+          {/* Mobile menu button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggle}
+            className="md:hidden"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
           <h2 className="text-lg font-semibold text-gray-900">
             Vezérlőpult
           </h2>

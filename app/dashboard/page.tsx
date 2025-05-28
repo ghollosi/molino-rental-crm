@@ -21,35 +21,50 @@ export default function DashboardPage() {
   // Session loaded
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">
+    <div className="space-y-4 md:space-y-6">
+      {/* Header - mobile optimized */}
+      <div className="px-4 md:px-0">
+        <h1 className="text-xl md:text-3xl font-bold text-gray-900 leading-tight">
           Üdvözöljük, {session.user.name}!
         </h1>
-        <p className="text-gray-600">
+        <p className="text-sm md:text-base text-gray-600 mt-1 md:mt-2 leading-relaxed">
           Itt van egy áttekintés a rendszer aktuális állapotáról.
         </p>
       </div>
 
-      <EnhancedDashboardStats userRole={session.user.role} />
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <FinancialSummary userRole={session.user.role} />
-        <ExpiringContracts />
+      {/* Stats - mobile responsive */}
+      <div className="px-4 md:px-0">
+        <EnhancedDashboardStats userRole={session.user.role} />
       </div>
 
-      <div className="grid grid-cols-1 gap-6">
-        <OutstandingPayments />
+      {/* Main widgets - stack on mobile, side by side on tablet+ */}
+      <div className="space-y-4 md:space-y-6 px-4 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <FinancialSummary userRole={session.user.role} />
+          <ExpiringContracts />
+        </div>
+
+        {/* Outstanding payments - full width on all devices */}
+        <div className="grid grid-cols-1 gap-4 md:gap-6">
+          <OutstandingPayments />
+        </div>
       </div>
 
-      <DashboardCharts userRole={session.user.role} />
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <RecentIssues userRole={session.user.role} />
-        <QuickActions userRole={session.user.role} />
+      {/* Charts - mobile optimized */}
+      <div className="px-4 md:px-0">
+        <DashboardCharts userRole={session.user.role} />
       </div>
 
-      <PropertyOverview userRole={session.user.role} />
+      {/* Secondary widgets - stack on mobile */}
+      <div className="space-y-4 md:space-y-6 px-4 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <RecentIssues userRole={session.user.role} />
+          <QuickActions userRole={session.user.role} />
+        </div>
+
+        {/* Property overview - full width */}
+        <PropertyOverview userRole={session.user.role} />
+      </div>
     </div>
   )
 }

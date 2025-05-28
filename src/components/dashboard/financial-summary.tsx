@@ -42,15 +42,15 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
         <CardDescription>Bevételek és kintlévőségek áttekintése</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {/* Első sor: Havi és Éves bevétel */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="p-3 md:p-4 bg-green-50 border border-green-200 rounded-lg">
               <div className="flex items-center text-sm font-medium text-green-800 mb-1">
                 <DollarSign className="mr-1 h-3 w-3" />
                 Havi bevétel
               </div>
-              <div className="text-xl font-bold text-green-900">
+              <div className="text-lg md:text-xl font-bold text-green-900">
                 {data.monthlyRevenue.toLocaleString('hu-HU')} Ft
               </div>
               <div className="text-xs text-green-600">
@@ -58,12 +58,12 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
               </div>
             </div>
 
-            <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="p-3 md:p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <div className="flex items-center text-sm font-medium text-blue-800 mb-1">
                 <DollarSign className="mr-1 h-3 w-3" />
                 Éves bevétel
               </div>
-              <div className="text-xl font-bold text-blue-900">
+              <div className="text-lg md:text-xl font-bold text-blue-900">
                 {data.yearlyRevenue.toLocaleString('hu-HU')} Ft
               </div>
               <div className="text-xs text-blue-600">
@@ -73,13 +73,13 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
           </div>
 
           {/* Második sor: Kintlévőségek és Kihasználtság */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="p-3 md:p-4 bg-orange-50 border border-orange-200 rounded-lg">
               <div className="flex items-center text-sm font-medium text-orange-800 mb-1">
                 <AlertCircle className="mr-1 h-3 w-3" />
                 Kintlévőségek
               </div>
-              <div className="text-xl font-bold text-orange-900">
+              <div className="text-lg md:text-xl font-bold text-orange-900">
                 {data.outstandingPayments.toLocaleString('hu-HU')} Ft
               </div>
               <div className="text-xs text-orange-600">
@@ -87,12 +87,12 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
               </div>
             </div>
 
-            <div className="p-3 bg-purple-50 border border-purple-200 rounded-lg">
+            <div className="p-3 md:p-4 bg-purple-50 border border-purple-200 rounded-lg">
               <div className="flex items-center text-sm font-medium text-purple-800 mb-1">
                 <TrendingUp className="mr-1 h-3 w-3" />
                 Kihasználtság
               </div>
-              <div className="text-xl font-bold text-purple-900">
+              <div className="text-lg md:text-xl font-bold text-purple-900">
                 {data.occupancyRate}%
               </div>
               <div className="text-xs text-purple-600">
