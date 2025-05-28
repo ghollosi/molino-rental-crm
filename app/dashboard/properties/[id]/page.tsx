@@ -160,6 +160,26 @@ export default function PropertyDetailPage() {
             </CardContent>
           </Card>
 
+          {property.photos && property.photos.length > 0 && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Képek</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {property.photos.map((photo, index) => (
+                    <img
+                      key={index}
+                      src={photo}
+                      alt={`${property.street} - ${index + 1}`}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
           <Tabs defaultValue="issues" className="w-full">
             <TabsList>
               <TabsTrigger value="issues">

@@ -60,3 +60,40 @@
  GET /dashboard/settings 200 in 331ms
  GET /api/auth/session 200 in 15ms
  GET /api/auth/session 200 in 5ms
+ ✓ Compiled in 2.7s (662 modules)
+ GET /dashboard/settings 200 in 48ms
+ ✓ Compiled in 901ms (662 modules)
+ GET /dashboard/settings 200 in 53ms
+ ✓ Compiled in 369ms (662 modules)
+ GET /dashboard/settings 200 in 23ms
+ ✓ Compiled in 367ms (662 modules)
+ GET /dashboard/settings 200 in 51ms
+ GET /api/auth/session 200 in 75ms
+ GET /api/auth/session 200 in 5ms
+ ✓ Compiled in 322ms (662 modules)
+ GET /dashboard/settings 200 in 16ms
+ ✓ Compiled in 513ms (1569 modules)
+ GET /dashboard/settings 200 in 71ms
+ ✓ Compiled in 272ms (662 modules)
+ GET /dashboard/settings 200 in 12ms
+ ✓ Compiled in 367ms (662 modules)
+ GET /dashboard/settings 200 in 40ms
+ ✓ Compiled in 2.7s (1650 modules)
+ GET /dashboard/settings 200 in 1408ms
+ GET /dashboard/settings 200 in 9ms
+ ✓ Compiled in 804ms (662 modules)
+ GET /dashboard/settings 200 in 47ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 710ms (907 modules)
+ GET /api/auth/session 200 in 1155ms
+ GET /api/auth/session 200 in 13ms
+ GET /dashboard/settings 200 in 1016ms
+ GET /api/auth/session 200 in 68ms
+ GET /api/auth/session 200 in 40ms
+ ✓ Compiled in 1174ms (662 modules)
+ GET /dashboard 200 in 91ms
+ GET /dashboard 200 in 40ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1966ms (969 modules)
+ GET /dashboard 200 in 345ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 7285ms

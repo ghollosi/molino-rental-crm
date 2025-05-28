@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { ArrowLeft, Loader2, Plus } from 'lucide-react'
 import { api } from '@/lib/trpc'
+import { ImageUpload } from '@/components/ui/image-upload'
 
 const propertySchema = z.object({
   street: z.string().min(1, 'Kötelező megadni a címet'),
@@ -27,6 +28,7 @@ const propertySchema = z.object({
   rentAmount: z.string().optional().transform(val => val ? parseFloat(val) : undefined),
   currency: z.string().default('HUF'),
   ownerId: z.string().min(1, 'Kötelező megadni a tulajdonost'),
+  photos: z.array(z.string()).optional().default([]),
 })
 
 type PropertyFormData = z.input<typeof propertySchema>
@@ -34,6 +36,7 @@ type PropertyFormData = z.input<typeof propertySchema>
 export default function NewPropertyPage() {
   const router = useRouter()
   const [error, setError] = useState('')
+  const [photos, setPhotos] = useState<string[]>([])
 
   const {
     register,
@@ -46,6 +49,7 @@ export default function NewPropertyPage() {
     defaultValues: {
       currency: 'HUF',
       country: 'Magyarország',
+      photos: [],
     },
   })
 
@@ -273,6 +277,25 @@ export default function NewPropertyPage() {
                 </Select>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Képek</CardTitle>
+            <CardDescription>
+              Töltsön fel képeket az ingatlanról
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ImageUpload
+              value={photos}
+              onChange={(newPhotos) => {
+                setPhotos(newPhotos)
+                setValue('photos', newPhotos)
+              }}
+              maxFiles={10}
+            />
           </CardContent>
         </Card>
 

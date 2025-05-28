@@ -16,6 +16,7 @@ const PropertyCreateSchema = z.object({
   floor: z.number().int().optional(),
   rentAmount: z.number().positive().optional(),
   currency: z.string().default('EUR'),
+  photos: z.array(z.string()).optional().default([]),
 })
 
 export const propertyRouter = createTRPCRouter({

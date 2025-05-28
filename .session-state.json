@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T05:04:25.547Z",
+  "timestamp": "2025-05-28T05:14:25.560Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M PROGRESS.md\n M app/dashboard/layout.tsx\n M dev.log\n M src/components/layouts/sidebar.tsx\n M src/server/routers/_app.ts\n?? .checkpoints/20250527_200235/\n?? src/contexts/",
+  "gitStatus": "M .session-state.json\n M app/dashboard/properties/new/page.tsx\n M dev.log\n M src/server/routers/property.ts\n?? .checkpoints/20250528_070909/\n?? app/api/upload/\n?? src/components/ui/image-upload.tsx",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
