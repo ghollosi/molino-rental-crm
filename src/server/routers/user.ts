@@ -135,8 +135,15 @@ export const userRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const { id, ...data } = input
 
+      console.log('=== USER UPDATE BACKEND DEBUG ===')
+      console.log('Input:', input)
+      console.log('Session user ID:', ctx.session.user.id)
+      console.log('Target user ID:', id)
+      console.log('Session user role:', ctx.session.user.role)
+
       // Users can only update their own profile or admins can update any
       if (ctx.session.user.id !== id && !['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+        console.error('Permission denied - user trying to update different user')
         throw new TRPCError({
           code: 'FORBIDDEN',
           message: 'Insufficient permissions',
@@ -148,21 +155,32 @@ export const userRouter = createTRPCRouter({
         Object.entries(data).filter(([_, value]) => value !== undefined)
       )
 
-      const user = await ctx.db.user.update({
-        where: { id },
-        data: updateData,
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          phone: true,
-          language: true,
-          role: true,
-          updatedAt: true,
-        },
-      })
+      console.log('Filtered update data:', updateData)
 
-      return user
+      try {
+        const user = await ctx.db.user.update({
+          where: { id },
+          data: updateData,
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            phone: true,
+            language: true,
+            role: true,
+            updatedAt: true,
+          },
+        })
+
+        console.log('Database update successful:', user)
+        return user
+      } catch (error) {
+        console.error('Database update failed:', error)
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to update user',
+        })
+      }
     }),
 
   updateRole: protectedProcedure

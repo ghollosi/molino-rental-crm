@@ -42,8 +42,11 @@ export default function SettingsPage() {
 
   const updateUserMutation = api.user.update.useMutation({
     onSuccess: async (updatedUser) => {
+      console.log('User updated successfully:', updatedUser)
+      console.log('Current session before update:', session)
+      
       // Update the session with new data
-      await update({
+      const newSessionData = {
         ...session,
         user: {
           ...session?.user,
@@ -51,7 +54,11 @@ export default function SettingsPage() {
           email: profileData.email,
           phone: profileData.phone
         }
-      })
+      }
+      
+      console.log('New session data:', newSessionData)
+      
+      await update(newSessionData)
       
       toast({
         title: "Siker",
@@ -74,19 +81,31 @@ export default function SettingsPage() {
     setError(null)
     
     if (section === 'Profil') {
+      console.log('=== PROFILE SAVE DEBUG ===')
+      console.log('Session:', session)
+      console.log('Session user ID:', session?.user?.id)
+      console.log('Profile data:', profileData)
+      
       if (!session?.user?.id) {
+        console.error('Missing user ID!')
         setError('Felhasználó azonosító hiányzik')
         return
       }
 
+      const updateData = {
+        id: session.user.id,
+        name: `${profileData.firstName} ${profileData.lastName}`.trim(),
+        email: profileData.email,
+        phone: profileData.phone || undefined
+      }
+      
+      console.log('Update data to send:', updateData)
+
       try {
-        await updateUserMutation.mutateAsync({
-          id: session.user.id,
-          name: `${profileData.firstName} ${profileData.lastName}`.trim(),
-          email: profileData.email,
-          phone: profileData.phone || undefined
-        })
+        const result = await updateUserMutation.mutateAsync(updateData)
+        console.log('Update result:', result)
       } catch (error) {
+        console.error('Update error:', error)
         // Error is handled in onError callback
       }
     } else {

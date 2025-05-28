@@ -15,6 +15,10 @@ export default function DashboardPage() {
     return <div>Loading...</div>
   }
 
+  // Debug: log session data
+  console.log('Dashboard session:', session)
+  console.log('User name:', session.user.name)
+
   return (
     <div className="space-y-6">
       <div>
