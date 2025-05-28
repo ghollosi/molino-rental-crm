@@ -114,10 +114,10 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="container mx-auto py-6 px-4">
+    <div className="space-y-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Beállítások</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Beállítások</h1>
+        <p className="text-sm sm:text-base text-gray-600">
           Rendszer és fiók beállítások kezelése
         </p>
       </div>
@@ -137,30 +137,30 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="profile" className="flex items-center space-x-2">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1">
+          <TabsTrigger value="profile" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
             <User className="h-4 w-4" />
-            <span>Profil</span>
+            <span className="text-xs">Profil</span>
           </TabsTrigger>
-          <TabsTrigger value="company" className="flex items-center space-x-2">
+          <TabsTrigger value="company" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
             <Building className="h-4 w-4" />
-            <span>Cég</span>
+            <span className="text-xs">Cég</span>
           </TabsTrigger>
-          <TabsTrigger value="email" className="flex items-center space-x-2">
+          <TabsTrigger value="email" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
             <Mail className="h-4 w-4" />
-            <span>Email</span>
+            <span className="text-xs">Email</span>
           </TabsTrigger>
-          <TabsTrigger value="notifications" className="flex items-center space-x-2">
+          <TabsTrigger value="notifications" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
             <Bell className="h-4 w-4" />
-            <span>Értesítések</span>
+            <span className="text-xs">Értesítés</span>
           </TabsTrigger>
-          <TabsTrigger value="workflow" className="flex items-center space-x-2">
+          <TabsTrigger value="workflow" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
             <Workflow className="h-4 w-4" />
-            <span>Workflow</span>
+            <span className="text-xs">Workflow</span>
           </TabsTrigger>
-          <TabsTrigger value="security" className="flex items-center space-x-2">
+          <TabsTrigger value="security" className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 py-2 px-1">
             <Shield className="h-4 w-4" />
-            <span>Biztonság</span>
+            <span className="text-xs">Biztonság</span>
           </TabsTrigger>
         </TabsList>
 
@@ -173,7 +173,7 @@ export default function SettingsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName">Keresztnév</Label>
                   <Input 
@@ -248,7 +248,7 @@ export default function SettingsPage() {
                 <Input id="companyName" defaultValue="Molino RENTAL Kft." />
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="taxNumber">Adószám</Label>
                   <Input id="taxNumber" defaultValue="12345678-1-42" />
@@ -264,7 +264,7 @@ export default function SettingsPage() {
                 <Input id="address" defaultValue="Váci út 1., 1133 Budapest" />
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="companyEmail">E-mail</Label>
                   <Input id="companyEmail" type="email" defaultValue="info@molino-rental.hu" />
@@ -354,7 +354,7 @@ export default function SettingsPage() {
 
               <div className="border-t pt-6">
                 <h4 className="font-medium mb-3">Email konfiguráció</h4>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                   <div>
                     <Label>Szolgáltató</Label>
                     <div className="font-mono text-gray-600">Resend</div>

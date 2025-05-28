@@ -159,10 +159,10 @@ export default function ReportsPage() {
   }, [dashboardStats, propertiesByStatus])
 
   return (
-    <div className="container mx-auto py-6 px-4">
+    <div className="space-y-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Jelentések</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Jelentések</h1>
+        <p className="text-sm sm:text-base text-gray-600">
           Részletes jelentések és statisztikák az ingatlankezelésről
         </p>
       </div>
@@ -171,20 +171,21 @@ export default function ReportsPage() {
       <div className="mb-6">
         <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
           <CardContent className="p-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-100 rounded-lg">
-                  <TrendingUp className="h-8 w-8 text-blue-600" />
+                <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
+                  <TrendingUp className="h-6 sm:h-8 w-6 sm:w-8 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">Részletes analitika</h3>
-                  <p className="text-gray-600">Interaktív grafikonok és statisztikák</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Részletes analitika</h3>
+                  <p className="text-sm sm:text-base text-gray-600">Interaktív grafikonok és statisztikák</p>
                 </div>
               </div>
-              <Button asChild>
+              <Button asChild size="sm" className="w-full sm:w-auto">
                 <Link href="/dashboard/reports/analytics">
                   <BarChart3 className="h-4 w-4 mr-2" />
-                  Analitika megtekintése
+                  <span className="hidden sm:inline">Analitika megtekintése</span>
+                  <span className="sm:hidden">Megtekintés</span>
                 </Link>
               </Button>
             </div>
@@ -192,7 +193,7 @@ export default function ReportsPage() {
         </Card>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
         {reports.map((report) => {
           const IconComponent = report.icon
           return (

@@ -45,24 +45,25 @@ export default function ContractsPage() {
   }
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
-      <div className="flex justify-between items-center">
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Szerződések</h1>
-          <p className="text-gray-500">Bérleti szerződések kezelése</p>
+          <h1 className="text-2xl sm:text-3xl font-bold">Szerződések</h1>
+          <p className="text-sm sm:text-base text-gray-500">Bérleti szerződések kezelése</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={() => router.push('/dashboard/contracts/templates')}>
-            <FileText className="w-4 h-4 mr-2" />
-            Sablonok
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" onClick={() => router.push('/dashboard/contracts/templates')} className="flex-1 sm:flex-initial">
+            <FileText className="w-4 h-4 sm:mr-2" />
+            <span className="hidden sm:inline">Sablonok</span>
           </Button>
-          <Button variant="outline" onClick={() => router.push('/dashboard/contracts/generate')}>
-            <FileText className="w-4 h-4 mr-2" />
-            Generálás
+          <Button variant="outline" size="sm" onClick={() => router.push('/dashboard/contracts/generate')} className="flex-1 sm:flex-initial">
+            <FileText className="w-4 h-4 sm:mr-2" />
+            <span className="hidden sm:inline">Generálás</span>
           </Button>
-          <Button onClick={() => router.push('/dashboard/contracts/new')}>
-            <Plus className="w-4 h-4 mr-2" />
-            Új szerződés
+          <Button size="sm" onClick={() => router.push('/dashboard/contracts/new')} className="flex-1 sm:flex-initial">
+            <Plus className="w-4 h-4 sm:mr-2" />
+            <span className="sm:hidden">Új</span>
+            <span className="hidden sm:inline">Új szerződés</span>
           </Button>
         </div>
       </div>
