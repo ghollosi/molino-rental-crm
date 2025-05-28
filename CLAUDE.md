@@ -149,7 +149,7 @@ Ha "Internal server error" hibát kapsz:
 - **Workflow teszt**: Settings → Workflow → Admin felület
 - **Jelentések teszt**: Dashboard → Jelentések → PDF/Excel letöltés
 - **Profil teszt**: Settings → Profil → Név módosítás és mentés
-- **Dashboard widgets teszt**: `/dashboard/test-widgets` - Widget teszt oldal
+- **Dashboard widgets teszt**: `/dashboard/test-widgets` - Widget teszt oldal (frissített layout)
 - **Health check**: `/api/health-check`
 - **Workflow cron**: `/api/cron/workflow` (GET/POST)
 - **Notification cron**: `/api/cron/notifications` (GET/POST)
@@ -157,6 +157,10 @@ Ha "Internal server error" hibát kapsz:
 - **Debug script**: `npx tsx src/scripts/check-user-data.ts`
 - **Analytics debug**: `npx tsx scripts/check-all-dashboard-data.ts`
 - **Issues debug**: `npx tsx scripts/check-issues-data.ts`
+- **Email system test**: `npx tsx scripts/test-email-system.ts` - **ÚJ!**
+- **Scheduled tasks test**: `npx tsx scripts/test-scheduled-tasks.ts` - **ÚJ!**
+- **Payment data check**: `npx tsx scripts/test-outstanding-payments.ts` - **ÚJ!**
+- **Cron logic test**: `npx tsx scripts/test-cron-logic.ts` - **ÚJ!**
 
 ## FIGYELEM!
 
@@ -164,24 +168,28 @@ Ha "Internal server error" hibát kapsz:
 ⚠️ A szerver a 3333-as porton fut, NEM a 3000-en!
 ⚠️ PWA cache törléséhez: Settings → PWA → Cache törlése
 
-## Legutóbbi javítások (2025-05-28 Délután) 
+## Legutóbbi javítások (2025-05-28 Este) 
 
-### Dashboard Quick Wins Implementálás ✅
-- **Pénzügyi összesítő widget**: Havi/éves bevétel, kintlévőségek, kihasználtság
-- **Lejáró szerződések widget**: 60 napos előrejelzés sürgősségi jelzéssel
-- **Email notification templates**: Fizetési emlékeztetők, szerződés lejárat
-- **Scheduled tasks**: Automatikus email küldés cron job rendszerrel
-- **TRPC analytics API**: Új végpontok valós dashboard adatokhoz
+### Dashboard Quick Wins TELJES implementáció ✅
+- **3 fő widget**: Pénzügyi összesítő, Lejáró szerződések, Kintlévőségek követése
+- **Email notification rendszer**: Production ready Resend integráció
+- **Scheduled tasks**: Automatikus értesítések cron job-okkal
+- **Valós adatok**: 530K Ft bevétel, 2 kintlévőség, 1 lejáró szerződés
 
-### Dashboard grafikonok javítás ✅
-- **TRPC import javítás**: `api` → `trpc` minden komponensben
-- **Hibabejelentések kategóriák szerint**: Horizontális → vertikális layout
-- **Valós adatok integráció**: Mock adatok helyett adatbázis alapú statisztikák
-- **Layout optimalizáció**: Pénzügyi összesítő 2x2 grid elrendezés
-- **Loading states**: Skeleton és empty state kezelés
+### Dashboard UI/UX javítások ✅
+- **Layout problémák megoldva**: Kilógó gombok, összecsúszott szövegek javítva
+- **2+1 oszlopos elrendezés**: Pénzügyi + Szerződések (2 oszlop), Kintlévőségek (teljes szélesség)
+- **Színes widget design**: Zöld, kék, narancs, lila témák jobb vizuális hierarchiáért
+- **Responsive optimalizáció**: Jobb mobil előkészítés
 
-### Adatbázis validáció ✅
-- **4 ingatlan**: 2 elérhető, 2 bérelt (50-50% megoszlás)
-- **530,000 Ft/hó bevétel**: 2 aktív szerződésből
-- **2 hibabejelentés**: Vízvezeték és fűtés kategóriákban
-- **Dashboard debug scriptek**: Teljes adatbázis analízis és ellenőrzés
+### Email rendszer production ready ✅
+- **Payment reminder templates**: Sürgősségi szintekkel és HTML stílussal
+- **Contract expiry notifications**: Automatikus lejárat értesítések
+- **Dev mode console logging**: Valós API kulcs nélkül is tesztelhető
+- **Scheduled task automation**: Cron job API és logika teljes
+
+### Valós adatok validáció ✅
+- **4 ingatlan**: 2 elérhető, 2 bérelt (50% kihasználtság)
+- **530,000 Ft/hó bevétel**: DRAFT szerződésekből számolva
+- **2 kintlévőség**: Szabó Péter (180K, 23 nap) + Tóth Anna (350K, 27 nap)
+- **1 lejáró szerződés**: Tóth Anna szerződése 3 nap múlva lejár
