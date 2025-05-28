@@ -708,3 +708,67 @@ Attempted import error: 'authOptions' is not exported from '@/lib/auth' (importe
 Import trace for requested module:
 ./app/dashboard/page.tsx
  GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%7D 200 in 7351ms
+ ⚠ ./app/dashboard/page.tsx
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/dashboard/page.tsx
+
+./app/dashboard/page.tsx
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/dashboard/page.tsx
+ ⚠ ./app/dashboard/page.tsx
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/dashboard/page.tsx
+
+./app/dashboard/page.tsx
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/dashboard/page.tsx
+ GET /api/auth/session 200 in 1832ms
+ GET /api/auth/session 200 in 20ms
+ ⨯ TypeError: (0 , next_auth__WEBPACK_IMPORTED_MODULE_5__.getServerSession) is not a function
+    at DashboardPage (app/dashboard/page.tsx:11:41)
+   9 |
+  10 | export default async function DashboardPage() {
+> 11 |   const session = await getServerSession(authOptions)
+     |                                         ^
+  12 |   
+  13 |   if (!session) {
+  14 |     redirect('/login') {
+  digest: '1540715626'
+}
+ GET /dashboard 500 in 464ms
+ GET /api/auth/session 200 in 128ms
+ GET /api/auth/session 200 in 43ms
+ ⨯ ./app/dashboard/page.tsx
+Error:   [31mx[0m The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+   ,-[[36;1;4m/Users/hollosigabor/molino-rental-crm/app/dashboard/page.tsx[0m:6:1]
+ [2m3[0m | import { QuickActions } from '@/components/dashboard/quick-actions'
+ [2m4[0m | import { PropertyOverview } from '@/components/dashboard/property-overview'
+ [2m5[0m | 
+ [2m6[0m | 'use client'
+   : [35;1m^^^^^^^^^^^^[0m
+ [2m7[0m | 
+ [2m8[0m | import { useSession } from 'next-auth/react'
+   `----
+
+Import trace for requested module:
+./app/dashboard/page.tsx
+ GET /dashboard 500 in 118ms
+ GET /dashboard 500 in 110ms
+ GET /dashboard 500 in 16ms
+ ✓ Compiled /_not-found in 8.4s (1968 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/7e4c7c1d9031c834.webpack.hot-update.json 404 in 9218ms
+ GET /dashboard 200 in 362ms
+ GET /api/auth/session 200 in 913ms
+ GET /api/auth/session 200 in 549ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1628ms (1069 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 4266ms
