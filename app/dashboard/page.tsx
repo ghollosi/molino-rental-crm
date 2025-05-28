@@ -7,6 +7,8 @@ import { DashboardCharts } from '@/components/dashboard/dashboard-charts'
 import { RecentIssues } from '@/components/dashboard/recent-issues'
 import { QuickActions } from '@/components/dashboard/quick-actions'
 import { PropertyOverview } from '@/components/dashboard/property-overview'
+import { FinancialSummary } from '@/src/components/dashboard/financial-summary'
+import { ExpiringContracts } from '@/src/components/dashboard/expiring-contracts'
 
 export default function DashboardPage() {
   const { data: session } = useSession()
@@ -29,6 +31,11 @@ export default function DashboardPage() {
       </div>
 
       <EnhancedDashboardStats userRole={session.user.role} />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <FinancialSummary />
+        <ExpiringContracts />
+      </div>
 
       <DashboardCharts userRole={session.user.role} />
 

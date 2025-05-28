@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T15:59:27.445Z",
+  "timestamp": "2025-05-28T16:19:27.509Z",
   "lastCommand": "start",
-  "currentFile": ".gitignore",
-  "gitStatus": "M .gitignore\n M .session-state.json\n M app/api/upload/route.ts\n M app/dashboard/contracts/[id]/page.tsx\n M app/dashboard/contracts/page.tsx\n M app/dashboard/owners/new/page.tsx\n M app/dashboard/properties/new/page.tsx\n M app/dashboard/properties/page.tsx\n M auth.ts\n M dev.log\n M next-auth.d.ts\n M package-lock.json\n M package.json\n M prisma/schema.prisma\n M src/components/layouts/header.tsx\n M src/components/ui/image-upload.tsx\n M src/hooks/use-toast.tsx\n M src/lib/trpc.ts\n M src/server/routers/_app.ts\n M src/types/next-auth.d.ts\n?? app/api/debug-session/\n?? app/dashboard/contracts/[id]/signature/\n?? app/dashboard/contracts/generate/\n?? app/dashboard/contracts/templates/\n?? prisma/migrations/add-custom-terms.sql\n?? public/uploads/\n?? src/components/ui/separator.tsx\n?? src/components/ui/switch.tsx\n?? src/lib/contract-templates.ts\n?? src/scripts/update-contracts.ts\n?? src/server/routers/contracts.ts",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M app/dashboard/page.tsx\n M dev.log\n M src/lib/email.ts\n M src/server/routers/analytics.ts\n M src/server/routers/contracts.ts\n?? app/api/cron/notifications/\n?? app/dashboard/test-widgets/\n?? scripts/test-analytics-endpoints.ts\n?? src/components/dashboard/expiring-contracts.tsx\n?? src/components/dashboard/financial-summary.tsx\n?? src/components/ui/skeleton.tsx\n?? src/lib/scheduled-tasks.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

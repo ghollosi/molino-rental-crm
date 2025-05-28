@@ -66,6 +66,26 @@ export interface OfferNotificationData {
   status: string;
 }
 
+export interface PaymentReminderData {
+  tenantName: string;
+  propertyAddress: string;
+  rentAmount: number;
+  currency: string;
+  dueDate: string;
+  daysOverdue: number;
+  landlordName: string;
+}
+
+export interface ContractExpiryData {
+  contractId: string;
+  tenantName: string;
+  propertyAddress: string;
+  endDate: string;
+  daysUntilExpiry: number;
+  rentAmount: number;
+  currency: string;
+}
+
 /**
  * Generate modern HTML template for issue notifications
  */
@@ -237,6 +257,232 @@ export async function sendWelcomeEmail(to: string, name: string, role: string) {
   return await sendEmail({
     to,
     subject: '🏠 Üdvözöljük a Molino Rental CRM-ben!',
+    html,
+  });
+}
+
+/**
+ * Generate HTML template for payment reminders
+ */
+export function generatePaymentReminderHTML(data: PaymentReminderData): string {
+  const urgencyColor = data.daysOverdue > 7 ? '#dc2626' : (data.daysOverdue > 0 ? '#f59e0b' : '#3b82f6');
+  
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Fizetési emlékeztető</title>
+      <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f8fafc; }
+        .container { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, ${urgencyColor}, ${urgencyColor}dd); color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { margin: 0 0 8px 0; font-size: 24px; font-weight: 600; }
+        .content { padding: 30px 20px; }
+        .payment-box { background: #fef3c7; border: 2px solid #fbbf24; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .amount { font-size: 32px; font-weight: bold; color: #92400e; margin: 10px 0; }
+        .detail-row { margin: 12px 0; }
+        .detail-label { font-weight: 600; color: #374151; }
+        .button { background: ${urgencyColor}; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; display: inline-block; margin-top: 24px; font-weight: 600; }
+        .footer { padding: 20px; background: #f8fafc; text-align: center; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
+        .warning { background: #fee2e2; color: #991b1b; padding: 12px; border-radius: 6px; margin: 16px 0; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>💰 Fizetési emlékeztető</h1>
+          <p>${data.daysOverdue > 0 ? `${data.daysOverdue} napja lejárt!` : 'Fizetési határidő közeledik'}</p>
+        </div>
+        
+        <div class="content">
+          <p>Tisztelt ${data.tenantName}!</p>
+          
+          <p>Szeretnénk emlékeztetni, hogy a bérleti díj fizetési határideje ${data.daysOverdue > 0 ? 'lejárt' : 'hamarosan lejár'}.</p>
+          
+          <div class="payment-box">
+            <div class="detail-row">
+              <span class="detail-label">Ingatlan:</span>
+              <div>${data.propertyAddress}</div>
+            </div>
+            
+            <div class="detail-row">
+              <span class="detail-label">Fizetendő összeg:</span>
+              <div class="amount">${data.rentAmount.toLocaleString('hu-HU')} ${data.currency}</div>
+            </div>
+            
+            <div class="detail-row">
+              <span class="detail-label">Esedékesség:</span>
+              <div style="color: ${urgencyColor}; font-weight: bold;">${data.dueDate}</div>
+            </div>
+            
+            ${data.daysOverdue > 0 ? `
+              <div class="detail-row">
+                <span class="detail-label">Késedelmi napok:</span>
+                <div style="color: #dc2626; font-weight: bold;">${data.daysOverdue} nap</div>
+              </div>
+            ` : ''}
+          </div>
+          
+          ${data.daysOverdue > 7 ? `
+            <div class="warning">
+              ⚠️ <strong>Figyelmeztetés:</strong> A bérleti díj több mint egy hete esedékes. 
+              Kérjük, rendezze tartozását a szerződés felmondásának elkerülése érdekében.
+            </div>
+          ` : ''}
+          
+          <p>Kérjük, hogy a bérleti díjat az alábbi bankszámlaszámra utalja:</p>
+          <div style="background: #f3f4f6; padding: 16px; border-radius: 8px; font-family: monospace;">
+            [Bankszámlaszám]<br>
+            Közlemény: ${data.propertyAddress} - ${new Date().toLocaleDateString('hu-HU', { year: 'numeric', month: 'long' })}
+          </div>
+          
+          <p>Ha már rendezte a fizetést, kérjük, hagyja figyelmen kívül ezt az emlékeztetőt.</p>
+          
+          <p>Üdvözlettel,<br>
+          ${data.landlordName}</p>
+        </div>
+        
+        <div class="footer">
+          <p>Ez egy automatikus emlékeztető a Molino Rental CRM rendszerből.</p>
+          <p>Kérdés esetén vegye fel a kapcsolatot a bérbeadóval.</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+/**
+ * Send payment reminder email
+ */
+export async function sendPaymentReminder(
+  to: string | string[],
+  data: PaymentReminderData
+) {
+  const html = generatePaymentReminderHTML(data);
+  const urgencyPrefix = data.daysOverdue > 7 ? '🚨' : (data.daysOverdue > 0 ? '⚠️' : '💰');
+  
+  return await sendEmail({
+    to,
+    subject: `${urgencyPrefix} Fizetési emlékeztető - ${data.propertyAddress}`,
+    html,
+  });
+}
+
+/**
+ * Generate HTML template for contract expiry notifications
+ */
+export function generateContractExpiryHTML(data: ContractExpiryData): string {
+  const urgencyColor = data.daysUntilExpiry <= 7 ? '#dc2626' : (data.daysUntilExpiry <= 30 ? '#f59e0b' : '#3b82f6');
+  
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Szerződés lejárati értesítés</title>
+      <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #f8fafc; }
+        .container { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; padding: 30px 20px; text-align: center; }
+        .header h1 { margin: 0 0 8px 0; font-size: 24px; font-weight: 600; }
+        .content { padding: 30px 20px; }
+        .contract-box { background: #f0f9ff; border: 2px solid #0ea5e9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .days-remaining { font-size: 48px; font-weight: bold; color: ${urgencyColor}; text-align: center; margin: 20px 0; }
+        .detail-row { margin: 12px 0; display: flex; justify-content: space-between; }
+        .detail-label { font-weight: 600; color: #374151; }
+        .button { background: #6366f1; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; display: inline-block; margin: 12px 8px; font-weight: 600; }
+        .button-secondary { background: #e5e7eb; color: #374151; }
+        .footer { padding: 20px; background: #f8fafc; text-align: center; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
+        .action-box { background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center; }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <h1>📋 Szerződés lejárati értesítés</h1>
+          <p>Bérleti szerződése hamarosan lejár</p>
+        </div>
+        
+        <div class="content">
+          <p>Tisztelt ${data.tenantName}!</p>
+          
+          <p>Értesítjük, hogy az alábbi ingatlanra vonatkozó bérleti szerződése hamarosan lejár:</p>
+          
+          <div class="contract-box">
+            <div class="days-remaining">
+              ${data.daysUntilExpiry} nap
+            </div>
+            <p style="text-align: center; margin: 0; color: #6b7280;">a szerződés lejáratáig</p>
+          </div>
+          
+          <div style="background: #f9fafb; padding: 16px; border-radius: 8px; margin: 20px 0;">
+            <div class="detail-row">
+              <span class="detail-label">Ingatlan:</span>
+              <span>${data.propertyAddress}</span>
+            </div>
+            
+            <div class="detail-row">
+              <span class="detail-label">Lejárat dátuma:</span>
+              <span style="color: ${urgencyColor}; font-weight: bold;">${data.endDate}</span>
+            </div>
+            
+            <div class="detail-row">
+              <span class="detail-label">Havi bérleti díj:</span>
+              <span>${data.rentAmount.toLocaleString('hu-HU')} ${data.currency}</span>
+            </div>
+          </div>
+          
+          <div class="action-box">
+            <h3 style="margin-top: 0;">Mit szeretne tenni?</h3>
+            <p>Kérjük, jelezze szándékát a szerződés lejárta előtt.</p>
+            
+            <div>
+              <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard/contracts/${data.contractId}" class="button">
+                Szerződés meghosszabbítása
+              </a>
+              <a href="mailto:${process.env.EMAIL_FROM}" class="button button-secondary">
+                Kapcsolatfelvétel
+              </a>
+            </div>
+          </div>
+          
+          ${data.daysUntilExpiry <= 14 ? `
+            <div style="background: #fef3c7; border: 1px solid #fbbf24; padding: 16px; border-radius: 8px; margin: 20px 0;">
+              <strong>⏰ Sürgős intézkedés szükséges!</strong><br>
+              A szerződés ${data.daysUntilExpiry} napon belül lejár. Kérjük, mielőbb jelezze szándékát a bérlés folytatásával kapcsolatban.
+            </div>
+          ` : ''}
+          
+          <p>Ha szeretné meghosszabbítani a bérleti szerződést, kérjük, vegye fel velünk a kapcsolatot minél hamarabb, hogy megbeszélhessük a részleteket.</p>
+          
+          <p>Köszönjük együttműködését!</p>
+        </div>
+        
+        <div class="footer">
+          <p>Ez egy automatikus értesítés a Molino Rental CRM rendszerből.</p>
+          <p>Kérdés esetén vegye fel a kapcsolatot a bérbeadóval.</p>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
+/**
+ * Send contract expiry notification email
+ */
+export async function sendContractExpiryNotification(
+  to: string | string[],
+  data: ContractExpiryData
+) {
+  const html = generateContractExpiryHTML(data);
+  const urgencyPrefix = data.daysUntilExpiry <= 7 ? '🚨' : (data.daysUntilExpiry <= 30 ? '⏰' : '📅');
+  
+  return await sendEmail({
+    to,
+    subject: `${urgencyPrefix} Bérleti szerződés lejár ${data.daysUntilExpiry} nap múlva - ${data.propertyAddress}`,
     html,
   });
 }

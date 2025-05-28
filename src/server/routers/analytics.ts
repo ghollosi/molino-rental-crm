@@ -3,6 +3,86 @@ import { createTRPCRouter, protectedProcedure } from '../trpc'
 import { startOfMonth, endOfMonth, subMonths, format } from 'date-fns'
 
 export const analyticsRouter = createTRPCRouter({
+  // Get financial summary
+  getFinancialSummary: protectedProcedure.query(async ({ ctx }) => {
+    const now = new Date()
+    const currentMonth = now.getMonth()
+    const currentYear = now.getFullYear()
+    
+    // Calculate monthly revenue
+    const activeContracts = await ctx.db.contract.findMany({
+      where: {
+        status: 'ACTIVE',
+        startDate: { lte: now },
+        endDate: { gte: now }
+      },
+      select: {
+        rentAmount: true
+      }
+    })
+    
+    const monthlyRevenue = activeContracts.reduce((sum, contract) => 
+      sum + Number(contract.rentAmount), 0
+    )
+    
+    // Calculate yearly revenue (simplified - assumes current monthly rate)
+    const yearlyRevenue = monthlyRevenue * 12
+    
+    // Get previous month revenue for comparison
+    const lastMonth = new Date(currentYear, currentMonth - 1)
+    const lastMonthContracts = await ctx.db.contract.findMany({
+      where: {
+        status: 'ACTIVE',
+        startDate: { lte: lastMonth },
+        endDate: { gte: lastMonth }
+      },
+      select: {
+        rentAmount: true
+      }
+    })
+    
+    const lastMonthRevenue = lastMonthContracts.reduce((sum, contract) => 
+      sum + Number(contract.rentAmount), 0
+    )
+    
+    const revenueChange = lastMonthRevenue > 0 
+      ? Math.round(((monthlyRevenue - lastMonthRevenue) / lastMonthRevenue) * 100)
+      : 0
+    
+    // Calculate outstanding payments (simplified)
+    // In a real app, this would check actual payment records
+    const overdueContracts = await ctx.db.contract.count({
+      where: {
+        status: 'ACTIVE',
+        paymentDay: { lt: now.getDate() }
+      }
+    })
+    
+    // Estimate outstanding amount (assume 30% haven't paid yet)
+    const outstandingPayments = Math.round(monthlyRevenue * 0.3)
+    
+    // Calculate occupancy
+    const totalProperties = await ctx.db.property.count()
+    const rentedProperties = await ctx.db.property.count({
+      where: { status: 'RENTED' }
+    })
+    
+    const occupancyRate = totalProperties > 0 
+      ? Math.round((rentedProperties / totalProperties) * 100)
+      : 0
+    
+    return {
+      monthlyRevenue,
+      yearlyRevenue,
+      revenueChange,
+      outstandingPayments,
+      overdueCount: overdueContracts,
+      occupancyRate,
+      totalProperties,
+      rentedProperties
+    }
+  }),
+  
   // Hibabejelentések havi bontásban
   issuesByMonth: protectedProcedure
     .input(z.object({

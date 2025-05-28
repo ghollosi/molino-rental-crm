@@ -3274,3 +3274,2261 @@ Properties data: undefined
  GET /dashboard 200 in 14ms
  ✓ Compiled /api/trpc/[trpc] in 447ms (1592 modules)
  GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 942ms
+ ✓ Compiled in 3.1s (2525 modules)
+ GET /dashboard 200 in 309ms
+ ✓ Compiled in 1711ms (1224 modules)
+ GET /dashboard 200 in 22ms
+ ✓ Compiled in 714ms (1224 modules)
+ GET /dashboard 200 in 30ms
+ GET /dashboard 200 in 506ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 6.3s (2942 modules)
+ GET /dashboard 200 in 5564ms
+ GET /dashboard 200 in 5568ms
+ GET /api/auth/session 200 in 5784ms
+ GET /dashboard 200 in 40ms
+ GET /dashboard 200 in 41ms
+ GET /api/auth/session 200 in 39ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2.6s (1592 modules)
+ GET /dashboard 200 in 112ms
+ GET /dashboard 200 in 114ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 3781ms
+ GET /api/auth/session 200 in 105ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 8ms
+ GET /dashboard 200 in 579ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 99ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 296ms
+ GET /dashboard 200 in 141ms
+ GET /api/auth/session 200 in 28ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 275ms
+ ✓ Compiled in 1894ms (1224 modules)
+ GET /dashboard 200 in 47ms
+ GET /dashboard 200 in 48ms
+ GET /login 200 in 214ms
+ GET /api/auth/session 200 in 96ms
+ GET /api/auth/session 200 in 66ms
+ GET /api/auth/session 200 in 33ms
+ ✓ Compiled in 777ms (1224 modules)
+ GET /login 200 in 97ms
+ GET /dashboard 200 in 129ms
+ GET /login 200 in 141ms
+ GET /api/auth/providers 200 in 53ms
+ GET /api/auth/csrf 200 in 8ms
+[31m[auth][error][0m CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+    at Module.callback (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/callback/index.js:246:23)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:70:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+ POST /api/auth/callback/credentials? 200 in 319ms
+ GET /api/auth/session 200 in 4ms
+ GET /api/auth/providers 200 in 101ms
+ GET /api/auth/csrf 200 in 10ms
+ POST /api/auth/callback/credentials? 200 in 272ms
+ GET /api/auth/session 200 in 7ms
+ GET /dashboard 200 in 40ms
+ GET /dashboard 200 in 28ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 191ms
+ GET /api/auth/session 200 in 51ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 9ms
+ GET /api/auth/session 200 in 52ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 5ms
+ ✓ Compiled in 4.3s (2816 modules)
+ GET /dashboard 200 in 267ms
+ GET /dashboard 200 in 268ms
+ GET /dashboard 200 in 271ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1191ms
+ ✓ Compiled in 1162ms (2816 modules)
+ GET /dashboard 200 in 122ms
+ GET /dashboard 200 in 125ms
+ GET /dashboard 200 in 119ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 12s (2829 modules)
+ GET /api/auth/session 200 in 1782ms
+ GET /dashboard/reports 200 in 12288ms
+ GET /dashboard/reports 200 in 161ms
+ GET /dashboard 200 in 127ms
+ GET /api/auth/session 200 in 8255ms
+ GET /dashboard/reports 200 in 8348ms
+ GET /dashboard/reports 200 in 8437ms
+ GET /api/trpc/analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 925ms
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 1016ms
+ ✓ Compiled in 6.1s (2816 modules)
+ ✓ Compiled in 0ms (1588 modules)
+ ✓ Compiled in 1ms (1588 modules)
+ ✓ Compiled in 0ms (1588 modules)
+ GET /dashboard 200 in 1297ms
+ GET /dashboard 200 in 850ms
+ ✓ Compiled in 1ms (1588 modules)
+ GET /dashboard/reports 200 in 1601ms
+ GET /dashboard 200 in 1375ms
+ GET /api/trpc/analytics.issuesByMonth,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 318ms
+ GET /api/auth/session 200 in 28ms
+ GET /api/auth/session 200 in 60ms
+ GET /dashboard 200 in 37ms
+ ⨯ ./src/components/dashboard/expiring-contracts.tsx:8:1
+Module not found: Can't resolve '@/components/ui/skeleton'
+   6 | import { Calendar, Clock, FileText, ArrowRight } from 'lucide-react'
+   7 | import { trpc } from '@/src/lib/trpc'
+>  8 | import { Skeleton } from '@/components/ui/skeleton'
+     | ^
+   9 | import Link from 'next/link'
+  10 | import { formatDistanceToNow } from 'date-fns'
+  11 | import { hu } from 'date-fns/locale'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/page.tsx
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 5.1s (2539 modules)
+ ✓ Compiled in 1ms (1593 modules)
+ GET /dashboard 200 in 2301ms
+ GET /dashboard 200 in 2307ms
+ GET /dashboard 200 in 2325ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:45.479Z"),
+      lte: new Date("2025-07-27T16:14:45.479Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:45.454Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:45.454Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:45.469Z"),
+      lte: new Date("2025-07-27T16:14:45.469Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:45.473Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:45.473Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%227%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 4986ms
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%227%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 5026ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:46.186Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:46.186Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:46.187Z"),
+      lte: new Date("2025-07-27T16:14:46.187Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%227%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 38ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:47.159Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:47.159Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:47.159Z"),
+      lte: new Date("2025-07-27T16:14:47.159Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 30ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:47.224Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:47.224Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:47.224Z"),
+      lte: new Date("2025-07-27T16:14:47.224Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 8ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:49.246Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:49.246Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:49.247Z"),
+      lte: new Date("2025-07-27T16:14:49.247Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 35ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:49.276Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:49.276Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:49.276Z"),
+      lte: new Date("2025-07-27T16:14:49.276Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 17ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:53.304Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:53.304Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:53.304Z"),
+      lte: new Date("2025-07-27T16:14:53.304Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 24ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:14:53.358Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:14:53.358Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:14:53.359Z"),
+      lte: new Date("2025-07-27T16:14:53.359Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 39ms
+ ✓ Compiled in 1257ms (2828 modules)
+ ✓ Compiled in 0ms (1593 modules)
+ ✓ Compiled in 0ms (1593 modules)
+ ✓ Compiled in 0ms (1593 modules)
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:19.611Z"),
+      lte: new Date("2025-07-27T16:15:19.611Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 1768ms
+ ✓ Compiled in 1ms (1593 modules)
+ GET /dashboard 200 in 3128ms
+ GET /dashboard 200 in 3139ms
+ GET /dashboard 200 in 3141ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:22.457Z"),
+      lte: new Date("2025-07-27T16:15:22.457Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 1621ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:22.479Z"),
+      lte: new Date("2025-07-27T16:15:22.479Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 12ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:23.515Z"),
+      lte: new Date("2025-07-27T16:15:23.515Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 20ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:24.509Z"),
+      lte: new Date("2025-07-27T16:15:24.509Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 7ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:25.556Z"),
+      lte: new Date("2025-07-27T16:15:25.556Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 14ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:28.580Z"),
+      lte: new Date("2025-07-27T16:15:28.580Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 24ms
+ ✓ Compiled in 3.1s (2828 modules)
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:32.122Z"),
+      lte: new Date("2025-07-27T16:15:32.122Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 1607ms
+ GET /dashboard 200 in 108ms
+ GET /dashboard 200 in 108ms
+ GET /dashboard 200 in 109ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:32.287Z"),
+      lte: new Date("2025-07-27T16:15:32.287Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 61ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:33.361Z"),
+      lte: new Date("2025-07-27T16:15:33.361Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 21ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:35.421Z"),
+      lte: new Date("2025-07-27T16:15:35.421Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 50ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:15:39.516Z"),
+      lte: new Date("2025-07-27T16:15:39.516Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 24ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 2.3s (1595 modules)
+ GET /api/auth/session 200 in 2763ms
+ GET /api/auth/session 200 in 5ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:07.049Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:07.049Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:07.055Z"),
+      lte: new Date("2025-07-27T16:16:07.055Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 2933ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:09.288Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:09.288Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:09.288Z"),
+      lte: new Date("2025-07-27T16:16:09.288Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 15ms
+ GET /dashboard 200 in 358ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 21ms
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:11.068Z"),
+      lte: new Date("2025-07-27T16:16:11.068Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:11.059Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:11.059Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,contracts.getExpiringContracts,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 219ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:12.329Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:12.329Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:12.329Z"),
+      lte: new Date("2025-07-27T16:16:12.329Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 18ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:13.338Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:13.338Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:13.340Z"),
+      lte: new Date("2025-07-27T16:16:13.340Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 25ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:14.369Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:14.369Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:14.370Z"),
+      lte: new Date("2025-07-27T16:16:14.370Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 15ms
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:16:18.443Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:16:18.443Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:16:18.444Z"),
+      lte: new Date("2025-07-27T16:16:18.444Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 19ms
+[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
+[31m[auth][cause][0m: JWEInvalid: Invalid Compact JWE
+    at compactDecrypt (webpack-internal:///(middleware)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:20:15)
+    at jwtDecrypt (webpack-internal:///(middleware)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:100)
+    at Object.decode (webpack-internal:///(middleware)/./node_modules/@auth/core/jwt.js:82:79)
+    at Module.session (webpack-internal:///(middleware)/./node_modules/@auth/core/lib/actions/session.js:30:39)
+    at AuthInternal (webpack-internal:///(middleware)/./node_modules/@auth/core/lib/index.js:51:77)
+    at async Auth (webpack-internal:///(middleware)/./node_modules/@auth/core/index.js:130:34)
+    at async handleAuth (webpack-internal:///(middleware)/./node_modules/next-auth/lib/index.js:137:29)
+    at async eval (webpack-internal:///(middleware)/./node_modules/next/dist/build/webpack/loaders/next-middleware-loader.js?absolutePagePath=%2FUsers%2Fhollosigabor%2Fmolino-rental-crm%2Fmiddleware.ts&page=%2Fmiddleware&rootDir=%2FUsers%2Fhollosigabor%2Fmolino-rental-crm&matchers=&preferredRegion=&middlewareConfig=e30%3D!:32:20)
+    at async eval (webpack-internal:///(middleware)/./node_modules/next/dist/esm/server/web/adapter.js:254:28)
+    at async adapter (webpack-internal:///(middleware)/./node_modules/next/dist/esm/server/web/adapter.js:205:16)
+[31m[auth][details][0m: {}
+ ✓ Compiled in 4.7s (3077 modules)
+ GET /dashboard 200 in 4207ms
+ GET /dashboard 200 in 4201ms
+ GET /dashboard 200 in 4243ms
+ GET /dashboard 200 in 34ms
+ GET /dashboard 200 in 35ms
+ GET /dashboard 200 in 35ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 606ms (1472 modules)
+ GET /api/auth/session 200 in 846ms
+ GET /api/auth/session 200 in 9ms
+ GET /dashboard 200 in 366ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 70ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 864ms (1595 modules)
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    startDate: {
+      lte: new Date("2025-05-28T16:17:31.638Z")
+    },
+    endDate: {
+      gte: new Date("2025-05-28T16:17:31.638Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  select: {
+    rentAmount: true
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on contracts.getExpiringContracts: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+    endDate: {
+      gte: new Date("2025-05-28T16:17:31.645Z"),
+      lte: new Date("2025-07-27T16:17:31.645Z")
+    },
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    property: true,
+    tenant: {
+      include: {
+        user: true
+      }
+    }
+  },
+  orderBy: {
+    endDate: "asc"
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,contracts.getExpiringContracts,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 1469ms
+ ⨯ Failed to generate static paths for /api/trpc/[trpc]:
+[Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/build-manifest.json'] {
+  type: 'Error',
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 12.4s (3150 modules)
+ GET /dashboard 200 in 2605ms
+ GET /dashboard 200 in 2610ms
+ GET /dashboard 200 in 2633ms
+ GET /api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%7D 500 in 14260ms
+ GET /dashboard 200 in 87ms
+ GET /dashboard 200 in 90ms
+ GET /dashboard 200 in 89ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /dashboard/properties in 7.7s (3154 modules)
+ ✓ Compiled in 10ms (1696 modules)
+ ✓ Compiled in 1798ms (3167 modules)
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/api/trpc/[trpc]/route.js:8:19643)
+    at Object.<anonymous> (.next/server/app/api/trpc/[trpc]/route.js:8:19708) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/trpc/analytics.getFinancialSummary,contracts.getExpiringContracts'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:341)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:384) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:1:2715)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:1:2767) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/auth/session'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:341)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:384) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /dashboard/properties 200 in 41488ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:1:2715)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:1:2767) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/auth/session'
+}
+ GET /dashboard/properties 200 in 27801ms
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:341)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:384) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:1:2715)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:1:2767) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/api/auth/session'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:341)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:384) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /api/auth/session 500 in 111639ms

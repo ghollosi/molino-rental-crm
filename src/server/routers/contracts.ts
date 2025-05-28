@@ -4,6 +4,40 @@ import { ContractStatus, ContractTemplateCategory } from '@prisma/client';
 import { generateContract, renderTemplate } from '@/lib/contract-templates';
 
 export const contractsRouter = createTRPCRouter({
+  // Get expiring contracts
+  getExpiringContracts: protectedProcedure
+    .input(z.object({
+      days: z.number().default(60)
+    }))
+    .query(async ({ ctx, input }) => {
+      const today = new Date()
+      const futureDate = new Date()
+      futureDate.setDate(futureDate.getDate() + input.days)
+      
+      const contracts = await ctx.db.contract.findMany({
+        where: {
+          status: 'ACTIVE',
+          endDate: {
+            gte: today,
+            lte: futureDate
+          }
+        },
+        include: {
+          property: true,
+          tenant: {
+            include: {
+              user: true
+            }
+          }
+        },
+        orderBy: {
+          endDate: 'asc'
+        }
+      })
+      
+      return contracts
+    }),
+    
   // Get all contracts
   getAll: protectedProcedure.query(async ({ ctx }) => {
     return ctx.db.contract.findMany({
