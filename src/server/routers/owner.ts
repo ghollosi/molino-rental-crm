@@ -8,6 +8,7 @@ export const ownerRouter = createTRPCRouter({
       page: z.number().default(1),
       limit: z.number().default(10),
       search: z.string().optional(),
+      isCompany: z.boolean().optional(),
     }))
     .query(async ({ ctx, input }) => {
       // Check permissions
@@ -18,17 +19,23 @@ export const ownerRouter = createTRPCRouter({
         })
       }
 
-      const { page, limit, search } = input
+      const { page, limit, search, isCompany } = input
       const skip = (page - 1) * limit
 
-      const where = search ? {
-        user: {
+      let where: any = {}
+      
+      if (search) {
+        where.user = {
           OR: [
             { name: { contains: search, mode: 'insensitive' as const } },
             { email: { contains: search, mode: 'insensitive' as const } },
           ],
-        },
-      } : {}
+        }
+      }
+      
+      if (isCompany !== undefined) {
+        where.isCompany = isCompany
+      }
 
       const [owners, total] = await Promise.all([
         ctx.db.owner.findMany({

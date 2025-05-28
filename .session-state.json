@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T07:34:26.263Z",
+  "timestamp": "2025-05-28T07:39:26.280Z",
   "lastCommand": "start",
-  "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M dev.log\n M package-lock.json\n M package.json\n M src/server/routers/issue.ts\n?? app/api/test-email/\n?? src/lib/email.ts",
+  "currentFile": "app/dashboard/owners/page.tsx",
+  "gitStatus": "M app/dashboard/owners/page.tsx\n M dev.log\n M src/server/routers/owner.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

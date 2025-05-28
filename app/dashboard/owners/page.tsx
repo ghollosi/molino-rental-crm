@@ -6,6 +6,7 @@ import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import {
   Table,
   TableBody,
@@ -21,12 +22,14 @@ import Link from 'next/link'
 export default function OwnersPage() {
   const router = useRouter()
   const [search, setSearch] = useState('')
+  const [ownerType, setOwnerType] = useState<string>('all')
   const [page, setPage] = useState(1)
 
   const { data, isLoading } = api.owner.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
+    isCompany: ownerType === 'all' ? undefined : ownerType === 'company',
   })
 
   const handleSearch = (e: React.FormEvent) => {
@@ -51,17 +54,53 @@ export default function OwnersPage() {
           <CardTitle>Tulajdonosok keresése</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSearch} className="flex gap-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
-                placeholder="Keresés név, email vagy telefon alapján..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="pl-10"
-              />
+          <form onSubmit={handleSearch} className="space-y-4">
+            <div className="flex gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <Input
+                  placeholder="Keresés név, email vagy telefon alapján..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+              <Button type="submit">Keresés</Button>
             </div>
-            <Button type="submit">Keresés</Button>
+            
+            <div className="flex gap-4 items-center">
+              <div className="flex-1">
+                <Select 
+                  value={ownerType} 
+                  onValueChange={(value) => {
+                    setOwnerType(value)
+                    setPage(1)
+                  }}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Tulajdonos típusa" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Összes</SelectItem>
+                    <SelectItem value="individual">Magánszemély</SelectItem>
+                    <SelectItem value="company">Cég</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              {(search || ownerType !== 'all') && (
+                <Button 
+                  variant="outline" 
+                  onClick={() => {
+                    setSearch('')
+                    setOwnerType('all')
+                    setPage(1)
+                  }}
+                >
+                  Szűrők törlése
+                </Button>
+              )}
+            </div>
           </form>
         </CardContent>
       </Card>
