@@ -568,3 +568,68 @@ Import trace for requested module:
  GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 25ms
  ✓ Compiled in 512ms (954 modules)
  GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 23ms
+ ✓ Compiled in 1385ms (954 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 27ms
+ ✓ Compiled in 677ms (954 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 33ms
+ GET /dashboard 200 in 154ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2.5s (1067 modules)
+ GET /dashboard 200 in 139ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 3888ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 2.4s (1082 modules)
+ GET /dashboard/issues 200 in 2479ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 152ms
+ GET /dashboard 200 in 113ms
+ ✓ Compiled in 799ms (954 modules)
+ ✓ Compiled in 334ms (954 modules)
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 2.6s (1015 modules)
+ GET /api/auth/session 200 in 3134ms
+ GET /api/auth/session 200 in 6ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 771ms (1022 modules)
+ GET /dashboard/providers 200 in 977ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 527ms (1084 modules)
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 3312ms
+ ○ Compiling /dashboard/providers/[id] ...
+ ✓ Compiled /dashboard/providers/[id] in 25.2s (2035 modules)
+ GET /dashboard/providers/cmb6sr8q8000gi8fr1dvf38ly 200 in 26901ms
+ GET /dashboard/providers/cmb6sr8q8000gi8fr1dvf38ly 200 in 27ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getById,issue.list,provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%2C%221%22%3A%7B%22json%22%3A%7B%22assignedToId%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 207 in 1208ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 94ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 60ms
+ ✓ Compiled in 6.5s (2049 modules)
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 165ms
+ ○ Compiling /dashboard/providers/[id]/edit ...
+ ✓ Compiled /dashboard/providers/[id]/edit in 5.5s (2045 modules)
+ GET /dashboard/providers/cmb6sr8q8000gi8fr1dvf38ly/edit 200 in 6340ms
+ GET /dashboard/providers/cmb6sr8q8000gi8fr1dvf38ly 200 in 66ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 163ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 18ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 16ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmb6sr8q8000gi8fr1dvf38ly%22%7D%7D%7D 404 in 70ms
+ GET /dashboard 200 in 35ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 111ms
+ ✓ Compiled in 3.2s (960 modules)
+ GET /dashboard/issues 200 in 195ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1040ms
+ ○ Compiling /dashboard/issues/[id] ...
+ ✓ Compiled /dashboard/issues/[id] in 4.2s (2045 modules)
+ GET /dashboard/issues/cmb6sr8qf000xi8fra258bq9n 200 in 5252ms
+ GET /api/trpc/issue.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8qf000xi8fra258bq9n%22%7D%7D 200 in 256ms
+ ○ Compiling /dashboard/issues/[id]/edit ...
+ ✓ Compiled /dashboard/issues/[id]/edit in 1806ms (2045 modules)
+ GET /dashboard/issues/cmb6sr8qf000xi8fra258bq9n/edit 200 in 2465ms
+ GET /dashboard 200 in 44ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 195ms

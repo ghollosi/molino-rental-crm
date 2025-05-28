@@ -219,14 +219,22 @@ export const providerRouter = createTRPCRouter({
   update: protectedProcedure
     .input(z.object({
       id: z.string(),
-      businessName: z.string().optional(),
-      specialty: z.array(z.string()).optional(),
-      hourlyRate: z.number().positive().optional(),
-      currency: z.string().optional(),
-      availability: z.record(z.any()).optional(),
+      userId: z.string(),
+      userData: z.object({
+        name: z.string().min(1, 'Name is required'),
+        email: z.string().email('Invalid email'),
+        phone: z.string().optional(),
+      }),
+      providerData: z.object({
+        businessName: z.string().optional(),
+        specialty: z.array(z.string()).optional(),
+        hourlyRate: z.number().positive().optional(),
+        currency: z.string().optional(),
+        availability: z.record(z.any()).optional(),
+      }),
     }))
     .mutation(async ({ ctx, input }) => {
-      const { id, ...data } = input
+      const { id, userId, userData, providerData } = input
 
       // Check permissions - providers can update their own profile
       const provider = await ctx.db.provider.findUnique({
@@ -252,9 +260,16 @@ export const providerRouter = createTRPCRouter({
         })
       }
 
+      // Update user data
+      await ctx.db.user.update({
+        where: { id: userId },
+        data: userData,
+      })
+
+      // Update provider data
       const updatedProvider = await ctx.db.provider.update({
         where: { id },
-        data,
+        data: providerData,
         include: {
           user: {
             select: {

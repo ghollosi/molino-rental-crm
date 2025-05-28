@@ -300,6 +300,71 @@ export const issueRouter = createTRPCRouter({
       return issue
     }),
 
+  update: protectedProcedure
+    .input(z.object({
+      id: z.string(),
+      title: z.string().min(1, 'Title is required'),
+      description: z.string().optional(),
+      priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']),
+      category: z.enum(['PLUMBING', 'ELECTRICAL', 'HVAC', 'STRUCTURAL', 'OTHER']),
+      status: z.enum(['OPEN', 'ASSIGNED', 'IN_PROGRESS', 'COMPLETED', 'CLOSED']).optional(),
+      photos: z.array(z.string()).optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      const { id, ...data } = input
+
+      const issue = await ctx.db.issue.findUnique({
+        where: { id },
+        include: { property: { include: { owner: true } } },
+      })
+
+      if (!issue) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Issue not found',
+        })
+      }
+
+      // Check permissions
+      if (ctx.session.user.role === 'OWNER') {
+        if (issue.property.owner.userId !== ctx.session.user.id) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'You can only update issues for your own properties',
+          })
+        }
+      } else if (ctx.session.user.role === 'TENANT') {
+        if (issue.reportedById !== ctx.session.user.id) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'You can only update your own reported issues',
+          })
+        }
+      } else if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      const updatedIssue = await ctx.db.issue.update({
+        where: { id },
+        data,
+        include: {
+          property: {
+            include: { owner: { include: { user: true } } },
+          },
+          reportedBy: true,
+          assignedTo: {
+            include: { user: true },
+          },
+          managedBy: true,
+        },
+      })
+
+      return updatedIssue
+    }),
+
   updateStatus: protectedProcedure
     .input(z.object({
       id: z.string(),
