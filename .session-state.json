@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T11:19:26.605Z",
+  "timestamp": "2025-05-28T12:09:26.768Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M app/dashboard/page.tsx\n M app/dashboard/reports/page.tsx\n M dev.log\n M package-lock.json\n M package.json\n M src/server/routers/_app.ts\n?? BACKUP_STATUS_20250528_131032.md\n?? app/dashboard/reports/analytics/\n?? src/components/dashboard/dashboard-charts.tsx\n?? src/components/dashboard/enhanced-dashboard-stats.tsx\n?? src/server/routers/analytics.ts",
+  "gitStatus": "M .session-state.json\n M dev.log\n?? src/scripts/list-users.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

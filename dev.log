@@ -1761,3 +1761,844 @@ Invalid value for argument `status`. Expected IssueStatus.
  GET /api/trpc/analytics.dashboardStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 6987ms
  GET /dashboard 200 in 3014ms
  GET /dashboard 200 in 37ms
+ GET /dashboard/properties 200 in 119ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 633ms
+ GET /dashboard 200 in 85ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 112ms
+ ✓ Compiled in 5.7s (1514 modules)
+ GET /dashboard 200 in 121ms
+ GET /dashboard 200 in 122ms
+ ✓ Compiled in 10.6s (3183 modules)
+ GET /dashboard 200 in 183ms
+ GET /dashboard 200 in 45ms
+ ✓ Compiled in 1028ms (3184 modules)
+ GET /dashboard 200 in 89ms
+ GET /dashboard 200 in 21ms
+ ✓ Compiled in 1560ms (2897 modules)
+ GET /dashboard 200 in 304ms
+ GET /dashboard 200 in 28ms
+ GET /dashboard 200 in 620ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 13.9s (1551 modules)
+ GET /api/auth/session 200 in 14637ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/auth/session 200 in 47ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 6.7s (1672 modules)
+ GET /dashboard 200 in 208ms
+ GET /dashboard 200 in 163ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 10073ms
+ GET /dashboard 200 in 9730ms
+ ✓ Compiled in 12.6s (3186 modules)
+ GET /dashboard 200 in 1178ms
+ GET /api/auth/session 200 in 404ms
+ GET /api/auth/session 200 in 27ms
+ GET /api/auth/session 200 in 158ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 759ms
+ ✓ Compiled in 9s (3186 modules)
+ GET /dashboard 200 in 215ms
+ GET /dashboard 200 in 26ms
+ ✓ Compiled in 3.4s (3186 modules)
+ GET /dashboard 200 in 198ms
+ GET /dashboard 200 in 18ms
+ ✓ Compiled in 12.6s (3435 modules)
+ GET /dashboard 200 in 12147ms
+ GET /dashboard 200 in 66ms
+ GET /dashboard 200 in 25ms
+ GET /dashboard 200 in 29ms
+ GET /dashboard 200 in 455ms
+ ✓ Compiled in 3.4s (3146 modules)
+ GET /dashboard 200 in 2185ms
+ GET /dashboard 200 in 28ms
+ ✓ Compiled in 40.7s (2899 modules)
+ GET /dashboard/properties 200 in 27444ms
+ GET /dashboard/properties 200 in 2115ms
+ GET /dashboard 200 in 1291ms
+ GET /dashboard 200 in 16290ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 34.5s (3067 modules)
+ GET /api/auth/session 200 in 35811ms
+ GET /dashboard/properties 200 in 329ms
+ GET /dashboard 200 in 1096ms
+ GET /api/auth/session 200 in 880ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 48.6s (1673 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 67194ms
+ GET /dashboard/properties 200 in 67185ms
+ GET /api/auth/session 200 in 66299ms
+ GET /dashboard 200 in 29359ms
+ GET /dashboard 200 in 33529ms
+ GET /api/auth/session 200 in 116ms
+ GET /api/auth/session 200 in 231ms
+ GET /api/auth/session 200 in 356ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 678ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 19s (1680 modules)
+ GET /dashboard/issues 200 in 19233ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 899ms
+ ○ Compiling /dashboard/issues/new ...
+ ✓ Compiled /dashboard/issues/new in 31.8s (3190 modules)
+ GET /dashboard/issues/new 200 in 32017ms
+ GET /api/trpc/property.list,tenant.list,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 1668ms
+ GET /dashboard 200 in 83ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 569ms
+ GET /dashboard/properties 200 in 89ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 34ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 23.2s (1691 modules)
+ GET /dashboard/owners 200 in 23751ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 756ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 3.7s (1688 modules)
+ GET /dashboard/tenants 200 in 3862ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 480ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 513ms (1695 modules)
+ GET /dashboard/providers 200 in 584ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 71ms
+ GET /dashboard/issues 200 in 77ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 275ms
+ GET /dashboard/issues/new 200 in 65ms
+ GET /api/trpc/property.list,tenant.list,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 80ms
+ GET /dashboard/issues 200 in 28ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 635ms (1693 modules)
+ GET /dashboard/offers 200 in 715ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 84ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/contracts in 5.4s (1701 modules)
+ GET /dashboard/contracts 200 in 5493ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 147ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 6.4s (1708 modules)
+ GET /dashboard/reports 200 in 6476ms
+ ○ Compiling /dashboard/reports/analytics ...
+ ✓ Compiled /dashboard/reports/analytics in 6.8s (3206 modules)
+ GET /dashboard/reports/analytics 200 in 6903ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,analytics.recentActivity,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 387ms
+ GET /dashboard/reports 200 in 88ms
+ GET /dashboard 200 in 6718ms
+ GET /dashboard/reports 200 in 6723ms
+ ✓ Compiled in 34.7s (3168 modules)
+ GET /dashboard/reports 200 in 280ms
+ GET /dashboard/reports 200 in 34ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /dashboard/reports 200 in 198ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ○ Compiling /_not-found ...
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /api/properties 404 in 7504ms
+ GET /api/issues 404 in 83ms
+ GET /api/properties 404 in 86ms
+ GET /dashboard/reports 200 in 137ms
+ GET /api/issues 404 in 83ms
+ GET /api/properties 404 in 85ms
+ GET /api/issues 404 in 34ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /dashboard/reports 200 in 127ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /dashboard/reports 200 in 164ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /dashboard/reports 200 in 44ms
+ GET /dashboard 200 in 126ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /dashboard 200 in 37057ms
+ GET /dashboard/contracts 200 in 74481ms
+ GET /dashboard/contracts 200 in 37203ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 105804ms
+ GET /dashboard 200 in 16917ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /api/auth/session 200 in 11239ms
+ GET /api/auth/session 200 in 6ms
+ GET /api/auth/session 200 in 6ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 456ms
+ GET /dashboard/reports 200 in 232ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ GET /dashboard/reports/analytics 200 in 2518ms
+ GET /api/properties 404 in 8703ms
+ GET /dashboard 200 in 1422ms
+ GET /api/issues 404 in 81ms
+ GET /api/properties 404 in 83ms
+ GET /dashboard/reports/analytics 200 in 43ms
+ GET /api/issues 404 in 88ms
+ GET /api/trpc/analytics.recentActivity,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 154ms
+ GET /dashboard/reports 200 in 39ms
+ GET /api/properties 404 in 122ms
+ GET /api/properties 404 in 94ms
+ GET /api/issues 404 in 93ms
+ GET /api/issues 404 in 28ms
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+ ⚠ ./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/dashboard/reports/page.tsx
+Attempted import error: 'toast' is not exported from '@/hooks/use-toast' (imported as 'toast').
+
+Import trace for requested module:
+./app/dashboard/reports/page.tsx
+
+./app/api/reports/generate/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth/next' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/reports/generate/route.ts
+
+./app/api/reports/generate/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth-config' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/reports/generate/route.ts
+ ⨯ ReferenceError: "next-auth/next" is deprecated. If you are not ready to migrate, keep using "next-auth@4".
+Read more on https://authjs.dev/getting-started/migrating-to-v5
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/reports/generate/route.ts:6:72)
+    at <unknown> (rsc)/./app/api/reports/generate/route.ts (/Users/hollosigabor/molino-rental-crm/.next/server/app/api/reports/generate/route.js:22:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:43)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:43)
+    at __webpack_exec__ (.next/server/app/api/reports/generate/route.js:294:39)
+    at <unknown> (.next/server/app/api/reports/generate/route.js:295:2084)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:237:21)
+    at <unknown> (.next/server/app/api/reports/generate/route.js:295:47)
+    at Object.<anonymous> (.next/server/app/api/reports/generate/route.js:298:3) {
+  page: '/api/reports/generate'
+}
+ POST /api/reports/generate 500 in 9461ms
+ ⨯ ReferenceError: "next-auth/next" is deprecated. If you are not ready to migrate, keep using "next-auth@4".
+Read more on https://authjs.dev/getting-started/migrating-to-v5
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/reports/generate/route.ts:6:72)
+    at <unknown> (rsc)/./app/api/reports/generate/route.ts (/Users/hollosigabor/molino-rental-crm/.next/server/app/api/reports/generate/route.js:22:1)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:43)
+    at __webpack_require__ (.next/server/webpack-runtime.js:33:43)
+    at __webpack_exec__ (.next/server/app/api/reports/generate/route.js:294:39)
+    at <unknown> (.next/server/app/api/reports/generate/route.js:295:2084)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:237:21)
+    at <unknown> (.next/server/app/api/reports/generate/route.js:295:47)
+    at Object.<anonymous> (.next/server/app/api/reports/generate/route.js:298:3) {
+  page: '/api/reports/generate'
+}
+ ⚠ ./app/api/reports/generate/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth/next' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/reports/generate/route.ts
+
+./app/api/reports/generate/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth-config' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/reports/generate/route.ts
+ GET /dashboard/reports 200 in 224ms
+ GET /dashboard 200 in 229ms
+ POST /api/reports/generate 500 in 30613ms
+ ✓ Compiled /api/reports/generate in 18s (2908 modules)
+ GET /dashboard/reports 200 in 548ms
+ GET /dashboard 200 in 549ms
+ ○ Compiling /api/reports/generate ...
+ ✓ Compiled /api/reports/generate in 1703ms (2052 modules)
+ POST /api/reports/generate 401 in 2517ms
+ GET /dashboard/reports 200 in 116ms
+ GET /dashboard 200 in 118ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 96.8s (3700 modules)
+ GET /api/properties 404 in 63906ms
+ GET /api/properties 404 in 35215ms
+ GET /api/issues 404 in 193ms
+ GET /dashboard 200 in 275ms
+ GET /dashboard/reports 200 in 323ms
+ GET /api/issues 404 in 47ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 65400ms
+ ✓ Compiled in 75.9s (2911 modules)
+ GET /dashboard/reports 200 in 469ms
+ GET /dashboard 200 in 470ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/auth/[...nextauth] in 2.9s (1675 modules)
+ ✓ Compiled /dashboard/contracts in 5ms (1677 modules)
+ ✓ Compiled in 1ms (1683 modules)
+ ✓ Compiled in 3ms (1683 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 30229ms
+ ✓ Compiled in 1ms (1683 modules)
+ GET /api/auth/session 200 in 29854ms
+ GET /api/auth/session 200 in 4212ms
+ GET /dashboard/contracts 200 in 22103ms
+ GET /dashboard/reports 200 in 22249ms
+ ✓ Compiled in 1ms (1683 modules)
+ ✓ Compiled in 0ms (1683 modules)
+ ✓ Compiled in 0ms (1683 modules)
+ GET /dashboard 200 in 3529ms
+ GET /api/auth/session 200 in 1567ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 76ms
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 351ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 10ms
+ GET /dashboard 200 in 153ms
+ GET /api/trpc/analytics.issuesByMonth,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 115ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 26s (1692 modules)
+ GET /dashboard/properties 200 in 26505ms
+ GET /dashboard/properties 200 in 25ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1000ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 16.1s (1698 modules)
+ GET /dashboard/owners 200 in 16419ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 349ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 6.9s (1689 modules)
+ GET /dashboard/tenants 200 in 7364ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 810ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 622ms (1696 modules)
+ GET /dashboard/providers 200 in 685ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 133ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 5s (1675 modules)
+ GET /dashboard/issues 200 in 5158ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 205ms
+ ✓ Compiled /dashboard/offers in 447ms (1138 modules)
+ GET /dashboard/offers 200 in 524ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 64ms
+ ✓ Compiled /dashboard/contracts in 392ms (1147 modules)
+ GET /dashboard/contracts 200 in 455ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 67ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 4.7s (1156 modules)
+ GET /dashboard/reports 200 in 4908ms
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 182ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 5.7s (1168 modules)
+ GET /dashboard/settings 200 in 5814ms
+ GET /dashboard/reports 200 in 31ms
+ GET /dashboard/settings 200 in 13ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 11.4s (1701 modules)
+ GET /dashboard 200 in 11687ms
+ GET /api/trpc/analytics.issuesByMonth,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 737ms
+ GET /dashboard/reports 200 in 37ms
+ ○ Compiling /api/reports/generate ...
+ ✓ Compiled /api/reports/generate in 8.7s (2173 modules)
+📊 Generating report: monthly-revenue in pdf format
+ POST /api/reports/generate 200 in 9430ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 754ms (2175 modules)
+ GET /api/auth/session 200 in 856ms
+ GET /api/auth/session 200 in 13ms
+📊 Generating report: issues-summary in pdf format
+ POST /api/reports/generate 200 in 224ms
+ GET /api/auth/session 200 in 82ms
+ GET /api/auth/session 200 in 8ms
+📊 Generating report: issues-summary in pdf format
+ POST /api/reports/generate 200 in 65ms
+ ⚠ Server is approaching the used memory threshold, restarting...
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.90:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1781ms
+ ✓ Compiled /middleware in 353ms (263 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ ○ Compiling /dashboard/reports/analytics ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (130kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled /dashboard/reports/analytics in 3.7s (2366 modules)
+ GET /dashboard/reports/analytics 200 in 3972ms
+ ✓ Compiled in 398ms (1131 modules)
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1897ms (2640 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,analytics.recentActivity,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 2941ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 830ms (2669 modules)
+ GET /dashboard 200 in 894ms
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 132ms
+ ✓ Compiled in 662ms (1145 modules)
+ ✓ Compiled in 350ms (1145 modules)
+ ✓ Compiled in 280ms (1145 modules)
+ ✓ Compiled in 214ms (1145 modules)
+ ✓ Compiled in 209ms (1145 modules)
+ ✓ Compiled in 259ms (1145 modules)
+ ✓ Compiled in 297ms (1145 modules)
+ ✓ Compiled /dashboard in 456ms (1245 modules)
+ GET /dashboard 200 in 977ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 522ms (2544 modules)
+ GET /api/auth/session 200 in 2065ms
+ GET /api/auth/session 200 in 31ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 803ms (1534 modules)
+ GET /dashboard 200 in 59ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1521ms
+ ✓ Compiled in 1491ms (2390 modules)
+ GET /dashboard 200 in 141ms
+ ✓ Compiled in 373ms (1145 modules)
+ GET /dashboard 200 in 28ms
+ ✓ Compiled in 546ms (1145 modules)
+ GET /dashboard 200 in 23ms
+ GET /dashboard 200 in 433ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1032ms (1413 modules)
+ GET /api/auth/session 200 in 1233ms
+ GET /api/auth/session 200 in 19ms
+ ✓ Compiled /api/trpc/[trpc] in 292ms (1534 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 793ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 1396ms (2724 modules)
+ GET /dashboard/settings 200 in 1483ms
+ GET /dashboard/settings 200 in 13ms
+ POST /api/trpc/user.update?batch=1 200 in 449ms
+ GET /api/auth/csrf 200 in 14ms
+ POST /api/auth/session 200 in 9ms
+ GET /dashboard 200 in 53ms
+ GET /dashboard 200 in 272ms
+ GET /api/auth/session 200 in 35ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 731ms
+ GET /dashboard/settings 200 in 28ms
+ ✓ Compiled in 1193ms (2435 modules)
+ GET /dashboard/settings 200 in 163ms
+ ✓ Compiled in 309ms (1166 modules)
+ GET /dashboard/settings 200 in 19ms
+ GET /dashboard/settings 200 in 250ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 545ms (1437 modules)
+ GET /api/auth/session 200 in 666ms
+ GET /api/auth/session 200 in 21ms
+ ✓ Compiled /api/trpc/[trpc] in 469ms (1558 modules)
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: {
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+ GET /dashboard/settings 200 in 45ms
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:10:29.443Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 963ms
+ GET /api/auth/csrf 200 in 9ms
+ POST /api/auth/session 200 in 7ms
+ GET /dashboard 200 in 31ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 101ms
+ GET /dashboard/settings 200 in 31ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 713ms (2714 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 834ms
+ ✓ Compiled in 804ms (2726 modules)
+ GET /dashboard/settings 200 in 168ms
+ ✓ Compiled in 593ms (2439 modules)
+ GET /dashboard/settings 200 in 132ms
+ ✓ Compiled in 732ms (2435 modules)
+ GET /dashboard/settings 200 in 43ms
+ ✓ Compiled in 503ms (1166 modules)
+ GET /dashboard/settings 200 in 42ms

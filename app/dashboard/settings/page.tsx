@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSession } from 'next-auth/react'
+import { useSession, signIn } from 'next-auth/react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -43,29 +43,24 @@ export default function SettingsPage() {
   const updateUserMutation = api.user.update.useMutation({
     onSuccess: async (updatedUser) => {
       console.log('User updated successfully:', updatedUser)
-      console.log('Current session before update:', session)
-      
-      // Update the session with new data
-      const newSessionData = {
-        ...session,
-        user: {
-          ...session?.user,
-          name: `${profileData.firstName} ${profileData.lastName}`.trim(),
-          email: profileData.email,
-          phone: profileData.phone
-        }
-      }
-      
-      console.log('New session data:', newSessionData)
-      
-      await update(newSessionData)
       
       toast({
         title: "Siker",
         description: "Profil sikeresen frissítve!",
       })
       setSuccess('Profil beállítások sikeresen mentve!')
-      setTimeout(() => setSuccess(null), 3000)
+      
+      // Force session refresh by triggering the JWT callback
+      // This will fetch fresh data from the database
+      await update()
+      
+      // If update() doesn't work, force a page refresh as fallback
+      setTimeout(() => {
+        if (session?.user?.name === 'Admin User') {
+          console.log('Session update failed, forcing page refresh...')
+          window.location.reload()
+        }
+      }, 2000)
     },
     onError: (error) => {
       toast({
