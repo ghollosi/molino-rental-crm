@@ -1,12 +1,23 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { BarChart3, FileText, Download, Calendar, DollarSign, AlertTriangle, TrendingUp } from 'lucide-react'
+import { BarChart3, FileText, Download, Calendar, DollarSign, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react'
+import { toast } from '@/hooks/use-toast'
 import Link from 'next/link'
 
 export default function ReportsPage() {
+  const [isGenerating, setIsGenerating] = useState<number | null>(null)
+  const [isDownloading, setIsDownloading] = useState<number | null>(null)
+  const [quickStats, setQuickStats] = useState({
+    activeProperties: 0,
+    satisfiedTenants: 0,
+    openIssues: 0,
+    occupancyRate: 0
+  })
+
   const reports = [
     {
       id: 1,
@@ -15,6 +26,7 @@ export default function ReportsPage() {
       icon: DollarSign,
       status: 'ready',
       lastGenerated: '2024-01-15',
+      apiType: 'monthly-revenue',
     },
     {
       id: 2,
@@ -23,22 +35,25 @@ export default function ReportsPage() {
       icon: AlertTriangle,
       status: 'ready',
       lastGenerated: '2024-01-14',
+      apiType: 'issues-summary',
     },
     {
       id: 3,
       title: 'Ingatlan teljesítmény',
       description: 'Ingatlanok kihasználtsága és jövedelmezősége',
       icon: BarChart3,
-      status: 'processing',
+      status: 'ready',
       lastGenerated: '2024-01-10',
+      apiType: 'property-performance',
     },
     {
       id: 4,
       title: 'Bérlői elégedettség',
       description: 'Bérlői visszajelzések és elégedettségi felmérések',
       icon: FileText,
-      status: 'draft',
+      status: 'ready',
       lastGenerated: null,
+      apiType: 'tenant-satisfaction',
     },
   ]
 
@@ -68,15 +83,103 @@ export default function ReportsPage() {
     }
   }
 
-  const handleGenerateReport = (reportId: number) => {
-    // TODO: Implement report generation
-    console.log('Generating report:', reportId)
+  const handleGenerateReport = async (reportId: number, format: 'pdf' | 'excel' = 'pdf') => {
+    const report = reports.find(r => r.id === reportId)
+    if (!report) return
+
+    setIsGenerating(reportId)
+    try {
+      const response = await fetch('/api/reports/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          reportType: report.apiType,
+          format: format,
+          filters: {}
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Jelentés generálás sikertelen')
+      }
+
+      // Fájl letöltése
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `${report.apiType}-${new Date().toISOString().slice(0, 10)}.${format === 'excel' ? 'xlsx' : 'html'}`
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+
+      toast({
+        title: "Siker",
+        description: `${report.title} sikeresen generálva és letöltve`,
+      })
+
+    } catch (error) {
+      console.error('Report generation failed:', error)
+      toast({
+        title: "Hiba",
+        description: "Jelentés generálás sikertelen",
+        variant: "destructive"
+      })
+    } finally {
+      setIsGenerating(null)
+    }
   }
 
-  const handleDownloadReport = (reportId: number) => {
-    // TODO: Implement report download
-    console.log('Downloading report:', reportId)
+  const handleDownloadReport = async (reportId: number, format: 'pdf' | 'excel' = 'pdf') => {
+    await handleGenerateReport(reportId, format)
   }
+
+  // Gyors statisztikák betöltése
+  useEffect(() => {
+    const loadQuickStats = async () => {
+      try {
+        // Property-k számának lekérése
+        const propertiesResponse = await fetch('/api/properties')
+        if (propertiesResponse.ok) {
+          const propertiesData = await propertiesResponse.json()
+          const rented = propertiesData.properties?.filter((p: any) => p.status === 'RENTED').length || 0
+          const total = propertiesData.properties?.length || 1
+          
+          setQuickStats(prev => ({
+            ...prev,
+            activeProperties: rented,
+            occupancyRate: Math.round((rented / total) * 100)
+          }))
+        }
+
+        // Issues számának lekérése
+        const issuesResponse = await fetch('/api/issues')
+        if (issuesResponse.ok) {
+          const issuesData = await issuesResponse.json()
+          const openIssues = issuesData.issues?.filter((i: any) => 
+            ['OPEN', 'ASSIGNED', 'IN_PROGRESS'].includes(i.status)
+          ).length || 0
+          
+          setQuickStats(prev => ({
+            ...prev,
+            openIssues
+          }))
+        }
+
+        // Elégedett bérlők (mock adat)
+        setQuickStats(prev => ({
+          ...prev,
+          satisfiedTenants: Math.max(1, prev.activeProperties - 2)
+        }))
+
+      } catch (error) {
+        console.error('Failed to load quick stats:', error)
+      }
+    }
+
+    loadQuickStats()
+  }, [])
 
   return (
     <div className="container mx-auto py-6 px-4">
@@ -142,26 +245,33 @@ export default function ReportsPage() {
                   </div>
                 )}
 
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   <Button
                     size="sm"
-                    onClick={() => handleGenerateReport(report.id)}
-                    disabled={report.status === 'processing'}
+                    onClick={() => handleGenerateReport(report.id, 'pdf')}
+                    disabled={isGenerating === report.id}
                   >
-                    <BarChart3 className="h-4 w-4 mr-2" />
-                    {report.status === 'processing' ? 'Feldolgozás...' : 'Generálás'}
+                    {isGenerating === report.id ? (
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    ) : (
+                      <FileText className="h-4 w-4 mr-2" />
+                    )}
+                    {isGenerating === report.id ? 'Generálás...' : 'PDF letöltés'}
                   </Button>
                   
-                  {report.status === 'ready' && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => handleDownloadReport(report.id)}
-                    >
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleGenerateReport(report.id, 'excel')}
+                    disabled={isGenerating === report.id}
+                  >
+                    {isGenerating === report.id ? (
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    ) : (
                       <Download className="h-4 w-4 mr-2" />
-                      Letöltés
-                    </Button>
-                  )}
+                    )}
+                    Excel letöltés
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -177,19 +287,19 @@ export default function ReportsPage() {
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="text-center p-4 bg-blue-50 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">12</div>
+                <div className="text-2xl font-bold text-blue-600">{quickStats.activeProperties}</div>
                 <div className="text-sm text-gray-600">Aktív ingatlan</div>
               </div>
               <div className="text-center p-4 bg-green-50 rounded-lg">
-                <div className="text-2xl font-bold text-green-600">8</div>
+                <div className="text-2xl font-bold text-green-600">{quickStats.satisfiedTenants}</div>
                 <div className="text-sm text-gray-600">Elégedett bérlő</div>
               </div>
               <div className="text-center p-4 bg-yellow-50 rounded-lg">
-                <div className="text-2xl font-bold text-yellow-600">3</div>
+                <div className="text-2xl font-bold text-yellow-600">{quickStats.openIssues}</div>
                 <div className="text-sm text-gray-600">Nyitott hiba</div>
               </div>
               <div className="text-center p-4 bg-purple-50 rounded-lg">
-                <div className="text-2xl font-bold text-purple-600">95%</div>
+                <div className="text-2xl font-bold text-purple-600">{quickStats.occupancyRate}%</div>
                 <div className="text-sm text-gray-600">Kihasználtság</div>
               </div>
             </div>
