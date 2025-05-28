@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T05:48:29.894Z",
-  "lastCommand": "save",
-  "currentFile": "none",
-  "gitStatus": "?? .checkpoints/20250528_074801/",
+  "timestamp": "2025-05-28T05:54:25.778Z",
+  "lastCommand": "start",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M dev.log",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

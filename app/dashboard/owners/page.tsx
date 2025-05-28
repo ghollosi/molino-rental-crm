@@ -70,7 +70,7 @@ export default function OwnersPage() {
         <CardContent className="p-0">
           {isLoading ? (
             <div className="p-8 text-center">Betöltés...</div>
-          ) : data?.items && data.items.length > 0 ? (
+          ) : data?.owners && data.owners.length > 0 ? (
             <>
               <Table>
                 <TableHeader>
@@ -84,7 +84,7 @@ export default function OwnersPage() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {data.items.map((owner) => (
+                  {data.owners.map((owner) => (
                     <TableRow key={owner.id}>
                       <TableCell className="font-medium">
                         {owner.user.name}
@@ -130,11 +130,11 @@ export default function OwnersPage() {
                 </TableBody>
               </Table>
 
-              {data.totalPages > 1 && (
+              {data.pagination.totalPages > 1 && (
                 <div className="flex items-center justify-between p-4 border-t">
                   <div className="text-sm text-gray-500">
-                    {data.total} tulajdonosból {(page - 1) * 10 + 1}-
-                    {Math.min(page * 10, data.total)} megjelenítve
+                    {data.pagination.total} tulajdonosból {(page - 1) * 10 + 1}-
+                    {Math.min(page * 10, data.pagination.total)} megjelenítve
                   </div>
                   <div className="flex items-center gap-2">
                     <Button
@@ -147,13 +147,13 @@ export default function OwnersPage() {
                       Előző
                     </Button>
                     <div className="text-sm">
-                      {page} / {data.totalPages}
+                      {page} / {data.pagination.totalPages}
                     </div>
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => setPage(page + 1)}
-                      disabled={page === data.totalPages}
+                      disabled={page === data.pagination.totalPages}
                     >
                       Következő
                       <ChevronRight className="h-4 w-4" />
