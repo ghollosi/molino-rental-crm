@@ -639,3 +639,25 @@ Import trace for requested module:
  ✓ Compiled /api/auth/[...nextauth] in 1685ms (1015 modules)
  GET /api/auth/session 200 in 1956ms
  GET /api/auth/session 200 in 5ms
+ GET /dashboard 200 in 648ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 6.6s (1075 modules)
+ ✓ Compiled /dashboard/contracts in 1ms (1077 modules)
+ ✓ Compiled in 0ms (1084 modules)
+ ✓ Compiled in 0ms (1084 modules)
+ ✓ Compiled in 0ms (1084 modules)
+ GET /api/auth/session 200 in 9488ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 9631ms
+ ✓ Compiled in 2ms (1084 modules)
+ GET /dashboard/contracts 200 in 3252ms
+ GET /api/auth/session 200 in 669ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 58ms
+ ○ Compiling /dashboard/contracts/[id] ...
+ ✓ Compiled /dashboard/contracts/[id] in 2.1s (2060 modules)
+ GET /dashboard/contracts/cmb6sr8qd000qi8frshtly3km 200 in 2484ms
+ GET /dashboard/contracts/cmb6sr8qd000qi8frshtly3km 200 in 21ms
+ GET /api/trpc/contract.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8qd000qi8frshtly3km%22%7D%7D 200 in 65ms
+ ○ Compiling /dashboard/contracts/[id]/edit ...
+ ✓ Compiled /dashboard/contracts/[id]/edit in 623ms (2053 modules)
+ GET /dashboard/contracts/cmb6sr8qd000qi8frshtly3km/edit 200 in 980ms
+ GET /dashboard 200 in 84ms
