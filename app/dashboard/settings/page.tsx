@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession, signIn, signOut } from 'next-auth/react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -52,13 +52,18 @@ export default function SettingsPage() {
       })
       setSuccess('Profil beállítások sikeresen mentve!')
       
-      // Force session refresh by triggering the JWT callback
-      await update()
+      // NextAuth session cache is stubborn, force complete page reload
+      console.log('Profile updated successfully, reloading page to refresh session...')
       
-      // Reset form initialization so it can update with new session data
+      toast({
+        title: "Átirányítás",
+        description: "Profil frissítve! Az oldal újratöltődik...",
+      })
+      
       setTimeout(() => {
-        setIsFormInitialized(false)
-      }, 500)
+        // Clear any NextAuth cache and reload the entire page
+        window.location.href = '/dashboard'
+      }, 1500)
     },
     onError: (error) => {
       toast({
