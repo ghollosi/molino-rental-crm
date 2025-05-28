@@ -220,12 +220,20 @@ export const tenantRouter = createTRPCRouter({
   update: protectedProcedure
     .input(z.object({
       id: z.string(),
-      emergencyName: z.string().optional(),
-      emergencyPhone: z.string().optional(),
-      isActive: z.boolean().optional(),
+      userId: z.string(),
+      userData: z.object({
+        name: z.string().min(1, 'Name is required'),
+        email: z.string().email('Invalid email'),
+        phone: z.string().optional(),
+      }),
+      tenantData: z.object({
+        emergencyName: z.string().optional(),
+        emergencyPhone: z.string().optional(),
+        isActive: z.boolean().optional(),
+      }),
     }))
     .mutation(async ({ ctx, input }) => {
-      const { id, ...data } = input
+      const { id, userId, userData, tenantData } = input
 
       // Check permissions - tenants can update their own profile
       const tenant = await ctx.db.tenant.findUnique({
@@ -251,9 +259,16 @@ export const tenantRouter = createTRPCRouter({
         })
       }
 
+      // Update user data
+      await ctx.db.user.update({
+        where: { id: userId },
+        data: userData,
+      })
+
+      // Update tenant data
       const updatedTenant = await ctx.db.tenant.update({
         where: { id },
-        data,
+        data: tenantData,
         include: {
           user: {
             select: {

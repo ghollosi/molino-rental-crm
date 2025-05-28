@@ -261,4 +261,68 @@ export const propertyRouter = createTRPCRouter({
 
       return property
     }),
+
+  update: protectedProcedure
+    .input(z.object({
+      id: z.string(),
+      street: z.string().min(1, 'Street is required'),
+      city: z.string().min(1, 'City is required'),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      type: z.enum(['APARTMENT', 'HOUSE', 'OFFICE', 'COMMERCIAL']),
+      size: z.number().positive().optional(),
+      rooms: z.number().int().positive().optional(),
+      floor: z.number().int().optional(),
+      rentAmount: z.number().positive().optional(),
+      currency: z.string().default('EUR'),
+      status: z.enum(['AVAILABLE', 'RENTED', 'MAINTENANCE']).optional(),
+      description: z.string().optional(),
+      photos: z.array(z.string()).optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      const { id, ...data } = input
+
+      // Check permissions
+      const property = await ctx.db.property.findUnique({
+        where: { id },
+        include: { owner: true },
+      })
+
+      if (!property) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Property not found',
+        })
+      }
+
+      // Owners can only update their own properties
+      if (ctx.session.user.role === 'OWNER') {
+        if (property.owner.userId !== ctx.session.user.id) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'You can only update your own properties',
+          })
+        }
+      } else if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      const updatedProperty = await ctx.db.property.update({
+        where: { id },
+        data,
+        include: {
+          owner: {
+            include: { user: true },
+          },
+          currentTenant: {
+            include: { user: true },
+          },
+        },
+      })
+
+      return updatedProperty
+    }),
 })
