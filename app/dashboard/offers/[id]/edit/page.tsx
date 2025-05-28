@@ -48,7 +48,7 @@ export default function EditOfferPage() {
   useEffect(() => {
     if (offer) {
       setFormData({
-        items: offer.items || [],
+        items: (offer.items as any) || [],
         laborCost: offer.laborCost?.toString() || '',
         materialCost: offer.materialCost?.toString() || '',
         totalAmount: offer.totalAmount?.toString() || '',

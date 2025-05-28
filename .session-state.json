@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T17:34:27.746Z",
+  "timestamp": "2025-05-28T17:44:27.792Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M app/api/debug-session/route.ts\n M app/api/export/pdf/route.ts",
+  "gitStatus": "M .session-state.json\n M app/dashboard/offers/[id]/edit/page.tsx\n M app/dashboard/owners/[id]/edit/page.tsx\n M app/dashboard/owners/[id]/page.tsx",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -13,7 +13,9 @@
     "@radix-ui/react-dropdown-menu",
     "@radix-ui/react-label",
     "@radix-ui/react-select",
+    "@radix-ui/react-separator",
     "@radix-ui/react-slot",
+    "@radix-ui/react-switch",
     "@radix-ui/react-tabs",
     "@tanstack/react-query",
     "@trpc/client",

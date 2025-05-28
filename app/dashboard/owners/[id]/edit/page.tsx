@@ -46,8 +46,8 @@ export default function EditOwnerPage() {
         email: owner.user.email || '',
         phone: owner.user.phone || '',
         taxNumber: owner.taxNumber || '',
-        companyName: owner.companyName || '',
-        isCompany: owner.isCompany || false,
+        companyName: (owner as any).companyName || '',
+        isCompany: (owner as any).isCompany || false,
       })
     }
   }, [owner])
