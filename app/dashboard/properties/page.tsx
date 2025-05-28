@@ -16,15 +16,20 @@ import {
 } from '@/components/ui/table'
 import { Plus, Search, Building, MapPin, Edit, Trash2, Eye } from 'lucide-react'
 import { api } from '@/lib/trpc'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 export default function PropertiesPage() {
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
+  const [typeFilter, setTypeFilter] = useState<string>('')
+  const [statusFilter, setStatusFilter] = useState<string>('')
 
   const { data, isLoading } = api.property.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
+    type: typeFilter as any || undefined,
+    status: statusFilter as any || undefined,
   })
 
   const getStatusBadge = (status: string) => {
@@ -74,14 +79,63 @@ export default function PropertiesPage() {
 
       <Card>
         <CardHeader>
-          <div className="flex items-center space-x-2">
-            <Search className="h-5 w-5 text-gray-400" />
-            <Input
-              placeholder="Keresés cím vagy város alapján..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="max-w-sm"
-            />
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex items-center space-x-2 flex-1">
+              <Search className="h-5 w-5 text-gray-400" />
+              <Input
+                placeholder="Keresés cím vagy város alapján..."
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value)
+                  setPage(1)
+                }}
+                className="max-w-sm"
+              />
+            </div>
+            <div className="flex gap-2">
+              <Select value={typeFilter} onValueChange={(value) => {
+                setTypeFilter(value)
+                setPage(1)
+              }}>
+                <SelectTrigger className="w-[150px]">
+                  <SelectValue placeholder="Minden típus" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="">Minden típus</SelectItem>
+                  <SelectItem value="APARTMENT">Lakás</SelectItem>
+                  <SelectItem value="HOUSE">Ház</SelectItem>
+                  <SelectItem value="OFFICE">Iroda</SelectItem>
+                  <SelectItem value="COMMERCIAL">Üzlet</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select value={statusFilter} onValueChange={(value) => {
+                setStatusFilter(value)
+                setPage(1)
+              }}>
+                <SelectTrigger className="w-[150px]">
+                  <SelectValue placeholder="Minden státusz" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="">Minden státusz</SelectItem>
+                  <SelectItem value="AVAILABLE">Elérhető</SelectItem>
+                  <SelectItem value="RENTED">Bérelt</SelectItem>
+                  <SelectItem value="MAINTENANCE">Karbantartás</SelectItem>
+                </SelectContent>
+              </Select>
+              {(search || typeFilter || statusFilter) && (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSearch('')
+                    setTypeFilter('')
+                    setStatusFilter('')
+                    setPage(1)
+                  }}
+                >
+                  Szűrők törlése
+                </Button>
+              )}
+            </div>
           </div>
         </CardHeader>
         <CardContent>

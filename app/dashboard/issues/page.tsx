@@ -34,11 +34,6 @@ export default function IssuesPage() {
     priority: priority !== 'all' ? priority as 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT' : undefined,
   })
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    setPage(1)
-  }
-
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'URGENT':
@@ -86,10 +81,36 @@ export default function IssuesPage() {
     }
   }
 
+  const getPriorityLabel = (priority: string) => {
+    const labels: Record<string, string> = {
+      URGENT: 'Sürgős',
+      HIGH: 'Magas',
+      MEDIUM: 'Közepes',
+      LOW: 'Alacsony',
+    }
+    return labels[priority] || priority
+  }
+
+  const getStatusLabel = (status: string) => {
+    const labels: Record<string, string> = {
+      OPEN: 'Nyitott',
+      ASSIGNED: 'Hozzárendelt',
+      IN_PROGRESS: 'Folyamatban',
+      COMPLETED: 'Befejezett',
+      CLOSED: 'Lezárt',
+    }
+    return labels[status] || status
+  }
+
   return (
-    <div className="container mx-auto py-6 px-4">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Hibabejelentések</h1>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Hibabejelentések</h1>
+          <p className="text-gray-600">
+            Kezelje a hibabejelentéseket és karbantartási kéréseket
+          </p>
+        </div>
         <Button asChild>
           <Link href="/dashboard/issues/new">
             <Plus className="mr-2 h-4 w-4" />
@@ -98,56 +119,73 @@ export default function IssuesPage() {
         </Button>
       </div>
 
-      <Card className="mb-6">
+      <Card>
         <CardHeader>
-          <CardTitle>Keresés és szűrés</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSearch} className="flex gap-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex items-center space-x-2 flex-1">
+              <Search className="h-5 w-5 text-gray-400" />
               <Input
                 placeholder="Keresés cím vagy leírás alapján..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="pl-10"
+                onChange={(e) => {
+                  setSearch(e.target.value)
+                  setPage(1)
+                }}
+                className="max-w-sm"
               />
             </div>
-            <Select value={status} onValueChange={setStatus}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Státusz" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Minden státusz</SelectItem>
-                <SelectItem value="OPEN">Nyitott</SelectItem>
-                <SelectItem value="ASSIGNED">Hozzárendelt</SelectItem>
-                <SelectItem value="IN_PROGRESS">Folyamatban</SelectItem>
-                <SelectItem value="COMPLETED">Befejezett</SelectItem>
-                <SelectItem value="CLOSED">Lezárt</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select value={priority} onValueChange={setPriority}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Prioritás" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">Minden prioritás</SelectItem>
-                <SelectItem value="URGENT">Sürgős</SelectItem>
-                <SelectItem value="HIGH">Magas</SelectItem>
-                <SelectItem value="MEDIUM">Közepes</SelectItem>
-                <SelectItem value="LOW">Alacsony</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button type="submit">Keresés</Button>
-          </form>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardContent className="p-0">
+            <div className="flex gap-2">
+              <Select value={status} onValueChange={(value) => {
+                setStatus(value)
+                setPage(1)
+              }}>
+                <SelectTrigger className="w-[150px]">
+                  <SelectValue placeholder="Minden státusz" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Minden státusz</SelectItem>
+                  <SelectItem value="OPEN">Nyitott</SelectItem>
+                  <SelectItem value="ASSIGNED">Hozzárendelt</SelectItem>
+                  <SelectItem value="IN_PROGRESS">Folyamatban</SelectItem>
+                  <SelectItem value="COMPLETED">Befejezett</SelectItem>
+                  <SelectItem value="CLOSED">Lezárt</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select value={priority} onValueChange={(value) => {
+                setPriority(value)
+                setPage(1)
+              }}>
+                <SelectTrigger className="w-[150px]">
+                  <SelectValue placeholder="Minden prioritás" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Minden prioritás</SelectItem>
+                  <SelectItem value="URGENT">Sürgős</SelectItem>
+                  <SelectItem value="HIGH">Magas</SelectItem>
+                  <SelectItem value="MEDIUM">Közepes</SelectItem>
+                  <SelectItem value="LOW">Alacsony</SelectItem>
+                </SelectContent>
+              </Select>
+              {(search || status !== 'all' || priority !== 'all') && (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSearch('')
+                    setStatus('all')
+                    setPriority('all')
+                    setPage(1)
+                  }}
+                >
+                  Szűrők törlése
+                </Button>
+              )}
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
           {isLoading ? (
-            <div className="p-8 text-center">Betöltés...</div>
-          ) : data?.issues && data.issues.length > 0 ? (
+            <div className="text-center py-4">Betöltés...</div>
+          ) : (
             <>
               <Table>
                 <TableHeader>
@@ -162,13 +200,13 @@ export default function IssuesPage() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {data.issues.map((issue) => (
+                  {data?.issues.map((issue) => (
                     <TableRow key={issue.id}>
                       <TableCell>
                         <div className="flex items-center gap-2">
                           {getStatusIcon(issue.status)}
-                          <Badge variant={getStatusColor(issue.status)}>
-                            {issue.status}
+                          <Badge variant={getStatusColor(issue.status) as any}>
+                            {getStatusLabel(issue.status)}
                           </Badge>
                         </div>
                       </TableCell>
@@ -191,8 +229,8 @@ export default function IssuesPage() {
                         {issue.reportedBy.name}
                       </TableCell>
                       <TableCell>
-                        <Badge variant={getPriorityColor(issue.priority)}>
-                          {issue.priority}
+                        <Badge variant={getPriorityColor(issue.priority) as any}>
+                          {getPriorityLabel(issue.priority)}
                         </Badge>
                       </TableCell>
                       <TableCell>
@@ -212,13 +250,12 @@ export default function IssuesPage() {
                 </TableBody>
               </Table>
 
-              {data.pagination.totalPages > 1 && (
-                <div className="flex items-center justify-between p-4 border-t">
+              {data?.pagination && data.pagination.totalPages > 1 && (
+                <div className="flex items-center justify-between mt-4">
                   <div className="text-sm text-gray-500">
-                    {data.pagination.total} hibabejelentésből {(page - 1) * 10 + 1}-
-                    {Math.min(page * 10, data.pagination.total)} megjelenítve
+                    Összesen: {data.pagination.total} hibabejelentés
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center space-x-2">
                     <Button
                       variant="outline"
                       size="sm"
@@ -244,10 +281,6 @@ export default function IssuesPage() {
                 </div>
               )}
             </>
-          ) : (
-            <div className="p-8 text-center text-gray-500">
-              Nincs találat
-            </div>
           )}
         </CardContent>
       </Card>

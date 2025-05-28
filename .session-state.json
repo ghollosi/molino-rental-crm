@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T05:29:25.604Z",
+  "timestamp": "2025-05-28T05:39:25.638Z",
   "lastCommand": "start",
-  "currentFile": "app/dashboard/issues/new/page.tsx",
-  "gitStatus": "M app/dashboard/issues/new/page.tsx\n M dev.log\n M src/server/routers/issue.ts",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M PROGRESS.md\n M app/dashboard/issues/page.tsx\n M app/dashboard/properties/page.tsx\n M dev.log\n?? .checkpoints/20250528_073201/",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -124,7 +124,17 @@
     "Bérlők CRUD oldalak (lista, új, részletek)",
     "Dashboard valós adatok integrálása",
     "tRPC client konfiguráció javítása",
-    "Fejlesztői környezet stabilizálása"
+    "Fejlesztői környezet stabilizálása",
+    "Összecsukható oldalsáv implementálása Context API-val",
+    "Képfeltöltés funkció ingatlanokhoz",
+    "Gyors tulajdonos létrehozás az ingatlan űrlapon",
+    "Képfeltöltés hibabejelentésekhez",
+    "Dialog UI komponens hozzáadása",
+    "Stabilizált háttérszerver nohup használatával",
+    "Összecsukható navigáció működik",
+    "Képfeltöltés működik ingatlanokhoz és hibákhoz",
+    "Gyors tulajdonos létrehozás integrálva",
+    "Szerver stabilan fut háttérben"
   ],
   "pendingTasks": [
     "NextAuth konfiguráció",
@@ -135,6 +145,9 @@
     "NextAuth teljes implementáció helyreállítása",
     "Fájlfeltöltés és képkezelés",
     "Többnyelvűség (i18n) implementálása",
-    "Képfeltöltés implementálása"
+    "Képfeltöltés implementálása",
+    "Keresés és szűrés funkciók a lista oldalakon",
+    "Email értesítések hibabejelentésekhez",
+    "PDF/Excel export jelentésekhez"
   ]
 }
