@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T06:24:26.037Z",
+  "timestamp": "2025-05-28T07:04:26.164Z",
   "lastCommand": "start",
-  "currentFile": "dev.log",
-  "gitStatus": "M dev.log\n M src/server/routers/provider.ts\n?? app/dashboard/providers/[id]/edit/",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M dev.log\n?? app/dashboard/contracts/[id]/edit/\n?? app/dashboard/offers/[id]/edit/",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
