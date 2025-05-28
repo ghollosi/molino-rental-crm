@@ -105,12 +105,21 @@ Ha "Internal server error" hibát kapsz:
 - **Toast értesítések**: Sikeres/sikertelen letöltések jelzése
 - **API végpont**: `/api/reports/generate` - Jelentés generálás és letöltés
 
-### Profil kezelés 👤 ÚJ!
-- **Valós profil frissítés**: TRPC user.update endpoint működő adatbázis mentéssel
+### Profil kezelés 👤
+- **Valós profil frissítás**: TRPC user.update endpoint működő adatbázis mentéssel
 - **Dashboard név megjelenítés**: Dinamikus session alapú üdvözlés
 - **NextAuth session kezelés**: JWT callback automatikus adatbázis szinkronizáció
 - **Form állapot kezelés**: Controlled inputs megfelelő state management-tel
 - **Session cache megoldás**: Automatikus page reload session frissítéshez
+
+### Dashboard Quick Wins 🚀 ÚJ!
+- **Pénzügyi összesítő widget**: Havi/éves bevétel, kintlévőségek, kihasználtság
+- **Lejáró szerződések widget**: Következő 60 napban lejáró szerződések listája
+- **Email notification templates**: Fizetési emlékeztetők és szerződés lejárat értesítések
+- **Scheduled tasks**: Automatikus email küldés cron job-okkal
+- **Valós adatok**: Minden widget az adatbázisból származó valós adatokat jelenít meg
+- **TRPC analytics API**: Új végpontok dashboard statisztikákhoz
+- **Responsive layout**: 2x2 grid elrendezés optimális megjelenítéshez
 
 ### Új szolgáltatások
 - `/src/lib/email.ts` - Email küldés Resend-del
@@ -121,11 +130,16 @@ Ha "Internal server error" hibát kapsz:
 - `/src/components/dashboard/dashboard-charts.tsx` - Analytics diagramok
 - `/app/api/cron/workflow/route.ts` - Cron job API
 - `/app/dashboard/settings/workflow/page.tsx` - Workflow admin felület
-- `/app/api/reports/generate/route.ts` - **ÚJ!** Jelentés generálás API
-- `/src/server/routers/user.ts` - **ÚJ!** User.update endpoint profil kezeléshez
-- `/src/components/ui/toast.tsx` - **ÚJ!** Toast notification rendszer
-- `/src/scripts/check-user-data.ts` - **ÚJ!** Adatbázis debug script
+- `/app/api/reports/generate/route.ts` - Jelentés generálás API
+- `/src/server/routers/user.ts` - User.update endpoint profil kezeléshez
+- `/src/components/ui/toast.tsx` - Toast notification rendszer
+- `/src/scripts/check-user-data.ts` - Adatbázis debug script
 - `/public/sw.js` - Service Worker offline támogatással
+- `/src/components/dashboard/financial-summary.tsx` - **ÚJ!** Pénzügyi összesítő widget
+- `/src/components/dashboard/expiring-contracts.tsx` - **ÚJ!** Lejáró szerződések widget
+- `/src/lib/scheduled-tasks.ts` - **ÚJ!** Automatikus feladat végrehajtás
+- `/app/api/cron/notifications/route.ts` - **ÚJ!** Notification cron job API
+- `/src/components/ui/skeleton.tsx` - **ÚJ!** Loading skeleton komponens
 
 ## Tesztelési végpontok
 
@@ -135,10 +149,14 @@ Ha "Internal server error" hibát kapsz:
 - **Workflow teszt**: Settings → Workflow → Admin felület
 - **Jelentések teszt**: Dashboard → Jelentések → PDF/Excel letöltés
 - **Profil teszt**: Settings → Profil → Név módosítás és mentés
+- **Dashboard widgets teszt**: `/dashboard/test-widgets` - Widget teszt oldal
 - **Health check**: `/api/health-check`
 - **Workflow cron**: `/api/cron/workflow` (GET/POST)
+- **Notification cron**: `/api/cron/notifications` (GET/POST)
 - **Reports API**: `/api/reports/generate` (POST)
 - **Debug script**: `npx tsx src/scripts/check-user-data.ts`
+- **Analytics debug**: `npx tsx scripts/check-all-dashboard-data.ts`
+- **Issues debug**: `npx tsx scripts/check-issues-data.ts`
 
 ## FIGYELEM!
 
@@ -146,24 +164,24 @@ Ha "Internal server error" hibát kapsz:
 ⚠️ A szerver a 3333-as porton fut, NEM a 3000-en!
 ⚠️ PWA cache törléséhez: Settings → PWA → Cache törlése
 
-## Legutóbbi javítások (2025-05-28 Délután)
+## Legutóbbi javítások (2025-05-28 Délután) 
 
-### Képfeltöltés javítás ✅
-- **Probléma**: Blob URL-ek validációs hibát okoztak
-- **Megoldás**: Valós fájl mentés `/public/uploads` mappába
-- **Érintett**: Property creation form
+### Dashboard Quick Wins Implementálás ✅
+- **Pénzügyi összesítő widget**: Havi/éves bevétel, kintlévőségek, kihasználtság
+- **Lejáró szerződések widget**: 60 napos előrejelzés sürgősségi jelzéssel
+- **Email notification templates**: Fizetési emlékeztetők, szerződés lejárat
+- **Scheduled tasks**: Automatikus email küldés cron job rendszerrel
+- **TRPC analytics API**: Új végpontok valós dashboard adatokhoz
 
-### Form validáció javítás ✅
-- **Probléma**: Number vs String típus eltérések
-- **Megoldás**: Zod union típusok használata
-- **Schema**: Elfogadja mind string, mind number inputokat
+### Dashboard grafikonok javítás ✅
+- **TRPC import javítás**: `api` → `trpc` minden komponensben
+- **Hibabejelentések kategóriák szerint**: Horizontális → vertikális layout
+- **Valós adatok integráció**: Mock adatok helyett adatbázis alapú statisztikák
+- **Layout optimalizáció**: Pénzügyi összesítő 2x2 grid elrendezés
+- **Loading states**: Skeleton és empty state kezelés
 
-### Session cache probléma ✅
-- **Probléma**: NextAuth nem frissíti automatikusan a session adatokat
-- **Megoldás**: Kijelentkezés + újra bejelentkezés szükséges
-- **Debug**: `/api/debug-session` endpoint elérhető
-
-### Contract Templates rendszer ✅
-- **Új funkció**: Teljes szerződés sablon kezelés
-- **UI**: Templates admin, generálás, digitális aláírás
-- **API**: Contracts tRPC router
+### Adatbázis validáció ✅
+- **4 ingatlan**: 2 elérhető, 2 bérelt (50-50% megoszlás)
+- **530,000 Ft/hó bevétel**: 2 aktív szerződésből
+- **2 hibabejelentés**: Vízvezeték és fűtés kategóriákban
+- **Dashboard debug scriptek**: Teljes adatbázis analízis és ellenőrzés
