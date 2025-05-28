@@ -227,7 +227,7 @@ export const issueRouter = createTRPCRouter({
       description: z.string().min(1, 'Description is required'),
       category: z.enum(['PLUMBING', 'ELECTRICAL', 'HVAC', 'STRUCTURAL', 'OTHER']),
       priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).default('MEDIUM'),
-      photos: z.array(z.string().url()).default([]),
+      photos: z.array(z.string()).default([]),
     }))
     .mutation(async ({ ctx, input }) => {
       // Generate unique ticket number

@@ -12,6 +12,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ArrowLeft, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
+import { ImageUpload } from '@/components/ui/image-upload'
 
 interface IssueFormData {
   title: string
@@ -21,12 +22,14 @@ interface IssueFormData {
   propertyId: string
   tenantId?: string
   ownerId?: string
+  photos?: string[]
 }
 
 export default function NewIssuePage() {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [reporterType, setReporterType] = useState<'tenant' | 'owner'>('tenant')
+  const [photos, setPhotos] = useState<string[]>([])
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<IssueFormData>({
     defaultValues: {
@@ -68,7 +71,8 @@ export default function NewIssuePage() {
       description: data.description,
       priority: data.priority as 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT',
       propertyId: data.propertyId,
-      category: data.category as 'PLUMBING' | 'ELECTRICAL' | 'HVAC' | 'STRUCTURAL' | 'OTHER'
+      category: data.category as 'PLUMBING' | 'ELECTRICAL' | 'HVAC' | 'STRUCTURAL' | 'OTHER',
+      photos: photos
     })
   }
 
@@ -241,6 +245,18 @@ export default function NewIssuePage() {
                   </Select>
                 </div>
               )}
+            </div>
+
+            <div>
+              <Label>Képek (opcionális)</Label>
+              <p className="text-sm text-gray-600 mb-2">
+                Töltsön fel képeket a hibáról a jobb dokumentálás érdekében
+              </p>
+              <ImageUpload
+                value={photos}
+                onChange={setPhotos}
+                maxFiles={5}
+              />
             </div>
 
             <div className="flex gap-4">
