@@ -2602,3 +2602,214 @@ Database update successful: {
  GET /dashboard/settings 200 in 43ms
  ✓ Compiled in 503ms (1166 modules)
  GET /dashboard/settings 200 in 42ms
+ GET /dashboard/settings 200 in 211ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 689ms (2425 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 770ms
+ ✓ Compiled /api/auth/[...nextauth] in 378ms (1438 modules)
+ GET /api/auth/session 200 in 508ms
+ GET /api/auth/session 200 in 7ms
+ GET /dashboard 200 in 74ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 815ms (1559 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1317ms
+ GET /dashboard/settings 200 in 42ms
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: {
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:14:07.737Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 298ms
+ GET /api/auth/session 200 in 14ms
+ GET /dashboard/settings 200 in 244ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 5ms
+ ✓ Compiled in 1238ms (2435 modules)
+ GET /dashboard/settings 200 in 174ms
+ ✓ Compiled in 692ms (2435 modules)
+ GET /dashboard/settings 200 in 40ms
+ ✓ Compiled in 704ms (2435 modules)
+ GET /dashboard/settings 200 in 31ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 911ms (1437 modules)
+ GET /api/auth/session 200 in 1096ms
+ GET /api/auth/session 200 in 10ms
+ GET /dashboard/settings 200 in 365ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 7ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 929ms (1558 modules)
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: {
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gabor Hollosi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:22:29.321Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 1552ms
+ GET /api/auth/session 200 in 13ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 765ms (2714 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1042ms
+ GET /dashboard 200 in 71ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 454ms
+ ✓ Compiled in 1000ms (2726 modules)
+ GET /dashboard 200 in 92ms
+ GET /dashboard/settings 200 in 34ms
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518'
+}
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:24:12.508Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 448ms
+ ✓ Compiled /api/auth/[...nextauth] in 256ms (1558 modules)
+ GET /api/auth/session 200 in 297ms
+ GET /dashboard 200 in 321ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 80ms
+ GET /dashboard/settings 200 in 42ms
+ GET /dashboard/settings 200 in 174ms
+ GET /api/auth/session 200 in 13ms
+ GET /api/auth/session 200 in 9ms
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: undefined
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: { name: 'Gábor Hollósi', email: 'admin@molino.com' }
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:24:52.582Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 88ms
+ GET /api/auth/session 200 in 19ms
+ GET /dashboard 200 in 64ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 67ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 915ms (2425 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1348ms
+ GET /dashboard/settings 200 in 55ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 90ms
+ ✓ Compiled in 845ms (2439 modules)
+ GET /dashboard/settings 200 in 108ms
+ ✓ Compiled in 677ms (2439 modules)
+ GET /dashboard/settings 200 in 31ms
+ GET /dashboard 200 in 46ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 603ms (1556 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1349ms
+ GET /dashboard 200 in 282ms
+ ✓ Compiled /api/auth/[...nextauth] in 478ms (1558 modules)
+ GET /api/auth/session 200 in 618ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 164ms
+ GET /dashboard/settings 200 in 52ms
+=== USER UPDATE BACKEND DEBUG ===
+Input: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: undefined
+}
+Session user ID: cmb6sr8py0001i8fr3v8df5oi
+Target user ID: cmb6sr8py0001i8fr3v8df5oi
+Session user role: ADMIN
+Filtered update data: { name: 'Gábor Hollósi', email: 'admin@molino.com' }
+Database update successful: {
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  phone: '+36709438518',
+  language: 'HU',
+  role: 'ADMIN',
+  updatedAt: 2025-05-28T12:28:46.308Z
+}
+ POST /api/trpc/user.update?batch=1 200 in 222ms
+ GET /dashboard 200 in 214ms
+ GET /api/auth/session 200 in 12ms
+ GET /api/auth/session 200 in 13ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 107ms
+ GET /dashboard 200 in 116ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 13ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 76ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 987ms (2740 modules)
+ GET /login 200 in 1091ms
+ GET /api/auth/session 200 in 55ms
+ GET /api/auth/session 200 in 3ms
+ GET /api/auth/providers 200 in 25ms
+ GET /api/auth/csrf 200 in 6ms
+ POST /api/auth/callback/credentials? 200 in 529ms
+ GET /api/auth/session 200 in 8ms
+ GET /dashboard 200 in 36ms
+ GET /dashboard 200 in 14ms
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 153ms

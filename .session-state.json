@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T12:09:26.768Z",
+  "timestamp": "2025-05-28T12:29:26.812Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M dev.log\n?? src/scripts/list-users.ts",
+  "gitStatus": "M .session-state.json\n M dev.log",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

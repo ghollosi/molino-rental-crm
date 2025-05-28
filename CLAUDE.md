@@ -89,7 +89,7 @@ Ha "Internal server error" hibát kapsz:
 - **Analytics router**: tRPC végpontok statisztikákhoz
 - **4 fő vizualizáció**: Oszlop, kör, terület és vízszintes diagramok
 
-### Workflow Automatizáció ⚡ ÚJ!
+### Workflow Automatizáció ⚡
 - **Automatikus hibabejelentés kezelés**: Státusz átmenetek, eszkaláció, SLA követés
 - **Időalapú szabályok**: Automatikus eszkaláció prioritás szerint
 - **SLA határidők**: URGENT (2h), HIGH (8h), MEDIUM (24h), LOW (72h)
@@ -98,15 +98,33 @@ Ha "Internal server error" hibát kapsz:
 - **Email értesítések**: Automatikus eszkaláció email-ek vezetőknek
 - **Workflow triggerek**: Létrehozás, hozzárendelés, kép feltöltés
 
+### Jelentések rendszer 📊
+- **4 jelentés típus**: Havi bevétel, hibabejelentések, ingatlan teljesítmény, bérlői elégedettség
+- **PDF/Excel export**: HTML alapú PDF és formázott Excel fájlok
+- **Valós adatok**: TRPC analytics API-ból származó statisztikák
+- **Toast értesítések**: Sikeres/sikertelen letöltések jelzése
+- **API végpont**: `/api/reports/generate` - Jelentés generálás és letöltés
+
+### Profil kezelés 👤 ÚJ!
+- **Valós profil frissítés**: TRPC user.update endpoint működő adatbázis mentéssel
+- **Dashboard név megjelenítés**: Dinamikus session alapú üdvözlés
+- **NextAuth session kezelés**: JWT callback automatikus adatbázis szinkronizáció
+- **Form állapot kezelés**: Controlled inputs megfelelő state management-tel
+- **Session cache megoldás**: Automatikus page reload session frissítéshez
+
 ### Új szolgáltatások
 - `/src/lib/email.ts` - Email küldés Resend-del
 - `/src/lib/excel.ts` - Excel export ExcelJS-sel
 - `/src/lib/pdf-simple.ts` - PDF generálás HTML template-tel
 - `/src/components/export-toolbar.tsx` - Export gombok komponens
-- `/src/lib/workflow.ts` - **ÚJ!** Workflow automation engine
+- `/src/lib/workflow.ts` - Workflow automation engine
 - `/src/components/dashboard/dashboard-charts.tsx` - Analytics diagramok
-- `/app/api/cron/workflow/route.ts` - **ÚJ!** Cron job API
-- `/app/dashboard/settings/workflow/page.tsx` - **ÚJ!** Workflow admin felület
+- `/app/api/cron/workflow/route.ts` - Cron job API
+- `/app/dashboard/settings/workflow/page.tsx` - Workflow admin felület
+- `/app/api/reports/generate/route.ts` - **ÚJ!** Jelentés generálás API
+- `/src/server/routers/user.ts` - **ÚJ!** User.update endpoint profil kezeléshez
+- `/src/components/ui/toast.tsx` - **ÚJ!** Toast notification rendszer
+- `/src/scripts/check-user-data.ts` - **ÚJ!** Adatbázis debug script
 - `/public/sw.js` - Service Worker offline támogatással
 
 ## Tesztelési végpontok
@@ -115,8 +133,12 @@ Ha "Internal server error" hibát kapsz:
 - **PDF teszt**: Settings → PDF teszt oldal
 - **PWA teszt**: Settings → PWA beállítások
 - **Workflow teszt**: Settings → Workflow → Admin felület
+- **Jelentések teszt**: Dashboard → Jelentések → PDF/Excel letöltés
+- **Profil teszt**: Settings → Profil → Név módosítás és mentés
 - **Health check**: `/api/health-check`
 - **Workflow cron**: `/api/cron/workflow` (GET/POST)
+- **Reports API**: `/api/reports/generate` (POST)
+- **Debug script**: `npx tsx src/scripts/check-user-data.ts`
 
 ## FIGYELEM!
 
