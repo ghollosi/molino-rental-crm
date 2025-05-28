@@ -5,10 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { BarChart3, FileText, Download, Calendar, DollarSign, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react'
-import { toast } from '@/hooks/use-toast'
+import { useToast } from '@/src/hooks/use-toast'
 import Link from 'next/link'
 
 export default function ReportsPage() {
+  const { toast } = useToast()
   const [isGenerating, setIsGenerating] = useState<number | null>(null)
   const [isDownloading, setIsDownloading] = useState<number | null>(null)
   const [quickStats, setQuickStats] = useState({
