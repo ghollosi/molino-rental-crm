@@ -17,7 +17,7 @@ import {
   Area,
   AreaChart
 } from 'recharts'
-import { api } from '@/lib/trpc'
+import { trpc } from '@/src/lib/trpc'
 import { UserRole } from '@prisma/client'
 import { format, subMonths, startOfMonth, endOfMonth } from 'date-fns'
 import { hu } from 'date-fns/locale'
@@ -46,10 +46,14 @@ const CHART_COLORS = [
 
 export function DashboardCharts({ userRole }: DashboardChartsProps) {
   // Fetch analytics data
-  const { data: issueStats } = api.analytics.issuesByMonth.useQuery()
-  const { data: propertyStats } = api.analytics.propertiesByStatus.useQuery()
-  const { data: revenueStats } = api.analytics.revenueByMonth.useQuery()
-  const { data: issuesByCategory } = api.analytics.issuesByCategory.useQuery()
+  const { data: issueStats } = trpc.analytics.issuesByMonth.useQuery()
+  const { data: propertyStats } = trpc.analytics.propertiesByStatus.useQuery()
+  const { data: revenueStats } = trpc.analytics.revenueByMonth.useQuery()
+  const { data: issuesByCategory, isLoading: isLoadingCategories } = trpc.analytics.issuesByCategory.useQuery()
+
+  // Debug log
+  console.log('🐛 Debug - issuesByCategory:', issuesByCategory)
+  console.log('🐛 Debug - isLoadingCategories:', isLoadingCategories)
 
   // Fallback data if API is loading
   const defaultIssuesByMonth = [
