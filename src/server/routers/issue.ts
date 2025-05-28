@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { sendEmail, emailTemplates } from '@/lib/email'
 
 export const issueRouter = createTRPCRouter({
   list: protectedProcedure
@@ -264,6 +265,19 @@ export const issueRouter = createTRPCRouter({
         },
       })
 
+      // Send email notification to property owner
+      try {
+        const emailContent = emailTemplates.issueCreated(issue, issue.property, issue.property.owner)
+        await sendEmail({
+          to: issue.property.owner.user.email,
+          subject: emailContent.subject,
+          html: emailContent.html,
+        })
+      } catch (error) {
+        console.error('Failed to send issue created email:', error)
+        // Don't throw error to prevent issue creation failure
+      }
+
       return issue
     }),
 
@@ -402,6 +416,50 @@ export const issueRouter = createTRPCRouter({
         },
       })
 
+      // Send email notification on status change
+      try {
+        const fullIssue = await ctx.db.issue.findUnique({
+          where: { id: input.id },
+          include: {
+            property: {
+              include: { owner: { include: { user: true } } }
+            },
+            reportedBy: true
+          }
+        })
+
+        const changedBy = await ctx.db.user.findUnique({
+          where: { id: ctx.session.user.id }
+        })
+
+        if (fullIssue && changedBy) {
+          const emailContent = emailTemplates.issueStatusChanged(
+            fullIssue, 
+            fullIssue.property, 
+            input.status,
+            changedBy
+          )
+          
+          // Send to property owner
+          await sendEmail({
+            to: fullIssue.property.owner.user.email,
+            subject: emailContent.subject,
+            html: emailContent.html,
+          })
+
+          // Also send to reporter if different from owner
+          if (fullIssue.reportedBy.email !== fullIssue.property.owner.user.email) {
+            await sendEmail({
+              to: fullIssue.reportedBy.email,
+              subject: emailContent.subject,
+              html: emailContent.html,
+            })
+          }
+        }
+      } catch (error) {
+        console.error('Failed to send status change email:', error)
+      }
+
       return updatedIssue
     }),
 
@@ -444,6 +502,35 @@ export const issueRouter = createTRPCRouter({
           notes: input.notes || `Assigned to ${issue.assignedTo?.user.name}`,
         },
       })
+
+      // Send email notification to assigned provider
+      try {
+        const fullIssue = await ctx.db.issue.findUnique({
+          where: { id: input.id },
+          include: {
+            property: {
+              include: { owner: { include: { user: true } } }
+            },
+            assignedTo: { include: { user: true } }
+          }
+        })
+
+        if (fullIssue?.assignedTo?.user) {
+          const emailContent = emailTemplates.issueAssigned(
+            fullIssue, 
+            fullIssue.property, 
+            fullIssue.assignedTo, 
+            fullIssue.property.owner
+          )
+          await sendEmail({
+            to: fullIssue.assignedTo.user.email,
+            subject: emailContent.subject,
+            html: emailContent.html,
+          })
+        }
+      } catch (error) {
+        console.error('Failed to send issue assigned email:', error)
+      }
 
       return issue
     }),

@@ -772,3 +772,43 @@ Import trace for requested module:
  ○ Compiling /api/trpc/[trpc] ...
  ✓ Compiled /api/trpc/[trpc] in 1628ms (1069 modules)
  GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 4266ms
+ GET /api/auth/session 200 in 180ms
+ GET /api/auth/session 200 in 23ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 2.1s (1015 modules)
+ GET /dashboard/properties 200 in 2452ms
+ ✓ Compiled /api/trpc/[trpc] in 325ms (1077 modules)
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 635ms
+ ✓ Compiled in 5.6s (2062 modules)
+ ✓ Compiled in 6.4s (972 modules)
+ GET /dashboard/properties 200 in 409ms
+ ✓ Compiled in 1141ms (972 modules)
+ GET /dashboard/properties 200 in 40ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 5.9s (1009 modules)
+ GET /api/auth/session 200 in 7041ms
+ GET /api/auth/session 200 in 15ms
+ ✓ Compiled in 1611ms (972 modules)
+ GET /dashboard/properties 200 in 82ms
+ ✓ Compiled in 790ms (972 modules)
+ GET /dashboard/properties 200 in 27ms
+ GET /api/auth/session 200 in 2806ms
+ GET /api/auth/session 200 in 3401ms
+ ✓ Compiled in 53.6s (972 modules)
+ GET /dashboard/properties 200 in 6026ms
+ GET /api/auth/session 200 in 7523ms
+ GET /api/auth/session 200 in 247ms
+ GET /dashboard/properties 200 in 48392ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 146.2s (2244 modules)
+ GET /api/auth/session 200 in 92294ms
+ GET /dashboard 200 in 92266ms
+ GET /dashboard 200 in 120ms
+ GET /dashboard 200 in 121ms
+ GET /dashboard 200 in 23ms
+ GET /api/auth/session 200 in 32ms
+ GET /dashboard 200 in 214ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 5.8s (1117 modules)
+ GET /dashboard 200 in 69ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 7042ms

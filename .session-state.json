@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T07:19:26.193Z",
+  "timestamp": "2025-05-28T07:34:26.263Z",
   "lastCommand": "start",
-  "currentFile": "app/dashboard/page.tsx",
-  "gitStatus": "M app/dashboard/page.tsx\n M dev.log",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M dev.log\n M package-lock.json\n M package.json\n M src/server/routers/issue.ts\n?? app/api/test-email/\n?? src/lib/email.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -21,6 +21,7 @@
     "@trpc/react-query",
     "@trpc/server",
     "@types/bcryptjs",
+    "@types/nodemailer",
     "@uploadthing/react",
     "bcrypt",
     "bcryptjs",
@@ -34,6 +35,7 @@
     "next-auth",
     "next-i18next",
     "next-pwa",
+    "nodemailer",
     "prisma",
     "react",
     "react-dom",
