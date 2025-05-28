@@ -6,6 +6,8 @@ import { httpBatchLink } from '@trpc/client'
 import { api } from '@/lib/trpc/client'
 import superjson from 'superjson'
 import { SessionProvider } from 'next-auth/react'
+import { ToastProvider } from '@/src/hooks/use-toast'
+import { Toaster } from '@/src/components/ui/toast'
 
 function getBaseUrl() {
   if (typeof window !== 'undefined')
@@ -39,7 +41,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <SessionProvider>
       <api.Provider client={trpcClient} queryClient={queryClient}>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <ToastProvider>
+            {children}
+            <Toaster />
+          </ToastProvider>
         </QueryClientProvider>
       </api.Provider>
     </SessionProvider>

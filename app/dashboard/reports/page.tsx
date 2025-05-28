@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { BarChart3, FileText, Download, Calendar, DollarSign, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react'
 import { useToast } from '@/src/hooks/use-toast'
+import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
 
 export default function ReportsPage() {
@@ -136,51 +137,26 @@ export default function ReportsPage() {
     await handleGenerateReport(reportId, format)
   }
 
-  // Gyors statisztikák betöltése
+  // TRPC adatok lekérése
+  const { data: dashboardStats } = api.analytics.dashboardStats.useQuery()
+  const { data: propertiesByStatus } = api.analytics.propertiesByStatus.useQuery()
+  const { data: issuesSummary } = api.analytics.issuesByPriority.useQuery()
+
+  // Gyors statisztikák számítása
   useEffect(() => {
-    const loadQuickStats = async () => {
-      try {
-        // Property-k számának lekérése
-        const propertiesResponse = await fetch('/api/properties')
-        if (propertiesResponse.ok) {
-          const propertiesData = await propertiesResponse.json()
-          const rented = propertiesData.properties?.filter((p: any) => p.status === 'RENTED').length || 0
-          const total = propertiesData.properties?.length || 1
-          
-          setQuickStats(prev => ({
-            ...prev,
-            activeProperties: rented,
-            occupancyRate: Math.round((rented / total) * 100)
-          }))
-        }
-
-        // Issues számának lekérése
-        const issuesResponse = await fetch('/api/issues')
-        if (issuesResponse.ok) {
-          const issuesData = await issuesResponse.json()
-          const openIssues = issuesData.issues?.filter((i: any) => 
-            ['OPEN', 'ASSIGNED', 'IN_PROGRESS'].includes(i.status)
-          ).length || 0
-          
-          setQuickStats(prev => ({
-            ...prev,
-            openIssues
-          }))
-        }
-
-        // Elégedett bérlők (mock adat)
-        setQuickStats(prev => ({
-          ...prev,
-          satisfiedTenants: Math.max(1, prev.activeProperties - 2)
-        }))
-
-      } catch (error) {
-        console.error('Failed to load quick stats:', error)
-      }
+    if (dashboardStats && propertiesByStatus) {
+      const rentedProperties = propertiesByStatus.find(p => p.status === 'RENTED')?._count || 0
+      const totalProperties = propertiesByStatus.reduce((sum, p) => sum + p._count, 0) || 1
+      const occupancyRate = Math.round((rentedProperties / totalProperties) * 100)
+      
+      setQuickStats({
+        activeProperties: rentedProperties,
+        satisfiedTenants: Math.max(1, rentedProperties - 1), // Mock adat
+        openIssues: dashboardStats.openIssues || 0,
+        occupancyRate: occupancyRate
+      })
     }
-
-    loadQuickStats()
-  }, [])
+  }, [dashboardStats, propertiesByStatus])
 
   return (
     <div className="container mx-auto py-6 px-4">
