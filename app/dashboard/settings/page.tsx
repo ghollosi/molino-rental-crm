@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -9,18 +10,90 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow } from 'lucide-react'
+import { useToast } from '@/src/hooks/use-toast'
+import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
 
 export default function SettingsPage() {
+  const { data: session, update } = useSession()
+  const { toast } = useToast()
   const [activeTab, setActiveTab] = useState('profile')
   const [success, setSuccess] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [profileData, setProfileData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: ''
+  })
 
-  const handleSave = (section: string) => {
-    // TODO: Implement actual save functionality
+  // Initialize form with session data
+  useEffect(() => {
+    if (session?.user) {
+      const nameParts = session.user.name?.split(' ') || ['', '']
+      setProfileData({
+        firstName: nameParts[0] || '',
+        lastName: nameParts.slice(1).join(' ') || '',
+        email: session.user.email || '',
+        phone: session.user.phone || ''
+      })
+    }
+  }, [session])
+
+  const updateUserMutation = api.user.update.useMutation({
+    onSuccess: async (updatedUser) => {
+      // Update the session with new data
+      await update({
+        ...session,
+        user: {
+          ...session?.user,
+          name: `${profileData.firstName} ${profileData.lastName}`.trim(),
+          email: profileData.email,
+          phone: profileData.phone
+        }
+      })
+      
+      toast({
+        title: "Siker",
+        description: "Profil sikeresen frissítve!",
+      })
+      setSuccess('Profil beállítások sikeresen mentve!')
+      setTimeout(() => setSuccess(null), 3000)
+    },
+    onError: (error) => {
+      toast({
+        title: "Hiba",
+        description: "Profil frissítés sikertelen: " + error.message,
+        variant: "destructive"
+      })
+      setError('Profil frissítés sikertelen')
+    }
+  })
+
+  const handleSave = async (section: string) => {
     setError(null)
-    setSuccess(`${section} beállítások sikeresen mentve!`)
-    setTimeout(() => setSuccess(null), 3000)
+    
+    if (section === 'Profil') {
+      if (!session?.user?.id) {
+        setError('Felhasználó azonosító hiányzik')
+        return
+      }
+
+      try {
+        await updateUserMutation.mutateAsync({
+          id: session.user.id,
+          name: `${profileData.firstName} ${profileData.lastName}`.trim(),
+          email: profileData.email,
+          phone: profileData.phone || undefined
+        })
+      } catch (error) {
+        // Error is handled in onError callback
+      }
+    } else {
+      // For other sections, show mock success for now
+      setSuccess(`${section} beállítások sikeresen mentve!`)
+      setTimeout(() => setSuccess(null), 3000)
+    }
   }
 
   return (
@@ -86,22 +159,39 @@ export default function SettingsPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName">Keresztnév</Label>
-                  <Input id="firstName" defaultValue="Admin" />
+                  <Input 
+                    id="firstName" 
+                    value={profileData.firstName}
+                    onChange={(e) => setProfileData(prev => ({ ...prev, firstName: e.target.value }))}
+                  />
                 </div>
                 <div>
                   <Label htmlFor="lastName">Vezetéknév</Label>
-                  <Input id="lastName" defaultValue="User" />
+                  <Input 
+                    id="lastName" 
+                    value={profileData.lastName}
+                    onChange={(e) => setProfileData(prev => ({ ...prev, lastName: e.target.value }))}
+                  />
                 </div>
               </div>
               
               <div>
                 <Label htmlFor="email">E-mail cím</Label>
-                <Input id="email" type="email" defaultValue="admin@molino.com" />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  value={profileData.email}
+                  onChange={(e) => setProfileData(prev => ({ ...prev, email: e.target.value }))}
+                />
               </div>
               
               <div>
                 <Label htmlFor="phone">Telefonszám</Label>
-                <Input id="phone" defaultValue="+36 20 123 4567" />
+                <Input 
+                  id="phone" 
+                  value={profileData.phone}
+                  onChange={(e) => setProfileData(prev => ({ ...prev, phone: e.target.value }))}
+                />
               </div>
               
               <div>
@@ -117,8 +207,11 @@ export default function SettingsPage() {
                 </Select>
               </div>
               
-              <Button onClick={() => handleSave('Profil')}>
-                Változások mentése
+              <Button 
+                onClick={() => handleSave('Profil')}
+                disabled={updateUserMutation.isPending}
+              >
+                {updateUserMutation.isPending ? 'Mentés...' : 'Változások mentése'}
               </Button>
             </CardContent>
           </Card>

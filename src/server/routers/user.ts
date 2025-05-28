@@ -124,6 +124,47 @@ export const userRouter = createTRPCRouter({
       return user
     }),
 
+  update: protectedProcedure
+    .input(z.object({
+      id: z.string(),
+      name: z.string().optional(),
+      email: z.string().email().optional(),
+      phone: z.string().optional(),
+      language: z.enum(['HU', 'EN']).optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      const { id, ...data } = input
+
+      // Users can only update their own profile or admins can update any
+      if (ctx.session.user.id !== id && !['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Remove undefined values
+      const updateData = Object.fromEntries(
+        Object.entries(data).filter(([_, value]) => value !== undefined)
+      )
+
+      const user = await ctx.db.user.update({
+        where: { id },
+        data: updateData,
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          phone: true,
+          language: true,
+          role: true,
+          updatedAt: true,
+        },
+      })
+
+      return user
+    }),
+
   updateRole: protectedProcedure
     .input(z.object({
       userId: z.string(),
