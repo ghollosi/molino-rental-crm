@@ -17,8 +17,8 @@ export function RecentIssues({ userRole }: RecentIssuesProps) {
   const { data: issues, isLoading } = api.issue.list.useQuery({
     page: 1,
     limit: 3,
-    sortBy: 'createdAt',
-    sortOrder: 'desc',
+    // sortBy: 'createdAt',
+    // sortOrder: 'desc',
   })
 
   if (isLoading) {

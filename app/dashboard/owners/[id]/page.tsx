@@ -219,7 +219,7 @@ export default function OwnerDetailPage({ params }: { params: { id: string } }) 
                             <TableCell>{property.type}</TableCell>
                             <TableCell>{property.size} m²</TableCell>
                             <TableCell>
-                              {property.rentAmount ? `${property.rentAmount.toLocaleString('hu-HU')} Ft` : '-'}
+                              {property.rentAmount ? `${Number(property.rentAmount).toLocaleString('hu-HU')} Ft` : '-'}
                             </TableCell>
                             <TableCell>
                               <Badge variant={(property as any).isActive ? 'default' : 'secondary'}>

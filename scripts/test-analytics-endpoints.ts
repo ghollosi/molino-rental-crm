@@ -8,7 +8,7 @@ async function testEndpoints() {
   try {
     // Create a mock context
     const ctx = await createTRPCContext({
-      headers: new Headers(),
+      req: new Request('http://localhost:3000') as any,
     })
     
     // Create caller

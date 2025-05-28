@@ -116,7 +116,7 @@ export default function TenantsPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        {new Date(tenant.user.createdAt).toLocaleDateString('hu-HU')}
+                        {(tenant.user as any).createdAt ? new Date((tenant.user as any).createdAt).toLocaleDateString('hu-HU') : 'N/A'}
                       </TableCell>
                       <TableCell className="text-right">
                         <Button

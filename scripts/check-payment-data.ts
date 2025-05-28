@@ -37,7 +37,7 @@ async function checkPaymentData() {
       console.log(`  Contract ${contract.id}:`)
       console.log(`    Tenant: ${contract.tenant?.user?.name || 'Unknown'}`)
       console.log(`    Property: ${contract.property.street}, ${contract.property.city}`)
-      console.log(`    Rent: ${contract.rentAmount} ${contract.currency}`)
+      console.log(`    Rent: ${contract.rentAmount} ${(contract as any).currency || 'HUF'}`)
       console.log(`    Payment day: ${contract.paymentDay}`)
       console.log(`    Start: ${contract.startDate.toLocaleDateString('hu-HU')}`)
       console.log(`    End: ${contract.endDate.toLocaleDateString('hu-HU')}`)
@@ -59,7 +59,7 @@ async function checkPaymentData() {
       overdueContracts.forEach(contract => {
         const daysOverdue = currentDay - contract.paymentDay
         console.log(`  📅 ${contract.tenant?.user?.name}: ${daysOverdue} days overdue`)
-        console.log(`    Amount: ${contract.rentAmount} ${contract.currency}`)
+        console.log(`    Amount: ${contract.rentAmount} ${(contract as any).currency || 'HUF'}`)
         console.log(`    Contact: ${contract.tenant?.user?.email}`)
         console.log('')
       })
@@ -79,7 +79,7 @@ async function checkPaymentData() {
       upcomingContracts.forEach(contract => {
         const daysUntilDue = contract.paymentDay - currentDay
         console.log(`  💸 ${contract.tenant?.user?.name}: Due in ${daysUntilDue} days`)
-        console.log(`    Amount: ${contract.rentAmount} ${contract.currency}`)
+        console.log(`    Amount: ${contract.rentAmount} ${(contract as any).currency || 'HUF'}`)
         console.log('')
       })
     }

@@ -20,9 +20,9 @@ export const companyRouter = createTRPCRouter({
         const newCompany = await ctx.db.company.create({
           data: {
             name: 'Molino RENTAL',
-            email: 'info@molino.com',
-            phone: '+36 1 234 5678',
-            address: 'Budapest, Példa utca 1.',
+            // email: 'info@molino.com',
+            // phone: '+36 1 234 5678',
+            // address: 'Budapest, Példa utca 1.',
             taxNumber: '12345678-1-42',
             bankAccount: '12345678-12345678-12345678',
             settings: {

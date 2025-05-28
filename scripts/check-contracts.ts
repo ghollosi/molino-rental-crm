@@ -20,7 +20,7 @@ async function checkContracts() {
       console.log(`  Status: ${contract.status}`)
       console.log(`  Tenant: ${contract.tenant?.user?.name || 'None'}`)
       console.log(`  Property: ${contract.property?.street || 'None'}`)
-      console.log(`  Rent: ${contract.rentAmount} ${contract.currency}`)
+      console.log(`  Rent: ${contract.rentAmount} ${(contract as any).currency || 'HUF'}`)
       console.log(`  Payment day: ${contract.paymentDay}`)
       console.log(`  Start: ${contract.startDate?.toISOString().split('T')[0]}`)
       console.log(`  End: ${contract.endDate?.toISOString().split('T')[0]}`)

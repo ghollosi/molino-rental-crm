@@ -24,9 +24,9 @@ export const {
       if (session.user) {
         session.user.name = token.name
         session.user.email = token.email!
-        session.user.role = token.role
-        session.user.language = token.language
-        session.user.phone = token.phone
+        session.user.role = token.role as any
+        session.user.language = token.language as any
+        session.user.phone = token.phone as any
       }
 
       return session

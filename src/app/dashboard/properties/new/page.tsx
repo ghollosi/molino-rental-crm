@@ -42,7 +42,7 @@ export default function NewPropertyPage() {
     setValue,
     watch,
   } = useForm<PropertyFormData>({
-    resolver: zodResolver(propertySchema),
+    resolver: zodResolver(propertySchema) as any,
     defaultValues: {
       currency: 'HUF',
       country: 'Magyarország',
@@ -88,7 +88,7 @@ export default function NewPropertyPage() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-6">
         {error && (
           <Alert variant="destructive">
             <AlertDescription>{error}</AlertDescription>

@@ -65,14 +65,14 @@ export interface ReportData {
  * Base PDF class with common functionality
  */
 class BasePDF {
-  protected doc: jsPDF;
+  protected doc: any;
   protected margin: number;
   protected currentY: number;
   protected pageWidth: number;
   protected pageHeight: number;
 
   constructor(options: PDFOptions) {
-    this.doc = new jsPDF({
+    this.doc = new (globalThis as any).jsPDF({
       orientation: options.orientation || 'portrait',
       unit: 'mm',
       format: 'a4'

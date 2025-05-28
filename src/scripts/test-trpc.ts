@@ -1,22 +1,13 @@
 import { appRouter } from '../server/routers/_app'
-import { createInnerTRPCContext } from '../server/trpc'
+import { createTRPCContext } from '../server/trpc'
 import { db } from '../lib/db'
 
 async function testTRPC() {
   console.log('Testing tRPC endpoints...\n')
   
   // Create a mock context
-  const ctx = createInnerTRPCContext({
-    session: {
-      user: {
-        id: '1',
-        name: 'Test Admin',
-        email: 'admin@test.com',
-        role: 'ADMIN' as const,
-        language: 'HU' as const,
-      },
-      expires: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-    },
+  const ctx = await createTRPCContext({
+    req: new Request('http://localhost:3000') as any,
   })
 
   const caller = appRouter.createCaller(ctx)

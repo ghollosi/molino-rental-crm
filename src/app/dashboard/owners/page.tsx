@@ -112,8 +112,8 @@ export default function OwnersPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Badge variant={owner.isCompany ? 'default' : 'secondary'}>
-                          {owner.isCompany ? 'Cég' : 'Magánszemély'}
+                        <Badge variant={(owner as any).isCompany ? 'default' : 'secondary'}>
+                          {(owner as any).isCompany ? 'Cég' : 'Magánszemély'}
                         </Badge>
                       </TableCell>
                       <TableCell className="text-right">

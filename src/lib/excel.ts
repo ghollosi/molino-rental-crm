@@ -128,7 +128,7 @@ export async function generateExcel(options: ExcelExportOptions): Promise<Buffer
   // Auto-fit columns (approximate)
   worksheet.columns.forEach(column => {
     let maxLength = 0;
-    column.eachCell({ includeEmpty: true }, (cell) => {
+    (column as any)?.eachCell({ includeEmpty: true }, (cell: any) => {
       const columnLength = cell.value ? cell.value.toString().length : 10;
       if (columnLength > maxLength) {
         maxLength = columnLength;

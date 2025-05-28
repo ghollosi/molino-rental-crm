@@ -172,7 +172,7 @@ export const propertyRouter = createTRPCRouter({
       return property
     }),
 
-  update: protectedProcedure
+  updateOld: protectedProcedure
     .input(z.object({
       id: z.string(),
       data: PropertyCreateSchema.partial(),

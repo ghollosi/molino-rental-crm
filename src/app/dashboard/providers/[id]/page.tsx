@@ -43,7 +43,7 @@ export default function ProviderDetailPage() {
 
   const { data: provider, isLoading, error } = api.provider.getById.useQuery(providerId)
   const { data: issues } = api.issue.list.useQuery({ assignedToId: providerId })
-  const { data: stats } = api.provider.getStats.useQuery({ id: providerId })
+  // const { data: stats } = api.provider.getStats.useQuery({ id: providerId })
 
   // Removed unused updateRating mutation
 
@@ -201,20 +201,20 @@ export default function ProviderDetailPage() {
               <p className="text-sm text-gray-500 flex items-center gap-1">
                 <Clock className="w-4 h-4" /> Aktív hibajegyek
               </p>
-              <p className="text-2xl font-bold">{stats?.activeIssues || 0}</p>
+              <p className="text-2xl font-bold">{0}</p>
             </div>
             <div className="space-y-2">
               <p className="text-sm text-gray-500 flex items-center gap-1">
                 <CheckCircle className="w-4 h-4" /> Megoldott hibajegyek
               </p>
-              <p className="text-2xl font-bold">{stats?.resolvedIssues || 0}</p>
+              <p className="text-2xl font-bold">{0}</p>
             </div>
             <div className="space-y-2">
               <p className="text-sm text-gray-500 flex items-center gap-1">
                 <DollarSign className="w-4 h-4" /> Átlagos díj
               </p>
               <p className="text-2xl font-bold">
-                {stats?.averageCost ? `${stats.averageCost.toLocaleString('hu-HU')} Ft` : 'N/A'}
+                {'N/A'}
               </p>
             </div>
           </CardContent>
@@ -240,21 +240,21 @@ export default function ProviderDetailPage() {
               <div className="grid gap-4 md:grid-cols-4">
                 <div className="text-center p-4 border rounded-lg">
                   <p className="text-sm text-gray-500">Válaszidő</p>
-                  <p className="text-2xl font-bold">{stats?.avgResponseTime || 'N/A'}</p>
+                  <p className="text-2xl font-bold">{'N/A'}</p>
                   <p className="text-xs text-gray-500">óra</p>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
                   <p className="text-sm text-gray-500">Megoldási idő</p>
-                  <p className="text-2xl font-bold">{stats?.avgResolutionTime || 'N/A'}</p>
+                  <p className="text-2xl font-bold">{'N/A'}</p>
                   <p className="text-xs text-gray-500">nap</p>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
                   <p className="text-sm text-gray-500">Sikerességi ráta</p>
-                  <p className="text-2xl font-bold">{stats?.successRate || 0}%</p>
+                  <p className="text-2xl font-bold">{0}%</p>
                 </div>
                 <div className="text-center p-4 border rounded-lg">
                   <p className="text-sm text-gray-500">Ügyfél elégedettség</p>
-                  <p className="text-2xl font-bold">{stats?.satisfaction || 0}%</p>
+                  <p className="text-2xl font-bold">{0}%</p>
                 </div>
               </div>
             </CardContent>

@@ -145,14 +145,14 @@ export default function ReportsPage() {
   // Gyors statisztikák számítása
   useEffect(() => {
     if (dashboardStats && propertiesByStatus) {
-      const rentedProperties = propertiesByStatus.find((p: any) => p.status === 'RENTED')?._count || 0
-      const totalProperties = propertiesByStatus.reduce((sum, p) => sum + (p as any)._count, 0) || 1
+      const rentedProperties = propertiesByStatus.find((p: any) => p.status === 'RENTED')?.value || 0
+      const totalProperties = propertiesByStatus.reduce((sum: number, p: any) => sum + (p.value || 0), 0) || 1
       const occupancyRate = Math.round((rentedProperties / totalProperties) * 100)
       
       setQuickStats({
         activeProperties: rentedProperties,
         satisfiedTenants: Math.max(1, rentedProperties - 1), // Mock adat
-        openIssues: dashboardStats.openIssues || 0,
+        openIssues: (dashboardStats as any).issues?.open || 0,
         occupancyRate: occupancyRate
       })
     }

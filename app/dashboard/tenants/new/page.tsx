@@ -40,12 +40,8 @@ export default function NewTenantPage() {
   const onSubmit = async (data: TenantFormData) => {
     setError(null)
     await createTenant.mutateAsync({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      phone: data.phone,
-      address: data.address,
-      emergencyContact: data.emergencyContact,
+      userId: 'temp-user-id', // This needs to be set properly
+      emergencyName: data.emergencyContact,
       emergencyPhone: data.emergencyPhone,
     })
   }

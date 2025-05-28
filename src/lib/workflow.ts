@@ -320,7 +320,7 @@ export class WorkflowEngine {
           await this.executeEscalation(action, issue)
           break
         case 'notification':
-          await this.executeNotification(action, issue)
+          await (this as any).executeNotification(action, issue)
           break
       }
     }

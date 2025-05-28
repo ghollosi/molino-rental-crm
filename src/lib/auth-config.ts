@@ -15,7 +15,7 @@ export const authConfig: NextAuthConfig = {
   },
   pages: {
     signIn: "/login",
-    signUp: "/register",
+    // signUp: "/register",
   },
   providers: [
     Credentials({
@@ -74,8 +74,8 @@ export const authConfig: NextAuthConfig = {
     async session({ session, token }) {
       if (token && session.user) {
         session.user.id = token.id as string
-        session.user.role = token.role as string
-        session.user.language = token.language as string
+        session.user.role = token.role as any
+        session.user.language = token.language as any
       }
       return session
     },

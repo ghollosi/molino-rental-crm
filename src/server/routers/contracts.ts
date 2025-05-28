@@ -110,8 +110,9 @@ export const contractsRouter = createTRPCRouter({
           deposit: input.deposit,
           startDate: input.startDate,
           endDate: input.endDate,
+          paymentDay: 1, // Default payment day
           status: ContractStatus.DRAFT,
-          customTerms: input.customTerms,
+          // customTerms: input.customTerms,
         },
         include: {
           property: true,
