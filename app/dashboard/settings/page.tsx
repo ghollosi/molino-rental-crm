@@ -26,10 +26,11 @@ export default function SettingsPage() {
     email: '',
     phone: ''
   })
+  const [isFormInitialized, setIsFormInitialized] = useState(false)
 
-  // Initialize form with session data
+  // Initialize form with session data only once
   useEffect(() => {
-    if (session?.user) {
+    if (session?.user && !isFormInitialized) {
       const nameParts = session.user.name?.split(' ') || ['', '']
       setProfileData({
         firstName: nameParts[0] || '',
@@ -37,8 +38,9 @@ export default function SettingsPage() {
         email: session.user.email || '',
         phone: session.user.phone || ''
       })
+      setIsFormInitialized(true)
     }
-  }, [session])
+  }, [session, isFormInitialized])
 
   const updateUserMutation = api.user.update.useMutation({
     onSuccess: async (updatedUser) => {
@@ -51,16 +53,12 @@ export default function SettingsPage() {
       setSuccess('Profil beállítások sikeresen mentve!')
       
       // Force session refresh by triggering the JWT callback
-      // This will fetch fresh data from the database
       await update()
       
-      // If update() doesn't work, force a page refresh as fallback
+      // Reset form initialization so it can update with new session data
       setTimeout(() => {
-        if (session?.user?.name === 'Admin User') {
-          console.log('Session update failed, forcing page refresh...')
-          window.location.reload()
-        }
-      }, 2000)
+        setIsFormInitialized(false)
+      }, 500)
     },
     onError: (error) => {
       toast({
