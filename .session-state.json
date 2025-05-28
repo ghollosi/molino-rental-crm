@@ -1,13 +1,14 @@
 {
-  "timestamp": "2025-05-28T05:54:25.778Z",
+  "timestamp": "2025-05-28T06:04:25.796Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M dev.log",
+  "gitStatus": "M .session-state.json\n M dev.log\n M package-lock.json\n M package.json\n M src/server/routers/owner.ts\n?? app/dashboard/owners/[id]/edit/\n?? src/components/ui/checkbox.tsx\n?? src/hooks/",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
     "@prisma/client",
     "@radix-ui/react-avatar",
+    "@radix-ui/react-checkbox",
     "@radix-ui/react-dialog",
     "@radix-ui/react-dropdown-menu",
     "@radix-ui/react-label",

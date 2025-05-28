@@ -329,3 +329,222 @@ Import trace for requested module:
  ○ Compiling /api/trpc/[trpc] ...
  ✓ Compiled /api/trpc/[trpc] in 920ms (1092 modules)
  GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1619ms
+ ○ Compiling /dashboard/owners/[id] ...
+ ✓ Compiled /dashboard/owners/[id] in 1519ms (2036 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc 200 in 2114ms
+ GET /api/trpc/owner.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8q6000ai8frlykplyhc%22%7D%7D 200 in 142ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 637ms (1997 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 404 in 681ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 404 in 96ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 658ms (1063 modules)
+ GET /api/auth/session 200 in 739ms
+ GET /api/auth/session 200 in 25ms
+ ✓ Compiled in 1813ms (947 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 987ms (1769 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 404 in 1282ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 404 in 182ms
+ ✓ Compiled /api/auth/[...nextauth] in 429ms (1001 modules)
+ GET /api/auth/session 200 in 849ms
+ GET /api/auth/session 200 in 5ms
+ ○ Compiling /dashboard/owners/[id]/edit ...
+ ⨯ ./app/dashboard/owners/[id]/edit/page.tsx:10:1
+Module not found: Can't resolve '@/components/ui/checkbox'
+   8 | import { Input } from '@/components/ui/input'
+   9 | import { Label } from '@/components/ui/label'
+> 10 | import { Checkbox } from '@/components/ui/checkbox'
+     | ^
+  11 | import { useToast } from '@/hooks/use-toast'
+  12 | import { ArrowLeft, Save } from 'lucide-react'
+  13 | import Link from 'next/link'
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./app/dashboard/owners/[id]/edit/page.tsx:10:1
+Module not found: Can't resolve '@/components/ui/checkbox'
+   8 | import { Input } from '@/components/ui/input'
+   9 | import { Label } from '@/components/ui/label'
+> 10 | import { Checkbox } from '@/components/ui/checkbox'
+     | ^
+  11 | import { useToast } from '@/hooks/use-toast'
+  12 | import { ArrowLeft, Save } from 'lucide-react'
+  13 | import Link from 'next/link'
+
+https://nextjs.org/docs/messages/module-not-found
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 6983ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 9ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 35ms
+ ⨯ ./app/dashboard/owners/[id]/edit/page.tsx:11:1
+Module not found: Can't resolve '@/hooks/use-toast'
+   9 | import { Label } from '@/components/ui/label'
+  10 | import { Checkbox } from '@/components/ui/checkbox'
+> 11 | import { useToast } from '@/hooks/use-toast'
+     | ^
+  12 | import { ArrowLeft, Save } from 'lucide-react'
+  13 | import Link from 'next/link'
+  14 |
+
+https://nextjs.org/docs/messages/module-not-found
+ ⨯ ./src/components/ui/checkbox.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-checkbox'
+  2 |
+  3 | import * as React from "react"
+> 4 | import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+    | ^
+  5 | import { Check } from "lucide-react"
+  6 |
+  7 | import { cn } from "@/lib/utils"
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/owners/[id]/edit/page.tsx
+ ⨯ ./src/components/ui/checkbox.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-checkbox'
+  2 |
+  3 | import * as React from "react"
+> 4 | import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+    | ^
+  5 | import { Check } from "lucide-react"
+  6 |
+  7 | import { cn } from "@/lib/utils"
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/owners/[id]/edit/page.tsx
+ ✓ Compiled /_not-found in 2s (2050 modules)
+ ○ Compiling /dashboard/owners/[id]/edit ...
+ ✓ Compiled /dashboard/owners/[id]/edit in 1538ms (1791 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/7e4c7c1d9031c834.webpack.hot-update.json 404 in 2628ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 2284ms
+ ⨯ Error: useToast must be used within a ToastProvider
+    at useToast (src/hooks/use-toast.tsx:51:10)
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:18:28)
+  49 |   const context = React.useContext(ToastContext)
+  50 |   if (!context) {
+> 51 |     throw new Error("useToast must be used within a ToastProvider")
+     |          ^
+  52 |   }
+  53 |   return context
+  54 | } {
+  digest: '2660992824'
+}
+ ⨯ Error: useToast must be used within a ToastProvider
+    at useToast (src/hooks/use-toast.tsx:51:10)
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:18:28)
+  49 |   const context = React.useContext(ToastContext)
+  50 |   if (!context) {
+> 51 |     throw new Error("useToast must be used within a ToastProvider")
+     |          ^
+  52 |   }
+  53 |   return context
+  54 | } {
+  digest: '2660992824'
+}
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 924ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1703ms (1015 modules)
+ GET /api/auth/session 200 in 2138ms
+ GET /api/auth/session 200 in 5ms
+ ✓ Compiled in 1431ms (1967 modules)
+ ⨯ Error: useToast must be used within a ToastProvider
+    at useToast (src/hooks/use-toast.tsx:51:10)
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:18:28)
+  49 |   const context = React.useContext(ToastContext)
+  50 |   if (!context) {
+> 51 |     throw new Error("useToast must be used within a ToastProvider")
+     |          ^
+  52 |   }
+  53 |   return context
+  54 | } {
+  digest: '2660992824'
+}
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 247ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 248ms
+ GET /api/auth/session 200 in 62ms
+ GET /api/auth/session 200 in 6ms
+ ✓ Compiled in 739ms (1965 modules)
+ ⨯ ReferenceError: useToast is not defined
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:18:20)
+  16 |   const params = useParams()
+  17 |   const router = useRouter()
+> 18 |   const { toast } = useToast()
+     |                    ^
+  19 |   const id = params.id as string
+  20 |
+  21 |   const { data: owner, isLoading } = api.owner.getById.useQuery(id) {
+  digest: '3845943094'
+}
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 181ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 182ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 4ms
+ ✓ Compiled in 544ms (1965 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 111ms
+ ⨯ ReferenceError: React is not defined
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:49:2)
+  47 |
+  48 |   // Frissítjük a form adatokat amikor betöltődik a tulajdonos
+> 49 |   React.useEffect(() => {
+     |  ^
+  50 |     if (owner) {
+  51 |       setFormData({
+  52 |         name: owner.user.name || '', {
+  digest: '3294362889'
+}
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 272ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 9ms
+ ✓ Compiled in 618ms (1965 modules)
+ ⨯ ReferenceError: React is not defined
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:42:2)
+  40 |
+  41 |   // Frissítjük a form adatokat amikor betöltődik a tulajdonos
+> 42 |   React.useEffect(() => {
+     |  ^
+  43 |     if (owner) {
+  44 |       setFormData({
+  45 |         name: owner.user.name || '', {
+  digest: '3294362889'
+}
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 133ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 135ms
+ GET /api/auth/session 200 in 28ms
+ GET /api/auth/session 200 in 4ms
+ ✓ Compiled in 658ms (1965 modules)
+ ⨯ ReferenceError: React is not defined
+    at EditOwnerPage (app/dashboard/owners/[id]/edit/page.tsx:42:2)
+  40 |
+  41 |   // Frissítjük a form adatokat amikor betöltődik a tulajdonos
+> 42 |   React.useEffect(() => {
+     |  ^
+  43 |     if (owner) {
+  44 |       setFormData({
+  45 |         name: owner.user.name || '', {
+  digest: '3294362889'
+}
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 265ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 500 in 269ms
+ GET /api/auth/session 200 in 29ms
+ GET /api/auth/session 200 in 5ms
+ ✓ Compiled in 826ms (1965 modules)
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 200ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 206ms
+ GET /api/auth/session 200 in 68ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1677ms (1070 modules)
+ ✓ Compiled in 1ms (1070 modules)
+ ✓ Compiled in 0ms (1070 modules)
+ ✓ Compiled in 1ms (1070 modules)
+ GET /api/auth/session 200 in 2393ms
+ GET /api/trpc/owner.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8q6000ai8frlykplyhc%22%7D%7D 200 in 2635ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 1078ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 695ms (1075 modules)
+ GET /dashboard/owners 200 in 801ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 292ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc 200 in 55ms
+ GET /dashboard/owners/cmb6sr8q6000ai8frlykplyhc/edit 200 in 59ms

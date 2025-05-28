@@ -291,15 +291,25 @@ export const ownerRouter = createTRPCRouter({
   update: protectedProcedure
     .input(z.object({
       id: z.string(),
-      taxNumber: z.string().optional(),
-      bankAccount: z.string().optional(),
-      billingStreet: z.string().optional(),
-      billingCity: z.string().optional(),
-      billingPostalCode: z.string().optional(),
-      billingCountry: z.string().optional(),
+      userId: z.string(),
+      userData: z.object({
+        name: z.string().min(1, 'Name is required'),
+        email: z.string().email('Invalid email'),
+        phone: z.string().optional(),
+      }),
+      ownerData: z.object({
+        taxNumber: z.string().optional(),
+        companyName: z.string().optional(),
+        isCompany: z.boolean().optional(),
+        bankAccount: z.string().optional(),
+        billingStreet: z.string().optional(),
+        billingCity: z.string().optional(),
+        billingPostalCode: z.string().optional(),
+        billingCountry: z.string().optional(),
+      }),
     }))
     .mutation(async ({ ctx, input }) => {
-      const { id, ...data } = input
+      const { id, userId, userData, ownerData } = input
 
       // Check permissions - owners can update their own profile
       const owner = await ctx.db.owner.findUnique({
@@ -325,9 +335,16 @@ export const ownerRouter = createTRPCRouter({
         })
       }
 
+      // Update user data
+      await ctx.db.user.update({
+        where: { id: userId },
+        data: userData,
+      })
+
+      // Update owner data
       const updatedOwner = await ctx.db.owner.update({
         where: { id },
-        data,
+        data: ownerData,
         include: {
           user: {
             select: {
