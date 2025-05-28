@@ -148,8 +148,8 @@ export default function NewPropertyPage() {
             path: err.path,
             message: err.message,
             code: err.code,
-            received: err.received,
-            expected: err.expected
+            received: (err as any).received,
+            expected: (err as any).expected
           }, null, 2))
         })
         

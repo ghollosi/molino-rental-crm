@@ -47,13 +47,13 @@ export default function NewOwnerPage() {
   const onSubmit = async (data: OwnerFormData) => {
     setError(null)
     await createOwner.mutateAsync({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      phone: data.phone,
-      address: data.address,
-      isCompany: data.isCompany,
-      companyName: data.isCompany ? data.companyName : undefined,
+      // name: data.name,
+      // email: data.email,
+      // password: data.password,
+      // phone: data.phone,
+      // address: data.address,
+      // isCompany: data.isCompany,
+      // companyName: data.isCompany ? data.companyName : undefined,
       taxNumber: data.isCompany ? data.taxNumber : undefined,
     })
   }

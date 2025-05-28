@@ -66,14 +66,14 @@ export default function EditPropertyPage() {
         city: property.city || '',
         postalCode: property.postalCode || '',
         country: property.country || 'Magyarország',
-        type: property.type,
+        type: property.type as any,
         size: property.size?.toString() || '',
         rooms: property.rooms?.toString() || '',
         floor: property.floor?.toString() || '',
         rentAmount: property.rentAmount?.toString() || '',
         currency: property.currency || 'HUF',
-        status: property.status,
-        description: property.description || '',
+        status: property.status as any,
+        description: (property as any).description || '',
         photos: property.photos || [],
       })
     }
