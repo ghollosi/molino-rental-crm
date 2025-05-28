@@ -196,6 +196,98 @@ export const ownerRouter = createTRPCRouter({
       return owner
     }),
 
+  quickCreate: protectedProcedure
+    .input(z.object({
+      name: z.string().min(1, 'Name is required'),
+      email: z.string().email('Invalid email'),
+      phone: z.string().optional(),
+      taxNumber: z.string().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Check if user with this email already exists
+      const existingUser = await ctx.db.user.findUnique({
+        where: { email: input.email },
+      })
+
+      if (existingUser) {
+        // If user exists, check if they have an owner profile
+        const existingOwner = await ctx.db.owner.findUnique({
+          where: { userId: existingUser.id },
+        })
+
+        if (existingOwner) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'A tulajdonos már létezik ezzel az email címmel',
+          })
+        }
+
+        // Create owner profile for existing user
+        const owner = await ctx.db.owner.create({
+          data: {
+            userId: existingUser.id,
+            taxNumber: input.taxNumber,
+          },
+          include: {
+            user: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+                phone: true,
+              },
+            },
+          },
+        })
+
+        // Update user role
+        await ctx.db.user.update({
+          where: { id: existingUser.id },
+          data: { role: 'OWNER' },
+        })
+
+        return owner
+      }
+
+      // Create new user and owner profile
+      const user = await ctx.db.user.create({
+        data: {
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          role: 'OWNER',
+          password: 'temp123', // Temporary password, user needs to reset
+        },
+      })
+
+      const owner = await ctx.db.owner.create({
+        data: {
+          userId: user.id,
+          taxNumber: input.taxNumber,
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              phone: true,
+            },
+          },
+        },
+      })
+
+      return owner
+    }),
+
   update: protectedProcedure
     .input(z.object({
       id: z.string(),

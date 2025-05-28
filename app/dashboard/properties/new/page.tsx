@@ -15,6 +15,8 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { ArrowLeft, Loader2, Plus } from 'lucide-react'
 import { api } from '@/lib/trpc'
 import { ImageUpload } from '@/components/ui/image-upload'
+import { NewOwnerModal } from '@/components/modals/new-owner-modal'
+import { UserPlus } from 'lucide-react'
 
 const propertySchema = z.object({
   street: z.string().min(1, 'Kötelező megadni a címet'),
@@ -37,6 +39,7 @@ export default function NewPropertyPage() {
   const router = useRouter()
   const [error, setError] = useState('')
   const [photos, setPhotos] = useState<string[]>([])
+  const [showNewOwnerModal, setShowNewOwnerModal] = useState(false)
 
   const {
     register,
@@ -131,21 +134,32 @@ export default function NewPropertyPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="ownerId">Tulajdonos*</Label>
-                <Select
-                  onValueChange={(value) => setValue('ownerId', value)}
-                  defaultValue={watch('ownerId')}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Válasszon tulajdonost" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {owners?.owners.map((owner) => (
-                      <SelectItem key={owner.id} value={owner.id}>
-                        {owner.user.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="flex space-x-2">
+                  <Select
+                    onValueChange={(value) => setValue('ownerId', value)}
+                    value={watch('ownerId')}
+                  >
+                    <SelectTrigger className="flex-1">
+                      <SelectValue placeholder="Válasszon tulajdonost" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {owners?.owners.map((owner) => (
+                        <SelectItem key={owner.id} value={owner.id}>
+                          {owner.user.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="icon"
+                    onClick={() => setShowNewOwnerModal(true)}
+                    title="Új tulajdonos létrehozása"
+                  >
+                    <UserPlus className="h-4 w-4" />
+                  </Button>
+                </div>
                 {errors.ownerId && (
                   <p className="text-sm text-red-500">{errors.ownerId.message}</p>
                 )}
@@ -315,6 +329,16 @@ export default function NewPropertyPage() {
           </Button>
         </div>
       </form>
+
+      <NewOwnerModal
+        open={showNewOwnerModal}
+        onOpenChange={setShowNewOwnerModal}
+        onOwnerCreated={(ownerId) => {
+          setValue('ownerId', ownerId)
+          // Refresh owner list
+          api.useContext().owner.list.refetch()
+        }}
+      />
     </div>
   )
 }

@@ -97,3 +97,116 @@
  ✓ Compiled /api/trpc/[trpc] in 1966ms (969 modules)
  GET /dashboard 200 in 345ms
  GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 7285ms
+ GET /dashboard 200 in 464ms
+ GET /api/auth/session 200 in 64ms
+ GET /api/auth/session 200 in 15ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 552ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 1034ms (978 modules)
+ GET /dashboard/properties 200 in 1149ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 203ms
+ ○ Compiling /dashboard/properties/new ...
+ ✓ Compiled /dashboard/properties/new in 1725ms (1677 modules)
+ GET /dashboard/properties/new 200 in 1809ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 148ms
+ ✓ Compiled in 1579ms (686 modules)
+ GET /dashboard/properties/new 200 in 100ms
+ GET /dashboard 200 in 98ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 977ms
+ ✓ Compiled in 2.2s (1689 modules)
+ GET /dashboard 200 in 378ms
+ ✓ Compiled in 1477ms (1689 modules)
+ GET /dashboard 200 in 127ms
+ ✓ Compiled in 1983ms (1689 modules)
+ GET /dashboard 200 in 82ms
+ ✓ Compiled in 1628ms (1465 modules)
+ GET /dashboard 200 in 335ms
+ ⨯ ./src/components/modals/new-owner-modal.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dialog'
+   5 | import { zodResolver } from '@hookform/resolvers/zod'
+   6 | import { z } from 'zod'
+>  7 | import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+     | ^
+   8 | import { Button } from '@/components/ui/button'
+   9 | import { Input } from '@/components/ui/input'
+  10 | import { Label } from '@/components/ui/label'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/new/page.tsx
+ ○ Compiling /api/auth/[...nextauth] ...
+ ⨯ ./src/components/modals/new-owner-modal.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dialog'
+   5 | import { zodResolver } from '@hookform/resolvers/zod'
+   6 | import { z } from 'zod'
+>  7 | import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+     | ^
+   8 | import { Button } from '@/components/ui/button'
+   9 | import { Input } from '@/components/ui/input'
+  10 | import { Label } from '@/components/ui/label'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/new/page.tsx
+ ⨯ ./src/components/modals/new-owner-modal.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dialog'
+   5 | import { zodResolver } from '@hookform/resolvers/zod'
+   6 | import { z } from 'zod'
+>  7 | import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+     | ^
+   8 | import { Button } from '@/components/ui/button'
+   9 | import { Input } from '@/components/ui/input'
+  10 | import { Label } from '@/components/ui/label'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/new/page.tsx
+ ⨯ ./src/components/modals/new-owner-modal.tsx:7:1
+Module not found: Can't resolve '@/components/ui/dialog'
+   5 | import { zodResolver } from '@hookform/resolvers/zod'
+   6 | import { z } from 'zod'
+>  7 | import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+     | ^
+   8 | import { Button } from '@/components/ui/button'
+   9 | import { Input } from '@/components/ui/input'
+  10 | import { Label } from '@/components/ui/label'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/new/page.tsx
+ GET /api/auth/session 500 in 10930ms
+ GET /dashboard 500 in 1866ms
+ GET /api/auth/session 500 in 50ms
+ GET /dashboard 500 in 181ms
+ GET /dashboard 500 in 102ms
+ ⨯ ./src/components/ui/dialog.tsx:4:1
+Module not found: Can't resolve '@radix-ui/react-dialog'
+  2 |
+  3 | import * as React from 'react'
+> 4 | import * as DialogPrimitive from '@radix-ui/react-dialog'
+    | ^
+  5 | import { X } from 'lucide-react'
+  6 |
+  7 | import { cn } from '@/lib/utils'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./src/components/modals/new-owner-modal.tsx
+./app/dashboard/properties/new/page.tsx
+ ✓ Compiled /_error in 3.7s (2230 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/7e4c7c1d9031c834.webpack.hot-update.json 404 in 2151ms
+ GET /dashboard 200 in 172ms
+ GET /api/auth/session 200 in 1018ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 3.8s (1100 modules)
+ GET /api/auth/session 200 in 3421ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 5073ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 2.6s (2041 modules)
+ GET /login 200 in 3130ms
