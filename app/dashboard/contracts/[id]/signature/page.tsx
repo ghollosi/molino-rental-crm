@@ -182,8 +182,8 @@ export default function ContractSignaturePage() {
 
             <div>
               <Label>Bérlő</Label>
-              <p className="font-medium">{contract.tenant?.user?.name || 'N/A'}</p>
-              <p className="text-sm text-muted-foreground">{contract.tenant?.user?.email || 'N/A'}</p>
+              <p className="font-medium">{(contract.tenant as any)?.user?.name || 'N/A'}</p>
+              <p className="text-sm text-muted-foreground">{(contract.tenant as any)?.user?.email || 'N/A'}</p>
             </div>
           </div>
 

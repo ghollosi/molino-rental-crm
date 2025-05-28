@@ -338,7 +338,7 @@ async function generateExcelReport(data: any, reportType: string): Promise<Buffe
     column.width = 20
   })
 
-  return await workbook.xlsx.writeBuffer() as Buffer
+  return Buffer.from(await workbook.xlsx.writeBuffer())
 }
 
 // HTML jelentés generálás

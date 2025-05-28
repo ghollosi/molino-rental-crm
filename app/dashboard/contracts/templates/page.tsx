@@ -251,8 +251,7 @@ export default function ContractTemplatesPage() {
                   required
                 />
                 <p className="text-sm text-muted-foreground mt-1">
-                  Elérhető változók: {{propertyName}}, {{propertyAddress}}, {{landlordName}}, {{landlordAddress}}, 
-                  {{tenantName}}, {{tenantAddress}}, {{rentAmount}}, {{deposit}}, {{startDate}}, {{endDate}}, {{contractDate}}
+                  Elérhető változók: {'{propertyName}, {propertyAddress}, {landlordName}, {landlordAddress}, {tenantName}, {tenantAddress}, {rentAmount}, {deposit}, {startDate}, {endDate}, {contractDate}'}
                 </p>
               </div>
               
@@ -260,7 +259,7 @@ export default function ContractTemplatesPage() {
                 <Switch
                   id="isActive"
                   checked={formData.isActive}
-                  onCheckedChange={(checked) => setFormData({ ...formData, isActive: checked })}
+                  onCheckedChange={(checked: boolean) => setFormData({ ...formData, isActive: checked })}
                 />
                 <Label htmlFor="isActive">Aktív sablon</Label>
               </div>
@@ -272,7 +271,7 @@ export default function ContractTemplatesPage() {
                 }}>
                   Mégse
                 </Button>
-                <Button type="submit" disabled={createTemplate.isLoading || updateTemplate.isLoading}>
+                <Button type="submit" disabled={createTemplate.isPending || updateTemplate.isPending}>
                   {editingTemplate ? 'Frissítés' : 'Létrehozás'}
                 </Button>
               </div>
@@ -410,7 +409,7 @@ export default function ContractTemplatesPage() {
               <Switch
                 id="edit-isActive"
                 checked={formData.isActive}
-                onCheckedChange={(checked) => setFormData({ ...formData, isActive: checked })}
+                onCheckedChange={(checked: boolean) => setFormData({ ...formData, isActive: checked })}
               />
               <Label htmlFor="edit-isActive">Aktív sablon</Label>
             </div>
@@ -419,7 +418,7 @@ export default function ContractTemplatesPage() {
               <Button type="button" variant="outline" onClick={resetForm}>
                 Mégse
               </Button>
-              <Button type="submit" disabled={updateTemplate.isLoading}>
+              <Button type="submit" disabled={updateTemplate.isPending}>
                 Frissítés
               </Button>
             </div>

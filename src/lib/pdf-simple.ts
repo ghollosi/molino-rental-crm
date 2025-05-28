@@ -23,7 +23,7 @@ export interface OfferData {
   totalAmount: number;
   currency: string;
   validUntil: Date;
-  notes?: string;
+  notes?: string | null;
   createdAt: Date;
   createdBy: { name: string };
 }

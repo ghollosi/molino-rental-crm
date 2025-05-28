@@ -55,9 +55,9 @@ export default function EditIssuePage() {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    priority: 'MEDIUM' as const,
-    category: 'OTHER' as const,
-    status: 'OPEN' as const,
+    priority: 'MEDIUM' as any,
+    category: 'OTHER' as any,
+    status: 'OPEN' as any,
     photos: [] as string[],
   })
 
