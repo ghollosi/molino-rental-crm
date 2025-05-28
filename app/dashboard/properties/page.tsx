@@ -21,15 +21,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 export default function PropertiesPage() {
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
-  const [typeFilter, setTypeFilter] = useState<string>('')
-  const [statusFilter, setStatusFilter] = useState<string>('')
+  const [typeFilter, setTypeFilter] = useState<string>('all')
+  const [statusFilter, setStatusFilter] = useState<string>('all')
 
   const { data, isLoading } = api.property.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
-    type: typeFilter as any || undefined,
-    status: statusFilter as any || undefined,
+    type: typeFilter !== 'all' ? typeFilter as any : undefined,
+    status: statusFilter !== 'all' ? statusFilter as any : undefined,
   })
 
   const getStatusBadge = (status: string) => {
@@ -101,7 +101,7 @@ export default function PropertiesPage() {
                   <SelectValue placeholder="Minden típus" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Minden típus</SelectItem>
+                  <SelectItem value="all">Minden típus</SelectItem>
                   <SelectItem value="APARTMENT">Lakás</SelectItem>
                   <SelectItem value="HOUSE">Ház</SelectItem>
                   <SelectItem value="OFFICE">Iroda</SelectItem>
@@ -116,19 +116,19 @@ export default function PropertiesPage() {
                   <SelectValue placeholder="Minden státusz" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Minden státusz</SelectItem>
+                  <SelectItem value="all">Minden státusz</SelectItem>
                   <SelectItem value="AVAILABLE">Elérhető</SelectItem>
                   <SelectItem value="RENTED">Bérelt</SelectItem>
                   <SelectItem value="MAINTENANCE">Karbantartás</SelectItem>
                 </SelectContent>
               </Select>
-              {(search || typeFilter || statusFilter) && (
+              {(search || typeFilter !== 'all' || statusFilter !== 'all') && (
                 <Button
                   variant="outline"
                   onClick={() => {
                     setSearch('')
-                    setTypeFilter('')
-                    setStatusFilter('')
+                    setTypeFilter('all')
+                    setStatusFilter('all')
                     setPage(1)
                   }}
                 >
