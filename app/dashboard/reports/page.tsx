@@ -3,7 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { BarChart3, FileText, Download, Calendar, DollarSign, AlertTriangle } from 'lucide-react'
+import { BarChart3, FileText, Download, Calendar, DollarSign, AlertTriangle, TrendingUp } from 'lucide-react'
+import Link from 'next/link'
 
 export default function ReportsPage() {
   const reports = [
@@ -84,6 +85,31 @@ export default function ReportsPage() {
         <p className="text-gray-600">
           Részletes jelentések és statisztikák az ingatlankezelésről
         </p>
+      </div>
+
+      {/* Analytics link */}
+      <div className="mb-6">
+        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 bg-blue-100 rounded-lg">
+                  <TrendingUp className="h-8 w-8 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">Részletes analitika</h3>
+                  <p className="text-gray-600">Interaktív grafikonok és statisztikák</p>
+                </div>
+              </div>
+              <Button asChild>
+                <Link href="/dashboard/reports/analytics">
+                  <BarChart3 className="h-4 w-4 mr-2" />
+                  Analitika megtekintése
+                </Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

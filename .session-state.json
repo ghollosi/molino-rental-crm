@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T11:04:26.578Z",
+  "timestamp": "2025-05-28T11:19:26.605Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M CHANGELOG.md\n M PROGRESS.md\n M app/api/test-email/route.ts\n M app/dashboard/issues/page.tsx\n M app/dashboard/layout.tsx\n M app/dashboard/offers/[id]/page.tsx\n M app/dashboard/offers/page.tsx\n M app/dashboard/owners/page.tsx\n M app/dashboard/properties/page.tsx\n M app/dashboard/providers/page.tsx\n M app/dashboard/settings/page.tsx\n M app/dashboard/tenants/page.tsx\n M app/layout.tsx\n M dev.log\n M package-lock.json\n M package.json\n M src/lib/email.ts\n M src/server/routers/issue.ts\n?? CHECKPOINT_20250528_125730.md\n?? app/api/export/\n?? app/api/health-check/\n?? app/dashboard/settings/email/\n?? app/dashboard/settings/pdf/\n?? public/icons/\n?? public/manifest.json\n?? public/offline.html\n?? public/sw.js\n?? scripts/generate-icons.js\n?? src/components/export-toolbar.tsx\n?? src/components/pwa-install-prompt.tsx\n?? src/hooks/use-pdf-export.ts\n?? src/lib/excel.ts\n?? src/lib/pdf-lists.ts\n?? src/lib/pdf-new.ts\n?? src/lib/pdf-simple.ts\n?? src/lib/pdf.ts\n?? test-offer.html\n?? test-offer.pdf",
+  "gitStatus": "M .session-state.json\n M app/dashboard/page.tsx\n M app/dashboard/reports/page.tsx\n M dev.log\n M package-lock.json\n M package.json\n M src/server/routers/_app.ts\n?? BACKUP_STATUS_20250528_131032.md\n?? app/dashboard/reports/analytics/\n?? src/components/dashboard/dashboard-charts.tsx\n?? src/components/dashboard/enhanced-dashboard-stats.tsx\n?? src/server/routers/analytics.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -28,6 +28,7 @@
     "bcryptjs",
     "class-variance-authority",
     "clsx",
+    "date-fns",
     "exceljs",
     "i18next",
     "jspdf",
@@ -43,6 +44,7 @@
     "react-dom",
     "react-hook-form",
     "react-i18next",
+    "recharts",
     "resend",
     "sonner",
     "superjson",
@@ -196,7 +198,23 @@
     "Teljes export rendszer minden entitáshoz",
     "PDF és Excel formátum támogatás",
     "Felhasználóbarát export gombok",
-    "Professzionális formázás és megjelenés"
+    "Professzionális formázás és megjelenés",
+    "PWA alapinfrastruktúra implementálása",
+    "Service Worker funkciók",
+    "App ikonok és vizuális elemek",
+    "PWA telepítési élmény",
+    "PWA beállítások admin felület",
+    "API támogatás",
+    "Offline működés cache-elt erőforrásokkal",
+    "Telepíthetőség minden platformon",
+    "Automatikus frissítés a háttérben",
+    "App-szerű megjelenés és viselkedés",
+    "Push értesítések támogatása (előkészítve)",
+    "Background sync támogatás (előkészítve)",
+    "Teljes PWA infrastruktúra",
+    "Offline képességek",
+    "Telepítési élmény",
+    "Admin felület PWA kezeléshez"
   ],
   "pendingTasks": [
     "NextAuth konfiguráció",
@@ -207,7 +225,6 @@
     "NextAuth teljes implementáció helyreállítása",
     "Fájlfeltöltés és képkezelés",
     "Többnyelvűség (i18n) implementálása",
-    "Képfeltöltés implementálása",
-    "PWA funkciók (offline támogatás, telepíthetőség)"
+    "Képfeltöltés implementálása"
   ]
 }

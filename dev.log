@@ -1485,3 +1485,279 @@ Import trace for requested module:
  ✓ Compiled in 3s (1840 modules)
  GET /dashboard 200 in 73ms
  ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /dashboard/properties in 37.5s (1022 modules)
+ ✓ Compiled in 3ms (1031 modules)
+ GET /dashboard 200 in 19126ms
+ ✓ Compiled in 1ms (1031 modules)
+ ✓ Compiled in 0ms (1031 modules)
+ GET /api/auth/session 200 in 20360ms
+ GET /api/auth/session 200 in 49046ms
+ ✓ Compiled in 0ms (1031 modules)
+ GET /dashboard/properties 200 in 32449ms
+ GET /dashboard/settings 200 in 4820ms
+ ✓ Compiled in 0ms (1031 modules)
+ GET /dashboard 200 in 2157ms
+ GET /dashboard 200 in 1995ms
+ GET /api/auth/session 200 in 800ms
+ ✓ Compiled in 2ms (1031 modules)
+ ✓ Compiled in 0ms (1031 modules)
+ GET /api/auth/session 200 in 457ms
+ GET /api/auth/session 200 in 77ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 12.2s (1142 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 13143ms
+ GET /dashboard/properties 200 in 150ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 18ms
+ GET /dashboard/owners 200 in 67ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 148ms
+ GET /api/auth/session 200 in 78ms
+ GET /api/auth/session 200 in 17ms
+ GET /dashboard 200 in 101ms
+ GET /dashboard/properties 200 in 66ms
+ GET /dashboard/owners 200 in 15ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 15.7s (1141 modules)
+ GET /dashboard/tenants 200 in 15940ms
+ ✓ Compiled /dashboard/providers in 500ms (1148 modules)
+ GET /dashboard/tenants 200 in 828ms
+ GET /dashboard/providers 200 in 1034ms
+ GET /dashboard/tenants 200 in 136ms
+ GET /dashboard 200 in 689ms
+ GET /api/auth/session 200 in 47ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 2829ms
+ GET /api/auth/session 200 in 137ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 673ms
+ GET /dashboard/tenants 200 in 54ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 77ms
+ GET /dashboard/providers 200 in 77ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 44ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 18.6s (1155 modules)
+ GET /dashboard/providers 200 in 7506ms
+ GET /dashboard/issues 200 in 19123ms
+ GET /dashboard/issues 200 in 32ms
+ GET /dashboard/providers 200 in 35ms
+ GET /dashboard/issues 200 in 27ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 120ms
+ GET /dashboard/issues 200 in 73ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 308ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 6s (1142 modules)
+ GET /dashboard/offers 200 in 6241ms
+ GET /dashboard/issues 200 in 45ms
+ GET /dashboard/offers 200 in 56ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 258ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 48ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/contracts in 10.4s (1151 modules)
+ GET /dashboard/contracts 200 in 10654ms
+ GET /dashboard/issues 200 in 45ms
+ GET /dashboard/contracts 200 in 70ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 161ms
+ ✓ Compiled in 12.5s (2353 modules)
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 630ms (1125 modules)
+ GET /dashboard/reports 200 in 839ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 15.6s (1136 modules)
+ GET /dashboard/settings 200 in 16141ms
+ GET /dashboard/settings 200 in 50ms
+ GET /dashboard/settings 200 in 133ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 7s (1138 modules)
+ GET /dashboard 200 in 7182ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 27s (2133 modules)
+ GET /dashboard/properties 200 in 27730ms
+ GET /dashboard 200 in 67ms
+ GET /dashboard/properties 200 in 21ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 28814ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 547ms
+ ✓ Compiled in 2.9s (986 modules)
+ GET /dashboard/properties 200 in 119ms
+ GET /dashboard 200 in 117ms
+ ✓ Compiled in 16.5s (2161 modules)
+ GET /dashboard 200 in 331ms
+ ✓ Compiled in 588ms (986 modules)
+ GET /dashboard/properties 200 in 347ms
+ GET /dashboard/properties 200 in 42ms
+ GET /dashboard 200 in 31ms
+ ✓ Compiled in 533ms (986 modules)
+ GET /dashboard 200 in 48ms
+ GET /dashboard/properties 200 in 50ms
+ ✓ Compiled in 1022ms (986 modules)
+ GET /dashboard/properties 200 in 163ms
+ GET /dashboard 200 in 164ms
+ ✓ Compiled in 696ms (986 modules)
+ GET /dashboard 200 in 62ms
+ GET /dashboard/properties 200 in 62ms
+ ✓ Compiled in 610ms (986 modules)
+ GET /dashboard 200 in 40ms
+ GET /dashboard/properties 200 in 52ms
+ ✓ Compiled in 802ms (986 modules)
+ GET /dashboard/properties 200 in 58ms
+ GET /dashboard 200 in 58ms
+ ✓ Compiled in 53.4s (2897 modules)
+ GET /dashboard 200 in 1258ms
+ GET /dashboard 200 in 490ms
+ GET /dashboard 200 in 19ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1651ms (1669 modules)
+ GET /dashboard 200 in 467ms
+ GET /dashboard 200 in 83ms
+❌ tRPC failed on analytics.issuesByMonth: 
+Invalid `prisma.issue.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    createdAt: {
+      gte: new Date("2024-11-30T23:00:00.000Z"),
+      lte: new Date("2024-12-31T22:59:59.999Z")
+    },
+    status: "RESOLVED"
+            ~~~~~~~~~~
+  }
+}
+
+Invalid value for argument `status`. Expected IssueStatus.
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 3846ms
+❌ tRPC failed on analytics.issuesByMonth: 
+Invalid `prisma.issue.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    createdAt: {
+      gte: new Date("2024-11-30T23:00:00.000Z"),
+      lte: new Date("2024-12-31T22:59:59.999Z")
+    },
+    status: "RESOLVED"
+            ~~~~~~~~~~
+  }
+}
+
+Invalid value for argument `status`. Expected IssueStatus.
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 110ms
+❌ tRPC failed on analytics.issuesByMonth: 
+Invalid `prisma.issue.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    createdAt: {
+      gte: new Date("2024-11-30T23:00:00.000Z"),
+      lte: new Date("2024-12-31T22:59:59.999Z")
+    },
+    status: "RESOLVED"
+            ~~~~~~~~~~
+  }
+}
+
+Invalid value for argument `status`. Expected IssueStatus.
+ GET /api/trpc/analytics.issuesByMonth?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 94ms
+❌ tRPC failed on analytics.issuesByMonth: 
+Invalid `prisma.issue.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    createdAt: {
+      gte: new Date("2024-11-30T23:00:00.000Z"),
+      lte: new Date("2024-12-31T22:59:59.999Z")
+    },
+    status: "RESOLVED"
+            ~~~~~~~~~~
+  }
+}
+
+Invalid value for argument `status`. Expected IssueStatus.
+ GET /api/trpc/analytics.issuesByMonth?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 31ms
+❌ tRPC failed on analytics.issuesByMonth: 
+Invalid `prisma.issue.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    createdAt: {
+      gte: new Date("2024-11-30T23:00:00.000Z"),
+      lte: new Date("2024-12-31T22:59:59.999Z")
+    },
+    status: "RESOLVED"
+            ~~~~~~~~~~
+  }
+}
+
+Invalid value for argument `status`. Expected IssueStatus.
+ GET /api/trpc/analytics.issuesByMonth?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 36ms
+❌ tRPC failed on analytics.issuesByMonth: 
+Invalid `prisma.issue.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    createdAt: {
+      gte: new Date("2024-11-30T23:00:00.000Z"),
+      lte: new Date("2024-12-31T22:59:59.999Z")
+    },
+    status: "RESOLVED"
+            ~~~~~~~~~~
+  }
+}
+
+Invalid value for argument `status`. Expected IssueStatus.
+ GET /api/trpc/analytics.issuesByMonth?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 82ms
+ ✓ Compiled in 1865ms (3183 modules)
+ GET /dashboard 200 in 120ms
+ GET /dashboard 200 in 43ms
+ GET /api/trpc/analytics.issuesByMonth?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 262ms
+ GET /api/trpc/analytics.issuesByMonth?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 26ms
+ GET /dashboard 200 in 283ms
+ ✓ Compiled in 16.6s (3432 modules)
+ GET /dashboard 200 in 15917ms
+ GET /dashboard 200 in 37ms
+ GET /dashboard 200 in 33ms
+ ✓ Compiled in 93.5s (3183 modules)
+ ✓ Compiled in 1ms (1669 modules)
+ ✓ Compiled in 0ms (1669 modules)
+ ✓ Compiled in 1ms (1669 modules)
+ GET /api/trpc/analytics.dashboardStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 6987ms
+ GET /dashboard 200 in 3014ms
+ GET /dashboard 200 in 37ms
