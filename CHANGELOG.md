@@ -7,10 +7,57 @@ A formátum a [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) alapján 
 
 ## [Unreleased]
 
-### Javítva - 2025-05-28
-- Radix UI Select komponens üres érték hiba - az üres stringek 'all' értékre cserélve
+### Hozzáadva - 2025-05-28 (Este)
+- PWA (Progressive Web App) támogatás:
+  - manifest.json konfigurációs fájl
+  - Service Worker offline támogatással
+  - Offline.html fallback oldal
+  - App ikonok generálása (SVG formátumban)
+  - PWA meta tagek a layout-ban
+  - Telepítési prompt komponens
+  - PWA beállítások admin oldal
+  - Health-check API végpont
+- Cache stratégia implementálása:
+  - Network-first megközelítés
+  - Statikus asset-ek cache-elése
+  - API hívások kizárása a cache-ből
+- PWA funkciók:
+  - Offline működés alapvető funkciókkal
+  - Telepíthetőség asztali és mobil eszközökön
+  - Automatikus frissítés a háttérben
+  - Push értesítések előkészítése
 
-### Hozzáadva - 2025-05-28
+### Hozzáadva - 2025-05-28 (Délután)
+- PDF és Excel export funkció minden entitás listához:
+  - Ingatlanok lista export (PDF/Excel)
+  - Tulajdonosok lista export (PDF/Excel)
+  - Bérlők lista export (PDF/Excel)
+  - Hibabejelentések lista export (PDF/Excel)
+  - Ajánlatok lista export (PDF/Excel)
+  - Szolgáltatók lista export (PDF/Excel)
+- Újrahasználható ExportToolbar komponens
+- Excel export szolgáltatás ExcelJS könyvtárral
+- PDF lista export HTML alapú megoldással
+- Sonner toast könyvtár hibaüzenetekhez
+
+### Javítva - 2025-05-28 (Délután)
+- API végpontok GET metódus támogatása hozzáadva export funkciókhoz
+- Hibaüzenetek magyarra fordítva az export funkcióknál
+- Részletesebb hibakezelés az export műveletekhez
+
+### Hozzáadva - 2025-05-28 (Délelőtt)
+- Email értesítési rendszer Resend szolgáltatással
+- Automatikus email küldés új hibabejelentésekhez
+- Email tesztküldési felület a beállításokban
+- HTML email sablonok modern, reszponzív dizájnnal
+- PDF export funkció ajánlatokhoz (HTML alapú, böngésző print dialógus)
+- PDF teszt oldal a beállításokban
+
+### Javítva - 2025-05-28 (Délelőtt)
+- Radix UI Select komponens üres érték hiba - az üres stringek 'all' értékre cserélve
+- Prisma Decimal típus konverziós hiba javítva (toNumber() helyett Number())
+
+### Hozzáadva - 2025-05-28 (Reggel)
 - Összecsukható oldalsáv Context API-val
 - Képfeltöltési funkció ingatlanokhoz és hibabejelentésekhez
 - Gyors tulajdonos létrehozás modal az ingatlan formoknál

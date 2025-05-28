@@ -19,6 +19,7 @@ import { Badge } from '@/components/ui/badge'
 import { Plus, Search, FileText, Send, CheckCircle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { ClientDate } from '@/lib/format-date'
+import { ExportToolbar } from '@/components/export-toolbar'
 
 export default function OffersPage() {
   const router = useRouter()
@@ -80,12 +81,15 @@ export default function OffersPage() {
     <div className="container mx-auto py-6 px-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Ajánlatok</h1>
-        <Button asChild>
-          <Link href="/dashboard/offers/new">
-            <Plus className="mr-2 h-4 w-4" />
-            Új ajánlat
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ExportToolbar entityType="offers" title="Ajánlatok" />
+          <Button asChild>
+            <Link href="/dashboard/offers/new">
+              <Plus className="mr-2 h-4 w-4" />
+              Új ajánlat
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Card className="mb-6">

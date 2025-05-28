@@ -28,9 +28,11 @@ import {
   XCircle,
   Building,
   User,
-  Download
+  Download,
+  Printer
 } from 'lucide-react'
 import Link from 'next/link'
+import { usePDFExport } from '@/src/hooks/use-pdf-export'
 
 export default function OfferDetailPage() {
   const params = useParams()
@@ -40,6 +42,7 @@ export default function OfferDetailPage() {
   const [statusError, setStatusError] = useState<string | null>(null)
 
   const { data: offer, isLoading, refetch } = api.offer.getById.useQuery(offerId)
+  const { exportHTML, isExporting, error: exportError } = usePDFExport()
 
   const deleteOffer = api.offer.delete.useMutation({
     onSuccess: () => {
@@ -86,6 +89,13 @@ export default function OfferDetailPage() {
         status: 'REJECTED',
       })
     }
+  }
+
+  const handleExportPDF = async () => {
+    await exportHTML({
+      type: 'offer',
+      id: offerId
+    })
   }
 
   const getStatusColor = (status: string) => {
@@ -198,6 +208,14 @@ export default function OfferDetailPage() {
             </>
           )}
           <Button 
+            variant="outline"
+            onClick={handleExportPDF}
+            disabled={isExporting}
+          >
+            <Printer className="mr-2 h-4 w-4" />
+            {isExporting ? 'Exportálás...' : 'PDF Export'}
+          </Button>
+          <Button 
             variant="destructive" 
             onClick={handleDelete}
             disabled={deleteOffer.isPending}
@@ -208,10 +226,10 @@ export default function OfferDetailPage() {
         </div>
       </div>
 
-      {(deleteError || statusError) && (
+      {(deleteError || statusError || exportError) && (
         <Alert variant="destructive" className="mb-6">
           <AlertCircle className="h-4 w-4" />
-          <AlertDescription>{deleteError || statusError}</AlertDescription>
+          <AlertDescription>{deleteError || statusError || exportError}</AlertDescription>
         </Alert>
       )}
 
@@ -231,7 +249,7 @@ export default function OfferDetailPage() {
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-bold">
-                    {formatCurrency(offer.totalAmount.toNumber())}
+                    {formatCurrency(Number(offer.totalAmount))}
                   </p>
                   <p className="text-sm text-gray-500">
                     Érvényes: {new Date(offer.validUntil).toLocaleDateString('hu-HU')}
@@ -276,7 +294,7 @@ export default function OfferDetailPage() {
                         Összesen:
                       </TableCell>
                       <TableCell className="text-right font-bold">
-                        {formatCurrency(offer.totalAmount.toNumber())}
+                        {formatCurrency(Number(offer.totalAmount))}
                       </TableCell>
                     </TableRow>
                   </TableBody>

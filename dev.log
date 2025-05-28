@@ -820,3 +820,668 @@ Import trace for requested module:
  GET /dashboard 200 in 20ms
  ✓ Compiled in 5.3s (1813 modules)
  GET /dashboard 200 in 294ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 3.1s (1009 modules)
+ GET /api/auth/session 200 in 3718ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 696ms
+ GET /api/auth/session 200 in 41ms
+ GET /api/auth/session 200 in 114ms
+ GET /api/auth/session 200 in 39ms
+ GET /dashboard 200 in 646ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 14ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2.9s (1119 modules)
+ GET /dashboard 200 in 80ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 3573ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1313ms (845 modules)
+ GET / 200 in 1532ms
+ GET /dashboard 200 in 212ms
+ ✓ Compiled /api/auth/[...nextauth] in 413ms (1011 modules)
+ GET /api/auth/session 200 in 836ms
+ GET /api/auth/session 200 in 17ms
+ ✓ Compiled /api/trpc/[trpc] in 261ms (1121 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 654ms
+ ✓ Compiled in 3.1s (2092 modules)
+ GET /dashboard 200 in 180ms
+ ✓ Compiled in 2.7s (1813 modules)
+ GET /dashboard 200 in 168ms
+ ✓ Compiled in 660ms (972 modules)
+ GET /dashboard 200 in 31ms
+ ✓ Compiled in 469ms (972 modules)
+ GET /dashboard 200 in 27ms
+ ✓ Compiled in 638ms (972 modules)
+ GET /dashboard 200 in 23ms
+ GET /dashboard 200 in 272ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1538ms (1009 modules)
+ GET /api/auth/session 200 in 2024ms
+ GET /api/auth/session 200 in 115ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1055ms (1120 modules)
+ GET /dashboard 200 in 57ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1448ms
+ ○ Compiling /api/test-email ...
+ ✓ Compiled /api/test-email in 592ms (2080 modules)
+📧 EMAIL (DEV MODE): {
+  to: 'test@example.com',
+  subject: '🔧 Új hibabejelentés: Csepegő vízcsap a konyhában',
+  from: 'noreply@molino-rental.com',
+  htmlPreview: '\n' +
+    '    <!DOCTYPE html>\n' +
+    '    <html>\n' +
+    '    <head>\n' +
+    '      <meta charset="utf-8">\n' +
+    '      <title>Új hibabejelentés - Csepegő vízcsap a konyhában</title>\n' +
+    '      <style>\n' +
+    '        body { font-family: -apple-system, Bl...'
+}
+ POST /api/test-email 200 in 634ms
+ GET /dashboard 200 in 265ms
+ ✓ Compiled in 4.7s (2343 modules)
+ GET /dashboard 200 in 209ms
+ GET /dashboard 200 in 214ms
+ GET /api/auth/session 200 in 60ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 384ms
+ GET /dashboard/properties 200 in 41ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 54ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 1119ms (1129 modules)
+ GET /dashboard/reports 200 in 1200ms
+ GET /dashboard 200 in 25ms
+ ✓ Compiled in 1821ms (972 modules)
+ GET /dashboard 200 in 28ms
+ ✓ Compiled in 1942ms (972 modules)
+ GET /dashboard 200 in 24ms
+ ✓ Compiled in 709ms (972 modules)
+ GET /dashboard 200 in 22ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1323ms (844 modules)
+ GET / 200 in 1587ms
+ ○ Compiling /api/test-email ...
+ ✓ Compiled /api/test-email in 1006ms (911 modules)
+📧 EMAIL (DEV MODE): {
+  to: 'test@example.com',
+  subject: '🏠 Üdvözöljük a Molino Rental CRM-ben!',
+  from: 'noreply@molino-rental.com',
+  htmlPreview: '\n' +
+    '    <!DOCTYPE html>\n' +
+    '    <html>\n' +
+    '    <head>\n' +
+    '      <meta charset="utf-8">\n' +
+    '      <title>Üdvözöljük a Molino Rental CRM-ben!</title>\n' +
+    '      <style>\n' +
+    '        body { font-family: -apple-system, BlinkMacSystem...'
+}
+ POST /api/test-email 200 in 1129ms
+ GET /dashboard 200 in 212ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1015ms (1008 modules)
+ GET /api/auth/session 200 in 1380ms
+ GET /api/auth/session 200 in 13ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1201ms (1119 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1580ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1342ms (844 modules)
+ GET / 200 in 1524ms
+ GET /dashboard 200 in 153ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 515ms (1010 modules)
+ GET /api/auth/session 200 in 786ms
+ GET /api/auth/session 200 in 18ms
+ ✓ Compiled /api/trpc/[trpc] in 360ms (1121 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 722ms
+ ✓ Compiled in 3.3s (972 modules)
+ GET /dashboard 200 in 58ms
+ ✓ Compiled in 4.3s (2061 modules)
+ GET /dashboard 200 in 3804ms
+ GET /dashboard 200 in 11ms
+ ○ Compiling /api/export/pdf ...
+ ⚠ ./app/api/export/pdf/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+
+./app/api/export/pdf/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+PDF generation error: TypeError: (0 , next_auth__WEBPACK_IMPORTED_MODULE_1__.getServerSession) is not a function
+    at POST (app/api/export/pdf/route.ts:15:43)
+  13 | export async function POST(request: NextRequest) {
+  14 |   try {
+> 15 |     const session = await getServerSession(authConfig);
+     |                                           ^
+  16 |     
+  17 |     if (!session) {
+  18 |       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+ POST /api/export/pdf 500 in 4389ms
+ ⚠ ./app/api/export/pdf/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+
+./app/api/export/pdf/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+ ⚠ ./app/api/export/pdf/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+
+./app/api/export/pdf/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+ GET /api/auth/session 200 in 527ms
+ GET /api/auth/session 200 in 9ms
+ GET /dashboard 200 in 296ms
+ GET /api/auth/session 200 in 23ms
+ ⚠ ./app/api/export/pdf/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+
+./app/api/export/pdf/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+ GET /api/auth/session 200 in 85ms
+ ⚠ ./app/api/export/pdf/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+
+./app/api/export/pdf/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+ GET /dashboard 200 in 78ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 14851ms
+ ⚠ ./app/api/export/pdf/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+
+./app/api/export/pdf/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/pdf/route.ts
+ GET /dashboard 200 in 19ms
+ ✓ Compiled /api/trpc/[trpc] in 4.3s (1812 modules)
+ ✓ Compiled in 418ms (972 modules)
+ ✓ Compiled in 399ms (972 modules)
+ ✓ Compiled in 429ms (972 modules)
+ ✓ Compiled in 1322ms (2061 modules)
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 999ms (1008 modules)
+ GET /api/auth/session 200 in 1544ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 88ms
+ GET /api/auth/session 200 in 32ms
+ ○ Compiling /api/export/html ...
+ ⚠ ./app/api/export/html/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/export/html/route.ts
+
+./app/api/export/html/route.ts
+Attempted import error: 'authConfig' is not exported from '@/auth.config' (imported as 'authConfig').
+
+Import trace for requested module:
+./app/api/export/html/route.ts
+HTML generation error: TypeError: (0 , next_auth__WEBPACK_IMPORTED_MODULE_1__.getServerSession) is not a function
+    at POST (app/api/export/html/route.ts:15:43)
+  13 | export async function POST(request: NextRequest) {
+  14 |   try {
+> 15 |     const session = await getServerSession(authConfig);
+     |                                           ^
+  16 |     
+  17 |     if (!session) {
+  18 |       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+ POST /api/export/html 500 in 4137ms
+ ✓ Compiled /api/export/html in 631ms (1983 modules)
+ ✓ Compiled in 639ms (1983 modules)
+ GET /api/auth/session 200 in 314ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 198ms
+ GET /api/auth/session 200 in 43ms
+ GET /api/auth/session 200 in 83ms
+ GET /api/auth/session 200 in 64ms
+ GET /api/auth/session 200 in 73ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 57ms
+ GET /api/auth/session 200 in 52ms
+ GET /api/auth/session 200 in 72ms
+ GET /api/auth/session 200 in 29ms
+ GET /api/auth/session 200 in 124ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 59ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 151ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 66ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 80ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 47ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 53ms
+ GET /api/auth/session 200 in 100ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 81ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 51ms
+ GET /api/auth/session 200 in 67ms
+ GET /api/auth/session 200 in 38ms
+ GET /api/auth/session 200 in 16ms
+ POST /api/export/html 401 in 289ms
+ GET /api/auth/session 200 in 79ms
+ GET /api/auth/session 200 in 211ms
+ GET /dashboard/properties 200 in 504ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 29.1s (2094 modules)
+ GET /dashboard 200 in 20730ms
+ GET /dashboard 200 in 1845ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 30540ms
+ GET /dashboard/properties 200 in 1859ms
+ GET /api/auth/session 200 in 87ms
+ GET /api/auth/session 200 in 116ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1241ms
+ GET /dashboard 200 in 47ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 124ms
+ ✓ Compiled in 948ms (972 modules)
+ GET /dashboard 200 in 60ms
+ ✓ Compiled in 457ms (972 modules)
+ GET /dashboard 200 in 72ms
+ ✓ Compiled in 498ms (972 modules)
+ GET /dashboard 200 in 18ms
+ ✓ Compiled in 5.7s (2061 modules)
+ GET /dashboard 200 in 4726ms
+ GET /dashboard 200 in 10ms
+ ✓ Compiled in 5.7s (972 modules)
+ GET /dashboard 200 in 27ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.6s (844 modules)
+ GET / 200 in 3021ms
+ GET /dashboard/properties 200 in 61ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 593ms (1119 modules)
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1191ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 10.1s (1125 modules)
+ GET /dashboard/owners 200 in 10313ms
+ GET /dashboard/owners 200 in 34ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 284ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 2.3s (1134 modules)
+ GET /dashboard/offers 200 in 2421ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 98ms
+ ○ Compiling /dashboard/offers/[id] ...
+ ✓ Compiled /dashboard/offers/[id] in 8.8s (2099 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 9558ms
+ GET /api/trpc/offer.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8qf0011i8frybpvknu0%22%7D%7D 200 in 166ms
+ ✓ Compiled in 15.3s (1811 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 1358ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 13.2s (1002 modules)
+ GET /api/auth/session 200 in 14336ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 120ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 115ms
+ GET /api/auth/session 200 in 59ms
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 866ms
+ GET /api/auth/session 200 in 412ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2.7s (1113 modules)
+ GET /api/auth/session 200 in 2682ms
+ GET /api/trpc/offer.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8qf0011i8frybpvknu0%22%7D%7D 200 in 3494ms
+ GET /dashboard/offers 200 in 64ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 46ms
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 30ms
+ GET /api/auth/session 200 in 65ms
+ GET /api/auth/session 200 in 14ms
+ ✓ Compiled in 2.6s (977 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 31ms
+ GET /api/auth/session 200 in 98ms
+ GET /api/auth/session 200 in 11ms
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 216ms
+ ✓ Compiled in 4.7s (2228 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 445ms
+ ✓ Compiled in 570ms (977 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 23ms
+ ✓ Compiled in 450ms (977 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 32ms
+ ✓ Compiled in 392ms (977 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 27ms
+ ✓ Compiled in 4.3s (977 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 27ms
+ GET /api/auth/session 200 in 245ms
+ GET /api/auth/session 200 in 10ms
+ ✓ Compiled in 4s (1979 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 117ms
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ GET /api/auth/session 500 in 65ms
+ GET /api/auth/session 500 in 75ms
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/properties/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/issues/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/issues/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/issues/page.tsx
+ ⨯ ./src/components/export-toolbar.tsx:6:1
+Module not found: Can't resolve 'sonner'
+  4 | import { Button } from '@/components/ui/button';
+  5 | import { useState } from 'react';
+> 6 | import { toast } from 'sonner';
+    | ^
+  7 |
+  8 | interface ExportToolbarProps {
+  9 |   entityType: 'properties' | 'owners' | 'tenants' | 'issues' | 'offers' | 'providers';
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./app/dashboard/issues/page.tsx
+ ✓ Compiled in 5s (2068 modules)
+ GET /dashboard/offers/cmb6sr8qf0011i8frybpvknu0 200 in 308ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 3.3s (1115 modules)
+ GET /api/trpc/offer.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmb6sr8qf0011i8frybpvknu0%22%7D%7D 200 in 3697ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1217ms (1130 modules)
+ GET /dashboard 200 in 1301ms
+ GET /dashboard 200 in 192ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1294ms (1014 modules)
+ GET /api/auth/session 200 in 1733ms
+ GET /api/auth/session 200 in 9ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 544ms (1125 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 920ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 1201ms (1132 modules)
+ GET /dashboard/properties 200 in 1291ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 88ms
+ ○ Compiling /api/export/html ...
+ ✓ Compiled /api/export/html in 538ms (1136 modules)
+ GET /api/export/html?type=properties&list=true 405 in 600ms
+ GET /dashboard/properties 200 in 28ms
+ ○ Compiling /api/export/excel ...
+ ✓ Compiled /api/export/excel in 3.3s (2594 modules)
+ GET /api/export/excel?type=properties 405 in 3754ms
+ GET /api/export/html?type=properties&list=true 405 in 32ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 3.4s (2598 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 3574ms
+ GET /api/export/excel?type=properties 405 in 251ms
+ ✓ Compiled in 5.5s (2493 modules)
+ GET /dashboard/properties 200 in 217ms
+ ✓ Compiled in 842ms (2493 modules)
+ GET /dashboard/properties 200 in 76ms
+ ✓ Compiled in 1053ms (2493 modules)
+ GET /dashboard/properties 200 in 58ms
+ GET /dashboard/owners 200 in 37ms
+ ✓ Compiled /api/trpc/[trpc] in 475ms (1122 modules)
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1330ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 9.9s (2109 modules)
+ GET /dashboard/tenants 200 in 10020ms
+ GET /dashboard/tenants 200 in 18ms
+ GET /dashboard/tenants 200 in 121ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 135ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 1949ms (1135 modules)
+ GET /dashboard/providers 200 in 2029ms
+ GET /dashboard/providers 200 in 12ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 126ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 2.8s (1142 modules)
+ GET /dashboard/issues 200 in 2877ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 71ms
+ GET /dashboard/offers 200 in 40ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 47ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/contracts in 4s (1149 modules)
+ GET /dashboard/contracts 200 in 4162ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 171ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 1292ms (1156 modules)
+ GET /dashboard/reports 200 in 1341ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 519ms (1167 modules)
+ GET /dashboard/settings 200 in 589ms
+ ✓ Compiled in 337ms (981 modules)
+ GET /dashboard/settings 200 in 22ms
+ GET /dashboard 200 in 87ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 119ms
+ ✓ Compiled in 347ms (981 modules)
+ GET /dashboard 200 in 21ms
+ ✓ Compiled in 406ms (981 modules)
+ GET /dashboard 200 in 26ms
+ ✓ Compiled in 419ms (981 modules)
+ GET /dashboard 200 in 28ms
+ ✓ Compiled in 338ms (981 modules)
+ GET /dashboard 200 in 24ms
+ ✓ Compiled in 343ms (981 modules)
+ GET /dashboard 200 in 28ms
+ ✓ Compiled in 602ms (981 modules)
+ GET /dashboard 200 in 24ms
+ ○ Compiling /api/export/html ...
+ ✓ Compiled /api/export/html in 7.9s (1018 modules)
+ HEAD /api/export/html?type=properties&list=true 401 in 8470ms
+ GET /dashboard 200 in 111ms
+ ✓ Compiled in 5.2s (1999 modules)
+ GET /dashboard 200 in 70ms
+ ✓ Compiled in 660ms (1999 modules)
+ GET /dashboard 200 in 56ms
+ GET /dashboard 200 in 290ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 2.6s (1016 modules)
+ GET /api/auth/session 200 in 3112ms
+ GET /api/auth/session 200 in 38ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 4s (1127 modules)
+ GET /dashboard 200 in 2035ms
+ GET /dashboard/properties 200 in 1456ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 4872ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 17ms
+ ○ Compiling /api/export/html ...
+ ✓ Compiled /api/export/html in 1353ms (1131 modules)
+ GET /api/export/html?type=properties&list=true 200 in 1439ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 5ms
+ ○ Compiling /api/export/excel ...
+ ✓ Compiled /api/export/excel in 1798ms (1630 modules)
+ GET /api/export/excel?type=properties 200 in 2256ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 2.5s (1636 modules)
+ GET /dashboard/owners 200 in 2556ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 350ms
+ GET /dashboard/reports 200 in 34ms
+ GET /dashboard/reports 200 in 1139ms
+ GET /api/auth/session 200 in 50ms
+ GET /api/auth/session 200 in 11ms
+ GET /dashboard 200 in 46ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 166ms
+ ✓ Compiled in 12.5s (2105 modules)
+ ✓ Compiled in 10.1s (2114 modules)
+ GET /dashboard 200 in 10242ms
+ GET /dashboard 200 in 11ms
+ GET /api/auth/session 200 in 116ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 64ms
+ GET /api/auth/session 200 in 15ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 153ms
+ ✓ Compiled in 691ms (984 modules)
+ GET /dashboard 200 in 22ms
+ ✓ Compiled in 5.7s (2114 modules)
+ GET /dashboard 200 in 114ms
+ ✓ Compiled in 6.4s (2119 modules)
+ GET /dashboard 200 in 63ms
+ ✓ Compiled in 5.5s (2103 modules)
+ GET /dashboard 200 in 5155ms
+ GET /dashboard 200 in 16ms
+ ✓ Compiled in 1159ms (2089 modules)
+ GET /dashboard 200 in 827ms
+ GET /dashboard 200 in 10ms
+ ✓ Compiled in 3s (1840 modules)
+ GET /dashboard 200 in 42ms
+ ✓ Compiled in 3s (1840 modules)
+ GET /dashboard 200 in 73ms
+ ○ Compiling /api/auth/[...nextauth] ...

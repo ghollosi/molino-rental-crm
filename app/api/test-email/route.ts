@@ -1,60 +1,69 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { sendEmail, emailTemplates } from '@/lib/email'
+/**
+ * @file Test Email API Endpoint
+ * @description Test endpoint for email functionality
+ * @created 2025-05-28
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+import { sendIssueNotification, sendWelcomeEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
-    const { to } = await request.json()
-    
+    const body = await request.json();
+    const { type = 'issue', to, data = {} } = body;
+
     if (!to) {
-      return NextResponse.json({ error: 'Email address required' }, { status: 400 })
+      return NextResponse.json({ error: 'Email address required' }, { status: 400 });
     }
 
-    // Test email content
-    const testIssue = {
-      id: 'test-123',
-      title: 'Teszt hibabejelentés',
-      description: 'Ez egy teszt email küldéséhez.',
-      priority: 'HIGH',
-      category: 'PLUMBING'
-    }
-    
-    const testProperty = {
-      street: 'Teszt utca 123',
-      city: 'Budapest'
-    }
-    
-    const testOwner = {
-      user: {
-        name: 'Teszt Tulajdonos',
-        email: to
-      }
+    let result;
+
+    switch (type) {
+      case 'issue':
+        result = await sendIssueNotification(to, {
+          issueId: 'test-issue-123',
+          title: 'Csepegő vízcsap a konyhában',
+          description: 'A konyhában található vízcsap folyamatosan csepeg. Sürgős javítás szükséges a vízkár elkerülése érdekében.',
+          priority: 'HIGH',
+          category: 'PLUMBING',
+          propertyAddress: 'Teszt utca 123, 1234 Budapest',
+          reportedBy: 'Teszt Bérlő',
+          status: 'OPEN'
+        });
+        break;
+
+      case 'welcome':
+        result = await sendWelcomeEmail(
+          to, 
+          data.name || 'Teszt Felhasználó', 
+          data.role || 'TENANT'
+        );
+        break;
+
+      default:
+        return NextResponse.json(
+          { error: 'Invalid email type. Use "issue" or "welcome"' },
+          { status: 400 }
+        );
     }
 
-    const emailContent = emailTemplates.issueCreated(testIssue, testProperty, testOwner)
-    
-    const result = await sendEmail({
-      to,
-      subject: emailContent.subject,
-      html: emailContent.html,
-    })
+    return NextResponse.json({
+      success: true,
+      messageId: result.messageId,
+      message: process.env.NODE_ENV === 'development' 
+        ? 'Email logged to console (development mode)' 
+        : 'Email sent successfully',
+      type
+    });
 
-    if (result.success) {
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Test email sent successfully',
-        messageId: result.messageId 
-      })
-    } else {
-      return NextResponse.json({ 
-        error: 'Failed to send email', 
-        details: result.error 
-      }, { status: 500 })
-    }
   } catch (error) {
-    console.error('Test email error:', error)
-    return NextResponse.json({ 
-      error: 'Internal server error',
-      details: error instanceof Error ? error.message : 'Unknown error'
-    }, { status: 500 })
+    console.error('Test email error:', error);
+    return NextResponse.json(
+      { 
+        error: 'Failed to send test email', 
+        details: error instanceof Error ? error.message : 'Unknown error' 
+      },
+      { status: 500 }
+    );
   }
 }

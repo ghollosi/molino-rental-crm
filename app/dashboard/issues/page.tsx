@@ -18,6 +18,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Plus, Search, AlertCircle, Clock, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import { ExportToolbar } from '@/components/export-toolbar'
 
 export default function IssuesPage() {
   const router = useRouter()
@@ -111,12 +112,15 @@ export default function IssuesPage() {
             Kezelje a hibabejelentéseket és karbantartási kéréseket
           </p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/issues/new">
-            <Plus className="mr-2 h-4 w-4" />
-            Új hibabejelentés
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ExportToolbar entityType="issues" title="Hibabejelentések" />
+          <Button asChild>
+            <Link href="/dashboard/issues/new">
+              <Plus className="mr-2 h-4 w-4" />
+              Új hibabejelentés
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Card>

@@ -3,6 +3,7 @@
 import { Sidebar } from '@/components/layouts/sidebar'
 import { Header } from '@/components/layouts/header'
 import { SidebarProvider, useSidebar } from '@/contexts/sidebar-context'
+import { PWAInstallPrompt } from '@/components/pwa-install-prompt'
 import { cn } from '@/lib/utils'
 
 function DashboardContent({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
           {children}
         </main>
       </div>
+      <PWAInstallPrompt />
     </div>
   )
 }

@@ -17,6 +17,7 @@ import {
 import { Plus, Search, Building, MapPin, Edit, Trash2, Eye } from 'lucide-react'
 import { api } from '@/lib/trpc'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { ExportToolbar } from '@/components/export-toolbar'
 
 export default function PropertiesPage() {
   const [search, setSearch] = useState('')
@@ -69,12 +70,15 @@ export default function PropertiesPage() {
             Kezelje az összes ingatlant egy helyen
           </p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/properties/new">
-            <Plus className="mr-2 h-4 w-4" />
-            Új ingatlan
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ExportToolbar entityType="properties" title="Ingatlanok" />
+          <Button asChild>
+            <Link href="/dashboard/properties/new">
+              <Plus className="mr-2 h-4 w-4" />
+              Új ingatlan
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Card>

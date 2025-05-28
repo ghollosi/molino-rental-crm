@@ -8,7 +8,8 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle } from 'lucide-react'
+import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone } from 'lucide-react'
+import Link from 'next/link'
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('profile')
@@ -46,7 +47,7 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="profile" className="flex items-center space-x-2">
             <User className="h-4 w-4" />
             <span>Profil</span>
@@ -54,6 +55,10 @@ export default function SettingsPage() {
           <TabsTrigger value="company" className="flex items-center space-x-2">
             <Building className="h-4 w-4" />
             <span>Cég</span>
+          </TabsTrigger>
+          <TabsTrigger value="email" className="flex items-center space-x-2">
+            <Mail className="h-4 w-4" />
+            <span>Email</span>
           </TabsTrigger>
           <TabsTrigger value="notifications" className="flex items-center space-x-2">
             <Bell className="h-4 w-4" />
@@ -159,6 +164,98 @@ export default function SettingsPage() {
               <Button onClick={() => handleSave('Cég')}>
                 Változások mentése
               </Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="email">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Mail className="h-5 w-5" />
+                <span>Email beállítások</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Mail className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-medium text-blue-900">Email szolgáltatás aktiválva</h3>
+                </div>
+                <p className="text-blue-700 text-sm">
+                  Az email értesítések sikeresen konfigurálva. Resend szolgáltatás használatban.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="font-medium">Automatikus értesítések</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔧 Új hibabejelentés</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔄 Státusz változás</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>👷 Feladat hozzárendelés</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🏠 Üdvözlő email</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-medium">Email tesztelés</h4>
+                  <p className="text-sm text-gray-600">
+                    Tesztelje az email értesítések működését a dedikált tesztelő felületen.
+                  </p>
+                  <Link href="/dashboard/settings/email">
+                    <Button className="w-full">
+                      Email teszt oldal megnyitása
+                    </Button>
+                  </Link>
+                  <Link href="/dashboard/settings/pdf">
+                    <Button variant="outline" className="w-full">
+                      PDF teszt oldal megnyitása
+                    </Button>
+                  </Link>
+                  <Link href="/dashboard/settings/pwa">
+                    <Button variant="outline" className="w-full">
+                      PWA beállítások
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="border-t pt-6">
+                <h4 className="font-medium mb-3">Email konfiguráció</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <Label>Szolgáltató</Label>
+                    <div className="font-mono text-gray-600">Resend</div>
+                  </div>
+                  <div>
+                    <Label>Feladó email</Label>
+                    <div className="font-mono text-gray-600">noreply@molino-rental.com</div>
+                  </div>
+                  <div>
+                    <Label>Fejlesztői mód</Label>
+                    <div className="font-mono text-gray-600">
+                      {process.env.NODE_ENV === 'development' ? 'Igen' : 'Nem'}
+                    </div>
+                  </div>
+                  <div>
+                    <Label>Email státusz</Label>
+                    <div className="font-mono text-green-600">Működik</div>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

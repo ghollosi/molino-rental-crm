@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
-import { sendEmail, emailTemplates } from '@/lib/email'
+import { sendEmail, emailTemplates, sendIssueNotification } from '@/lib/email'
 
 export const issueRouter = createTRPCRouter({
   list: protectedProcedure
@@ -277,39 +277,6 @@ export const issueRouter = createTRPCRouter({
         console.error('Failed to send issue created email:', error)
         // Don't throw error to prevent issue creation failure
       }
-
-      return issue
-    }),
-
-  update: protectedProcedure
-    .input(z.object({
-      id: z.string(),
-      title: z.string().optional(),
-      description: z.string().optional(),
-      category: z.enum(['PLUMBING', 'ELECTRICAL', 'HVAC', 'STRUCTURAL', 'OTHER']).optional(),
-      priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).optional(),
-      photos: z.array(z.string().url()).optional(),
-    }))
-    .mutation(async ({ ctx, input }) => {
-      const { id, ...data } = input
-
-      // Check permissions
-      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
-        throw new TRPCError({
-          code: 'FORBIDDEN',
-          message: 'Insufficient permissions',
-        })
-      }
-
-      const issue = await ctx.db.issue.update({
-        where: { id },
-        data,
-        include: {
-          property: true,
-          reportedBy: true,
-          assignedTo: { include: { user: true } },
-        },
-      })
 
       return issue
     }),

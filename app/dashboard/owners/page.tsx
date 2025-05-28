@@ -18,6 +18,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Plus, Search, Phone, Mail, Building, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import { ExportToolbar } from '@/components/export-toolbar'
 
 export default function OwnersPage() {
   const router = useRouter()
@@ -41,12 +42,15 @@ export default function OwnersPage() {
     <div className="container mx-auto py-6 px-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Tulajdonosok</h1>
-        <Button asChild>
-          <Link href="/dashboard/owners/new">
-            <Plus className="mr-2 h-4 w-4" />
-            Új tulajdonos
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ExportToolbar entityType="owners" title="Tulajdonosok" />
+          <Button asChild>
+            <Link href="/dashboard/owners/new">
+              <Plus className="mr-2 h-4 w-4" />
+              Új tulajdonos
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Card className="mb-6">
