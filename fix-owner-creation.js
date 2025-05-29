@@ -13,9 +13,9 @@ async function createOwner() {
     console.log('🚀 PRODUCTION OWNER CREATION TEST')
     console.log('=' .repeat(50))
     
-    const email = `fixed-owner-${Date.now()}@example.com`
-    const name = 'WORKING Owner Test'
-    const password = 'test123'
+    const email = `new-owner-${Date.now()}@example.com`
+    const name = 'Kovács János'  // ← Itt változtathatod a nevet
+    const password = 'jelszo123'  // ← Itt a jelszót
     
     console.log('📝 Creating owner:')
     console.log(`   Name: ${name}`)

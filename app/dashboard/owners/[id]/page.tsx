@@ -34,7 +34,27 @@ export default function OwnerDetailPage({ params }: { params: Promise<{ id: stri
   const [deleteError, setDeleteError] = useState<string | null>(null)
   const { id } = use(params)
 
-  const { data: owner, isLoading } = api.owner.getById.useQuery(id)
+  // Skip API call for non-ID routes
+  const isValidId = id && !['new', 'create-test', 'new-quick'].includes(id) && 
+                    id.length > 10 // Prisma IDs are longer than 10 chars
+
+  const { data: owner, isLoading } = api.owner.getById.useQuery(id, {
+    enabled: isValidId
+  })
+
+  // Redirect invalid routes
+  if (!isValidId) {
+    return (
+      <div className="container mx-auto py-6 px-4">
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            Érvénytelen tulajdonos azonosító. <Link href="/dashboard/owners" className="underline">Vissza a listához</Link>
+          </AlertDescription>
+        </Alert>
+      </div>
+    )
+  }
 
   // const deleteOwner = api.owner.delete.useMutation({
   //   onSuccess: () => {
