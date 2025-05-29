@@ -6,62 +6,78 @@ export const analyticsRouter = createTRPCRouter({
   // Get financial summary
   getFinancialSummary: protectedProcedure.query(async ({ ctx }) => {
     const now = new Date()
-    const currentMonth = now.getMonth()
+    const currentMonth = now.getMonth() + 1 // getMonth() returns 0-11
     const currentYear = now.getFullYear()
+    const lastMonth = currentMonth === 1 ? 12 : currentMonth - 1
+    const lastMonthYear = currentMonth === 1 ? currentYear - 1 : currentYear
     
-    // Calculate monthly revenue
-    const activeContracts = await ctx.db.contract.findMany({
-      where: {
-        status: 'ACTIVE',
-        startDate: { lte: now },
-        endDate: { gte: now }
-      },
-      select: {
-        rentAmount: true
-      }
-    })
+    // 1. Calculate monthly revenue - current month INCOME (COMPLETED + PENDING)
+    const monthlyRevenueResult = await ctx.db.$queryRaw<[{ total: bigint | null }]>`
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(MONTH FROM "transactionDate") = ${currentMonth}
+        AND EXTRACT(YEAR FROM "transactionDate") = ${currentYear}
+    `
+    const monthlyRevenue = Number(monthlyRevenueResult[0]?.total || 0)
     
-    const monthlyRevenue = activeContracts.reduce((sum, contract) => 
-      sum + Number(contract.rentAmount), 0
-    )
+    // 2. Calculate yearly revenue - current year INCOME
+    const yearlyRevenueResult = await ctx.db.$queryRaw<[{ total: bigint | null }]>`
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(YEAR FROM "transactionDate") = ${currentYear}
+    `
+    const yearlyRevenue = Number(yearlyRevenueResult[0]?.total || 0)
     
-    // Calculate yearly revenue (simplified - assumes current monthly rate)
-    const yearlyRevenue = monthlyRevenue * 12
+    // 3. Calculate total expenses - current month EXPENSE
+    const totalExpensesResult = await ctx.db.$queryRaw<[{ total: bigint | null }]>`
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'EXPENSE'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(MONTH FROM "transactionDate") = ${currentMonth}
+        AND EXTRACT(YEAR FROM "transactionDate") = ${currentYear}
+    `
+    const totalExpenses = Number(totalExpensesResult[0]?.total || 0)
     
-    // Get previous month revenue for comparison
-    const lastMonth = new Date(currentYear, currentMonth - 1)
-    const lastMonthContracts = await ctx.db.contract.findMany({
-      where: {
-        status: 'ACTIVE',
-        startDate: { lte: lastMonth },
-        endDate: { gte: lastMonth }
-      },
-      select: {
-        rentAmount: true
-      }
-    })
+    // 4. Calculate outstanding payments - PENDING status INCOME
+    const outstandingPaymentsResult = await ctx.db.$queryRaw<[{ total: bigint | null }]>`
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status = 'PENDING'
+    `
+    const outstandingPayments = Number(outstandingPaymentsResult[0]?.total || 0)
     
-    const lastMonthRevenue = lastMonthContracts.reduce((sum, contract) => 
-      sum + Number(contract.rentAmount), 0
-    )
+    // Get overdue count (PENDING transactions past their date)
+    const overdueCountResult = await ctx.db.$queryRaw<[{ count: bigint }]>`
+      SELECT COUNT(*) as count
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status = 'PENDING'
+        AND "dueDate" < CURRENT_DATE
+    `
+    const overdueCount = Number(overdueCountResult[0]?.count || 0)
+    
+    // Calculate last month revenue for comparison
+    const lastMonthRevenueResult = await ctx.db.$queryRaw<[{ total: bigint | null }]>`
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(MONTH FROM "transactionDate") = ${lastMonth}
+        AND EXTRACT(YEAR FROM "transactionDate") = ${lastMonthYear}
+    `
+    const lastMonthRevenue = Number(lastMonthRevenueResult[0]?.total || 0)
     
     const revenueChange = lastMonthRevenue > 0 
       ? Math.round(((monthlyRevenue - lastMonthRevenue) / lastMonthRevenue) * 100)
       : 0
     
-    // Calculate outstanding payments (simplified)
-    // In a real app, this would check actual payment records
-    const overdueContracts = await ctx.db.contract.count({
-      where: {
-        status: 'ACTIVE',
-        paymentDay: { lt: now.getDate() }
-      }
-    })
-    
-    // Estimate outstanding amount (assume 30% haven't paid yet)
-    const outstandingPayments = Math.round(monthlyRevenue * 0.3)
-    
-    // Calculate occupancy
+    // 5. Calculate occupancy rate - using property status
     const totalProperties = await ctx.db.property.count()
     const rentedProperties = await ctx.db.property.count({
       where: { status: 'RENTED' }
@@ -75,8 +91,9 @@ export const analyticsRouter = createTRPCRouter({
       monthlyRevenue,
       yearlyRevenue,
       revenueChange,
+      totalExpenses,
       outstandingPayments,
-      overdueCount: overdueContracts,
+      overdueCount,
       occupancyRate,
       totalProperties,
       rentedProperties

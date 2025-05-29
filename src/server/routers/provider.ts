@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { generatePassword, hashPassword } from '../../lib/password'
+import { generateWelcomeEmail } from '../../lib/email-templates'
+import { sendEmail } from '../../lib/email'
 
 export const providerRouter = createTRPCRouter({
   list: protectedProcedure
@@ -212,6 +215,134 @@ export const providerRouter = createTRPCRouter({
           },
         },
       })
+
+      return provider
+    }),
+
+  quickCreate: protectedProcedure
+    .input(z.object({
+      name: z.string().min(1, 'Name is required'),
+      email: z.string().email('Invalid email'),
+      phone: z.string().optional(),
+      businessName: z.string().min(1, 'Business name is required'),
+      specialty: z.array(z.string()).min(1, 'At least one specialty is required'),
+      hourlyRate: z.number().positive().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Check if user with this email already exists
+      const existingUser = await ctx.db.user.findUnique({
+        where: { email: input.email },
+      })
+
+      if (existingUser) {
+        // If user exists, check if they have a provider profile
+        const existingProvider = await ctx.db.provider.findUnique({
+          where: { userId: existingUser.id },
+        })
+
+        if (existingProvider) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'A szolgáltató már létezik ezzel az email címmel',
+          })
+        }
+
+        // Create provider profile for existing user
+        const provider = await ctx.db.provider.create({
+          data: {
+            userId: existingUser.id,
+            businessName: input.businessName,
+            specialty: input.specialty,
+            hourlyRate: input.hourlyRate,
+            currency: 'EUR',
+          },
+          include: {
+            user: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+                phone: true,
+              },
+            },
+          },
+        })
+
+        // Update user role
+        await ctx.db.user.update({
+          where: { id: existingUser.id },
+          data: { role: 'PROVIDER' },
+        })
+
+        return provider
+      }
+
+      // Generate temporary password
+      const temporaryPassword = generatePassword(12)
+      const hashedPassword = await hashPassword(temporaryPassword)
+
+      // Create new user and provider profile
+      const user = await ctx.db.user.create({
+        data: {
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          role: 'PROVIDER',
+          password: hashedPassword,
+        },
+      })
+
+      const provider = await ctx.db.provider.create({
+        data: {
+          userId: user.id,
+          businessName: input.businessName,
+          specialty: input.specialty,
+          hourlyRate: input.hourlyRate,
+          currency: 'EUR',
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              phone: true,
+            },
+          },
+        },
+      })
+
+      // Send welcome email with temporary password
+      try {
+        const emailData = {
+          userName: user.name,
+          email: user.email,
+          temporaryPassword,
+          role: 'PROVIDER',
+          loginUrl: `${process.env.NEXT_PUBLIC_APP_URL}/login`,
+        }
+
+        const { subject, html } = generateWelcomeEmail(emailData)
+        
+        await sendEmail({
+          to: user.email,
+          subject,
+          html,
+        })
+
+        console.log(`Welcome email sent to new provider ${user.email}`)
+      } catch (error) {
+        console.error('Failed to send welcome email:', error)
+        // Don't throw error - provider is already created
+      }
 
       return provider
     }),

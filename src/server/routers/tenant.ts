@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { generatePassword, hashPassword } from '../../lib/password'
+import { generateWelcomeEmail } from '../../lib/email-templates'
+import { sendEmail } from '../../lib/email'
 
 export const tenantRouter = createTRPCRouter({
   list: protectedProcedure
@@ -213,6 +216,129 @@ export const tenantRouter = createTRPCRouter({
           },
         },
       })
+
+      return tenant
+    }),
+
+  quickCreate: protectedProcedure
+    .input(z.object({
+      name: z.string().min(1, 'Name is required'),
+      email: z.string().email('Invalid email'),
+      phone: z.string().optional(),
+      emergencyName: z.string().optional(),
+      emergencyPhone: z.string().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Check if user with this email already exists
+      const existingUser = await ctx.db.user.findUnique({
+        where: { email: input.email },
+      })
+
+      if (existingUser) {
+        // If user exists, check if they have a tenant profile
+        const existingTenant = await ctx.db.tenant.findUnique({
+          where: { userId: existingUser.id },
+        })
+
+        if (existingTenant) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'A bérlő már létezik ezzel az email címmel',
+          })
+        }
+
+        // Create tenant profile for existing user
+        const tenant = await ctx.db.tenant.create({
+          data: {
+            userId: existingUser.id,
+            emergencyName: input.emergencyName,
+            emergencyPhone: input.emergencyPhone,
+          },
+          include: {
+            user: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+                phone: true,
+              },
+            },
+          },
+        })
+
+        // Update user role
+        await ctx.db.user.update({
+          where: { id: existingUser.id },
+          data: { role: 'TENANT' },
+        })
+
+        return tenant
+      }
+
+      // Generate temporary password
+      const temporaryPassword = generatePassword(12)
+      const hashedPassword = await hashPassword(temporaryPassword)
+
+      // Create new user and tenant profile
+      const user = await ctx.db.user.create({
+        data: {
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          role: 'TENANT',
+          password: hashedPassword,
+        },
+      })
+
+      const tenant = await ctx.db.tenant.create({
+        data: {
+          userId: user.id,
+          emergencyName: input.emergencyName,
+          emergencyPhone: input.emergencyPhone,
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              phone: true,
+            },
+          },
+        },
+      })
+
+      // Send welcome email with temporary password
+      try {
+        const emailData = {
+          userName: user.name,
+          email: user.email,
+          temporaryPassword,
+          role: 'TENANT',
+          loginUrl: `${process.env.NEXT_PUBLIC_APP_URL}/login`,
+        }
+
+        const { subject, html } = generateWelcomeEmail(emailData)
+        
+        await sendEmail({
+          to: user.email,
+          subject,
+          html,
+        })
+
+        console.log(`Welcome email sent to new tenant ${user.email}`)
+      } catch (error) {
+        console.error('Failed to send welcome email:', error)
+        // Don't throw error - tenant is already created
+      }
 
       return tenant
     }),

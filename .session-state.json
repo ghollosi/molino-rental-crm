@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-28T21:04:28.262Z",
-  "lastCommand": "start",
-  "currentFile": "none",
-  "gitStatus": "",
+  "timestamp": "2025-05-29T04:33:19.894Z",
+  "lastCommand": "save",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M prisma/schema.prisma\n M src/app/(dashboard)/page.tsx\n M src/components/layouts/sidebar.tsx\n M src/server/routers/analytics.ts\n M src/server/routers/auth.ts\n M src/server/routers/owner.ts\n M src/server/routers/provider.ts\n M src/server/routers/tenant.ts\n M src/server/routers/user.ts\n?? prisma/add-financial-models.sql\n?? prisma/seed-comprehensive.ts\n?? prisma/seed-contract-templates.ts\n?? prisma/seed-financial-data.ts\n?? scripts/check-current-revenue.ts\n?? scripts/check-database.ts\n?? scripts/test-financial-calculation.ts\n?? scripts/update-contract-status.ts\n?? src/app/(dashboard)/admin/\n?? src/app/(dashboard)/settings/\n?? src/components/forms/create-admin-form.tsx\n?? src/components/forms/create-user-form.tsx\n?? src/hooks/use-debounce.ts\n?? src/lib/email-templates.ts\n?? src/lib/password.ts\n?? src/utils/\n?? test-financial-query.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

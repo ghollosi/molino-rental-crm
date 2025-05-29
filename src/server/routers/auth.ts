@@ -12,9 +12,18 @@ const registerSchema = z.object({
 })
 
 export const authRouter = createTRPCRouter({
-  register: publicProcedure
+  // DEPRECATED: Public registration is disabled. Use user.createUser or user.createAdmin instead
+  register: protectedProcedure
     .input(registerSchema)
     .mutation(async ({ ctx, input }) => {
+      // Only admins can register new users
+      if (ctx.session.user.role !== 'ADMIN') {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Public registration is disabled. Only admins can create new users.',
+        })
+      }
+
       const { name, email, password, role, language } = input
 
       const existingUser = await ctx.db.user.findUnique({

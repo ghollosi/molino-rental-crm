@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
+import { generatePassword, hashPassword } from '../../lib/password'
+import { generateWelcomeEmail } from '../../lib/email-templates'
+import { sendEmail } from '../../lib/email'
 
 export const ownerRouter = createTRPCRouter({
   list: protectedProcedure
@@ -264,6 +267,10 @@ export const ownerRouter = createTRPCRouter({
         return owner
       }
 
+      // Generate temporary password
+      const temporaryPassword = generatePassword(12)
+      const hashedPassword = await hashPassword(temporaryPassword)
+
       // Create new user and owner profile
       const user = await ctx.db.user.create({
         data: {
@@ -271,7 +278,7 @@ export const ownerRouter = createTRPCRouter({
           email: input.email,
           phone: input.phone,
           role: 'OWNER',
-          password: 'temp123', // Temporary password, user needs to reset
+          password: hashedPassword,
         },
       })
 
@@ -291,6 +298,30 @@ export const ownerRouter = createTRPCRouter({
           },
         },
       })
+
+      // Send welcome email with temporary password
+      try {
+        const emailData = {
+          userName: user.name,
+          email: user.email,
+          temporaryPassword,
+          role: 'OWNER',
+          loginUrl: `${process.env.NEXT_PUBLIC_APP_URL}/login`,
+        }
+
+        const { subject, html } = generateWelcomeEmail(emailData)
+        
+        await sendEmail({
+          to: user.email,
+          subject,
+          html,
+        })
+
+        console.log(`Welcome email sent to new owner ${user.email}`)
+      } catch (error) {
+        console.error('Failed to send welcome email:', error)
+        // Don't throw error - owner is already created
+      }
 
       return owner
     }),

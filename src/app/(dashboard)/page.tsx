@@ -2,6 +2,7 @@ import { DashboardStats } from '@/components/dashboard/dashboard-stats'
 import { RecentIssues } from '@/components/dashboard/recent-issues'
 import { QuickActions } from '@/components/dashboard/quick-actions'
 import { PropertyOverview } from '@/components/dashboard/property-overview'
+import { FinancialSummary } from '@/src/components/dashboard/financial-summary'
 
 export default function DashboardPage() {
   // Temporarily hardcode admin user for testing
@@ -25,6 +26,8 @@ export default function DashboardPage() {
       </div>
 
       <DashboardStats userRole={mockSession.user.role} />
+
+      <FinancialSummary userRole={mockSession.user.role} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RecentIssues userRole={mockSession.user.role} />

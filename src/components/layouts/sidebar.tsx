@@ -17,8 +17,11 @@ import {
   FileSignature,
   ChevronLeft,
   ChevronRight,
+  Shield,
+  UserCog,
 } from 'lucide-react'
 import { useSidebar } from '@/contexts/sidebar-context'
+import { useSession } from 'next-auth/react'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
