@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Új tulajdonos - Molino CRM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
+            background: #f8fafc; 
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 8px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+            padding: 24px; 
+        }
+        h1 { 
+            color: #1e293b; 
+            margin-bottom: 16px; 
+            font-size: 24px; 
+        }
+        .info-box {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .form-group { 
+            margin-bottom: 16px; 
+        }
+        label { 
+            display: block; 
+            margin-bottom: 6px; 
+            font-weight: 500; 
+            color: #374151; 
+        }
+        input { 
+            width: 100%; 
+            padding: 10px 12px; 
+            border: 1px solid #d1d5db; 
+            border-radius: 6px; 
+            font-size: 16px; 
+        }
+        input:focus { 
+            outline: none; 
+            border-color: #3b82f6; 
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); 
+        }
+        .btn { 
+            background: #3b82f6; 
+            color: white; 
+            padding: 12px 24px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            font-weight: 500;
+            margin-right: 8px; 
+        }
+        .btn:hover { 
+            background: #2563eb; 
+        }
+        .btn:disabled { 
+            background: #9ca3af; 
+            cursor: not-allowed; 
+        }
+        .btn-secondary { 
+            background: #6b7280; 
+        }
+        .btn-secondary:hover { 
+            background: #4b5563; 
+        }
+        .alert { 
+            padding: 12px; 
+            border-radius: 6px; 
+            margin-bottom: 16px; 
+        }
+        .alert-success { 
+            background: #d1fae5; 
+            color: #065f46; 
+            border: 1px solid #a7f3d0; 
+        }
+        .alert-error { 
+            background: #fee2e2; 
+            color: #991b1b; 
+            border: 1px solid #fca5a5; 
+        }
+        .debug-info {
+            margin-top: 24px;
+            padding: 12px;
+            background: #f3f4f6;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 Új tulajdonos létrehozása</h1>
+        
+        <div class="info-box">
+            ⚡ STANDALONE VERSION - Ez egy önálló megoldás, amely megkerüli a deployment cache problémákat
+        </div>
+        
+        <div id="alert-container"></div>
+        
+        <form id="ownerForm">
+            <div class="form-group">
+                <label for="name">Név *</label>
+                <input type="text" id="name" name="name" required placeholder="Teljes név">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email cím *</label>
+                <input type="email" id="email" name="email" required placeholder="email@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Jelszó *</label>
+                <input type="password" id="password" name="password" required placeholder="Legalább 6 karakter" minlength="6">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="+36 20 123 4567">
+            </div>
+            
+            <div>
+                <button type="submit" class="btn" id="submitBtn">✅ Tulajdonos létrehozása</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='/dashboard/owners'">← Vissza</button>
+            </div>
+        </form>
+        
+        <div class="debug-info">
+            <strong>🔧 DEBUG INFO:</strong><br>
+            • Version: STANDALONE HTML<br>
+            • Endpoint: /api/standalone-create-owner<br>
+            • Method: Direct POST<br>
+            • Cache: Bypassed<br>
+            • Last Update: <span id="lastUpdate"></span>
+        </div>
+    </div>
+
+    <script>
+        // Show last update time
+        document.getElementById('lastUpdate').textContent = new Date().toISOString();
+        
+        document.getElementById('ownerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const alertContainer = document.getElementById('alert-container');
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                password: formData.get('password'),
+                phone: formData.get('phone') || undefined
+            };
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Létrehozás...';
+            alertContainer.innerHTML = '';
+            
+            console.log('🚀 Sending request to standalone API...', new Date().toISOString());
+            
+            try {
+                const response = await fetch('/api/standalone-create-owner', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                console.log('📋 Response:', response.status, result);
+                
+                if (response.ok && result.success) {
+                    alertContainer.innerHTML = '<div class="alert alert-success">✅ Tulajdonos sikeresen létrehozva! Átirányítás...</div>';
+                    setTimeout(() => {
+                        window.location.href = '/dashboard/owners';
+                    }, 1500);
+                } else {
+                    const errorMsg = result.error || 'Hiba történt a tulajdonos létrehozásánál';
+                    alertContainer.innerHTML = '<div class="alert alert-error">❌ ' + errorMsg + '</div>';
+                }
+            } catch (error) {
+                console.error('🔥 Error:', error);
+                alertContainer.innerHTML = '<div class="alert alert-error">❌ Hálózati hiba történt</div>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✅ Tulajdonos létrehozása';
+            }
+        });
+    </script>
+</body>
+</html>
