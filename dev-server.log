@@ -439,3 +439,16 @@ prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."
  GET / 200 in 44ms
  GET /api/auth/session 200 in 19ms
  GET /api/auth/session 200 in 15ms
+ GET / 200 in 60ms
+ GET /api/auth/session 200 in 12ms
+ GET /api/auth/session 200 in 9ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 15ms
+ GET / 200 in 53ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/auth/session 200 in 14ms
+ GET / 200 in 45ms
+ GET / 200 in 85ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 13ms
+ GET / 200 in 40ms
