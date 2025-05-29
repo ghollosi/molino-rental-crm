@@ -34,7 +34,7 @@ export default function NewQuickOwnerPage() {
     setIsLoading(true)
     
     try {
-      const response = await fetch('/api/create-owner', {
+      const response = await fetch('/api/test-owner-create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
