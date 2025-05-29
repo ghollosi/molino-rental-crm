@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-29T16:07:08.345Z",
+  "timestamp": "2025-05-29T16:22:08.406Z",
   "lastCommand": "start",
-  "currentFile": "app/dashboard/owners/new/page.tsx",
-  "gitStatus": "M app/dashboard/owners/new/page.tsx\n M dev-server.log\n M server-monitor.log\n?? app/api/test-owner-create/",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M dev-server.log\n M server-monitor.log",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",
