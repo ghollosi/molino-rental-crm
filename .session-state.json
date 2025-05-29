@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-05-29T21:32:52.211Z",
+  "timestamp": "2025-05-29T22:45:00.000Z",
   "lastCommand": "start",
   "currentFile": "dev-server.log",
   "gitStatus": "M dev-server.log\n M server-monitor.log",
@@ -81,7 +81,7 @@
     "vitest"
   ],
   "migrationStatus": "Environment variables loaded from .env\nPrisma schema loaded from prisma/schema.prisma\nDatasource \"db\": PostgreSQL database \"molino_rental\", schema \"public\" at \"localhost:5432\"\n\n1 migration found in prisma/migrations\n\nDatabase schema is up to date!",
-  "currentPhase": "Production deployment ready",
+  "currentPhase": "Owner creation fixed - Testing all forms",
   "completedTasks": [
     "Environment változók előkészítése (.env.production.example)",
     "Database connection pooling beállítása",
@@ -118,7 +118,10 @@
     "PWA képességek",
     "Mobil reszponzivitás",
     "Dashboard analytics",
-    "Szerződés sablonok"
+    "Szerződés sablonok",
+    "Owner creation form javítás - tRPC helyett standalone API",
+    "Service Worker cache kikapcsolás deployment problémák miatt",
+    "Inline owner creation form működik production-ben"
   ],
   "pendingTasks": [
     "Többnyelvűség implementálása (i18n) - KÉSŐBB",

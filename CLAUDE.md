@@ -236,7 +236,17 @@ Ha "Internal server error" hibát kapsz:
 
 ## 💾 VISSZAÁLLÍTÁSI PONTOK
 
-### v1.12.0 - Owner Creation Fixes (2025-05-29 Este) 🔧 **LEGFRISSEBB**
+### v1.13.0 - Working Owner Creation (2025-05-29 Este 22:45) ✅ **LEGFRISSEBB**
+```bash
+git checkout v1.13.0
+```
+- **Owner creation MŰKÖDIK**: Standalone API megoldás
+- **Service Worker disabled**: Cache problémák megoldva
+- **Inline form**: Dashboard-on belüli form működik
+- **Stable production**: Minden deployment sikeres
+- **Database kapcsolat**: Tesztelve és működik
+
+### v1.12.0 - Owner Creation Fixes (2025-05-29 Este) 🔧
 ```bash
 git checkout v1.12.0
 ```
