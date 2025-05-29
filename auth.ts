@@ -45,10 +45,6 @@ export const {
   },
   useSecureCookies: process.env.NODE_ENV === "production",
   trustHost: true,
-  pages: {
-    signIn: "/login",
-    error: "/login",
-  },
   callbacks: {
     async session({ token, session }) {
       if (token.sub && session.user) {
