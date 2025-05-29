@@ -28,13 +28,9 @@ tests/
 *.spec.ts
 *.spec.tsx
 
-# Scripts
+# Scripts - complete exclusion
 scripts/
 src/scripts/
-*.ts
-!app/**/*.ts
-!src/**/*.ts
-!lib/**/*.ts
 
 # Documentation
 docs/
