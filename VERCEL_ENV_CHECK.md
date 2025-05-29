@@ -38,3 +38,4 @@ Ellenőrizd a Vercel Dashboard-ban (Settings → Environment Variables), hogy ez
 - A változók értékei pontosan egyezzenek (nincs extra space vagy idézőjel)
 - Ha módosítasz, mindig Redeploy szükséges!# Trigger redeploy Thu May 29 18:43:12 CEST 2025
 # Force redeploy Thu May 29 18:57:34 CEST 2025
+# Force redeploy Thu May 29 19:48:36 CEST 2025
