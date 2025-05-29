@@ -4351,3 +4351,62 @@ Require stack:
  GET / 200 in 103ms
  GET / 200 in 43ms
  ✓ Compiled in 2.1s (1711 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET / 200 in 62ms
+ GET / 200 in 44ms
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (130kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ GET / 200 in 86ms
+ GET / 200 in 111ms
+ GET / 200 in 75ms
+ GET / 200 in 70ms
+ GET / 200 in 40ms
+ GET / 200 in 42ms
+ GET / 200 in 44ms
+ GET / 200 in 61ms
+ GET / 200 in 57ms
+ GET / 200 in 60ms
+ GET / 200 in 71ms
+ GET / 200 in 59ms
+ GET / 200 in 61ms
+ GET / 200 in 73ms
+ GET / 200 in 82ms
+ GET / 200 in 64ms
+ GET / 200 in 64ms
+ GET / 200 in 65ms
+ GET / 200 in 59ms
+ GET / 200 in 67ms
+ GET / 200 in 57ms
+ GET / 200 in 60ms
+ GET / 200 in 62ms
+ GET / 200 in 49ms
+ GET / 200 in 50ms
+ GET / 200 in 52ms
+ GET / 200 in 61ms
+ GET / 200 in 49ms
+ GET / 200 in 53ms
+ GET / 200 in 53ms
+ GET / 200 in 53ms
+ GET / 200 in 64ms
+ GET / 200 in 52ms
+ GET / 200 in 82ms
+ GET / 200 in 63ms
+ GET / 200 in 58ms
+ GET / 200 in 56ms
+ GET / 200 in 64ms
+ GET / 200 in 61ms
+ GET / 200 in 52ms
+ GET / 200 in 46ms
+ GET / 200 in 42ms
+ GET / 200 in 41ms
+ GET / 200 in 45ms
+ GET / 200 in 43ms
+ GET / 200 in 88ms
+ GET / 200 in 70ms
+ GET / 200 in 61ms
+ GET / 200 in 53ms
+ GET / 200 in 48ms
+ GET / 200 in 251ms
+ GET / 200 in 45ms
+ ✓ Compiled in 1325ms (308 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET / 200 in 95ms
