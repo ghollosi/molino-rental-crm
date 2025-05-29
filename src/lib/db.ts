@@ -22,9 +22,6 @@ export const prisma = db
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
 
-// Graceful shutdown
-if (process.env.NODE_ENV === 'production') {
-  process.on('beforeExit', async () => {
-    await db.$disconnect()
-  })
-}
+// Graceful shutdown - disabled for Edge Runtime compatibility
+// Note: Edge Runtime doesn't support process.on
+// Prisma Client will automatically disconnect when the function ends
