@@ -210,6 +210,7 @@ export const ownerRouter = createTRPCRouter({
     .input(z.object({
       name: z.string().min(1, 'Name is required'),
       email: z.string().email('Invalid email'),
+      password: z.string().min(6, 'Password must be at least 6 characters').optional(),
       phone: z.string().optional(),
       taxNumber: z.string().optional(),
     }))
@@ -267,8 +268,8 @@ export const ownerRouter = createTRPCRouter({
         return owner
       }
 
-      // Generate temporary password
-      const temporaryPassword = generatePassword(12)
+      // Use provided password or generate temporary one
+      const temporaryPassword = input.password || generatePassword(12)
       const hashedPassword = await hashPassword(temporaryPassword)
 
       // Create new user and owner profile

@@ -4836,3 +4836,54 @@ Require stack:
  ✓ Compiled in 254ms (308 modules)
 [33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
  GET / 200 in 42ms
+ GET / 200 in 54ms
+ GET / 200 in 62ms
+ GET / 200 in 46ms
+ GET / 200 in 48ms
+ GET / 200 in 46ms
+ GET / 200 in 46ms
+ GET / 200 in 71ms
+ GET / 200 in 58ms
+ GET / 200 in 61ms
+ GET / 200 in 78ms
+ GET / 200 in 48ms
+ GET / 200 in 52ms
+ GET / 200 in 57ms
+ GET / 200 in 41ms
+ GET / 200 in 37ms
+ GET / 200 in 53ms
+ GET / 200 in 68ms
+ GET / 200 in 86ms
+ GET / 200 in 46ms
+ GET / 200 in 57ms
+ GET / 200 in 53ms
+ GET / 200 in 72ms
+ GET / 200 in 58ms
+ GET / 200 in 52ms
+ GET / 200 in 60ms
+ GET / 200 in 54ms
+ GET /dashboard 200 in 724ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 821ms (2791 modules)
+ GET /_next/static/css/app/layout.css?v=1748534206489 404 in 995ms
+ GET /_next/static/chunks/main-app.js?v=1748534206489 404 in 929ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 929ms
+ GET /_next/static/chunks/app/error.js 404 in 928ms
+ GET /_next/static/chunks/app/dashboard/layout.js 404 in 945ms
+ GET /_next/static/chunks/app/dashboard/page.js 404 in 340ms
+ GET /_next/static/chunks/app/global-error.js 404 in 27ms
+ GET / 200 in 41ms
+ GET / 200 in 53ms
+ GET / 200 in 29ms
+ GET / 200 in 65ms
+ GET / 200 in 71ms
+ GET / 200 in 66ms
+ GET / 200 in 64ms
+ GET / 200 in 59ms
+ GET / 200 in 53ms
+ ✓ Compiled in 885ms (1403 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 345ms (1403 modules)
+ ✓ Compiled in 300ms (1403 modules)
+ GET / 200 in 115ms
+ ✓ Compiled in 414ms (1403 modules)

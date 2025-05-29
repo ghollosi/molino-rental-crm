@@ -35,7 +35,7 @@ export default function NewOwnerPage() {
     }
   })
 
-  const createOwner = api.owner.create.useMutation({
+  const createOwner = api.owner.quickCreate.useMutation({
     onSuccess: () => {
       router.push('/dashboard/owners')
     },
@@ -47,7 +47,10 @@ export default function NewOwnerPage() {
   const onSubmit = async (data: OwnerFormData) => {
     setError(null)
     await createOwner.mutateAsync({
-      userId: 'temp-user-id', // TODO: Create user first
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      phone: data.phone,
       taxNumber: data.isCompany ? data.taxNumber : undefined,
     })
   }
