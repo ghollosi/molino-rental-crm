@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -19,9 +19,9 @@ interface OfferItem {
   total: number
 }
 
-export default function EditOfferPage({ params }: { params: { id: string } }) {
+export default function EditOfferPage({ params }: { params: Promise<{ id: string }> }) {
     const router = useRouter()
-  const id = params.id
+  const { id } = use(params)
 
   const { data: offer, isLoading } = api.offer.getById.useQuery(id)
   const updateMutation = api.offer.update.useMutation({

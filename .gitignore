@@ -43,3 +43,20 @@ next-env.d.ts
 # uploads
 /public/uploads/*
 !/public/uploads/.gitkeep
+
+# logs
+*.log
+dev-server.log
+server-monitor.log
+
+# session
+.session-state.json
+
+# backup
+backup-duplicates/
+.checkpoints/
+*.backup
+
+# ide
+.vscode/
+.idea/

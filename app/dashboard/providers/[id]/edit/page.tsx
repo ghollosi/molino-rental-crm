@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -25,9 +25,9 @@ const specialtyOptions = [
   'Általános karbantartás',
 ]
 
-export default function EditProviderPage({ params }: { params: { id: string } }) {
+export default function EditProviderPage({ params }: { params: Promise<{ id: string }> }) {
     const router = useRouter()
-  const id = params.id
+  const { id } = use(params)
 
   const { data: provider, isLoading } = api.provider.getById.useQuery(id)
   const updateMutation = api.provider.update.useMutation({

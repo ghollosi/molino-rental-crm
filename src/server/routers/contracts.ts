@@ -62,7 +62,11 @@ export const contractsRouter = createTRPCRouter({
               owner: true,
             },
           },
-          tenant: true,
+          tenant: {
+            include: {
+              user: true,
+            },
+          },
           template: true,
         },
       });

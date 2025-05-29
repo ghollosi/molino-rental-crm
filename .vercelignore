@@ -1,0 +1,38 @@
+# Backup and temporary files
+backup-duplicates/
+.checkpoints/
+.backup/
+*.backup
+*.log
+.DS_Store
+
+# Development files
+.env.local
+.env.development
+.session-state.json
+CLAUDE.md
+dev-server.log
+server-monitor.log
+
+# Git
+.git/
+.gitignore
+
+# Dependencies (Vercel will install these)
+node_modules/
+
+# Test files
+tests/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Scripts
+scripts/
+src/scripts/
+
+# Documentation
+docs/
+*.md
+!README.md

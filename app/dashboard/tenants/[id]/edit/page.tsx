@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -11,9 +11,9 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowLeft, Save } from 'lucide-react'
 import Link from 'next/link'
 
-export default function EditTenantPage({ params }: { params: { id: string } }) {
+export default function EditTenantPage({ params }: { params: Promise<{ id: string }> }) {
     const router = useRouter()
-  const id = params.id
+  const { id } = use(params)
 
   const { data: tenant, isLoading } = api.tenant.getById.useQuery(id)
   const updateMutation = api.tenant.update.useMutation({

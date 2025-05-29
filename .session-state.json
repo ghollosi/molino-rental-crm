@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-29T09:32:08.023Z",
+  "timestamp": "2025-05-29T09:47:08.038Z",
   "lastCommand": "start",
-  "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M app/dashboard/contracts/[id]/edit/page.tsx\n M app/dashboard/contracts/[id]/page.tsx\n M app/dashboard/contracts/[id]/signature/page.tsx\n M app/dashboard/issues/[id]/edit/page.tsx\n M app/dashboard/issues/[id]/page.tsx\n M app/dashboard/offers/[id]/edit/page.tsx\n M app/dashboard/offers/[id]/page.tsx\n M app/dashboard/owners/[id]/edit/page.tsx\n M app/dashboard/owners/[id]/page.tsx\n M app/dashboard/properties/[id]/edit/page.tsx\n M app/dashboard/properties/[id]/page.tsx\n M app/dashboard/providers/[id]/edit/page.tsx\n M app/dashboard/providers/[id]/page.tsx\n M app/dashboard/tenants/[id]/edit/page.tsx\n M app/dashboard/tenants/[id]/page.tsx\n M app/dashboard/tenants/new/page.tsx\n M dev-server.log\n M next.config.ts\n M server-monitor.log\n M src/components/modals/new-owner-modal.tsx\n?? .checkpoints/20250529_110212/",
+  "currentFile": ".server.pid",
+  "gitStatus": "M .server.pid\n M .session-state.json\n D app/(dashboard)/page.tsx\n M app/dashboard/contracts/[id]/signature/page.tsx\n M app/dashboard/issues/[id]/edit/page.tsx\n M app/dashboard/issues/[id]/page.tsx\n M app/dashboard/offers/[id]/edit/page.tsx\n M app/dashboard/owners/[id]/edit/page.tsx\n M app/dashboard/page.tsx\n M app/dashboard/properties/[id]/edit/page.tsx\n M app/dashboard/providers/[id]/edit/page.tsx\n M app/dashboard/tenants/[id]/edit/page.tsx\n M dev-server.log\n M next.config.ts\n M server-monitor.log\n M src/server/routers/contracts.ts\n?? .checkpoints/20250529_113213/\n?? .vercelignore\n?? scripts/setup-production.sh",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",

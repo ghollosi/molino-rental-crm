@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useRef } from 'react'
+import { useState, useRef, use } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
@@ -12,10 +12,10 @@ import { ArrowLeft, PenTool, Check, X } from 'lucide-react'
 import { useToast } from '@/src/hooks/use-toast'
 import SignatureCanvas from 'react-signature-canvas'
 
-export default function ContractSignaturePage({ params }: { params: { id: string } }) {
+export default function ContractSignaturePage({ params }: { params: Promise<{ id: string }> }) {
   const { toast } = useToast()
     const router = useRouter()
-  const contractId = params.id
+  const { id: contractId } = use(params)
   
   const landlordSigRef = useRef<SignatureCanvas>(null)
   const tenantSigRef = useRef<SignatureCanvas>(null)
@@ -23,9 +23,9 @@ export default function ContractSignaturePage({ params }: { params: { id: string
   const [landlordSigned, setLandlordSigned] = useState(false)
   const [tenantSigned, setTenantSigned] = useState(false)
 
-  const { data: contract, isLoading, refetch } = api.contract.getById.useQuery(contractId)
+  const { data: contract, isLoading, refetch } = api.contracts.getById.useQuery({ id: contractId })
 
-  const updateContract = api.contract.update.useMutation({
+  const updateContract = api.contracts.update.useMutation({
     onSuccess: () => {
       toast({ title: 'Siker', description: 'Aláírások sikeresen mentve!' })
       refetch()
@@ -179,8 +179,8 @@ export default function ContractSignaturePage({ params }: { params: { id: string
 
             <div>
               <Label>Bérlő</Label>
-              <p className="font-medium">{(contract.tenant as any)?.user?.name || 'N/A'}</p>
-              <p className="text-sm text-muted-foreground">{(contract.tenant as any)?.user?.email || 'N/A'}</p>
+              <p className="font-medium">{contract.tenant?.user?.name || 'N/A'}</p>
+              <p className="text-sm text-muted-foreground">{contract.tenant?.user?.email || 'N/A'}</p>
             </div>
           </div>
 
