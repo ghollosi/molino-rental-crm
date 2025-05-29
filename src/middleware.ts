@@ -35,6 +35,9 @@ function checkRateLimit(key: string): boolean {
 }
 
 export function middleware(request: NextRequest) {
+  // Skip middleware temporarily for debugging mobile issues
+  return NextResponse.next()
+  
   // Skip middleware in development
   if (process.env.NODE_ENV === 'development') {
     return NextResponse.next()
