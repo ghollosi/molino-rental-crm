@@ -45,7 +45,7 @@ export default function OwnersPage() {
         <div className="flex flex-wrap items-center gap-2">
           <ExportToolbar entityType="owners" title="Tulajdonosok" />
           <Button asChild size="sm" className="w-full sm:w-auto">
-            <Link href="/dashboard/owners/new-quick">
+            <Link href="/dashboard/add-owner">
               <Plus className="mr-2 h-4 w-4" />
               Új tulajdonos
             </Link>
