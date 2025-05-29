@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-29T09:47:08.038Z",
+  "timestamp": "2025-05-29T10:02:08.074Z",
   "lastCommand": "start",
-  "currentFile": ".server.pid",
-  "gitStatus": "M .server.pid\n M .session-state.json\n D app/(dashboard)/page.tsx\n M app/dashboard/contracts/[id]/signature/page.tsx\n M app/dashboard/issues/[id]/edit/page.tsx\n M app/dashboard/issues/[id]/page.tsx\n M app/dashboard/offers/[id]/edit/page.tsx\n M app/dashboard/owners/[id]/edit/page.tsx\n M app/dashboard/page.tsx\n M app/dashboard/properties/[id]/edit/page.tsx\n M app/dashboard/providers/[id]/edit/page.tsx\n M app/dashboard/tenants/[id]/edit/page.tsx\n M dev-server.log\n M next.config.ts\n M server-monitor.log\n M src/server/routers/contracts.ts\n?? .checkpoints/20250529_113213/\n?? .vercelignore\n?? scripts/setup-production.sh",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M dev-server.log\n M server-monitor.log",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",
