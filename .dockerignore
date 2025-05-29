@@ -1,0 +1,66 @@
+# Dependencies
+node_modules
+.npm
+
+# Next.js
+.next
+out
+
+# Production
+build
+dist
+
+# Testing
+coverage
+.nyc_output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# OS
+.DS_Store
+*.pem
+
+# IDEs
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+DEVELOPMENT_DOCS.md
+PROGRESS.md
+CHANGELOG.md
+*.md
+
+# Backups
+backup-duplicates
+.checkpoints
+.session-state.json
+
+# Development files
+.husky
+scripts
+tests
+cypress
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx

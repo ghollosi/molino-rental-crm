@@ -30,11 +30,9 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('[SW] Cache megnyitva');
         return cache.addAll(urlsToCache);
       })
       .then(() => {
-        console.log('[SW] Alapvető fájlok cache-elve');
         return self.skipWaiting();
       })
   );
@@ -47,13 +45,11 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            console.log('[SW] Régi cache törlése:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
     }).then(() => {
-      console.log('[SW] Service Worker aktiválva');
       return self.clients.claim();
     })
   );
@@ -79,7 +75,6 @@ self.addEventListener('fetch', (event) => {
       .then((cachedResponse) => {
         // Ha van cache-elt válasz és offline vagyunk, használjuk azt
         if (cachedResponse && !navigator.onLine) {
-          console.log('[SW] Offline - cache-ből szolgálva:', request.url);
           return cachedResponse;
         }
 

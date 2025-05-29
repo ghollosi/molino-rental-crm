@@ -4,7 +4,11 @@ import "./globals.css";
 import { Providers } from "@/lib/providers";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true
+});
 
 export const metadata: Metadata = {
   title: "Molino RENTAL CRM",
@@ -65,14 +69,7 @@ export default function RootLayout({
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').then(
-                    function(registration) {
-                      console.log('Service Worker regisztrálva:', registration.scope);
-                    },
-                    function(err) {
-                      console.log('Service Worker regisztráció sikertelen:', err);
-                    }
-                  );
+                  navigator.serviceWorker.register('/sw.js');
                 });
               }
             `,

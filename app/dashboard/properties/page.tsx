@@ -32,9 +32,6 @@ export default function PropertiesPage() {
     type: typeFilter !== 'all' ? typeFilter as any : undefined,
     status: statusFilter !== 'all' ? statusFilter as any : undefined,
   })
-  
-  // Log the data when it changes
-  console.log('Properties data:', data)
 
   const getStatusBadge = (status: string) => {
     const variants: Record<string, 'default' | 'secondary' | 'destructive'> = {
@@ -77,10 +74,7 @@ export default function PropertiesPage() {
           <Button 
             variant="outline"
             size="sm"
-            onClick={() => {
-              console.log('Refreshing properties...')
-              refetch()
-            }}
+            onClick={() => refetch()}
             className="hidden sm:inline-flex"
           >
             Frissítés
