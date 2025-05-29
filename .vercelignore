@@ -31,6 +31,10 @@ tests/
 # Scripts
 scripts/
 src/scripts/
+*.ts
+!app/**/*.ts
+!src/**/*.ts
+!lib/**/*.ts
 
 # Documentation
 docs/
