@@ -243,45 +243,10 @@ export const ownerRouter = createTRPCRouter({
       })
 
       if (existingUser) {
-        // If user exists, check if they have an owner profile
-        const existingOwner = await ctx.db.owner.findUnique({
-          where: { userId: existingUser.id },
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Már létezik felhasználó ezzel az email címmel',
         })
-
-        if (existingOwner) {
-          throw new TRPCError({
-            code: 'BAD_REQUEST',
-            message: 'A tulajdonos már létezik ezzel az email címmel',
-          })
-        }
-
-        // Update user role if needed
-        if (existingUser.role !== 'OWNER') {
-          await ctx.db.user.update({
-            where: { id: existingUser.id },
-            data: { role: 'OWNER' },
-          })
-        }
-
-        // Create owner profile for existing user
-        const owner = await ctx.db.owner.create({
-          data: {
-            userId: existingUser.id,
-            taxNumber: input.taxNumber,
-          },
-          include: {
-            user: {
-              select: {
-                id: true,
-                name: true,
-                email: true,
-                phone: true,
-              },
-            },
-          },
-        })
-
-        return owner
       }
 
       // Use provided password or generate temporary one
