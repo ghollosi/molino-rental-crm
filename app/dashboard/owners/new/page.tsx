@@ -42,21 +42,16 @@ export default function NewOwnerPage() {
     try {
       console.log('Sending owner creation request...')
       
-      const response = await fetch('/api/trpc/owner.quickCreate', {
+      const response = await fetch('/api/create-owner-direct', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
         },
         body: JSON.stringify({
-          "0": {
-            "json": {
-              name: formData.name.trim(),
-              email: formData.email.trim().toLowerCase(),
-              password: formData.password,
-              phone: formData.phone.trim() || undefined,
-            }
-          }
+          name: formData.name.trim(),
+          email: formData.email.trim().toLowerCase(),
+          password: formData.password,
+          phone: formData.phone.trim() || undefined,
         })
       })
 
@@ -64,14 +59,14 @@ export default function NewOwnerPage() {
       const data = await response.json()
       console.log('Response data:', data)
       
-      if (response.ok && data[0]?.result?.data) {
+      if (response.ok && data.success) {
         setSuccess(true)
         setError('')
         setTimeout(() => {
           router.push('/dashboard/owners')
         }, 2000)
       } else {
-        const errorMsg = data[0]?.error?.message || data.error || 'Hiba történt a tulajdonos létrehozásánál'
+        const errorMsg = data.error || 'Hiba történt a tulajdonos létrehozásánál'
         setError(errorMsg)
         console.error('API error:', data)
       }
