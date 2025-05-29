@@ -4,17 +4,8 @@ import type { NextRequest } from 'next/server'
 // Rate limiting map to track requests
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
 
-// Clean up old entries periodically
-if (typeof global !== 'undefined' && !global.rateLimitCleanupInterval) {
-  global.rateLimitCleanupInterval = setInterval(() => {
-    const now = Date.now()
-    for (const [key, value] of rateLimitMap.entries()) {
-      if (value.resetTime < now) {
-        rateLimitMap.delete(key)
-      }
-    }
-  }, 60000) // Clean every minute
-}
+// Note: setInterval cleanup disabled for Edge Runtime compatibility
+// Rate limit entries will be cleaned up naturally as they expire
 
 function getRateLimitKey(request: NextRequest): string {
   const ip = request.headers.get('x-forwarded-for') || 
@@ -113,7 +104,4 @@ export const config = {
   ],
 }
 
-// Declare global type to avoid TypeScript errors
-declare global {
-  var rateLimitCleanupInterval: NodeJS.Timeout | undefined
-}
+// Global type declaration removed - not needed without setInterval
