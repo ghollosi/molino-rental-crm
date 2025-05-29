@@ -4784,3 +4784,5 @@ Require stack:
  GET / 200 in 61ms
  ✓ Compiled in 1590ms (3095 modules)
  GET / 200 in 258ms
+ GET / 200 in 48ms
+ GET / 200 in 50ms
