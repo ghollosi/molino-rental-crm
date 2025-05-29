@@ -4410,3 +4410,10 @@ Require stack:
  ✓ Compiled in 1325ms (308 modules)
 [33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
  GET / 200 in 95ms
+ GET / 200 in 42ms
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (130kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ GET / 200 in 52ms
+ GET / 200 in 74ms
+ GET / 200 in 67ms
+ GET / 200 in 56ms
+ ✓ Compiled in 432ms (308 modules)
