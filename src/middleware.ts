@@ -35,15 +35,19 @@ function checkRateLimit(key: string): boolean {
 }
 
 export function middleware(request: NextRequest) {
-  // Skip middleware temporarily for debugging mobile issues
-  return NextResponse.next()
-  
   // Skip middleware in development
   if (process.env.NODE_ENV === 'development') {
     return NextResponse.next()
   }
   
-  // Apply rate limiting to API routes
+  // Create response early to add headers
+  const response = NextResponse.next()
+  
+  // Add mobile-friendly headers
+  response.headers.set('Vary', 'User-Agent')
+  response.headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+  
+  // Apply rate limiting to API routes only
   if (request.nextUrl.pathname.startsWith('/api/')) {
     const rateLimitKey = getRateLimitKey(request)
     
@@ -59,36 +63,9 @@ export function middleware(request: NextRequest) {
     }
   }
   
-  // Add security headers
-  const response = NextResponse.next()
-  
-  // Security headers
-  response.headers.set('X-Frame-Options', 'DENY')
+  // Minimal security headers (reduced for mobile compatibility)
   response.headers.set('X-Content-Type-Options', 'nosniff')
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
-  
-  // Add CSP header in production
-  if (process.env.NODE_ENV === 'production') {
-    response.headers.set(
-      'Content-Security-Policy',
-      "default-src 'self'; " +
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; " +
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-      "font-src 'self' https://fonts.gstatic.com; " +
-      "img-src 'self' data: https: blob:; " +
-      "connect-src 'self' https://api.uploadthing.com https://uploadthing.com; " +
-      "frame-ancestors 'none';"
-    )
-  }
-  
-  // Add HSTS in production
-  if (process.env.NODE_ENV === 'production' && request.nextUrl.protocol === 'https:') {
-    response.headers.set(
-      'Strict-Transport-Security',
-      'max-age=31536000; includeSubDomains'
-    )
-  }
   
   return response
 }

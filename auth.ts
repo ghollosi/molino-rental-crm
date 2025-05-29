@@ -14,6 +14,17 @@ export const {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
+  cookies: {
+    sessionToken: {
+      name: process.env.NODE_ENV === "production" ? "__Secure-next-auth.session-token" : "next-auth.session-token",
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+      },
+    },
+  },
   useSecureCookies: process.env.NODE_ENV === "production",
   trustHost: true,
   pages: {
@@ -39,27 +50,35 @@ export const {
     async jwt({ token, user }) {
       if (!token.sub) return token
 
-      const existingUser = await prisma.user.findUnique({
-        where: { id: token.sub },
-        select: {
-          id: true,
-          email: true,
-          name: true,
-          role: true,
-          language: true,
-          phone: true,
+      try {
+        const existingUser = await prisma.user.findUnique({
+          where: { id: token.sub },
+          select: {
+            id: true,
+            email: true,
+            name: true,
+            role: true,
+            language: true,
+            phone: true,
+          }
+        })
+
+        if (!existingUser) {
+          console.log(`[NextAuth] User not found for token.sub: ${token.sub}`)
+          return token
         }
-      })
 
-      if (!existingUser) return token
+        token.name = existingUser.name
+        token.email = existingUser.email
+        token.role = existingUser.role
+        token.language = existingUser.language
+        token.phone = existingUser.phone
 
-      token.name = existingUser.name
-      token.email = existingUser.email
-      token.role = existingUser.role
-      token.language = existingUser.language
-      token.phone = existingUser.phone
-
-      return token
+        return token
+      } catch (error) {
+        console.error('[NextAuth] JWT callback error:', error)
+        return token
+      }
     },
   },
   ...authConfig,
