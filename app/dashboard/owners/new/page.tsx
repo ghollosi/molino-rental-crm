@@ -40,19 +40,25 @@ export default function NewOwnerPage() {
       router.push('/dashboard/owners')
     },
     onError: (error) => {
-      setError(error.message)
+      console.error('Owner creation error:', error)
+      setError(error.message || 'Hiba történt a tulajdonos létrehozása közben')
     },
   })
 
   const onSubmit = async (data: OwnerFormData) => {
     setError(null)
-    await createOwner.mutateAsync({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      phone: data.phone,
-      taxNumber: data.isCompany ? data.taxNumber : undefined,
-    })
+    try {
+      await createOwner.mutateAsync({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        phone: data.phone,
+        taxNumber: data.isCompany ? data.taxNumber : undefined,
+      })
+    } catch (error) {
+      console.error('Submit error:', error)
+      // Error is already handled by onError
+    }
   }
 
   const watchIsCompany = watch('isCompany')
