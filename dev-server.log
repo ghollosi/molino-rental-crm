@@ -177,3 +177,265 @@ prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."
  GET / 200 in 73ms
  GET / 200 in 75ms
  GET / 200 in 74ms
+ GET / 200 in 56ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 40ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 22ms
+ GET / 200 in 47ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 52ms
+ GET / 200 in 48ms
+ GET / 200 in 95ms
+ GET / 200 in 54ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 38ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 9ms
+ GET /api/auth/session 200 in 12ms
+ GET /api/auth/session 200 in 15ms
+ GET / 200 in 28ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 12ms
+ GET / 200 in 48ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 17ms
+ GET / 200 in 36ms
+ GET /api/auth/session 200 in 22ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 34ms
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 69ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 7ms
+ GET / 200 in 41ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 19ms
+ GET / 200 in 58ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 10ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 7ms
+ GET / 200 in 38ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 12ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 17ms
+ GET / 200 in 31ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 47ms
+ GET / 200 in 50ms
+ GET / 200 in 48ms
+ GET / 200 in 41ms
+ GET / 200 in 37ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 28ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 39ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 5ms
+ GET / 200 in 36ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/auth/session 200 in 23ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 47ms
+ GET /api/auth/session 200 in 12ms
+ GET / 200 in 102ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 15ms
+ GET /api/auth/session 200 in 13ms
+ GET / 200 in 43ms
+ GET / 200 in 43ms
+ GET / 200 in 40ms
+ GET / 200 in 48ms
+ GET / 200 in 51ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 23ms
+ GET / 200 in 32ms
+ GET / 200 in 48ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 5ms
+ GET /api/auth/session 200 in 13ms
+ GET /api/auth/session 200 in 7ms
+ GET / 200 in 55ms
+ GET / 200 in 225ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 9ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 9ms
+ GET / 200 in 51ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 13ms
+ GET / 200 in 49ms
+ GET / 200 in 51ms
+ GET /api/auth/session 200 in 16ms
+ GET /api/auth/session 200 in 7ms
+ GET / 200 in 50ms
+ GET / 200 in 60ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 9ms
+ GET / 200 in 54ms
+ GET / 200 in 40ms
+ GET / 200 in 41ms
+ GET / 200 in 41ms
+ GET / 200 in 45ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 9ms
+ GET / 200 in 51ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 54ms
+ GET / 200 in 64ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 60ms
+ GET /api/auth/session 200 in 26ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 76ms
+ GET /api/auth/session 200 in 21ms
+ GET /api/auth/session 200 in 9ms
+ GET / 200 in 67ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 56ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 9ms
+ GET / 200 in 55ms
+ GET / 200 in 48ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 14ms
+ GET / 200 in 74ms
+ GET /api/auth/session 200 in 15ms
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 46ms
+ GET /api/auth/session 200 in 40ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/auth/session 200 in 13ms
+ GET / 200 in 68ms
+ GET / 200 in 63ms
+ GET / 200 in 96ms
+ GET /api/auth/session 200 in 28ms
+ GET /api/auth/session 200 in 25ms
+ GET /dashboard 200 in 708ms
+ GET /api/auth/session 200 in 10ms
+ GET /api/auth/session 200 in 14ms
+prisma:query SELECT "public"."Property"."id", "public"."Property"."rentAmount", "public"."Property"."currency" FROM "public"."Property" WHERE ("public"."Property"."status" = CAST($1::text AS "public"."PropertyStatus") AND "public"."Property"."rentAmount" IS NOT NULL) OFFSET $2
+prisma:query SELECT "public"."Contract"."id", "public"."Contract"."propertyId", "public"."Contract"."tenantId", "public"."Contract"."startDate", "public"."Contract"."endDate", "public"."Contract"."rentAmount", "public"."Contract"."deposit", "public"."Contract"."paymentDay", "public"."Contract"."createdAt", "public"."Contract"."updatedAt", "public"."Contract"."attachments", "public"."Contract"."content", "public"."Contract"."contractNumber", "public"."Contract"."landlordSignature", "public"."Contract"."landlordSigned", "public"."Contract"."landlordSignedAt", "public"."Contract"."pdfUrl", "public"."Contract"."status"::text, "public"."Contract"."templateId", "public"."Contract"."tenantSignature", "public"."Contract"."tenantSigned", "public"."Contract"."tenantSignedAt", "public"."Contract"."title", "public"."Contract"."variables" FROM "public"."Contract" WHERE (("public"."Contract"."status" = CAST($1::text AS "public"."ContractStatus") OR "public"."Contract"."status" = CAST($2::text AS "public"."ContractStatus")) AND "public"."Contract"."startDate" <= $3 AND "public"."Contract"."endDate" >= $4) OFFSET $5
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."id" FROM "public"."Property" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Tenant"."id" FROM "public"."Tenant" WHERE "public"."Tenant"."isActive" = $1 OFFSET $2) AS "sub"
+prisma:query SELECT COUNT("public"."Property"."id"), "public"."Property"."status"::text FROM "public"."Property" WHERE 1=1 GROUP BY "public"."Property"."status" OFFSET $1
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."id" FROM "public"."Property" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Offer"."id" FROM "public"."Offer" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."id" FROM "public"."Property" WHERE "public"."Property"."status" = CAST($1::text AS "public"."PropertyStatus") OFFSET $2) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Tenant"."id" FROM "public"."Tenant" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT "public"."Contract"."id", "public"."Contract"."propertyId", "public"."Contract"."tenantId", "public"."Contract"."startDate", "public"."Contract"."endDate", "public"."Contract"."rentAmount", "public"."Contract"."deposit", "public"."Contract"."paymentDay", "public"."Contract"."createdAt", "public"."Contract"."updatedAt", "public"."Contract"."attachments", "public"."Contract"."content", "public"."Contract"."contractNumber", "public"."Contract"."landlordSignature", "public"."Contract"."landlordSigned", "public"."Contract"."landlordSignedAt", "public"."Contract"."pdfUrl", "public"."Contract"."status"::text, "public"."Contract"."templateId", "public"."Contract"."tenantSignature", "public"."Contract"."tenantSigned", "public"."Contract"."tenantSignedAt", "public"."Contract"."title", "public"."Contract"."variables" FROM "public"."Contract" WHERE ("public"."Contract"."status" = CAST($1::text AS "public"."ContractStatus") AND "public"."Contract"."endDate" >= $2 AND "public"."Contract"."endDate" <= $3) ORDER BY "public"."Contract"."endDate" ASC OFFSET $4
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2) OFFSET $3) AS "sub"
+prisma:query SELECT COUNT("public"."Issue"."id"), "public"."Issue"."category"::text FROM "public"."Issue" WHERE 1=1 GROUP BY "public"."Issue"."category" ORDER BY COUNT("public"."Issue"."id") DESC OFFSET $1
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE "public"."Issue"."status" IN (CAST($1::text AS "public"."IssueStatus"),CAST($2::text AS "public"."IssueStatus")) OFFSET $3) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Offer"."id" FROM "public"."Offer" WHERE "public"."Offer"."status" = CAST($1::text AS "public"."OfferStatus") OFFSET $2) AS "sub"
+prisma:query SELECT "public"."Property"."id", "public"."Property"."street", "public"."Property"."city", "public"."Property"."postalCode", "public"."Property"."country", "public"."Property"."latitude", "public"."Property"."longitude", "public"."Property"."ownerId", "public"."Property"."currentTenantId", "public"."Property"."type"::text, "public"."Property"."size", "public"."Property"."rooms", "public"."Property"."floor", "public"."Property"."rentAmount", "public"."Property"."currency", "public"."Property"."photos", "public"."Property"."status"::text, "public"."Property"."createdAt", "public"."Property"."updatedAt", COALESCE("aggr_selection_0_Issue"."_aggr_count_issues", 0) AS "_aggr_count_issues", COALESCE("aggr_selection_1_Offer"."_aggr_count_offers", 0) AS "_aggr_count_offers" FROM "public"."Property" LEFT JOIN (SELECT "public"."Issue"."propertyId", COUNT(*) AS "_aggr_count_issues" FROM "public"."Issue" WHERE 1=1 GROUP BY "public"."Issue"."propertyId") AS "aggr_selection_0_Issue" ON ("public"."Property"."id" = "aggr_selection_0_Issue"."propertyId") LEFT JOIN (SELECT "public"."Offer"."propertyId", COUNT(*) AS "_aggr_count_offers" FROM "public"."Offer" WHERE 1=1 GROUP BY "public"."Offer"."propertyId") AS "aggr_selection_1_Offer" ON ("public"."Property"."id" = "aggr_selection_1_Offer"."propertyId") WHERE 1=1 ORDER BY "public"."Property"."createdAt" DESC LIMIT $1 OFFSET $2
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2 AND "public"."Issue"."status" = CAST($3::text AS "public"."IssueStatus")) OFFSET $4) AS "sub"
+prisma:query SELECT "public"."Tenant"."id", "public"."Tenant"."userId", "public"."Tenant"."emergencyName", "public"."Tenant"."emergencyPhone", "public"."Tenant"."isActive", "public"."Tenant"."createdAt", "public"."Tenant"."updatedAt" FROM "public"."Tenant" WHERE "public"."Tenant"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2) OFFSET $3) AS "sub"
+prisma:query SELECT "public"."User"."id", "public"."User"."name", "public"."User"."email", "public"."User"."phone" FROM "public"."User" WHERE "public"."User"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2 AND "public"."Issue"."status" = CAST($3::text AS "public"."IssueStatus")) OFFSET $4) AS "sub"
+prisma:query SELECT "public"."Issue"."id", "public"."Issue"."ticketNumber", "public"."Issue"."propertyId", "public"."Issue"."reportedById", "public"."Issue"."assignedToId", "public"."Issue"."managedById", "public"."Issue"."title", "public"."Issue"."description", "public"."Issue"."category"::text, "public"."Issue"."priority"::text, "public"."Issue"."photos", "public"."Issue"."status"::text, "public"."Issue"."scheduledDate", "public"."Issue"."completedDate", "public"."Issue"."createdAt", "public"."Issue"."updatedAt", COALESCE("aggr_selection_0_Offer"."_aggr_count_offers", 0) AS "_aggr_count_offers", COALESCE("aggr_selection_1_IssueTimeline"."_aggr_count_timeline", 0) AS "_aggr_count_timeline" FROM "public"."Issue" LEFT JOIN (SELECT "public"."Offer"."issueId", COUNT(*) AS "_aggr_count_offers" FROM "public"."Offer" WHERE 1=1 GROUP BY "public"."Offer"."issueId") AS "aggr_selection_0_Offer" ON ("public"."Issue"."id" = "aggr_selection_0_Offer"."issueId") LEFT JOIN (SELECT "public"."IssueTimeline"."issueId", COUNT(*) AS "_aggr_count_timeline" FROM "public"."IssueTimeline" WHERE 1=1 GROUP BY "public"."IssueTimeline"."issueId") AS "aggr_selection_1_IssueTimeline" ON ("public"."Issue"."id" = "aggr_selection_1_IssueTimeline"."issueId") WHERE 1=1 ORDER BY "public"."Issue"."priority" DESC, "public"."Issue"."createdAt" DESC LIMIT $1 OFFSET $2
+prisma:query SELECT "public"."Owner"."id", "public"."Owner"."userId", "public"."Owner"."taxNumber", "public"."Owner"."bankAccount", "public"."Owner"."billingStreet", "public"."Owner"."billingCity", "public"."Owner"."billingPostalCode", "public"."Owner"."billingCountry", "public"."Owner"."createdAt", "public"."Owner"."updatedAt" FROM "public"."Owner" WHERE "public"."Owner"."id" IN ($1,$2,$3,$4,$5) OFFSET $6
+prisma:query SELECT "public"."Property"."id", "public"."Property"."street", "public"."Property"."city", "public"."Property"."ownerId" FROM "public"."Property" WHERE "public"."Property"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT "public"."Property"."id", "public"."Property"."street", "public"."Property"."city" FROM "public"."Property" WHERE "public"."Property"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2) OFFSET $3) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2 AND "public"."Issue"."status" = CAST($3::text AS "public"."IssueStatus")) OFFSET $4) AS "sub"
+prisma:query SELECT "public"."Owner"."id", "public"."Owner"."userId", "public"."Owner"."taxNumber", "public"."Owner"."bankAccount", "public"."Owner"."billingStreet", "public"."Owner"."billingCity", "public"."Owner"."billingPostalCode", "public"."Owner"."billingCountry", "public"."Owner"."createdAt", "public"."Owner"."updatedAt" FROM "public"."Owner" WHERE "public"."Owner"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."password", "public"."User"."name", "public"."User"."role"::text, "public"."User"."language"::text, "public"."User"."phone", "public"."User"."isActive", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1,$2,$3,$4,$5) OFFSET $6
+prisma:query SELECT "public"."Tenant"."id", "public"."Tenant"."userId", "public"."Tenant"."emergencyName", "public"."Tenant"."emergencyPhone", "public"."Tenant"."isActive", "public"."Tenant"."createdAt", "public"."Tenant"."updatedAt" FROM "public"."Tenant" WHERE "public"."Tenant"."id" IN ($1,$2) OFFSET $3
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2) OFFSET $3) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2 AND "public"."Issue"."status" = CAST($3::text AS "public"."IssueStatus")) OFFSET $4) AS "sub"
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."password", "public"."User"."name", "public"."User"."role"::text, "public"."User"."language"::text, "public"."User"."phone", "public"."User"."isActive", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."password", "public"."User"."name", "public"."User"."role"::text, "public"."User"."language"::text, "public"."User"."phone", "public"."User"."isActive", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1,$2) OFFSET $3
+prisma:query SELECT "public"."User"."id", "public"."User"."name", "public"."User"."email" FROM "public"."User" WHERE "public"."User"."id" IN ($1,$2,$3) OFFSET $4
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2 AND "public"."Issue"."status" = CAST($3::text AS "public"."IssueStatus")) OFFSET $4) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2) OFFSET $3) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2) OFFSET $3) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Issue"."id" FROM "public"."Issue" WHERE ("public"."Issue"."createdAt" >= $1 AND "public"."Issue"."createdAt" <= $2 AND "public"."Issue"."status" = CAST($3::text AS "public"."IssueStatus")) OFFSET $4) AS "sub"
+prisma:query 
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(MONTH FROM "transactionDate") = $1
+        AND EXTRACT(YEAR FROM "transactionDate") = $2
+    
+prisma:query SELECT "public"."Provider"."id", "public"."Provider"."userId", "public"."Provider"."businessName", "public"."Provider"."specialty", "public"."Provider"."hourlyRate", "public"."Provider"."currency", "public"."Provider"."availability", "public"."Provider"."rating", "public"."Provider"."createdAt", "public"."Provider"."updatedAt" FROM "public"."Provider" WHERE "public"."Provider"."id" IN ($1,$2) OFFSET $3
+prisma:query SELECT "public"."User"."id", "public"."User"."name", "public"."User"."email", "public"."User"."phone" FROM "public"."User" WHERE "public"."User"."id" IN ($1,$2) OFFSET $3
+prisma:query 
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(YEAR FROM "transactionDate") = $1
+    
+prisma:query 
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'EXPENSE'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(MONTH FROM "transactionDate") = $1
+        AND EXTRACT(YEAR FROM "transactionDate") = $2
+    
+prisma:query 
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status = 'PENDING'
+    
+prisma:query 
+      SELECT COUNT(*) as count
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status = 'PENDING'
+        AND "dueDate" < CURRENT_DATE
+    
+prisma:query 
+      SELECT SUM(amount) as total
+      FROM "Transaction"
+      WHERE type = 'INCOME'
+        AND status IN ('COMPLETED', 'PENDING')
+        AND EXTRACT(MONTH FROM "transactionDate") = $1
+        AND EXTRACT(YEAR FROM "transactionDate") = $2
+    
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."id" FROM "public"."Property" WHERE 1=1 OFFSET $1) AS "sub"
+prisma:query SELECT COUNT(*) AS "_count._all" FROM (SELECT "public"."Property"."id" FROM "public"."Property" WHERE "public"."Property"."status" = CAST($1::text AS "public"."PropertyStatus") OFFSET $2) AS "sub"
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,contracts.getExpiringContracts,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22days%22%3A60%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 319ms
+ GET / 200 in 70ms
+ GET / 200 in 53ms
+ GET / 200 in 44ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 15ms
