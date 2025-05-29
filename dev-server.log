@@ -8352,3 +8352,16 @@ TypeError: Cannot read properties of undefined (reading 'call')
  GET / 200 in 37ms
  GET / 200 in 35ms
  GET / 200 in 88ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1173ms (1402 modules)
+ GET / 500 in 1674ms
+ GET / 200 in 228ms
+ GET / 200 in 44ms
+ GET / 200 in 51ms
