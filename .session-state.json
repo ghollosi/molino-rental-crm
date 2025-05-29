@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-29T20:07:08.754Z",
+  "timestamp": "2025-05-29T20:12:08.757Z",
   "lastCommand": "start",
-  "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M dev-server.log\n M server-monitor.log",
+  "currentFile": "dev-server.log",
+  "gitStatus": "M dev-server.log\n M server-monitor.log",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",
