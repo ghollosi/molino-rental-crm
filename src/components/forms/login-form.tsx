@@ -25,19 +25,29 @@ export function LoginForm() {
     setError('')
 
     try {
+      console.log('🔐 Attempting login with:', email)
+      
       const result = await signIn('credentials', {
         email,
         password,
         redirect: false,
       })
+      
+      console.log('🔍 SignIn result:', result)
 
       if (result?.error) {
-        setError('Hibás email cím vagy jelszó')
-      } else {
+        console.error('❌ Login error:', result.error)
+        setError(`Hibás email cím vagy jelszó (${result.error})`)
+      } else if (result?.ok) {
+        console.log('✅ Login successful, redirecting...')
         router.push('/dashboard')
         router.refresh()
+      } else {
+        console.error('❓ Unexpected result:', result)
+        setError('Ismeretlen hiba történt')
       }
     } catch (error) {
+      console.error('💥 Login exception:', error)
       setError('Hiba történt a bejelentkezés során')
     } finally {
       setIsLoading(false)
