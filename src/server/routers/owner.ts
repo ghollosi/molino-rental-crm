@@ -154,13 +154,11 @@ export const ownerRouter = createTRPCRouter({
 
   create: protectedProcedure
     .input(z.object({
-      userId: z.string(),
+      name: z.string().min(1, 'Name is required'),
+      email: z.string().email('Invalid email'),
+      password: z.string().min(6, 'Password must be at least 6 characters'),
+      phone: z.string().optional(),
       taxNumber: z.string().optional(),
-      bankAccount: z.string().optional(),
-      billingStreet: z.string().optional(),
-      billingCity: z.string().optional(),
-      billingPostalCode: z.string().optional(),
-      billingCountry: z.string().optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -171,40 +169,38 @@ export const ownerRouter = createTRPCRouter({
         })
       }
 
-      // Check if user exists
-      const user = await ctx.db.user.findUnique({
-        where: { id: input.userId },
+      // Check if user already exists
+      const existingUser = await ctx.db.user.findUnique({
+        where: { email: input.email },
       })
 
-      if (!user) {
-        throw new TRPCError({
-          code: 'NOT_FOUND',
-          message: 'User not found',
-        })
-      }
-
-      // Check if owner profile already exists
-      const existingOwner = await ctx.db.owner.findUnique({
-        where: { userId: input.userId },
-      })
-
-      if (existingOwner) {
+      if (existingUser) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: 'Owner profile already exists for this user',
+          message: 'User with this email already exists',
         })
       }
 
-      // Update user role to OWNER if not already
-      if (user.role !== 'OWNER') {
-        await ctx.db.user.update({
-          where: { id: input.userId },
-          data: { role: 'OWNER' },
-        })
-      }
+      // Hash password
+      const hashedPassword = await hashPassword(input.password)
 
+      // Create user
+      const user = await ctx.db.user.create({
+        data: {
+          name: input.name,
+          email: input.email,
+          password: hashedPassword,
+          phone: input.phone,
+          role: 'OWNER'
+        }
+      })
+
+      // Create owner profile
       const owner = await ctx.db.owner.create({
-        data: input,
+        data: {
+          userId: user.id,
+          taxNumber: input.taxNumber,
+        },
         include: {
           user: {
             select: {
