@@ -10,7 +10,12 @@ export const {
   signOut,
 } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  session: { strategy: "jwt" },
+  session: { 
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  useSecureCookies: process.env.NODE_ENV === "production",
+  trustHost: true,
   pages: {
     signIn: "/login",
     error: "/login",
