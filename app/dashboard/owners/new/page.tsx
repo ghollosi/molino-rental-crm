@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -29,35 +28,51 @@ export default function NewOwnerPage() {
   const [error, setError] = useState<string | null>(null)
   const [isCompany, setIsCompany] = useState(false)
 
-  const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<OwnerFormData>({
+  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<OwnerFormData>({
     defaultValues: {
       isCompany: false,
     }
   })
-
-  const createOwner = api.owner.quickCreate.useMutation({
-    onSuccess: () => {
-      router.push('/dashboard/owners')
-    },
-    onError: (error) => {
-      console.error('Owner creation error:', error)
-      setError(error.message || 'Hiba történt a tulajdonos létrehozása közben')
-    },
-  })
+  
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const onSubmit = async (data: OwnerFormData) => {
     setError(null)
+    setIsSubmitting(true)
+    
     try {
-      await createOwner.mutateAsync({
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        phone: data.phone,
-        taxNumber: data.isCompany ? data.taxNumber : undefined,
+      const response = await fetch('/api/trpc/owner.quickCreate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "0": {
+            "json": {
+              name: data.name,
+              email: data.email,
+              password: data.password,
+              phone: data.phone,
+              taxNumber: data.isCompany ? data.taxNumber : undefined,
+            }
+          }
+        })
       })
+
+      const result = await response.json()
+      
+      if (response.ok && result[0]?.result?.data) {
+        router.push('/dashboard/owners')
+      } else {
+        const errorMsg = result[0]?.error?.message || result.error || 'Ismeretlen hiba'
+        setError(errorMsg)
+        console.error('API error:', result)
+      }
     } catch (error) {
-      console.error('Submit error:', error)
-      // Error is already handled by onError
+      console.error('Network error:', error)
+      setError('Hálózati hiba történt')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
