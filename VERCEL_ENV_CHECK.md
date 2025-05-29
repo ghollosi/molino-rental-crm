@@ -37,3 +37,4 @@ Ellenőrizd a Vercel Dashboard-ban (Settings → Environment Variables), hogy ez
 - Minden változó Production environment-re legyen beállítva
 - A változók értékei pontosan egyezzenek (nincs extra space vagy idézőjel)
 - Ha módosítasz, mindig Redeploy szükséges!# Trigger redeploy Thu May 29 18:43:12 CEST 2025
+# Force redeploy Thu May 29 18:57:34 CEST 2025
