@@ -2480,3 +2480,1816 @@ Require stack:
   requireStack: [Array]
 }
  GET / 500 in 81ms
+ ✓ Compiled in 1174ms (1403 modules)
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/dashboard/page.js:1:12856)
+    at Object.<anonymous> (.next/server/app/dashboard/page.js:1:12949) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/dashboard'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /dashboard 500 in 99ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/dashboard/page.js:1:12856)
+    at Object.<anonymous> (.next/server/app/dashboard/page.js:1:12949) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/dashboard'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /dashboard 500 in 54ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 76ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 64ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 44ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 101ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 68ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 85ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 71ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 65ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 102ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 96ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 114ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 102ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 97ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 176ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 116ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 75ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 69ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 84ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 90ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 107ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 154ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 92ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 74ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 74ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 323ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 107ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 77ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 100ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 79ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 71ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 71ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 98ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 76ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/app/page.js:1:3626)
+    at Object.<anonymous> (.next/server/app/page.js:1:3684) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:277:28)
+    at <unknown> (.next/server/webpack-runtime.js:185:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:184:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:236:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 429ms
+ ✓ Compiled in 1257ms (3095 modules)
+ ✓ Compiled /_not-found in 223ms (2791 modules)
+ GET /_next/static/webpack/405c46ee48c3009f.webpack.hot-update.json 404 in 451ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard 200 in 440ms
+ GET /_next/static/css/app/layout.css?v=1748517645062 404 in 47ms
+ GET /_next/static/chunks/main-app.js?v=1748517645062 404 in 78ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 34ms
+ GET /_next/static/chunks/app/error.js 404 in 33ms
+ GET /_next/static/chunks/app/dashboard/layout.js 404 in 34ms
+ GET /_next/static/chunks/app/dashboard/page.js 404 in 34ms
+ GET /_next/static/chunks/app/global-error.js 404 in 18ms
