@@ -7,6 +7,7 @@ import { loginSchema } from "@/lib/validations/auth"
 export default {
   pages: {
     signIn: '/login',
+    error: '/login',
   },
   providers: [
     Credentials({

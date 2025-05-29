@@ -44,8 +44,16 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next()
   
   // Add mobile-friendly headers
-  response.headers.set('Vary', 'User-Agent')
+  response.headers.set('Vary', 'User-Agent, Accept')
   response.headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+  
+  // Safari-specific headers
+  const userAgent = request.headers.get('user-agent') || ''
+  const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent)
+  
+  if (isSafari) {
+    response.headers.set('X-Frame-Options', 'SAMEORIGIN')
+  }
   
   // Apply rate limiting to API routes only
   if (request.nextUrl.pathname.startsWith('/api/')) {

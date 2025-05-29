@@ -4808,3 +4808,31 @@ Require stack:
  ✓ Compiled in 2.2s (3095 modules)
  GET / 200 in 287ms
  ✓ Compiled in 402ms (1403 modules)
+ GET / 200 in 107ms
+ GET / 200 in 41ms
+ GET / 200 in 49ms
+ GET / 200 in 68ms
+ GET / 200 in 70ms
+ GET / 200 in 163ms
+ GET / 200 in 48ms
+ GET / 200 in 40ms
+ GET / 200 in 101ms
+ GET / 200 in 66ms
+ GET / 200 in 43ms
+ GET / 200 in 38ms
+ GET / 200 in 55ms
+ GET / 200 in 40ms
+ GET / 200 in 48ms
+ GET / 200 in 48ms
+ GET / 200 in 52ms
+ GET / 200 in 49ms
+ GET / 200 in 45ms
+ GET / 200 in 43ms
+ GET / 200 in 51ms
+ GET / 200 in 52ms
+ GET / 200 in 62ms
+ GET / 200 in 57ms
+ ✓ Compiled in 1171ms (1403 modules)
+ ✓ Compiled in 254ms (308 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET / 200 in 42ms
