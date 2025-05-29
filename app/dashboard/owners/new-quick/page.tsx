@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -21,14 +20,7 @@ export default function NewQuickOwnerPage() {
     phone: '',
   })
 
-  const createOwner = api.owner.quickCreate.useMutation({
-    onSuccess: () => {
-      router.push('/dashboard/owners')
-    },
-    onError: (error) => {
-      setError(error.message)
-    },
-  })
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -39,12 +31,31 @@ export default function NewQuickOwnerPage() {
       return
     }
     
-    await createOwner.mutateAsync({
-      name: formData.name,
-      email: formData.email,
-      password: formData.password,
-      phone: formData.phone || undefined,
-    })
+    setIsLoading(true)
+    
+    try {
+      const response = await fetch('/api/create-owner', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create owner')
+      }
+      
+      if (data.success) {
+        router.push('/dashboard/owners')
+      }
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Hiba történt')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -121,9 +132,9 @@ export default function NewQuickOwnerPage() {
             <div className="flex gap-4">
               <Button
                 type="submit"
-                disabled={createOwner.isPending}
+                disabled={isLoading}
               >
-                {createOwner.isPending ? 'Mentés...' : 'Tulajdonos létrehozása'}
+                {isLoading ? 'Mentés...' : 'Tulajdonos létrehozása'}
               </Button>
               <Button
                 type="button"
