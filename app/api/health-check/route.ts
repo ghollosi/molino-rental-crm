@@ -8,6 +8,7 @@ export async function GET() {
   return NextResponse.json({ 
     status: 'ok',
     timestamp: new Date().toISOString(),
-    service: 'Molino CRM'
+    service: 'Molino CRM',
+    version: 'v1.12.1-forced-deploy'
   });
 }
