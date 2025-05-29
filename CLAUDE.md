@@ -236,7 +236,18 @@ Ha "Internal server error" hibát kapsz:
 
 ## 💾 VISSZAÁLLÍTÁSI PONTOK
 
-### v1.11.0 - Cloud Storage Implementation (2025-05-29 Reggel) ☁️ **LEGFRISSEBB**
+### v1.12.0 - Owner Creation Fixes (2025-05-29 Este) 🔧 **LEGFRISSEBB**
+```bash
+git checkout v1.12.0
+```
+- **Owner creation javítások**: Prisma update hibák megoldva
+- **TypeScript hibák javítva**: Duplicate pages config eltávolítva
+- **API improvements**: owner.create és owner.quickCreate user ellenőrzéssel
+- **Test page hozzáadva**: /dashboard/owners/create-test debug célokra
+- **Production deployment**: Sikeres build és deployment
+- **Várakozás**: User tesztelésre várunk a végső visszajelzéshez
+
+### v1.11.0 - Cloud Storage Implementation (2025-05-29 Reggel) ☁️
 ```bash
 git checkout v1.11.0
 ```
