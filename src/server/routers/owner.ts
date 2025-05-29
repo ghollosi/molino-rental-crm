@@ -171,6 +171,18 @@ export const ownerRouter = createTRPCRouter({
         })
       }
 
+      // Check if user exists
+      const user = await ctx.db.user.findUnique({
+        where: { id: input.userId },
+      })
+
+      if (!user) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'User not found',
+        })
+      }
+
       // Check if owner profile already exists
       const existingOwner = await ctx.db.owner.findUnique({
         where: { userId: input.userId },
@@ -184,10 +196,12 @@ export const ownerRouter = createTRPCRouter({
       }
 
       // Update user role to OWNER if not already
-      await ctx.db.user.update({
-        where: { id: input.userId },
-        data: { role: 'OWNER' },
-      })
+      if (user.role !== 'OWNER') {
+        await ctx.db.user.update({
+          where: { id: input.userId },
+          data: { role: 'OWNER' },
+        })
+      }
 
       const owner = await ctx.db.owner.create({
         data: input,
@@ -241,6 +255,14 @@ export const ownerRouter = createTRPCRouter({
           })
         }
 
+        // Update user role if needed
+        if (existingUser.role !== 'OWNER') {
+          await ctx.db.user.update({
+            where: { id: existingUser.id },
+            data: { role: 'OWNER' },
+          })
+        }
+
         // Create owner profile for existing user
         const owner = await ctx.db.owner.create({
           data: {
@@ -257,12 +279,6 @@ export const ownerRouter = createTRPCRouter({
               },
             },
           },
-        })
-
-        // Update user role
-        await ctx.db.user.update({
-          where: { id: existingUser.id },
-          data: { role: 'OWNER' },
         })
 
         return owner
