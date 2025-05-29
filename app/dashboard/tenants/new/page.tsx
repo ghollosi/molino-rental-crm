@@ -15,7 +15,6 @@ import Link from 'next/link'
 interface TenantFormData {
   name: string
   email: string
-  password: string
   phone?: string
   address?: string
   emergencyContact?: string
@@ -28,7 +27,7 @@ export default function NewTenantPage() {
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<TenantFormData>()
 
-  const createTenant = api.tenant.create.useMutation({
+  const createTenant = api.tenant.quickCreate.useMutation({
     onSuccess: () => {
       router.push('/dashboard/tenants')
     },
@@ -40,7 +39,9 @@ export default function NewTenantPage() {
   const onSubmit = async (data: TenantFormData) => {
     setError(null)
     await createTenant.mutateAsync({
-      userId: 'temp-user-id', // This needs to be set properly
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
       emergencyName: data.emergencyContact,
       emergencyPhone: data.emergencyPhone,
     })
@@ -104,25 +105,6 @@ export default function NewTenantPage() {
                 )}
               </div>
 
-              <div>
-                <Label htmlFor="password">Jelszó *</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  {...register('password', { 
-                    required: 'A jelszó megadása kötelező',
-                    minLength: {
-                      value: 6,
-                      message: 'A jelszónak legalább 6 karakter hosszúnak kell lennie'
-                    }
-                  })}
-                  placeholder="Legalább 6 karakter"
-                  autoComplete="new-password"
-                />
-                {errors.password && (
-                  <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>
-                )}
-              </div>
 
               <div>
                 <Label htmlFor="phone">Telefon</Label>

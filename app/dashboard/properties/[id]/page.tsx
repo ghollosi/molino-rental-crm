@@ -1,6 +1,7 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
+import { use } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -20,10 +21,9 @@ import {
 } from 'lucide-react'
 import { api } from '@/lib/trpc'
 
-export default function PropertyDetailPage() {
-  const params = useParams()
+export default function PropertyDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
-  const propertyId = params.id as string
+  const { id: propertyId } = use(params)
 
   const { data: property, isLoading } = api.property.getById.useQuery(propertyId)
 

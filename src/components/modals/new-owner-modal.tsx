@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Loader2 } from 'lucide-react'
-import { trpc } from '@/src/lib/trpc'
+import { api } from '@/lib/trpc'
 
 const quickOwnerSchema = z.object({
   name: z.string().min(1, 'Név megadása kötelező'),
@@ -39,7 +39,7 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
     resolver: zodResolver(quickOwnerSchema),
   })
 
-  const createOwnerMutation = trpc.owner.quickCreate.useMutation({
+  const createOwnerMutation = api.owner.quickCreate.useMutation({
     onSuccess: (data) => {
       onOwnerCreated(data.id)
       reset()

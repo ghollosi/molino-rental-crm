@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -12,11 +12,10 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowLeft, Save } from 'lucide-react'
 import Link from 'next/link'
 
-export default function EditOwnerPage() {
-  const params = useParams()
-  const router = useRouter()
+export default function EditOwnerPage({ params }: { params: { id: string } }) {
+    const router = useRouter()
   // const { toast } = useToast()
-  const id = params.id as string
+  const id = params.id
 
   const { data: owner, isLoading } = api.owner.getById.useQuery(id)
   const updateMutation = api.owner.update.useMutation({

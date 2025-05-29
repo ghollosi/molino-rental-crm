@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -26,10 +26,9 @@ const propertyStatuses = [
   { value: 'MAINTENANCE', label: 'Karbantartás alatt' },
 ]
 
-export default function EditPropertyPage() {
-  const params = useParams()
-  const router = useRouter()
-  const id = params.id as string
+export default function EditPropertyPage({ params }: { params: { id: string } }) {
+    const router = useRouter()
+  const id = params.id
 
   const { data: property, isLoading } = api.property.getById.useQuery(id)
   const updateMutation = api.property.update.useMutation({

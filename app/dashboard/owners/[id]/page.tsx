@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { useRouter } from 'next/navigation'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -29,11 +29,12 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 
-export default function OwnerDetailPage({ params }: { params: { id: string } }) {
+export default function OwnerDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
   const [deleteError, setDeleteError] = useState<string | null>(null)
+  const { id } = use(params)
 
-  const { data: owner, isLoading } = api.owner.getById.useQuery(params.id)
+  const { data: owner, isLoading } = api.owner.getById.useQuery(id)
 
   // const deleteOwner = api.owner.delete.useMutation({
   //   onSuccess: () => {

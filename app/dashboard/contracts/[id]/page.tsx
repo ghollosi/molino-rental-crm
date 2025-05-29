@@ -1,7 +1,7 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useState, use } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -24,10 +24,9 @@ const statusLabels = {
   PENDING: 'Függőben'
 }
 
-export default function ContractDetailPage() {
-  const params = useParams()
-  const router = useRouter()
-  const contractId = params.id as string
+export default function ContractDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const router = useRouter()
+  const { id: contractId } = use(params)
   const [activeTab, setActiveTab] = useState('overview')
   const [terminateError, setTerminateError] = useState('')
   const [terminateSuccess, setTerminateSuccess] = useState('')

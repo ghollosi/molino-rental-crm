@@ -1,7 +1,7 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useState, use } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -33,10 +33,9 @@ const serviceLabels: Record<string, string> = {
   GENERAL: 'Általános'
 }
 
-export default function ProviderDetailPage() {
-  const params = useParams()
-  const router = useRouter()
-  const providerId = params.id as string
+export default function ProviderDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const router = useRouter()
+  const { id: providerId } = use(params)
   const [activeTab, setActiveTab] = useState('overview')
   const [updateError] = useState('')
   const [updateSuccess] = useState('')

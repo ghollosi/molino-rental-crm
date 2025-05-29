@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Button } from '@/components/ui/button'
@@ -40,10 +40,9 @@ const priorityLabels = {
   URGENT: 'Sürgős'
 }
 
-export default function IssueDetailPage() {
-  const params = useParams()
-  const router = useRouter()
-  const issueId = params.id as string
+export default function IssueDetailPage({ params }: { params: { id: string } }) {
+    const router = useRouter()
+  const issueId = params.id
   const [updateError, setUpdateError] = useState('')
   const [updateSuccess, setUpdateSuccess] = useState('')
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -34,10 +34,9 @@ import {
 import Link from 'next/link'
 import { usePDFExport } from '@/src/hooks/use-pdf-export'
 
-export default function OfferDetailPage() {
-  const params = useParams()
-  const router = useRouter()
-  const offerId = params.id as string
+export default function OfferDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const router = useRouter()
+  const { id: offerId } = use(params)
   const [deleteError, setDeleteError] = useState<string | null>(null)
   const [statusError, setStatusError] = useState<string | null>(null)
 

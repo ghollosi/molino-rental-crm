@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -10,10 +10,14 @@ import { Label } from '@/components/ui/label'
 import { ArrowLeft, Save } from 'lucide-react'
 import Link from 'next/link'
 
-export default function EditContractPage() {
-  const params = useParams()
+export default async function EditContractPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  
+  return <EditContractContent id={id} />
+}
+
+function EditContractContent({ id }: { id: string }) {
   const router = useRouter()
-  const id = params.id as string
 
   const { data: contract, isLoading } = api.contract.getById.useQuery(id)
   const updateMutation = api.contract.update.useMutation({
