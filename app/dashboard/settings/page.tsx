@@ -9,10 +9,11 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow } from 'lucide-react'
+import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow, Users } from 'lucide-react'
 import { useToast } from '@/src/hooks/use-toast'
 import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
+import { UserManagementSection } from '@/src/components/user-management'
 
 export default function SettingsPage() {
   const { data: session, update } = useSession()
@@ -137,7 +138,7 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="h-auto flex-wrap grid grid-cols-3 sm:grid-cols-6 gap-1 p-1">
+        <TabsList className="h-auto flex-wrap grid grid-cols-3 sm:grid-cols-7 gap-1 p-1">
           <TabsTrigger value="profile" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <User className="h-4 w-4 sm:mr-2" />
             <span className="hidden sm:inline">Profil</span>
@@ -157,6 +158,10 @@ export default function SettingsPage() {
           <TabsTrigger value="workflow" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <Workflow className="h-4 w-4 sm:mr-2" />
             <span className="hidden sm:inline">Workflow</span>
+          </TabsTrigger>
+          <TabsTrigger value="users" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Users className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Felhasználók</span>
           </TabsTrigger>
           <TabsTrigger value="security" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <Shield className="h-4 w-4 sm:mr-2" />
@@ -514,6 +519,34 @@ export default function SettingsPage() {
                   <p>• <strong>Email értesítések:</strong> Automatikus értesítések tulajdonosoknak és szolgáltatóknak</p>
                   <p>• <strong>Statisztikák:</strong> Teljesítmény mérés és jelentések</p>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="users">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Users className="h-5 w-5" />
+                <span>Felhasználókezelés</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {session?.user?.role === 'ADMIN' ? (
+                  <UserManagementSection />
+                ) : (
+                  <div className="text-center py-8">
+                    <Shield className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">
+                      Hozzáférés megtagadva
+                    </h3>
+                    <p className="text-gray-600">
+                      Csak fő adminisztrátorok férhetnek hozzá a felhasználókezeléshez.
+                    </p>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>

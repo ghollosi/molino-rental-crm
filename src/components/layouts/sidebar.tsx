@@ -39,6 +39,16 @@ const navigation = [
 export function Sidebar() {
   const pathname = usePathname()
   const { isCollapsed, toggleCollapse, isMobileOpen, setIsMobileOpen } = useSidebar()
+  const { data: session } = useSession()
+
+  // Filter navigation based on user role
+  const filteredNavigation = navigation.filter((item) => {
+    // OFFICE_ADMIN cannot access Settings
+    if (item.href === '/dashboard/settings' && session?.user?.role === 'OFFICE_ADMIN') {
+      return false
+    }
+    return true
+  })
 
   return (
     <>
@@ -65,7 +75,7 @@ export function Sidebar() {
                 </h1>
               </div>
               <nav className="mt-5 flex-1 px-2 space-y-1">
-                {navigation.map((item) => {
+                {filteredNavigation.map((item) => {
                   const isActive = item.href === '/dashboard' 
                     ? pathname === '/dashboard'
                     : pathname?.startsWith(item.href)
@@ -129,7 +139,7 @@ export function Sidebar() {
           </div>
         <div className="flex-grow flex flex-col">
           <nav className="flex-1 px-2 space-y-1">
-            {navigation.map((item) => {
+            {filteredNavigation.map((item) => {
               const isActive = item.href === '/dashboard' 
                 ? pathname === '/dashboard'
                 : pathname?.startsWith(item.href)
