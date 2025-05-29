@@ -150,6 +150,31 @@ Ha "Internal server error" hibát kapsz:
 - **Environment setup**: .env konfigurációs változók
 - **Utility funkciók**: Content type detection, file key generation
 
+### Cloudflare R2 beállítás ⚙️
+1. **Cloudflare Dashboard**:
+   - Jelentkezz be a Cloudflare Dashboard-ba
+   - Menj a R2 Object Storage menüpontra
+   - Hozz létre egy új bucket-et (pl. "molino-rental-files")
+   
+2. **API Token létrehozás**:
+   - R2 → Manage R2 API tokens
+   - Create API token
+   - Permissions: Object Read & Write
+   - Másold ki az Access Key ID és Secret Access Key értékeket
+   
+3. **Environment változók** (.env fájlban):
+   ```
+   R2_ENDPOINT="https://[account-id].r2.cloudflarestorage.com"
+   R2_ACCESS_KEY_ID="[your-access-key-id]"
+   R2_SECRET_ACCESS_KEY="[your-secret-access-key]"
+   R2_BUCKET="molino-rental-files"
+   R2_PUBLIC_URL="https://[your-domain.com]"  # Opcionális
+   ```
+   
+4. **Account ID megtalálása**:
+   - Cloudflare Dashboard → R2 → jobb oldali sidebar
+   - Account ID másolása és behelyettesítése az endpoint-ba
+
 ### Új szolgáltatások
 - `/src/lib/email.ts` - Email küldés Resend-del
 - `/src/lib/excel.ts` - Excel export ExcelJS-sel
@@ -211,7 +236,18 @@ Ha "Internal server error" hibát kapsz:
 
 ## 💾 VISSZAÁLLÍTÁSI PONTOK
 
-### v1.10.0 - Complete Mobile Responsiveness (2025-05-29 Hajnal) 📱 **LEGFRISSEBB**
+### v1.11.0 - Cloud Storage Implementation (2025-05-29 Reggel) ☁️ **LEGFRISSEBB**
+```bash
+git checkout v1.11.0
+```
+- **Cloudflare R2 integráció**: Teljes S3-kompatibilis fájltároló
+- **Cloud Storage API**: REST és tRPC végpontok
+- **Settings UI**: Kapcsolat teszt és fájl kezelő felület
+- **Automated Testing**: 21 unit teszt továbbra is működik
+- **Environment setup**: R2 konfigurációs változók
+- **Documentation**: Beállítási útmutató és tesztelési lehetőségek
+
+### v1.10.0 - Complete Mobile Responsiveness (2025-05-29 Hajnal) 📱
 ```bash
 git checkout v1.10.0
 ```

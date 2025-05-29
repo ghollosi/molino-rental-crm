@@ -176,6 +176,37 @@ export default function CloudStoragePage() {
         </p>
       </div>
 
+      {/* Beállítási útmutató */}
+      <Card className="border-blue-200 bg-blue-50">
+        <CardHeader>
+          <CardTitle className="text-blue-800">⚙️ Cloudflare R2 Beállítási Útmutató</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 text-blue-700">
+          <div>
+            <h4 className="font-semibold">1. Cloudflare Dashboard</h4>
+            <p className="text-sm">Jelentkezz be → R2 Object Storage → Hozz létre bucket-et</p>
+          </div>
+          <div>
+            <h4 className="font-semibold">2. API Token</h4>
+            <p className="text-sm">R2 → Manage R2 API tokens → Create token (Object Read & Write)</p>
+          </div>
+          <div>
+            <h4 className="font-semibold">3. Environment változók (.env)</h4>
+            <pre className="text-xs bg-blue-100 p-2 rounded overflow-x-auto">
+{`R2_ENDPOINT="https://[account-id].r2.cloudflarestorage.com"
+R2_ACCESS_KEY_ID="[your-access-key-id]"
+R2_SECRET_ACCESS_KEY="[your-secret-access-key]"
+R2_BUCKET="molino-rental-files"
+R2_PUBLIC_URL="https://[your-domain.com]"`}
+            </pre>
+          </div>
+          <div>
+            <h4 className="font-semibold">4. Server újraindítás</h4>
+            <p className="text-sm">A változók frissítése után indítsd újra a development server-t!</p>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Üzenet megjelenítése */}
       {message && (
         <Card className={`border-l-4 ${
