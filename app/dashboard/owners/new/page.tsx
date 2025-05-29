@@ -42,7 +42,7 @@ export default function NewOwnerPage() {
     try {
       console.log('Sending owner creation request to DIRECT API...', new Date().toISOString())
       
-      const response = await fetch('/api/create-owner-direct', {
+      const response = await fetch('/api/standalone-create-owner', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
