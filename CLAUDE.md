@@ -31,6 +31,27 @@ npm run typecheck
 npm run build
 ```
 
+### Automated Testing ✅ **ÚJ!**
+```bash
+# Minden teszt futtatása
+npm run test
+
+# Csak unit tesztek
+npm run test:unit
+
+# Csak integration tesztek
+npm run test:integration
+
+# UI módban (böngészőben)
+npm run test:ui
+
+# Watch módban (automatikus újrafuttatás)
+npm run test:watch
+
+# Coverage jelentéssel
+npm run test:coverage
+```
+
 ### Adatbázis műveletek
 ```bash
 # Migrációk futtatása
@@ -121,6 +142,14 @@ Ha "Internal server error" hibát kapsz:
 - **TRPC analytics API**: Új végpontok dashboard statisztikákhoz
 - **Responsive layout**: 2x2 grid elrendezés optimális megjelenítéshez
 
+### Cloud Storage ☁️ **ÚJ!** (2025-05-29 Reggel)
+- **Cloudflare R2 integráció**: S3-kompatibilis fájltároló szolgáltatás
+- **Teljes CRUD**: Upload, download, delete, list műveletek
+- **tRPC API**: Type-safe cloud storage endpoints
+- **Settings teszt oldal**: Teljes fájl kezelési felület
+- **Environment setup**: .env konfigurációs változók
+- **Utility funkciók**: Content type detection, file key generation
+
 ### Új szolgáltatások
 - `/src/lib/email.ts` - Email küldés Resend-del
 - `/src/lib/excel.ts` - Excel export ExcelJS-sel
@@ -140,6 +169,10 @@ Ha "Internal server error" hibát kapsz:
 - `/src/lib/scheduled-tasks.ts` - **ÚJ!** Automatikus feladat végrehajtás
 - `/app/api/cron/notifications/route.ts` - **ÚJ!** Notification cron job API
 - `/src/components/ui/skeleton.tsx` - **ÚJ!** Loading skeleton komponens
+- `/src/lib/cloud-storage.ts` - **ÚJ!** Cloudflare R2 cloud storage service
+- `/app/api/cloud-storage/route.ts` - **ÚJ!** Cloud storage API endpoint
+- `/app/dashboard/settings/cloud-storage/page.tsx` - **ÚJ!** Cloud storage teszt oldal
+- `/src/server/routers/cloud-storage.ts` - **ÚJ!** Cloud storage tRPC router
 
 ## Tesztelési végpontok
 
@@ -151,10 +184,12 @@ Ha "Internal server error" hibát kapsz:
 - **Profil teszt**: Settings → Profil → Név módosítás és mentés
 - **Dashboard widgets teszt**: `/dashboard/test-widgets` - Widget teszt oldal (frissített layout)
 - **Mobil teszt**: Chrome DevTools → Device Mode vagy `MobileTest.runFullTest()` - **ÚJ!**
+- **Cloud Storage teszt**: Settings → Cloud Storage → Kapcsolat tesztelés, fájl fel/letöltés **ÚJ!**
 - **Health check**: `/api/health-check`
 - **Workflow cron**: `/api/cron/workflow` (GET/POST)
 - **Notification cron**: `/api/cron/notifications` (GET/POST)
 - **Reports API**: `/api/reports/generate` (POST)
+- **Cloud Storage API**: `/api/cloud-storage` (GET/POST/DELETE) **ÚJ!**
 - **Debug script**: `npx tsx src/scripts/check-user-data.ts`
 - **Analytics debug**: `npx tsx scripts/check-all-dashboard-data.ts`
 - **Issues debug**: `npx tsx scripts/check-issues-data.ts`
@@ -162,6 +197,11 @@ Ha "Internal server error" hibát kapsz:
 - **Scheduled tasks test**: `npx tsx scripts/test-scheduled-tasks.ts`
 - **Payment data check**: `npx tsx scripts/test-outstanding-payments.ts`
 - **Cron logic test**: `npx tsx scripts/test-cron-logic.ts`
+- **Unit tests**: `npm run test:unit` - 21 teszt ✅
+- **Integration tests**: `npm run test:integration` - API endpoint testing
+- **All tests**: `npm run test` - Teljes test suite
+- **Test UI**: `npm run test:ui` - Browser-based test runner
+- **Test coverage**: `npm run test:coverage` - Code coverage report
 
 ## FIGYELEM!
 
@@ -253,6 +293,59 @@ git checkout main
 # Ha minden megy rosszul, térj vissza a legutóbbi stabil verzióra
 git reset --hard v1.8.0
 ```
+
+## 🧪 Automated Testing Implementáció ✅ **ÚJ!** (2025-05-29 Reggel)
+
+### Testing Framework Setup TELJES ✅
+- **Vitest Configuration**: Modern testing framework Next.js projekthez
+- **Testing Library**: React komponens teszteléshez (@testing-library/react)
+- **JSDOM Environment**: Browser API-k szimulációja
+- **TypeScript Support**: Teljes TS integráció a tesztekben
+
+### Test Struktúra ✅
+```
+tests/
+├── setup.ts              # Global test konfigruáció és mock-ok
+├── unit/                  # Unit tesztek
+│   ├── lib/              # Utility függvények tesztelése
+│   │   ├── utils.test.ts # cn() utility testing
+│   │   └── password.test.ts # Password functions testing
+│   └── components/        # Komponens tesztek
+│       └── ui/
+│           └── button.test.tsx # Button komponens testing
+├── integration/           # Integration tesztek
+│   └── api/
+│       └── user.test.ts  # User API endpoints testing
+└── e2e/                  # End-to-end tesztek (üres, később)
+```
+
+### Működő Unit Tesztek ✅
+- **Utils Testing**: `cn()` className merge függvény - 5 teszt ✅
+- **Password Testing**: Jelszó generálás, hash-elés, verify - 8 teszt ✅
+- **Button Component**: React komponens interakciók - 8 teszt ✅
+- **Összesen**: 21 teszt fut sikeresen ✅
+
+### Mock Rendszer ✅
+- **NextAuth Mock**: Automatikus session mock-olás
+- **Next.js Router Mock**: Navigation függvények
+- **tRPC Mock**: API endpoint mock-ok
+- **Browser API Mock**: ResizeObserver, IntersectionObserver
+- **Environment Variables**: Test környezet beállítások
+
+### Test Commands ✅
+```bash
+npm run test:unit          # Unit tesztek (21 teszt)
+npm run test:integration   # Integration tesztek
+npm run test:ui           # Browser UI test runner
+npm run test:watch        # Folyamatos futtatás
+npm run test:coverage     # Coverage jelentés
+```
+
+### Következő Testing Lépések:
+- **Component Testing**: További UI komponensek (Card, Table, Dialog)
+- **API Integration Testing**: tRPC endpoint tesztelés (részben kész)
+- **E2E Testing**: Playwright setup teljes user workflow-khoz
+- **Coverage Targets**: 80%+ code coverage elérése
 
 ## Legutóbbi fejlesztések (2025-05-28 Este/Éjjel)
 

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow, Users } from 'lucide-react'
+import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow, Users, Cloud } from 'lucide-react'
 import { useToast } from '@/src/hooks/use-toast'
 import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
@@ -93,9 +93,11 @@ export default function SettingsPage() {
 
       const updateData = {
         id: session.user.id,
-        name: `${profileData.firstName} ${profileData.lastName}`.trim(),
-        email: profileData.email,
-        phone: profileData.phone || undefined
+        data: {
+          name: `${profileData.firstName} ${profileData.lastName}`.trim(),
+          email: profileData.email,
+          phone: profileData.phone || undefined
+        }
       }
       
       console.log('Update data to send:', updateData)
@@ -138,7 +140,7 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="h-auto flex-wrap grid grid-cols-3 sm:grid-cols-7 gap-1 p-1">
+        <TabsList className="h-auto flex-wrap grid grid-cols-3 sm:grid-cols-8 gap-1 p-1">
           <TabsTrigger value="profile" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <User className="h-4 w-4 sm:mr-2" />
             <span className="hidden sm:inline">Profil</span>
@@ -162,6 +164,10 @@ export default function SettingsPage() {
           <TabsTrigger value="users" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <Users className="h-4 w-4 sm:mr-2" />
             <span className="hidden sm:inline">Felhasználók</span>
+          </TabsTrigger>
+          <TabsTrigger value="cloud-storage" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <Cloud className="h-4 w-4 sm:mr-2" />
+            <span className="hidden sm:inline">Cloud</span>
           </TabsTrigger>
           <TabsTrigger value="security" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
             <Shield className="h-4 w-4 sm:mr-2" />
@@ -547,6 +553,41 @@ export default function SettingsPage() {
                     </p>
                   </div>
                 )}
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="cloud-storage">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Cloud className="h-5 w-5" />
+                <span>Cloud Storage</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  Tesztelje és kezelje a Cloudflare R2 cloud storage kapcsolatot.
+                </p>
+                
+                <Link href="/dashboard/settings/cloud-storage">
+                  <Button className="w-full sm:w-auto">
+                    <Cloud className="h-4 w-4 mr-2" />
+                    Cloud Storage teszt oldal megnyitása
+                  </Button>
+                </Link>
+                
+                <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                  <h4 className="font-semibold text-blue-800 mb-2">Beállítási útmutató:</h4>
+                  <ul className="text-sm text-blue-700 space-y-1">
+                    <li>• Állítsa be a R2_ENDPOINT változót a .env fájlban</li>
+                    <li>• Adja meg a R2_ACCESS_KEY_ID és R2_SECRET_ACCESS_KEY értékeket</li>
+                    <li>• Hozzon létre egy R2_BUCKET-et a Cloudflare dashboard-on</li>
+                    <li>• Opcionálisan állítsa be a R2_PUBLIC_URL-t custom domain-hez</li>
+                  </ul>
+                </div>
               </div>
             </CardContent>
           </Card>
