@@ -10,11 +10,11 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Loader2 } from 'lucide-react'
-import { api } from '@/lib/trpc'
 
 const quickOwnerSchema = z.object({
   name: z.string().min(1, 'Név megadása kötelező'),
   email: z.string().email('Érvényes email cím szükséges'),
+  password: z.string().min(6, 'Jelszó legalább 6 karakter'),
   phone: z.string().optional(),
   taxNumber: z.string().optional(),
 })
@@ -29,6 +29,7 @@ interface NewOwnerModalProps {
 
 export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerModalProps) {
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const {
     register,
@@ -39,20 +40,33 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
     resolver: zodResolver(quickOwnerSchema),
   })
 
-  const createOwnerMutation = api.owner.quickCreate.useMutation({
-    onSuccess: (data) => {
-      onOwnerCreated(data.id)
-      reset()
-      onOpenChange(false)
-    },
-    onError: (error) => {
-      setError(error.message || 'Hiba történt a tulajdonos létrehozása során')
-    },
-  })
-
-  const onSubmit = (data: QuickOwnerFormData) => {
+  const onSubmit = async (data: QuickOwnerFormData) => {
     setError('')
-    createOwnerMutation.mutate(data)
+    setLoading(true)
+    
+    try {
+      const response = await fetch('/api/standalone-create-owner', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      
+      const result = await response.json()
+      
+      if (response.ok && result.success) {
+        onOwnerCreated(result.owner.id)
+        reset()
+        onOpenChange(false)
+      } else {
+        setError(result.error || 'Hiba történt a tulajdonos létrehozása során')
+      }
+    } catch (error) {
+      setError('Hálózati hiba történt')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -98,6 +112,19 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
           </div>
           
           <div className="space-y-2">
+            <Label htmlFor="password">Jelszó*</Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Legalább 6 karakter"
+              {...register('password')}
+            />
+            {errors.password && (
+              <p className="text-sm text-red-500">{errors.password.message}</p>
+            )}
+          </div>
+          
+          <div className="space-y-2">
             <Label htmlFor="phone">Telefonszám</Label>
             <Input
               id="phone"
@@ -123,8 +150,8 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
             >
               Mégse
             </Button>
-            <Button type="submit" disabled={createOwnerMutation.isPending}>
-              {createOwnerMutation.isPending && (
+            <Button type="submit" disabled={loading}>
+              {loading && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
               Létrehozás
