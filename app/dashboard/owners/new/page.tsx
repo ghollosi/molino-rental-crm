@@ -40,7 +40,7 @@ export default function NewOwnerPage() {
     setSuccess(false)
     
     try {
-      console.log('Sending owner creation request...')
+      console.log('Sending owner creation request to DIRECT API...', new Date().toISOString())
       
       const response = await fetch('/api/create-owner-direct', {
         method: 'POST',
