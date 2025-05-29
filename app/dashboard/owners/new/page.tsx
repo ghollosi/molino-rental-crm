@@ -2,81 +2,91 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, AlertCircle } from 'lucide-react'
+import { ArrowLeft, AlertCircle, CheckCircle, Loader2 } from 'lucide-react'
 import Link from 'next/link'
-
-interface OwnerFormData {
-  name: string
-  email: string
-  password: string
-  phone?: string
-  address?: string
-  isCompany: boolean
-  companyName?: string
-  taxNumber?: string
-}
 
 export default function NewOwnerPage() {
   const router = useRouter()
-  const [error, setError] = useState<string | null>(null)
-  const [isCompany, setIsCompany] = useState(false)
-
-  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<OwnerFormData>({
-    defaultValues: {
-      isCompany: false,
-    }
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
   })
-  
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const onSubmit = async (data: OwnerFormData) => {
-    setError(null)
-    setIsSubmitting(true)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!formData.name || !formData.email || !formData.password) {
+      setError('Név, email és jelszó megadása kötelező')
+      return
+    }
+    
+    if (formData.password.length < 6) {
+      setError('A jelszónak legalább 6 karakter hosszúnak kell lennie')
+      return
+    }
+    
+    setLoading(true)
+    setError('')
+    setSuccess(false)
     
     try {
+      console.log('Sending owner creation request...')
+      
       const response = await fetch('/api/trpc/owner.quickCreate', {
         method: 'POST',
-        headers: {
+        headers: { 
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           "0": {
             "json": {
-              name: data.name,
-              email: data.email,
-              password: data.password,
-              phone: data.phone,
-              taxNumber: data.isCompany ? data.taxNumber : undefined,
+              name: formData.name.trim(),
+              email: formData.email.trim().toLowerCase(),
+              password: formData.password,
+              phone: formData.phone.trim() || undefined,
             }
           }
         })
       })
 
-      const result = await response.json()
+      console.log('Response status:', response.status)
+      const data = await response.json()
+      console.log('Response data:', data)
       
-      if (response.ok && result[0]?.result?.data) {
-        router.push('/dashboard/owners')
+      if (response.ok && data[0]?.result?.data) {
+        setSuccess(true)
+        setError('')
+        setTimeout(() => {
+          router.push('/dashboard/owners')
+        }, 2000)
       } else {
-        const errorMsg = result[0]?.error?.message || result.error || 'Ismeretlen hiba'
+        const errorMsg = data[0]?.error?.message || data.error || 'Hiba történt a tulajdonos létrehozásánál'
         setError(errorMsg)
-        console.error('API error:', result)
+        console.error('API error:', data)
       }
     } catch (error) {
       console.error('Network error:', error)
-      setError('Hálózati hiba történt')
+      setError('Hálózati hiba történt. Kérlek próbáld újra.')
     } finally {
-      setIsSubmitting(false)
+      setLoading(false)
     }
   }
 
-  const watchIsCompany = watch('isCompany')
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }))
+    if (error) setError('') // Clear error when user starts typing
+  }
 
   return (
     <div className="container mx-auto py-6 px-4">
@@ -84,16 +94,25 @@ export default function NewOwnerPage() {
         <Button variant="ghost" asChild>
           <Link href="/dashboard/owners">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Vissza
+            Vissza a tulajdonosokhoz
           </Link>
         </Button>
       </div>
 
       <Card className="max-w-2xl mx-auto">
         <CardHeader>
-          <CardTitle>Új tulajdonos regisztrálása</CardTitle>
+          <CardTitle>🏠 Új tulajdonos regisztrálása</CardTitle>
         </CardHeader>
         <CardContent>
+          {success && (
+            <Alert className="mb-6 border-green-200 bg-green-50">
+              <CheckCircle className="h-4 w-4 text-green-600" />
+              <AlertDescription className="text-green-800">
+                ✅ Tulajdonos sikeresen létrehozva! Átirányítás a listához...
+              </AlertDescription>
+            </Alert>
+          )}
+
           {error && (
             <Alert variant="destructive" className="mb-6">
               <AlertCircle className="h-4 w-4" />
@@ -101,85 +120,33 @@ export default function NewOwnerPage() {
             </Alert>
           )}
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">
-              <div>
-                <Label htmlFor="isCompany">Tulajdonos típusa</Label>
-                <Select
-                  value={watchIsCompany ? 'true' : 'false'}
-                  onValueChange={(value) => {
-                    const isComp = value === 'true'
-                    setIsCompany(isComp)
-                    setValue('isCompany', isComp)
-                  }}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="false">Magánszemély</SelectItem>
-                    <SelectItem value="true">Cég</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
               <div>
                 <Label htmlFor="name">Név *</Label>
                 <Input
                   id="name"
-                  {...register('name', { required: 'A név megadása kötelező' })}
-                  placeholder={isCompany ? 'Kapcsolattartó neve' : 'Teljes név'}
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  placeholder="Teljes név"
+                  required
+                  disabled={loading}
+                  autoComplete="name"
                 />
-                {errors.name && (
-                  <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
-                )}
               </div>
 
-              {isCompany && (
-                <>
-                  <div>
-                    <Label htmlFor="companyName">Cégnév *</Label>
-                    <Input
-                      id="companyName"
-                      {...register('companyName', { 
-                        required: isCompany ? 'A cégnév megadása kötelező' : false 
-                      })}
-                      placeholder="Cég hivatalos neve"
-                      autoComplete="organization"
-                    />
-                    {errors.companyName && (
-                      <p className="text-sm text-red-500 mt-1">{errors.companyName.message}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label htmlFor="taxNumber">Adószám</Label>
-                    <Input
-                      id="taxNumber"
-                      {...register('taxNumber')}
-                      placeholder="12345678-1-23"
-                    />
-                  </div>
-                </>
-              )}
-
               <div>
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email">Email cím *</Label>
                 <Input
                   id="email"
                   type="email"
-                  {...register('email', { 
-                    required: 'Az email megadása kötelező',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Érvénytelen email cím'
-                    }
-                  })}
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
                   placeholder="tulajdonos@example.com"
+                  required
+                  disabled={loading}
+                  autoComplete="email"
                 />
-                {errors.email && (
-                  <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
-                )}
               </div>
 
               <div>
@@ -187,55 +154,56 @@ export default function NewOwnerPage() {
                 <Input
                   id="password"
                   type="password"
-                  {...register('password', { 
-                    required: 'A jelszó megadása kötelező',
-                    minLength: {
-                      value: 6,
-                      message: 'A jelszónak legalább 6 karakter hosszúnak kell lennie'
-                    }
-                  })}
+                  value={formData.password}
+                  onChange={(e) => handleInputChange('password', e.target.value)}
                   placeholder="Legalább 6 karakter"
+                  required
+                  disabled={loading}
+                  minLength={6}
+                  autoComplete="new-password"
                 />
-                {errors.password && (
-                  <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>
-                )}
               </div>
 
               <div>
                 <Label htmlFor="phone">Telefon</Label>
                 <Input
                   id="phone"
-                  {...register('phone')}
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange('phone', e.target.value)}
                   placeholder="+36 20 123 4567"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="address">Cím</Label>
-                <Input
-                  id="address"
-                  {...register('address')}
-                  placeholder="1234 Budapest, Példa utca 12."
+                  disabled={loading}
+                  autoComplete="tel"
                 />
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 pt-4">
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={loading || !formData.name || !formData.email || !formData.password}
+                className="flex-1"
               >
-                {isSubmitting ? 'Mentés...' : 'Tulajdonos létrehozása'}
+                {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {loading ? 'Létrehozás...' : 'Tulajdonos létrehozása'}
               </Button>
+              
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => router.push('/dashboard/owners')}
+                disabled={loading}
               >
                 Mégse
               </Button>
             </div>
           </form>
+
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+            <p className="text-sm text-blue-800">
+              💡 <strong>Tudnivalók:</strong> Az új tulajdonos automatikusan OWNER szerepkört kap 
+              és bejelentkezhet a megadott email és jelszó kombinációval.
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>
