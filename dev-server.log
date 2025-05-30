@@ -38705,3 +38705,9 @@ TypeError: Cannot read properties of undefined (reading 'call')
  ✓ Compiled in 271ms (1710 modules)
  ✓ Compiled in 224ms (1710 modules)
  GET / 200 in 105ms
+ GET / 200 in 22ms
+ GET / 200 in 29ms
+ GET / 200 in 26ms
+ GET / 200 in 48ms
+ GET / 200 in 29ms
+ GET / 200 in 40ms
