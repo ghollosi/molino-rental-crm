@@ -1,5 +1,22 @@
 # CLAUDE.md - Fejlesztési útmutató
 
+## 🚨 KRITIKUS: Deployment és Production Stabilitás
+
+### **⚡ GYORS DEPLOYMENT**
+```bash
+# Automatikus deployment Vercelre
+./scripts/deploy-to-vercel.sh
+```
+
+### **📋 DEPLOYMENT ELŐTTI CHECKLIST**
+- [ ] TypeScript hibák: `npm run type-check` (MUST BE 0 errors!)
+- [ ] Build teszt: `npm run build`
+- [ ] Minden változtatás commitolva
+- [ ] Unit tesztek: `npm run test:unit`
+
+### **📖 TELJES DEPLOYMENT ÚTMUTATÓ**
+👉 **[DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)** - Részletes deployment dokumentáció
+
 ## FONTOS: Mindig teszteld változtatás előtt!
 
 **KÖTELEZŐ minden változtatás előtt futtatni:**
@@ -445,3 +462,16 @@ npm run test:coverage     # Coverage jelentés
 - `/scripts/mobile-test-guide.md` - Comprehensive mobile testing guide
 - `/scripts/mobile-test-automated.js` - Browser console testing utilities
 - `/scripts/mobile-test-report.md` - Full mobile optimization test results
+
+## 💾 VISSZAÁLLÍTÁSI PONTOK - FRISSÍTVE!
+
+### v1.14.0 - Stable Production with Full CRUD (2025-05-30) ✅ **LEGÚJABB**
+```bash
+git checkout v1.14.0
+```
+- **Teljes CRUD működik**: Tulajdonos, Ingatlan (képekkel)
+- **NewOwnerModal JAVÍTVA**: Standalone API használatával
+- **Dashboard statisztikák**: Valós adatok megjelenítése
+- **Deployment útmutató**: DEPLOYMENT_GUIDE.md hozzáadva
+- **Automatikus deployment script**: deploy-to-vercel.sh
+- **100% production ready**: Minden alapfunkció működik
