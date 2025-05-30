@@ -235,4 +235,4 @@ Jövőbeli funkciók kapcsolgatására használható környezeti változók:
 
 ---
 
-**Megjegyzés**: Ez egy átfogó útmutató a jelenlegi fejlesztési állapot alapján. A projekt fejlődésével ez a dokumentum is frissül.
+**Megjegyzés**: Ez egy átfogó útmutató a jelenlegi fejlesztési állapot alapján. A projekt fejlődésével ez a dokumentum is frissül.# Force deployment Fri May 30 14:27:45 CEST 2025
