@@ -10,7 +10,11 @@ interface EnhancedDashboardStatsProps {
 }
 
 export function EnhancedDashboardStats({ userRole }: EnhancedDashboardStatsProps) {
-  const { data: stats } = trpc.analytics.dashboardStats.useQuery()
+  const { data: stats } = trpc.analytics.dashboardStats.useQuery(undefined, {
+    refetchInterval: 30000, // Refetch every 30 seconds
+    refetchOnWindowFocus: true, // Refetch when window regains focus
+    refetchOnMount: true, // Always refetch when component mounts
+  })
 
   const statCards = [
     {
