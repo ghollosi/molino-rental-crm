@@ -88,8 +88,16 @@ export const propertyRouter = createTRPCRouter({
         ctx.db.property.count({ where }),
       ])
 
+      // Add default values for new fields if they don't exist
+      const safeProperties = properties.map(prop => ({
+        ...prop,
+        shortTermRental: prop.shortTermRental ?? false,
+        longTermRental: prop.longTermRental ?? true,
+        licenseRequired: prop.licenseRequired ?? false,
+      }))
+
       return {
-        properties,
+        properties: safeProperties,
         pagination: {
           page,
           limit,

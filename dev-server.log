@@ -37139,3 +37139,189 @@ TypeError: Cannot read properties of undefined (reading 'call')
   path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
 }
  GET / 500 in 106ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 52ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 81ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 73ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 61ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 91ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 73ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 72ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 133ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 86ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 195ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 66ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 192ms
+ ✓ Compiled in 410ms (731 modules)
+ ✓ Compiled in 416ms (731 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 71ms
+ ✓ Compiled in 249ms (731 modules)
+ ✓ Compiled in 229ms (731 modules)
