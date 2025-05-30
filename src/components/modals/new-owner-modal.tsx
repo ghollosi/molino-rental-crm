@@ -46,6 +46,8 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
     
     try {
       console.log('NewOwnerModal: Using standalone API', new Date().toISOString())
+      console.log('Sending data:', data)
+      
       const response = await fetch('/api/standalone-create-owner', {
         method: 'POST',
         headers: {
@@ -54,7 +56,10 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
         body: JSON.stringify(data)
       })
       
+      console.log('Response status:', response.status)
+      
       const result = await response.json()
+      console.log('Response data:', result)
       
       if (response.ok && result.success) {
         onOwnerCreated(result.owner.id)
@@ -64,7 +69,8 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
         setError(result.error || 'Hiba történt a tulajdonos létrehozása során')
       }
     } catch (error) {
-      setError('Hálózati hiba történt')
+      console.error('Network error:', error)
+      setError('Hálózati hiba történt. Ellenőrizd a konzolt több információért.')
     } finally {
       setLoading(false)
     }

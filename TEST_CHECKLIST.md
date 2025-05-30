@@ -4,6 +4,7 @@
 - [x] **Tulajdonosok (Owners)**
   - [x] Létrehozás - `/dashboard/owners/create` (standalone API)
   - [x] Listázás - `/dashboard/owners`
+  - [x] Gyors létrehozás modal - Property form-ban (standalone API - JAVÍTVA!)
   - [ ] Szerkesztés - Kattints egy tulajdonosra
   - [ ] Törlés - Törlés gomb
 
@@ -71,9 +72,10 @@
 
 ## ⚠️ Ismert problémák:
 - Service Worker cache ki van kapcsolva
-- Tulajdonos létrehozás standalone API-t használ
+- Tulajdonos létrehozás standalone API-t használ (NewOwnerModal is!)
+- Test page: `/dashboard/test-owner-modal` - Modal működésének ellenőrzésére
 
 ## 📊 Eredmények:
-- Tesztelve: 2025-05-29 22:45
-- Tesztelő: [Név]
-- Állapot: [Folyamatban/Kész]
+- Tesztelve: 2025-05-30 00:58
+- Utolsó frissítés: NewOwnerModal javítás debug logokkal
+- Állapot: Folyamatban
