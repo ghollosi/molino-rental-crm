@@ -50,10 +50,6 @@ model Owner {
   billingCity       String?
   billingPostalCode String?
   billingCountry    String?
-  // Új mezők
-  companyName       String?    // Cég neve
-  isCompany         Boolean    @default(false)
-  documents         String[]   // Okmány képek URL-jei
   createdAt         DateTime   @default(now())
   updatedAt         DateTime   @updatedAt
   user              User       @relation(fields: [userId], references: [id])
@@ -61,7 +57,7 @@ model Owner {
 }
 
 model Property {
-  id              String            @id @default(cuid())
+  id              String         @id @default(cuid())
   street          String
   city            String
   postalCode      String?
@@ -75,71 +71,29 @@ model Property {
   rooms           Int?
   floor           Int?
   rentAmount      Decimal?
-  currency        String            @default("EUR")
+  currency        String         @default("EUR")
   photos          String[]
-  status          PropertyStatus    @default(AVAILABLE)
-  // Új mezők
-  shortTermRental Boolean           @default(false)
-  longTermRental  Boolean           @default(true)
-  licenseRequired Boolean           @default(false)
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
+  status          PropertyStatus @default(AVAILABLE)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
   contracts       Contract[]
   issues          Issue[]
   offers          Offer[]
-  currentTenant   Tenant?           @relation(fields: [currentTenantId], references: [id])
-  owner           Owner             @relation(fields: [ownerId], references: [id])
-  services        PropertyService[] // Szolgáltatók kapcsolat
+  currentTenant   Tenant?        @relation(fields: [currentTenantId], references: [id])
+  owner           Owner          @relation(fields: [ownerId], references: [id])
 }
 
 model Tenant {
-  id             String          @id @default(cuid())
-  userId         String          @unique
+  id             String     @id @default(cuid())
+  userId         String     @unique
   emergencyName  String?
   emergencyPhone String?
-  isActive       Boolean         @default(true)
-  // Új mezők
-  documents      String[]        // Okmány képek
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
+  isActive       Boolean    @default(true)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
   contracts      Contract[]
   properties     Property[]
-  user           User            @relation(fields: [userId], references: [id])
-  bookings       TenantBooking[] // Foglalások
-  coTenants      CoTenant[]      // Társbérlők
-}
-
-// Új: Társbérlő model
-model CoTenant {
-  id          String   @id @default(cuid())
-  tenantId    String
-  name        String
-  email       String?
-  phone       String?
-  idNumber    String?  // Személyi/útlevél szám
-  documents   String[] // Okmány képek
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  tenant      Tenant   @relation(fields: [tenantId], references: [id])
-}
-
-// Új: Bérlői foglalás
-model TenantBooking {
-  id               String         @id @default(cuid())
-  tenantId         String
-  propertyId       String
-  checkInDate      DateTime
-  checkInTime      String         // "14:00" formátum
-  checkOutDate     DateTime
-  checkOutTime     String         // "10:00" formátum
-  specialRequests  String?        // Szöveges kérések
-  babyBed          Boolean        @default(false)
-  childSeat        Boolean        @default(false)
-  foodPreparation  Boolean        @default(false)
-  status           BookingStatus  @default(PENDING)
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
-  tenant           Tenant         @relation(fields: [tenantId], references: [id])
+  user           User       @relation(fields: [userId], references: [id])
 }
 
 model Contract {
@@ -190,47 +144,18 @@ model ContractTemplate {
 }
 
 model Provider {
-  id               String            @id @default(cuid())
-  userId           String?           @unique // Opcionális user kapcsolat
-  businessName     String
-  contactName      String?           // Ideiglenesen opcionális
-  contactEmail     String?           // Ideiglenesen opcionális
-  contactPhone     String?           // Ideiglenesen opcionális
-  specialty        String[]
-  hourlyRate       Decimal?
-  travelCostPerKm  Decimal?          // Kiszállási díj/km
-  currency         String            @default("EUR")
-  availability     Json              @default("{}")
-  rating           Float?            @default(0)
-  // Új mezők
-  companyDetails   String?           // Pontos cégadatok
-  referenceSource  String?           // Hol találtuk
-  isVerified       Boolean           @default(false) // Jóváhagyott-e
-  inviteToken      String?           @unique // Meghívó link token
-  invitedAt        DateTime?
-  registeredAt     DateTime?
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
-  assignedIssues   Issue[]
-  user             User?             @relation(fields: [userId], references: [id])
-  propertyServices PropertyService[] // Ingatlan szolgáltatások
-}
-
-// Új: Ingatlan-Szolgáltató kapcsolat
-model PropertyService {
-  id               String            @id @default(cuid())
-  propertyId       String
-  providerId       String
-  serviceType      ServiceType       // Rendszeres/Alkalmi
-  description      String            // Feladat leírás
-  monthlyFee       Decimal?          // Átalánydíj (ha rendszeres)
-  startDate        DateTime?
-  endDate          DateTime?
-  isActive         Boolean           @default(true)
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
-  property         Property          @relation(fields: [propertyId], references: [id])
-  provider         Provider          @relation(fields: [providerId], references: [id])
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  businessName   String
+  specialty      String[]
+  hourlyRate     Decimal?
+  currency       String   @default("EUR")
+  availability   Json     @default("{}")
+  rating         Float?   @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  assignedIssues Issue[]
+  user           User     @relation(fields: [userId], references: [id])
 }
 
 model Issue {
@@ -308,8 +233,6 @@ model Transaction {
   createdAt       DateTime            @default(now())
   updatedAt       DateTime
 }
-
-// ENUMS
 
 enum UserRole {
   ADMIN
@@ -410,17 +333,4 @@ enum TransactionStatus {
 enum TransactionType {
   INCOME
   EXPENSE
-}
-
-// Új enum-ok
-enum ServiceType {
-  REGULAR    // Rendszeres
-  OCCASIONAL // Alkalmi
-}
-
-enum BookingStatus {
-  PENDING
-  CONFIRMED
-  CANCELLED
-  COMPLETED
 }
