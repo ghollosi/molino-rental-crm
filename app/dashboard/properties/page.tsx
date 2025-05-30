@@ -15,7 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Plus, Search, Building, MapPin, Edit, Trash2, Eye } from 'lucide-react'
-import { api } from '@/lib/trpc'
+import { api } from '@/lib/trpc/client'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ExportToolbar } from '@/components/export-toolbar'
 

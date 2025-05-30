@@ -36547,3 +36547,454 @@ TypeError: Cannot read properties of undefined (reading 'call')
   page: '/'
 }
  GET / 500 in 544ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 517ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 546ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 522ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 555ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 567ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 534ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 531ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 530ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 525ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 518ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 547ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 523ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 506ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  digest: '2281340711'
+}
+TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at Object.t [as require] (.next/server/webpack-runtime.js:1:143)
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ GET / 500 in 670ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 72ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 67ms
+ ✓ Compiled in 287ms (731 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 65ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 89ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 86ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 89ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 69ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 105ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 94ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 113ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 89ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 61ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 68ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 61ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 64ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 133ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET / 500 in 129ms
+ ✓ Compiled in 861ms (1724 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET / 500 in 51ms
