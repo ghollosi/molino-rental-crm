@@ -474,4 +474,226 @@ export const providerRouter = createTRPCRouter({
 
       return providers
     }),
+
+  createInvitation: protectedProcedure
+    .input(z.object({
+      businessName: z.string().min(1, 'Business name is required'),
+      contactName: z.string().min(1, 'Contact name is required'),
+      contactEmail: z.string().email('Invalid email'),
+      contactPhone: z.string().optional(),
+      specialty: z.array(z.string()).min(1, 'At least one specialty is required'),
+      companyDetails: z.string().optional(),
+      referenceSource: z.string().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Generate unique invitation token
+      const inviteToken = `invite_${Date.now()}_${Math.random().toString(36).substring(2)}`
+      
+      // Create provider record with invitation data
+      const provider = await ctx.db.provider.create({
+        data: {
+          businessName: input.businessName,
+          contactName: input.contactName,
+          contactEmail: input.contactEmail,
+          contactPhone: input.contactPhone,
+          specialty: input.specialty,
+          companyDetails: input.companyDetails,
+          referenceSource: input.referenceSource,
+          inviteToken,
+          invitedAt: new Date(),
+          isVerified: false,
+        },
+      })
+
+      const inviteLink = `${process.env.NEXT_PUBLIC_APP_URL}/provider-register?token=${inviteToken}`
+
+      return {
+        provider,
+        inviteLink,
+        inviteToken,
+      }
+    }),
+
+  sendInvitation: protectedProcedure
+    .input(z.object({
+      email: z.string().email(),
+      name: z.string(),
+      inviteLink: z.string(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      try {
+        const emailHtml = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #2563eb;">Szolgáltató regisztráció - Molino Rental CRM</h2>
+            
+            <p>Kedves ${input.name}!</p>
+            
+            <p>Meghívást kaptál a Molino Rental CRM szolgáltató hálózatába való csatlakozásra.</p>
+            
+            <p>Az alábbi linkre kattintva tudod befejezni a regisztrációt:</p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+              <a href="${input.inviteLink}" 
+                 style="background-color: #2563eb; color: white; padding: 12px 24px; 
+                        text-decoration: none; border-radius: 6px; display: inline-block;">
+                Regisztráció befejezése
+              </a>
+            </div>
+            
+            <p>A link 7 napig érvényes.</p>
+            
+            <p>Ha nem kértél ilyen meghívót, kérjük figyelmen kívül hagyni ezt az emailt.</p>
+            
+            <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+            
+            <p style="color: #6b7280; font-size: 14px;">
+              Ez egy automatikusan generált email. Kérjük, ne válaszolj rá.
+            </p>
+          </div>
+        `
+
+        await sendEmail({
+          to: input.email,
+          subject: 'Szolgáltató regisztráció - Molino Rental CRM',
+          html: emailHtml,
+        })
+
+        console.log(`Invitation email sent to ${input.email}`)
+        return { success: true }
+      } catch (error) {
+        console.error('Failed to send invitation email:', error)
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to send invitation email',
+        })
+      }
+    }),
+
+  getByInviteToken: protectedProcedure
+    .input(z.string())
+    .query(async ({ ctx, input }) => {
+      const provider = await ctx.db.provider.findUnique({
+        where: { inviteToken: input },
+      })
+
+      if (!provider) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Invalid or expired invitation token',
+        })
+      }
+
+      // Check if invitation is still valid (7 days)
+      const invitedAt = provider.invitedAt
+      if (!invitedAt || (Date.now() - invitedAt.getTime()) > 7 * 24 * 60 * 60 * 1000) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Invitation has expired',
+        })
+      }
+
+      return provider
+    }),
+
+  completeRegistration: protectedProcedure
+    .input(z.object({
+      token: z.string(),
+      userData: z.object({
+        name: z.string().min(1, 'Name is required'),
+        email: z.string().email('Invalid email'),
+        phone: z.string().optional(),
+        password: z.string().min(6, 'Password must be at least 6 characters'),
+      }),
+      providerData: z.object({
+        hourlyRate: z.number().optional(),
+        travelCostPerKm: z.number().optional(),
+        availability: z.record(z.boolean()).optional(),
+      }),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Find provider by token
+      const provider = await ctx.db.provider.findUnique({
+        where: { inviteToken: input.token },
+      })
+
+      if (!provider) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Invalid invitation token',
+        })
+      }
+
+      // Check if already registered
+      if (provider.userId) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Provider already registered',
+        })
+      }
+
+      // Check if invitation is still valid
+      const invitedAt = provider.invitedAt
+      if (!invitedAt || (Date.now() - invitedAt.getTime()) > 7 * 24 * 60 * 60 * 1000) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Invitation has expired',
+        })
+      }
+
+      // Hash password
+      const hashedPassword = await hashPassword(input.userData.password)
+
+      // Create user
+      const user = await ctx.db.user.create({
+        data: {
+          name: input.userData.name,
+          email: input.userData.email,
+          phone: input.userData.phone,
+          password: hashedPassword,
+          role: 'PROVIDER',
+        },
+      })
+
+      // Update provider with user connection and additional data
+      const updatedProvider = await ctx.db.provider.update({
+        where: { id: provider.id },
+        data: {
+          userId: user.id,
+          hourlyRate: input.providerData.hourlyRate,
+          travelCostPerKm: input.providerData.travelCostPerKm,
+          availability: input.providerData.availability || {},
+          registeredAt: new Date(),
+          isVerified: true,
+          inviteToken: null, // Clear the token
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              phone: true,
+            },
+          },
+        },
+      })
+
+      return updatedProvider
+    }),
 })

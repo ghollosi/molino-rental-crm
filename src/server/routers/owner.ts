@@ -375,4 +375,108 @@ export const ownerRouter = createTRPCRouter({
 
       return updatedOwner
     }),
+
+  assignProperty: protectedProcedure
+    .input(z.object({
+      ownerId: z.string(),
+      propertyId: z.string(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Check if property exists and is not already assigned
+      const property = await ctx.db.property.findUnique({
+        where: { id: input.propertyId },
+        include: { owner: true },
+      })
+
+      if (!property) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Property not found',
+        })
+      }
+
+      if (property.ownerId) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Property is already assigned to an owner',
+        })
+      }
+
+      // Check if owner exists
+      const owner = await ctx.db.owner.findUnique({
+        where: { id: input.ownerId },
+      })
+
+      if (!owner) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Owner not found',
+        })
+      }
+
+      // Assign property to owner
+      const updatedProperty = await ctx.db.property.update({
+        where: { id: input.propertyId },
+        data: { ownerId: input.ownerId },
+        include: {
+          owner: {
+            include: {
+              user: true,
+            },
+          },
+        },
+      })
+
+      return updatedProperty
+    }),
+
+  removeProperty: protectedProcedure
+    .input(z.object({
+      ownerId: z.string(),
+      propertyId: z.string(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Check if property exists and is assigned to the correct owner
+      const property = await ctx.db.property.findUnique({
+        where: { id: input.propertyId },
+      })
+
+      if (!property) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Property not found',
+        })
+      }
+
+      if (property.ownerId !== input.ownerId) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Property is not assigned to this owner',
+        })
+      }
+
+      // Remove property assignment
+      const updatedProperty = await ctx.db.property.update({
+        where: { id: input.propertyId },
+        data: { ownerId: null },
+      })
+
+      return updatedProperty
+    }),
 })

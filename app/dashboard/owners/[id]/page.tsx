@@ -107,6 +107,12 @@ export default function OwnerDetailPage({ params }: { params: Promise<{ id: stri
         </Button>
         <div className="flex gap-2">
           <Button variant="outline" asChild>
+            <Link href={`/dashboard/owners/${owner.id}/properties`}>
+              <Building className="mr-2 h-4 w-4" />
+              Ingatlanok
+            </Link>
+          </Button>
+          <Button variant="outline" asChild>
             <Link href={`/dashboard/owners/${owner.id}/edit`}>
               <Edit className="mr-2 h-4 w-4" />
               Szerkesztés

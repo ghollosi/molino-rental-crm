@@ -15,7 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
-import { Plus, Search, Phone, Mail, Wrench, Star, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Plus, Search, Phone, Mail, Wrench, Star, ChevronLeft, ChevronRight, UserPlus } from 'lucide-react'
 import Link from 'next/link'
 import { ExportToolbar } from '@/components/export-toolbar'
 
@@ -41,6 +41,12 @@ export default function ProvidersPage() {
         <h1 className="text-2xl sm:text-3xl font-bold">Szolgáltatók</h1>
         <div className="flex flex-wrap items-center gap-2">
           <ExportToolbar entityType="providers" title="Szolgáltatók" />
+          <Button asChild size="sm" variant="outline" className="w-full sm:w-auto">
+            <Link href="/dashboard/providers/invite">
+              <UserPlus className="mr-2 h-4 w-4" />
+              Meghívás
+            </Link>
+          </Button>
           <Button asChild size="sm" className="w-full sm:w-auto">
             <Link href="/dashboard/providers/new">
               <Plus className="mr-2 h-4 w-4" />

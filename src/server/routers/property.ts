@@ -32,9 +32,10 @@ export const propertyRouter = createTRPCRouter({
       status: z.enum(['AVAILABLE', 'RENTED', 'MAINTENANCE']).optional(),
       ownerId: z.string().optional(),
       type: z.enum(['APARTMENT', 'HOUSE', 'OFFICE', 'COMMERCIAL']).optional(),
+      withoutOwner: z.boolean().optional(),
     }))
     .query(async ({ ctx, input }) => {
-      const { page, limit, search, status, ownerId, type } = input
+      const { page, limit, search, status, ownerId, type, withoutOwner } = input
       const skip = (page - 1) * limit
 
       // Build where clause based on user role
@@ -67,6 +68,7 @@ export const propertyRouter = createTRPCRouter({
       if (status) where.status = status
       if (ownerId) where.ownerId = ownerId
       if (type) where.type = type
+      if (withoutOwner) where.ownerId = null
 
       const [properties, total] = await Promise.all([
         ctx.db.property.findMany({
