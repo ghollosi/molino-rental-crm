@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { ArrowLeft, AlertCircle, CheckCircle, Loader2 } from 'lucide-react'
 import Link from 'next/link'
+import { Checkbox } from '@/components/ui/checkbox'
+import { ImageUpload } from '@/components/ui/image-upload'
 
 export default function CreateOwnerPage() {
   const router = useRouter()
@@ -20,7 +22,16 @@ export default function CreateOwnerPage() {
     email: '',
     password: '',
     phone: '',
+    // Új mezők
+    isCompany: false,
+    companyName: '',
+    taxNumber: '',
+    billingStreet: '',
+    billingCity: '',
+    billingPostalCode: '',
+    billingCountry: 'Magyarország',
   })
+  const [documents, setDocuments] = useState<string[]>([])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,6 +61,15 @@ export default function CreateOwnerPage() {
           email: formData.email.trim().toLowerCase(),
           password: formData.password,
           phone: formData.phone.trim() || undefined,
+          // Új mezők
+          isCompany: formData.isCompany,
+          companyName: formData.isCompany ? formData.companyName.trim() : undefined,
+          taxNumber: formData.taxNumber.trim() || undefined,
+          billingStreet: formData.billingStreet.trim() || undefined,
+          billingCity: formData.billingCity.trim() || undefined,
+          billingPostalCode: formData.billingPostalCode.trim() || undefined,
+          billingCountry: formData.billingCountry.trim() || undefined,
+          documents: documents.filter(doc => !doc.startsWith('blob:')),
         })
       })
 
@@ -160,6 +180,112 @@ export default function CreateOwnerPage() {
                   disabled={loading}
                 />
               </div>
+
+              <div className="pt-4">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="isCompany"
+                    checked={formData.isCompany}
+                    onCheckedChange={(checked) => 
+                      setFormData(prev => ({ ...prev, isCompany: checked as boolean }))
+                    }
+                    disabled={loading}
+                  />
+                  <Label 
+                    htmlFor="isCompany" 
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                  >
+                    Ez egy cég
+                  </Label>
+                </div>
+              </div>
+
+              {formData.isCompany && (
+                <div>
+                  <Label htmlFor="companyName">Cég neve *</Label>
+                  <Input
+                    id="companyName"
+                    value={formData.companyName}
+                    onChange={(e) => handleInputChange('companyName', e.target.value)}
+                    placeholder="Példa Kft."
+                    required={formData.isCompany}
+                    disabled={loading}
+                  />
+                </div>
+              )}
+
+              <div>
+                <Label htmlFor="taxNumber">Adószám</Label>
+                <Input
+                  id="taxNumber"
+                  value={formData.taxNumber}
+                  onChange={(e) => handleInputChange('taxNumber', e.target.value)}
+                  placeholder="12345678-1-42"
+                  disabled={loading}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-6">
+              <h3 className="text-lg font-medium">Számlázási cím</h3>
+              
+              <div>
+                <Label htmlFor="billingStreet">Utca, házszám</Label>
+                <Input
+                  id="billingStreet"
+                  value={formData.billingStreet}
+                  onChange={(e) => handleInputChange('billingStreet', e.target.value)}
+                  placeholder="Példa utca 123"
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="billingCity">Város</Label>
+                  <Input
+                    id="billingCity"
+                    value={formData.billingCity}
+                    onChange={(e) => handleInputChange('billingCity', e.target.value)}
+                    placeholder="Budapest"
+                    disabled={loading}
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="billingPostalCode">Irányítószám</Label>
+                  <Input
+                    id="billingPostalCode"
+                    value={formData.billingPostalCode}
+                    onChange={(e) => handleInputChange('billingPostalCode', e.target.value)}
+                    placeholder="1234"
+                    disabled={loading}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="billingCountry">Ország</Label>
+                <Input
+                  id="billingCountry"
+                  value={formData.billingCountry}
+                  onChange={(e) => handleInputChange('billingCountry', e.target.value)}
+                  placeholder="Magyarország"
+                  disabled={loading}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-6">
+              <h3 className="text-lg font-medium">Okmányok</h3>
+              <p className="text-sm text-muted-foreground">
+                Töltse fel a tulajdonos okmányainak fényképeit
+              </p>
+              <ImageUpload
+                value={documents}
+                onChange={setDocuments}
+                maxFiles={5}
+              />
             </div>
 
             <div className="flex gap-4 pt-4">

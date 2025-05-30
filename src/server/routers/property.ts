@@ -17,6 +17,10 @@ const PropertyCreateSchema = z.object({
   rentAmount: z.number().positive().optional(),
   currency: z.string().default('EUR'),
   photos: z.array(z.string()).optional().default([]),
+  // Új mezők
+  shortTermRental: z.boolean().default(false),
+  longTermRental: z.boolean().default(true),
+  licenseRequired: z.boolean().default(false),
 })
 
 export const propertyRouter = createTRPCRouter({
@@ -278,6 +282,10 @@ export const propertyRouter = createTRPCRouter({
       status: z.enum(['AVAILABLE', 'RENTED', 'MAINTENANCE']).optional(),
       description: z.string().optional(),
       photos: z.array(z.string()).optional(),
+      // Új mezők
+      shortTermRental: z.boolean().optional(),
+      longTermRental: z.boolean().optional(),
+      licenseRequired: z.boolean().optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       const { id, ...data } = input

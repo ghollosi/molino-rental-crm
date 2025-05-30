@@ -8,9 +8,22 @@ const prisma = new PrismaClient()
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, password, phone } = body
+    const { 
+      name, 
+      email, 
+      password, 
+      phone,
+      isCompany,
+      companyName,
+      taxNumber,
+      billingStreet,
+      billingCity,
+      billingPostalCode,
+      billingCountry,
+      documents
+    } = body
 
-    console.log('Standalone API called:', { name, email, phone })
+    console.log('Standalone API called:', { name, email, phone, isCompany })
 
     if (!name || !email || !password) {
       return NextResponse.json({ 
@@ -50,10 +63,18 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    // Create owner profile
+    // Create owner profile with extended data
     const owner = await prisma.owner.create({
       data: {
-        userId: user.id
+        userId: user.id,
+        isCompany: isCompany || false,
+        companyName: isCompany ? companyName : null,
+        taxNumber: taxNumber || null,
+        billingStreet: billingStreet || null,
+        billingCity: billingCity || null,
+        billingPostalCode: billingPostalCode || null,
+        billingCountry: billingCountry || null,
+        documents: documents || []
       }
     })
 

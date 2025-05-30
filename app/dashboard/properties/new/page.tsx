@@ -17,6 +17,7 @@ import { api } from '@/lib/trpc'
 import { ImageUpload } from '@/components/ui/image-upload'
 import { NewOwnerModal } from '@/components/modals/new-owner-modal'
 import { UserPlus } from 'lucide-react'
+import { Checkbox } from '@/components/ui/checkbox'
 
 const propertySchema = z.object({
   street: z.string().min(1, 'Kötelező megadni a címet'),
@@ -51,6 +52,10 @@ const propertySchema = z.object({
   currency: z.string().default('HUF'),
   ownerId: z.string().min(1, 'Kötelező megadni a tulajdonost'),
   photos: z.array(z.string()).optional(),
+  // Új mezők
+  shortTermRental: z.boolean().default(false),
+  longTermRental: z.boolean().default(true),
+  licenseRequired: z.boolean().default(false),
 })
 
 type PropertyFormData = z.input<typeof propertySchema>
@@ -75,6 +80,9 @@ export default function NewPropertyPage() {
       country: 'Magyarország',
       photos: [],
       type: 'APARTMENT',
+      shortTermRental: false,
+      longTermRental: true,
+      licenseRequired: false,
     },
   })
 
@@ -316,6 +324,68 @@ export default function NewPropertyPage() {
                   autoComplete="country-name"
                 />
               </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Bérlési típus</CardTitle>
+            <CardDescription>
+              Válassza ki, milyen típusú bérlésre alkalmas az ingatlan
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="shortTermRental"
+                  checked={watch('shortTermRental')}
+                  onCheckedChange={(checked) => setValue('shortTermRental', checked as boolean)}
+                />
+                <Label
+                  htmlFor="shortTermRental"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                >
+                  Rövid távú bérlés
+                </Label>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="longTermRental"
+                  checked={watch('longTermRental')}
+                  onCheckedChange={(checked) => setValue('longTermRental', checked as boolean)}
+                />
+                <Label
+                  htmlFor="longTermRental"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                >
+                  Hosszú távú bérlés
+                </Label>
+              </div>
+              
+              <div className="flex items-center space-x-2 mt-4">
+                <Checkbox
+                  id="licenseRequired"
+                  checked={watch('licenseRequired')}
+                  onCheckedChange={(checked) => setValue('licenseRequired', checked as boolean)}
+                />
+                <Label
+                  htmlFor="licenseRequired"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                >
+                  Licensz szükséges (rövid távú bérléshez)
+                </Label>
+              </div>
+              
+              {watch('shortTermRental') && !watch('licenseRequired') && (
+                <Alert className="mt-2">
+                  <AlertDescription>
+                    Figyelem! Rövid távú bérlés esetén ellenőrizze, hogy szükséges-e engedély az Ön területén.
+                  </AlertDescription>
+                </Alert>
+              )}
             </div>
           </CardContent>
         </Card>
