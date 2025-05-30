@@ -6,9 +6,9 @@ const globalForPrisma = globalThis as unknown as {
 
 const prismaClientConfig = {
   log: process.env.NODE_ENV === 'development' 
-    ? ['query', 'error', 'warn'] 
-    : ['error'],
-  errorFormat: process.env.NODE_ENV === 'development' ? 'pretty' : 'minimal',
+    ? (['query', 'error', 'warn'] as any)
+    : (['error'] as any),
+  errorFormat: process.env.NODE_ENV === 'development' ? 'pretty' : 'minimal' as any,
 }
 
 // Production optimizations

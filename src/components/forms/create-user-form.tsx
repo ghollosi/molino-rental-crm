@@ -117,7 +117,7 @@ export function CreateUserForm({ onSuccess }: CreateUserFormProps) {
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="role">Szerepkör *</Label>
-          <Select onValueChange={(value) => setValue('role', value as any)}>
+          <Select onValueChange={(value) => setValue('role', value as CreateUserFormData['role'])}>
             <SelectTrigger>
               <SelectValue placeholder="Válasszon szerepkört" />
             </SelectTrigger>
@@ -138,7 +138,7 @@ export function CreateUserForm({ onSuccess }: CreateUserFormProps) {
           <Label htmlFor="language">Nyelv</Label>
           <Select 
             defaultValue="HU" 
-            onValueChange={(value) => setValue('language', value as any)}
+            onValueChange={(value) => setValue('language', value as CreateUserFormData['language'])}
           >
             <SelectTrigger>
               <SelectValue />

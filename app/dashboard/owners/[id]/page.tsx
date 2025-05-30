@@ -39,7 +39,7 @@ export default function OwnerDetailPage({ params }: { params: Promise<{ id: stri
                     id.length > 10 // Prisma IDs are longer than 10 chars
 
   const { data: owner, isLoading } = api.owner.getById.useQuery(id, {
-    enabled: isValidId
+    enabled: !!isValidId
   })
 
   // Redirect invalid routes

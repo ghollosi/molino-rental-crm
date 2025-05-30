@@ -36,10 +36,16 @@ export default function TestOwnerModalPage() {
         <div className="mt-8 p-4 bg-gray-100 rounded">
           <h2 className="font-semibold mb-2">Debug információ:</h2>
           <pre className="text-xs">
-            Endpoint: /api/standalone-create-owner
-            Method: POST
-            Headers: Content-Type: application/json
-            Body: {JSON.stringify({ name, email, password, phone, taxNumber }, null, 2)}
+{`Endpoint: /api/standalone-create-owner
+Method: POST
+Headers: Content-Type: application/json
+Body: {
+  "name": "example",
+  "email": "example@email.com", 
+  "password": "password",
+  "phone": "+36201234567",
+  "taxNumber": "12345678-1-42"
+}`}
           </pre>
         </div>
       </div>

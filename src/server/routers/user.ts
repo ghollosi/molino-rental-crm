@@ -45,8 +45,8 @@ export const userRouter = createTRPCRouter({
       const where = {
         ...(search && {
           OR: [
-            { name: { contains: search, mode: 'insensitive' } },
-            { email: { contains: search, mode: 'insensitive' } },
+            { name: { contains: search, mode: 'insensitive' as const } },
+            { email: { contains: search, mode: 'insensitive' as const } },
           ],
         }),
         ...(role && { role }),
@@ -413,9 +413,9 @@ export const userRouter = createTRPCRouter({
       }
 
       // Check if user has related data that prevents deletion
-      const hasProperties = user.owner?.properties.length > 0
-      const hasContracts = user.tenant?.contracts.length > 0
-      const hasAssignedIssues = user.provider?.assignedIssues.length > 0
+      const hasProperties = (user.owner?.properties.length ?? 0) > 0
+      const hasContracts = (user.tenant?.contracts.length ?? 0) > 0
+      const hasAssignedIssues = (user.provider?.assignedIssues.length ?? 0) > 0
 
       if (hasProperties || hasContracts || hasAssignedIssues) {
         throw new TRPCError({

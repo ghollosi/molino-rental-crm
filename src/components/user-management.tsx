@@ -70,7 +70,7 @@ export function UserManagementSection() {
     page,
     limit: 10,
     search: searchTerm || undefined,
-    role: selectedRole && selectedRole !== 'ALL' ? selectedRole : undefined,
+    role: selectedRole && selectedRole !== 'ALL' ? selectedRole as any : undefined,
   })
 
   // Create user mutation
