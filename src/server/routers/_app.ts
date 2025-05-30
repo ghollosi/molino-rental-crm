@@ -11,6 +11,8 @@ import { contractRouter } from './contract'
 import { contractsRouter } from './contracts'
 import { analyticsRouter } from './analytics'
 import { cloudStorageRouter } from './cloud-storage'
+import { coTenantRouter } from './coTenant'
+import { tenantBookingRouter } from './tenantBooking'
 
 export const appRouter = createTRPCRouter({
   auth: authRouter,
@@ -18,6 +20,8 @@ export const appRouter = createTRPCRouter({
   property: propertyRouter,
   owner: ownerRouter,
   tenant: tenantRouter,
+  coTenant: coTenantRouter,
+  tenantBooking: tenantBookingRouter,
   provider: providerRouter,
   issue: issueRouter,
   offer: offerRouter,

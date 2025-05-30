@@ -465,7 +465,18 @@ npm run test:coverage     # Coverage jelentés
 
 ## 💾 VISSZAÁLLÍTÁSI PONTOK - FRISSÍTVE!
 
-### v1.14.0 - Stable Production with Full CRUD (2025-05-30) ✅ **LEGÚJABB**
+### v1.15.0 - Phase 2 Complete (2025-05-30) ✅ **LEGÚJABB**
+```bash
+git checkout v1.15.0
+```
+- **Phase 1 & 2 teljes**: Adatmodell + CRUD bővítések
+- **Ingatlan**: Bérlési típusok (rövid/hosszú távú, licensz)
+- **Tulajdonos**: Okmányok, számlázási adatok, cég támogatás
+- **Szolgáltató**: Átdolgozva user nélkül, meghívó token
+- **Production séma frissítve**: Minden új mező működik
+- **Hibakezelés**: Séma frissítő API endpoint
+
+### v1.14.0 - Stable Production with Full CRUD (2025-05-30) ✅
 ```bash
 git checkout v1.14.0
 ```

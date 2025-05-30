@@ -1,0 +1,1 @@
+export { ImageUpload } from '@/src/components/image-upload'

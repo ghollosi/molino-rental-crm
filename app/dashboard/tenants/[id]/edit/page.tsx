@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowLeft, Save } from 'lucide-react'
 import Link from 'next/link'
+import { ImageUpload } from '@/components/image-upload'
 
 export default function EditTenantPage({ params }: { params: Promise<{ id: string }> }) {
     const router = useRouter()
@@ -34,6 +35,7 @@ export default function EditTenantPage({ params }: { params: Promise<{ id: strin
     emergencyPhone: '',
     isActive: true,
   })
+  const [documents, setDocuments] = useState<string[]>([])
 
   // Frissítjük a form adatokat amikor betöltődik a bérlő
   useEffect(() => {
@@ -46,6 +48,7 @@ export default function EditTenantPage({ params }: { params: Promise<{ id: strin
         emergencyPhone: tenant.emergencyPhone || '',
         isActive: tenant.isActive,
       })
+      setDocuments(tenant.documents || [])
     }
   }, [tenant])
 
@@ -64,6 +67,7 @@ export default function EditTenantPage({ params }: { params: Promise<{ id: strin
         emergencyName: formData.emergencyName || undefined,
         emergencyPhone: formData.emergencyPhone || undefined,
         isActive: formData.isActive,
+        documents: documents,
       },
     })
   }
@@ -176,6 +180,18 @@ export default function EditTenantPage({ params }: { params: Promise<{ id: strin
                 }
               />
               <Label htmlFor="isActive">Aktív bérlő</Label>
+            </div>
+
+            <div className="border-t pt-4">
+              <h3 className="font-semibold mb-3">Okmányok</h3>
+              <p className="text-sm text-gray-500 mb-4">
+                Személyi igazolvány, lakcímkártya vagy egyéb releváns dokumentumok.
+              </p>
+              <ImageUpload
+                value={documents}
+                onChange={setDocuments}
+                maxFiles={5}
+              />
             </div>
 
             <div className="flex gap-4 pt-4">

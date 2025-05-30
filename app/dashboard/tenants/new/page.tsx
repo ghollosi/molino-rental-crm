@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { ArrowLeft, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
+import { ImageUpload } from '@/components/image-upload'
 
 interface TenantFormData {
   name: string
@@ -19,11 +20,13 @@ interface TenantFormData {
   address?: string
   emergencyContact?: string
   emergencyPhone?: string
+  documents?: string[]
 }
 
 export default function NewTenantPage() {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
+  const [documents, setDocuments] = useState<string[]>([])
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<TenantFormData>()
 
@@ -44,6 +47,7 @@ export default function NewTenantPage() {
       phone: data.phone,
       emergencyName: data.emergencyContact,
       emergencyPhone: data.emergencyPhone,
+      documents: documents,
     })
   }
 
@@ -150,6 +154,18 @@ export default function NewTenantPage() {
                     />
                   </div>
                 </div>
+              </div>
+
+              <div className="border-t pt-4">
+                <h3 className="text-lg font-medium mb-4">Okmányok feltöltése</h3>
+                <p className="text-sm text-gray-500 mb-4">
+                  Töltsön fel személyi igazolványt, lakcímkártyát vagy egyéb releváns dokumentumokat.
+                </p>
+                <ImageUpload
+                  value={documents}
+                  onChange={setDocuments}
+                  maxFiles={5}
+                />
               </div>
             </div>
 

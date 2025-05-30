@@ -26,7 +26,9 @@ import {
   Trash2,
   Edit,
   User,
-  FileText
+  FileText,
+  Users,
+  CalendarDays
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -87,6 +89,18 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
           </Link>
         </Button>
         <div className="flex gap-2">
+          <Button variant="outline" asChild>
+            <Link href={`/dashboard/tenants/${tenant.id}/co-tenants`}>
+              <Users className="mr-2 h-4 w-4" />
+              Társbérlők
+            </Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href={`/dashboard/tenants/${tenant.id}/bookings`}>
+              <CalendarDays className="mr-2 h-4 w-4" />
+              Foglalások
+            </Link>
+          </Button>
           <Button variant="outline" asChild>
             <Link href={`/dashboard/tenants/${tenant.id}/edit`}>
               <Edit className="mr-2 h-4 w-4" />

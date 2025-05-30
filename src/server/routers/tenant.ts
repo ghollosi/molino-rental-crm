@@ -227,6 +227,7 @@ export const tenantRouter = createTRPCRouter({
       phone: z.string().optional(),
       emergencyName: z.string().optional(),
       emergencyPhone: z.string().optional(),
+      documents: z.array(z.string()).optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -261,6 +262,7 @@ export const tenantRouter = createTRPCRouter({
             userId: existingUser.id,
             emergencyName: input.emergencyName,
             emergencyPhone: input.emergencyPhone,
+            documents: input.documents || [],
           },
           include: {
             user: {
@@ -303,6 +305,7 @@ export const tenantRouter = createTRPCRouter({
           userId: user.id,
           emergencyName: input.emergencyName,
           emergencyPhone: input.emergencyPhone,
+          documents: input.documents || [],
         },
         include: {
           user: {
@@ -356,6 +359,7 @@ export const tenantRouter = createTRPCRouter({
         emergencyName: z.string().optional(),
         emergencyPhone: z.string().optional(),
         isActive: z.boolean().optional(),
+        documents: z.array(z.string()).optional(),
       }),
     }))
     .mutation(async ({ ctx, input }) => {

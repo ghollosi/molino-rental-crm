@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-30T11:54:20.969Z",
+  "timestamp": "2025-05-30T12:19:21.074Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M dev-server.log\n M server-monitor.log",
+  "gitStatus": "M .session-state.json\n M CLAUDE.md\n M app/api/update-schema/route.ts\n M app/dashboard/tenants/[id]/edit/page.tsx\n M app/dashboard/tenants/[id]/page.tsx\n M app/dashboard/tenants/new/page.tsx\n M dev-server.log\n M server-monitor.log\n M src/server/routers/_app.ts\n M src/server/routers/tenant.ts\n?? app/dashboard/tenants/[id]/bookings/\n?? app/dashboard/tenants/[id]/co-tenants/\n?? components/\n?? src/components/image-upload.tsx\n?? src/server/routers/coTenant.ts\n?? src/server/routers/tenantBooking.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",
