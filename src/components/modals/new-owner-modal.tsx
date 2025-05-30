@@ -45,6 +45,7 @@ export function NewOwnerModal({ open, onOpenChange, onOwnerCreated }: NewOwnerMo
     setLoading(true)
     
     try {
+      console.log('NewOwnerModal: Using standalone API', new Date().toISOString())
       const response = await fetch('/api/standalone-create-owner', {
         method: 'POST',
         headers: {
