@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, AlertCircle, Plus, X } from 'lucide-react'
+import { ArrowLeft, AlertCircle, Plus, X, Building2, MapPin, DollarSign } from 'lucide-react'
 import Link from 'next/link'
 import {
   Select,
@@ -21,12 +21,16 @@ import {
 } from '@/components/ui/select'
 
 interface ProviderFormData {
-  userId: string
   businessName: string
+  contactName: string
+  contactEmail: string
+  contactPhone: string
   specialty: string[]
   hourlyRate?: number
+  travelCostPerKm?: number
   currency: string
-  availability?: Record<string, unknown>
+  companyDetails?: string
+  referenceSource?: string
 }
 
 const availableSpecialties = [
@@ -44,7 +48,8 @@ const availableSpecialties = [
   'Költöztetés',
   'Klíma szerelés',
   'Redőny javítás',
-  'Általános karbantartás'
+  'Általános karbantartás',
+  'Medence karbantartás'
 ]
 
 export default function NewProviderPage() {
@@ -52,7 +57,6 @@ export default function NewProviderPage() {
   const [error, setError] = useState<string | null>(null)
   const [selectedSpecialties, setSelectedSpecialties] = useState<string[]>([])
   const [customSpecialty, setCustomSpecialty] = useState('')
-  const [selectedUserId, setSelectedUserId] = useState<string>('')
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue } = useForm<ProviderFormData>({
     defaultValues: {
@@ -60,24 +64,6 @@ export default function NewProviderPage() {
       currency: 'EUR',
     }
   })
-
-  // Fetch all users to find those without provider profile
-  const { data: allUsersData } = api.user.list.useQuery({
-    page: 1,
-    limit: 100,
-  })
-
-  // Get existing providers to filter out users who already have provider profiles
-  const { data: providersData } = api.provider.list.useQuery({
-    page: 1,
-    limit: 100,
-  })
-
-  // Filter available users: those with PROVIDER role or without provider profile
-  const availableUsers = allUsersData?.users.filter(user => {
-    const hasProviderProfile = providersData?.providers.some(p => p.userId === user.id)
-    return !hasProviderProfile
-  }) || []
 
   const createProvider = api.provider.create.useMutation({
     onSuccess: () => {
@@ -109,11 +95,6 @@ export default function NewProviderPage() {
 
   const onSubmit = async (data: ProviderFormData) => {
     setError(null)
-    
-    if (!selectedUserId) {
-      setError('Kérem válasszon ki egy felhasználót')
-      return
-    }
 
     if (selectedSpecialties.length === 0) {
       setError('Legalább egy szakterület kiválasztása kötelező')
@@ -121,12 +102,16 @@ export default function NewProviderPage() {
     }
 
     await createProvider.mutateAsync({
-      userId: selectedUserId,
       businessName: data.businessName,
+      contactName: data.contactName,
+      contactEmail: data.contactEmail,
+      contactPhone: data.contactPhone,
       specialty: selectedSpecialties,
       hourlyRate: data.hourlyRate,
+      travelCostPerKm: data.travelCostPerKm,
       currency: data.currency,
-      availability: data.availability,
+      companyDetails: data.companyDetails,
+      referenceSource: data.referenceSource,
     })
   }
 
@@ -141,9 +126,12 @@ export default function NewProviderPage() {
         </Button>
       </div>
 
-      <Card className="max-w-2xl mx-auto">
+      <Card className="max-w-3xl mx-auto">
         <CardHeader>
-          <CardTitle>Új szolgáltató regisztrálása</CardTitle>
+          <CardTitle className="flex items-center gap-2">
+            <Building2 className="h-6 w-6" />
+            Új szolgáltató regisztrálása
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {error && (
@@ -154,45 +142,81 @@ export default function NewProviderPage() {
           )}
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Alapadatok */}
             <div className="space-y-4">
-              <div>
-                <Label htmlFor="user">Felhasználó kiválasztása *</Label>
-                <Select value={selectedUserId} onValueChange={setSelectedUserId}>
-                  <SelectTrigger id="user">
-                    <SelectValue placeholder="Válasszon felhasználót..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {availableUsers.map((user) => (
-                      <SelectItem key={user.id} value={user.id}>
-                        {user.name || 'Névtelen'} ({user.email})
-                        {user.role && ` - ${user.role}`}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {!selectedUserId && (
-                  <p className="text-sm text-gray-500 mt-1">
-                    Csak olyan felhasználók választhatók, akiknek még nincs szolgáltató profiljuk
-                  </p>
-                )}
+              <h3 className="text-lg font-medium">Alapadatok</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="businessName">Cégnév / Vállalkozás neve *</Label>
+                  <Input
+                    id="businessName"
+                    {...register('businessName', { required: 'A cégnév megadása kötelező' })}
+                    placeholder="Pl. Kovács János EV"
+                    autoComplete="organization"
+                  />
+                  {errors.businessName && (
+                    <p className="text-sm text-red-500 mt-1">{errors.businessName.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="contactName">Kapcsolattartó neve *</Label>
+                  <Input
+                    id="contactName"
+                    {...register('contactName', { required: 'A kapcsolattartó neve kötelező' })}
+                    placeholder="Pl. Kovács János"
+                  />
+                  {errors.contactName && (
+                    <p className="text-sm text-red-500 mt-1">{errors.contactName.message}</p>
+                  )}
+                </div>
               </div>
 
-              <div>
-                <Label htmlFor="businessName">Cégnév / Vállalkozás neve *</Label>
-                <Input
-                  id="businessName"
-                  {...register('businessName', { required: 'A cégnév megadása kötelező' })}
-                  placeholder="Pl. Kovács János EV"
-                  autoComplete="organization"
-                />
-                {errors.businessName && (
-                  <p className="text-sm text-red-500 mt-1">{errors.businessName.message}</p>
-                )}
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="contactEmail">Email cím *</Label>
+                  <Input
+                    id="contactEmail"
+                    type="email"
+                    {...register('contactEmail', { 
+                      required: 'Az email cím megadása kötelező',
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: 'Érvényes email címet adjon meg'
+                      }
+                    })}
+                    placeholder="szolgaltato@email.com"
+                  />
+                  {errors.contactEmail && (
+                    <p className="text-sm text-red-500 mt-1">{errors.contactEmail.message}</p>
+                  )}
+                </div>
 
-              <div>
-                <Label htmlFor="hourlyRate">Óradíj</Label>
-                <div className="flex gap-2">
+                <div>
+                  <Label htmlFor="contactPhone">Telefonszám *</Label>
+                  <Input
+                    id="contactPhone"
+                    {...register('contactPhone', { required: 'A telefonszám megadása kötelező' })}
+                    placeholder="+36 30 123 4567"
+                  />
+                  {errors.contactPhone && (
+                    <p className="text-sm text-red-500 mt-1">{errors.contactPhone.message}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Díjazás */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium flex items-center gap-2">
+                <DollarSign className="h-5 w-5" />
+                Díjazás
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="hourlyRate">Óradíj</Label>
                   <Input
                     id="hourlyRate"
                     type="number"
@@ -201,14 +225,36 @@ export default function NewProviderPage() {
                       min: { value: 0, message: 'Az óradíj nem lehet negatív' }
                     })}
                     placeholder="50"
-                    className="flex-1"
                   />
+                  {errors.hourlyRate && (
+                    <p className="text-sm text-red-500 mt-1">{errors.hourlyRate.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="travelCostPerKm">Kiszállási díj / km</Label>
+                  <Input
+                    id="travelCostPerKm"
+                    type="number"
+                    {...register('travelCostPerKm', { 
+                      valueAsNumber: true,
+                      min: { value: 0, message: 'A kiszállási díj nem lehet negatív' }
+                    })}
+                    placeholder="5"
+                  />
+                  {errors.travelCostPerKm && (
+                    <p className="text-sm text-red-500 mt-1">{errors.travelCostPerKm.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="currency">Pénznem</Label>
                   <Select 
-                    value={register('currency').name}
+                    defaultValue="EUR"
                     onValueChange={(value) => setValue('currency', value)}
                   >
-                    <SelectTrigger className="w-24">
-                      <SelectValue placeholder="EUR" />
+                    <SelectTrigger>
+                      <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="EUR">EUR</SelectItem>
@@ -217,69 +263,93 @@ export default function NewProviderPage() {
                     </SelectContent>
                   </Select>
                 </div>
-                {errors.hourlyRate && (
-                  <p className="text-sm text-red-500 mt-1">{errors.hourlyRate.message}</p>
-                )}
-              </div>
-
-              <div>
-                <Label>Szakterületek *</Label>
-                <div className="mt-2 space-y-2">
-                  <div className="flex flex-wrap gap-2">
-                    {availableSpecialties.map((specialty) => (
-                      <Badge
-                        key={specialty}
-                        variant={selectedSpecialties.includes(specialty) ? 'default' : 'outline'}
-                        className="cursor-pointer"
-                        onClick={() => toggleSpecialty(specialty)}
-                      >
-                        {specialty}
-                      </Badge>
-                    ))}
-                  </div>
-                  
-                  <div className="flex gap-2 mt-4">
-                    <Input
-                      placeholder="Egyéb szakterület..."
-                      value={customSpecialty}
-                      onChange={(e) => setCustomSpecialty(e.target.value)}
-                      onKeyPress={(e) => {
-                        if (e.key === 'Enter') {
-                          e.preventDefault()
-                          addCustomSpecialty()
-                        }
-                      }}
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={addCustomSpecialty}
-                    >
-                      <Plus className="h-4 w-4" />
-                    </Button>
-                  </div>
-
-                  {selectedSpecialties.length > 0 && (
-                    <div className="mt-4">
-                      <p className="text-sm text-gray-600 mb-2">Kiválasztott szakterületek:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedSpecialties.map((specialty) => (
-                          <Badge key={specialty} variant="secondary">
-                            {specialty}
-                            <X
-                              className="ml-1 h-3 w-3 cursor-pointer"
-                              onClick={() => removeSpecialty(specialty)}
-                            />
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
 
-            <div className="flex gap-4">
+            {/* Szakterületek */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Szakterületek *</h3>
+              <div className="space-y-2">
+                <div className="flex flex-wrap gap-2">
+                  {availableSpecialties.map((specialty) => (
+                    <Badge
+                      key={specialty}
+                      variant={selectedSpecialties.includes(specialty) ? 'default' : 'outline'}
+                      className="cursor-pointer"
+                      onClick={() => toggleSpecialty(specialty)}
+                    >
+                      {specialty}
+                    </Badge>
+                  ))}
+                </div>
+                
+                <div className="flex gap-2 mt-4">
+                  <Input
+                    placeholder="Egyéb szakterület..."
+                    value={customSpecialty}
+                    onChange={(e) => setCustomSpecialty(e.target.value)}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        e.preventDefault()
+                        addCustomSpecialty()
+                      }
+                    }}
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={addCustomSpecialty}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+
+                {selectedSpecialties.length > 0 && (
+                  <div className="mt-4">
+                    <p className="text-sm text-gray-600 mb-2">Kiválasztott szakterületek:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedSpecialties.map((specialty) => (
+                        <Badge key={specialty} variant="secondary">
+                          {specialty}
+                          <X
+                            className="ml-1 h-3 w-3 cursor-pointer"
+                            onClick={() => removeSpecialty(specialty)}
+                          />
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* További adatok */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium flex items-center gap-2">
+                <MapPin className="h-5 w-5" />
+                További információk
+              </h3>
+              
+              <div>
+                <Label htmlFor="companyDetails">Pontos cégadatok</Label>
+                <Input
+                  id="companyDetails"
+                  {...register('companyDetails')}
+                  placeholder="Adószám, cégjegyzékszám, székhely..."
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="referenceSource">Hol találtuk / Referencia</Label>
+                <Input
+                  id="referenceSource"
+                  {...register('referenceSource')}
+                  placeholder="Pl. Google keresés, ajánlás XY-tól, Facebook csoport..."
+                />
+              </div>
+            </div>
+
+            <div className="flex gap-4 pt-4">
               <Button
                 type="submit"
                 disabled={isSubmitting}
@@ -295,6 +365,13 @@ export default function NewProviderPage() {
               </Button>
             </div>
           </form>
+
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+            <p className="text-sm text-blue-800">
+              💡 <strong>Megjegyzés:</strong> A szolgáltató létrehozása után meghívó linket generálhat, 
+              amellyel a szolgáltató regisztrálhat a rendszerbe és kitöltheti a hiányzó adatokat.
+            </p>
+          </div>
         </CardContent>
       </Card>
     </div>

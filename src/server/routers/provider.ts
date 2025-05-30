@@ -168,11 +168,16 @@ export const providerRouter = createTRPCRouter({
 
   create: protectedProcedure
     .input(z.object({
-      userId: z.string(),
       businessName: z.string().min(1, 'Business name is required'),
+      contactName: z.string().min(1, 'Contact name is required'),
+      contactEmail: z.string().email('Invalid email'),
+      contactPhone: z.string().min(1, 'Contact phone is required'),
       specialty: z.array(z.string()).min(1, 'At least one specialty is required'),
       hourlyRate: z.number().positive().optional(),
+      travelCostPerKm: z.number().positive().optional(),
       currency: z.string().default('EUR'),
+      companyDetails: z.string().optional(),
+      referenceSource: z.string().optional(),
       availability: z.record(z.any()).optional(),
     }))
     .mutation(async ({ ctx, input }) => {
@@ -184,26 +189,27 @@ export const providerRouter = createTRPCRouter({
         })
       }
 
-      // Check if provider profile already exists
-      const existingProvider = await ctx.db.provider.findUnique({
-        where: { userId: input.userId },
+      // Check if provider with this email already exists
+      const existingProvider = await ctx.db.provider.findFirst({
+        where: { contactEmail: input.contactEmail },
       })
 
       if (existingProvider) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: 'Provider profile already exists for this user',
+          message: 'Provider with this email already exists',
         })
       }
 
-      // Update user role to PROVIDER if not already
-      await ctx.db.user.update({
-        where: { id: input.userId },
-        data: { role: 'PROVIDER' },
-      })
+      // Generate invite token
+      const inviteToken = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 
       const provider = await ctx.db.provider.create({
-        data: input,
+        data: {
+          ...input,
+          inviteToken,
+          invitedAt: new Date(),
+        },
         include: {
           user: {
             select: {
