@@ -28,7 +28,7 @@ interface IssueFormData {
 export default function NewIssuePage() {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
-  const [reporterType, setReporterType] = useState<'tenant' | 'owner'>('tenant')
+  const [reporterType, setReporterType] = useState<'tenant' | 'owner' | 'admin' | 'provider'>('')
   const [photos, setPhotos] = useState<string[]>([])
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<IssueFormData>({
@@ -43,17 +43,8 @@ export default function NewIssuePage() {
     limit: 100
   })
 
-  // Bérlők lekérdezése
-  const { data: tenants } = api.tenant.list.useQuery({
-    page: 1,
-    limit: 100,
-  })
-
-  // Tulajdonosok lekérdezése
-  const { data: owners } = api.owner.list.useQuery({
-    page: 1,
-    limit: 100,
-  })
+  // Megjegyzés: Bérlők és tulajdonosok lekérdezése eltávolítva
+  // Az új logika szerint a bejelentkezett felhasználó automatikusan a bejelentő
 
   const createIssue = api.issue.create.useMutation({
     onSuccess: () => {
@@ -194,57 +185,26 @@ export default function NewIssuePage() {
                 <Label>Bejelentő típusa</Label>
                 <Select
                   value={reporterType}
-                  onValueChange={(value) => setReporterType(value as 'tenant' | 'owner')}
+                  onValueChange={(value) => setReporterType(value as 'tenant' | 'owner' | 'admin' | 'provider')}
                 >
                   <SelectTrigger>
-                    <SelectValue />
+                    <SelectValue placeholder="Ki jelenti be a hibát?" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="tenant">Bérlő</SelectItem>
                     <SelectItem value="owner">Tulajdonos</SelectItem>
+                    <SelectItem value="tenant">Bérlő</SelectItem>
+                    <SelectItem value="admin">Admin</SelectItem>
+                    <SelectItem value="provider">Szolgáltató</SelectItem>
                   </SelectContent>
                 </Select>
+                <p className="text-sm text-gray-600 mt-1">
+                  {reporterType === 'owner' && 'Az ingatlan tulajdonosa jelenti be a hibát'}
+                  {reporterType === 'tenant' && 'Az ingatlan jelenlegi bérlője jelenti be a hibát'}
+                  {reporterType === 'admin' && 'Rendszergazda jelenti be a hibát'}
+                  {reporterType === 'provider' && 'Karbantartó szolgáltató jelenti be a hibát'}
+                  {!reporterType && 'Válassza ki, hogy milyen minőségben jelenti be a hibát'}
+                </p>
               </div>
-
-              {reporterType === 'tenant' ? (
-                <div>
-                  <Label htmlFor="tenantId">Bérlő</Label>
-                  <Select
-                    value={watch('tenantId') || ''}
-                    onValueChange={(value) => setValue('tenantId', value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Válasszon bérlőt (opcionális)" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {tenants?.tenants.map((tenant) => (
-                        <SelectItem key={tenant.id} value={tenant.id}>
-                          {tenant.user.name} ({tenant.user.email})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              ) : (
-                <div>
-                  <Label htmlFor="ownerId">Tulajdonos</Label>
-                  <Select
-                    value={watch('ownerId') || ''}
-                    onValueChange={(value) => setValue('ownerId', value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Válasszon tulajdonost (opcionális)" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {owners?.owners.map((owner) => (
-                        <SelectItem key={owner.id} value={owner.id}>
-                          {owner.user.name} ({owner.user.email})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              )}
             </div>
 
             <div>
