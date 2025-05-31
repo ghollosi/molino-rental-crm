@@ -90,11 +90,11 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
       return (
         <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg">
           <p className="font-medium">{label}</p>
-          {payload.map((entry: any, index: number) => (
+          {Array.isArray(payload) ? payload.map((entry: any, index: number) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: {entry.value?.toLocaleString()}
             </p>
-          ))}
+          )) : null}
         </div>
       )
     }
@@ -114,7 +114,7 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={issueStats || defaultIssuesByMonth}>
+              <BarChart data={Array.isArray(issueStats) ? issueStats : defaultIssuesByMonth}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />
                 <YAxis />
@@ -138,7 +138,7 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
-                  data={propertyStats || mockPropertiesByStatus}
+                  data={Array.isArray(propertyStats) ? propertyStats : mockPropertiesByStatus}
                   cx="50%"
                   cy="50%"
                   labelLine={false}
@@ -147,9 +147,9 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {(propertyStats || mockPropertiesByStatus).map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
+                  {Array.isArray(propertyStats || mockPropertiesByStatus) ? (propertyStats || mockPropertiesByStatus).map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry?.color || CHART_COLORS[index % CHART_COLORS.length]} />
+                  )) : null}
                 </Pie>
                 <Tooltip />
               </PieChart>
@@ -168,7 +168,7 @@ export function DashboardCharts({ userRole }: DashboardChartsProps) {
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={400}>
-            <AreaChart data={revenueStats || mockRevenueByMonth}>
+            <AreaChart data={Array.isArray(revenueStats) ? revenueStats : mockRevenueByMonth}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
               <YAxis tickFormatter={(value) => `${(value / 1000).toFixed(0)}K Ft`} />
