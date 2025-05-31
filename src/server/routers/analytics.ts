@@ -258,7 +258,9 @@ export const analyticsRouter = createTRPCRouter({
       const yearlyRevenue = monthlyRevenue * 12
 
       // Kintlévőségek becslése (placeholder - valós rendszerben külön table kell)
-      const totalContracts = await ctx.db.contract.count({ where: { status: 'ACTIVE' } })
+      const totalContracts = await ctx.db.contract.count({ 
+        where: { endDate: { gte: new Date() } } // Active contracts (end date in future)
+      })
       const outstandingAmount = Math.floor(monthlyRevenue * 0.1) // Becsült 10% késedelmes
 
       // Kihasználtság
@@ -283,14 +285,18 @@ export const analyticsRouter = createTRPCRouter({
       // Placeholder: valós rendszerben külön payments table kellene
       // Most a late payments-t szimuláljuk aktív bérletek alapján
       const activeContracts = await ctx.db.contract.findMany({
-        where: { status: 'ACTIVE' },
+        where: { endDate: { gte: new Date() } }, // Active contracts (end date in future)
         include: {
           tenant: {
             select: {
-              firstName: true,
-              lastName: true,
-              email: true,
-              phone: true
+              user: {
+                select: {
+                  firstName: true,
+                  lastName: true,
+                  email: true,
+                  phone: true
+                }
+              }
             }
           },
           property: {
@@ -316,9 +322,9 @@ export const analyticsRouter = createTRPCRouter({
             id: `payment_${contract.id}_${index}`,
             amount: Number(contract.property.rentAmount || 0),
             dueDate: dueDate.toISOString(),
-            tenantName: `${contract.tenant.firstName} ${contract.tenant.lastName}`,
-            tenantEmail: contract.tenant.email,
-            tenantPhone: contract.tenant.phone,
+            tenantName: `${contract.tenant.user.firstName} ${contract.tenant.user.lastName}`,
+            tenantEmail: contract.tenant.user.email,
+            tenantPhone: contract.tenant.user.phone,
             propertyAddress: `${contract.property.street}, ${contract.property.city}`
           }
         })
