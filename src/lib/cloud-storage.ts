@@ -114,10 +114,8 @@ export async function uploadFile(params: UploadParams): Promise<UploadResult> {
     // Fájl feltöltése
     await client.send(command);
 
-    // Visszatérési URL generálása
-    const url = config.publicUrl 
-      ? `${config.publicUrl}/${params.key}`
-      : `${config.endpoint}/${config.bucket}/${params.key}`;
+    // Signed URL generálása (mivel a bucket privát)
+    const url = await getDownloadUrl(params.key, 86400); // 24 órás lejárat
 
     return {
       key: params.key,
@@ -226,14 +224,17 @@ export async function listFiles(prefix?: string, maxKeys: number = 100): Promise
       return [];
     }
 
-    return response.Contents.map(item => ({
-      key: item.Key || '',
-      size: item.Size || 0,
-      lastModified: item.LastModified || new Date(),
-      url: config.publicUrl 
-        ? `${config.publicUrl}/${item.Key}`
-        : `${config.endpoint}/${config.bucket}/${item.Key}`,
-    }));
+    // Signed URL-eket generálunk minden fájlhoz
+    const filesWithUrls = await Promise.all(
+      response.Contents.map(async (item) => ({
+        key: item.Key || '',
+        size: item.Size || 0,
+        lastModified: item.LastModified || new Date(),
+        url: await getDownloadUrl(item.Key || '', 3600), // 1 órás lejárat
+      }))
+    );
+
+    return filesWithUrls;
   } catch (error) {
     console.error('Cloud storage list error:', error);
     throw new Error(`Failed to list files: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -241,13 +242,10 @@ export async function listFiles(prefix?: string, maxKeys: number = 100): Promise
 }
 
 /**
- * Fájl URL generálása kulcs alapján
+ * Fájl URL generálása kulcs alapján (signed URL)
  */
-export function getFileUrl(key: string): string {
-  const config = getR2Config();
-  return config.publicUrl 
-    ? `${config.publicUrl}/${key}`
-    : `${config.endpoint}/${config.bucket}/${key}`;
+export async function getFileUrl(key: string, expiresIn: number = 3600): Promise<string> {
+  return await getDownloadUrl(key, expiresIn);
 }
 
 /**
