@@ -1,5 +1,31 @@
 # Változásnapló
 
+## [1.15.0] - 2025-05-31
+
+### Hozzáadva
+- Képmegjelenítés az issue detail oldalon
+- Placeholder.svg a feltöltés alatt álló képekhez
+- Suspense boundary a provider-register oldalon
+- Cloudflare R2 credentials a .env.local fájlba
+
+### Módosítva
+- ImageUpload komponens SVG placeholder használata
+- Provider register oldal Next.js 15 kompatibilitás
+
+### Javítva
+- useSearchParams() Suspense boundary hiba
+- Priority validáció hiba az issue szerkesztésnél
+- Deployment hiba a provider register oldalon
+
+### Visszavonva
+- Cloudflare R2 integráció (ideiglenesen, deployment hiba miatt)
+
+## [1.14.0] - 2025-05-30
+
+### Hozzáadva
+- Provider invitation system
+- Owner property management fejlesztések
+
 ## [1.13.0] - 2025.05.29
 
 ### Hozzáadva

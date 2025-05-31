@@ -1,11 +1,47 @@
 # Fejlesztési Előrehaladás - Molino RENTAL CRM
 
 ## Aktuális státusz
-- **Jelenlegi fázis**: Production deployment ready
-- **Befejezett lépések**: 95%
-- **Következő feladat**: Deploy to production
+- **Jelenlegi fázis**: Production running - active development
+- **Befejezett lépések**: 97%
+- **Következő feladat**: Cloudflare R2 integration refactor
 
 ## Fejlesztési napló
+
+### 2025.05.31 - Session #15 - Production Debug és Képmegjelenítés
+**Elvégzett feladatok:**
+- ✅ Production állapot ellenőrzése és adatbázis analízis
+  - Tisztázva: lokális és production adatbázisok különállóak
+  - Production: 18 tulajdonos, 2 ingatlan, 1 bérlő, 0 szolgáltató
+- ✅ Deployment hiba javítása
+  - Provider register oldal Suspense boundary hiba javítva
+  - Build sikeresen lefut
+- ✅ Képmegjelenítés javítása
+  - Issue detail oldalon most már látszanak a képek
+  - Priority validációs hiba dokumentálva
+  - Placeholder.svg létrehozva
+- ✅ Cloudflare R2 integráció (visszavonva)
+  - Implementálva volt, de deployment hibát okozott
+  - Ideiglenesen eltávolítva a stabil működés érdekében
+
+**Létrehozott/módosított fájlok:**
+- `/app/provider-register/page.tsx` - Suspense boundary hozzáadva
+- `/app/dashboard/issues/[id]/page.tsx` - Képmegjelenítés újra hozzáadva
+- `/public/placeholder.svg` - Placeholder kép létrehozva
+- `/src/components/image-upload.tsx` - SVG placeholder használata
+- `/.env.local` - R2 credentials hozzáadva (későbbi használatra)
+
+**Problémák és megoldások:**
+- Probléma: useSearchParams() Suspense boundary nélkül
+  - Megoldás: Komponens szétválasztása és Suspense wrapper
+- Probléma: R2 domain a next.config.ts-ben deployment hibát okozott
+  - Megoldás: Ideiglenesen eltávolítva, placeholder használata
+- Probléma: Priority mező üres értékkel való mentés
+  - Megoldás: Felhasználónak ki kell választania a prioritást
+
+**Következő lépések:**
+- [ ] Cloudflare R2 integráció újratervezése
+- [ ] Automatizált tesztek írása
+- [ ] Többnyelvűség implementálása (később)
 
 ### 2025.05.29 - Session #14 - Production Deployment Előkészítés
 **Elvégzett feladatok:**
