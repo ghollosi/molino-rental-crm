@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-30T13:29:21.236Z",
+  "timestamp": "2025-05-31T10:59:21.674Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M app/dashboard/owners/[id]/page.tsx\n M app/dashboard/providers/page.tsx\n M dev-server.log\n M server-monitor.log\n M src/server/routers/owner.ts\n M src/server/routers/property.ts\n M src/server/routers/provider.ts\n?? app/dashboard/owners/[id]/properties/\n?? app/dashboard/providers/invite/\n?? app/provider-register/",
+  "gitStatus": "M .session-state.json",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",

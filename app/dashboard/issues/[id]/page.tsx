@@ -205,6 +205,30 @@ export default function IssueDetailPage({ params }: { params: Promise<{ id: stri
               <p className="text-sm text-gray-500">Leírás</p>
               <p className="text-sm">{issue.description}</p>
             </div>
+            
+            {issue.photos && issue.photos.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-sm text-gray-500">Mellékelt képek</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {issue.photos.map((photo, index) => (
+                    <div key={index} className="relative group">
+                      <img
+                        src={photo.startsWith('placeholder-') ? '/placeholder.svg' : photo}
+                        alt={`Hibabejelentés kép ${index + 1}`}
+                        className="w-full h-32 object-cover rounded-lg border cursor-pointer hover:opacity-90 transition-opacity"
+                        onClick={() => window.open(photo.startsWith('placeholder-') ? '/placeholder.svg' : photo, '_blank')}
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all rounded-lg flex items-center justify-center">
+                        <span className="text-white opacity-0 group-hover:opacity-100 text-sm font-medium">
+                          Nagyítás
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             <div className="space-y-2">
               <p className="text-sm text-gray-500">Kategória</p>
               <p className="font-medium">{issue.category}</p>

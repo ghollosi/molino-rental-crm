@@ -69,7 +69,7 @@ export function ImageUpload({ value, onChange, maxFiles = 5 }: ImageUploadProps)
               {isImage(url) ? (
                 <div className="relative h-32 w-full">
                   <Image
-                    src={url.startsWith('placeholder-') ? '/placeholder.png' : url}
+                    src={url.startsWith('placeholder-') ? '/placeholder.svg' : url}
                     alt={`Document ${index + 1}`}
                     fill
                     className="object-cover rounded"
