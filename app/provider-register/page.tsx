@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { api } from '@/lib/trpc/client'
@@ -23,7 +23,7 @@ interface RegistrationFormData {
   travelCostPerKm?: number
 }
 
-export default function ProviderRegisterPage() {
+function ProviderRegisterContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
@@ -297,5 +297,17 @@ export default function ProviderRegisterPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function ProviderRegisterPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+      </div>
+    }>
+      <ProviderRegisterContent />
+    </Suspense>
   )
 }
