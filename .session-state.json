@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-31T20:32:04.717Z",
+  "timestamp": "2025-05-31T20:37:04.724Z",
   "lastCommand": "start",
   "currentFile": "none",
-  "gitStatus": "",
+  "gitStatus": "?? vercel-debug.md",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",

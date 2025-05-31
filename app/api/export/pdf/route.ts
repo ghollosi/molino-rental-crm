@@ -5,14 +5,13 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authConfig } from '@/auth.config';
+import { auth } from '@/auth';
 import { db } from '@/src/lib/db';
 import { generateOfferPDF, generateReportPDF } from '@/src/lib/pdf-new';
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getServerSession(authConfig);
+    const session = await auth();
     
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

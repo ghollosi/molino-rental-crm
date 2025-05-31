@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { AlertTriangle, Clock, CheckCircle, TrendingUp, Settings, Play } from 'lucide-react'
-import { toast } from '@/hooks/use-toast'
+import { useToast } from '@/hooks/use-toast'
 
 interface WorkflowStats {
   rulesExecuted: number
@@ -28,6 +28,7 @@ interface SLACheck {
 }
 
 export default function WorkflowAdminPage() {
+  const { toast } = useToast()
   const [stats, setStats] = useState<WorkflowStats | null>(null)
   const [slaData, setSlaData] = useState<SLACheck | null>(null)
   const [isLoading, setIsLoading] = useState(false)
