@@ -11,7 +11,7 @@ import { formatDistanceToNow } from 'date-fns'
 import { hu } from 'date-fns/locale'
 
 export function ExpiringContracts() {
-  const { data, isLoading } = trpc.contracts.getExpiringContracts.useQuery({
+  const { data, isLoading, error } = trpc.contracts.getExpiringContracts.useQuery({
     days: 60 // Következő 60 napban lejáró szerződések
   })
 
@@ -39,7 +39,24 @@ export function ExpiringContracts() {
     )
   }
 
-  if (!data || data.length === 0) {
+  if (error) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Lejáró szerződések</CardTitle>
+          <CardDescription>Hiba történt az adatok betöltése során</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-8 text-red-600">
+            <FileText className="mx-auto h-12 w-12 mb-3" />
+            <p>Hiba történt a szerződések betöltése során</p>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  if (!data || !Array.isArray(data) || data.length === 0) {
     return (
       <Card>
         <CardHeader>
@@ -80,10 +97,11 @@ export function ExpiringContracts() {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {data.slice(0, 5).map((contract) => {
-            const daysUntilExpiry = Math.ceil(
+          {(Array.isArray(data) ? data : []).slice(0, 5).map((contract) => {
+            if (!contract) return null;
+            const daysUntilExpiry = contract.endDate ? Math.ceil(
               (new Date(contract.endDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
-            )
+            ) : 0
             
             return (
               <div key={contract.id} className="p-4 border rounded-lg hover:bg-accent transition-colors">
@@ -95,7 +113,7 @@ export function ExpiringContracts() {
                       href={`/dashboard/contracts/${contract.id}`}
                       className="font-medium hover:underline"
                     >
-                      {contract.property.street}, {contract.property.city}
+                      {contract.property?.street || 'Ismeretlen'}, {contract.property?.city || 'helyeség'}
                     </Link>
                   </div>
                   {getUrgencyBadge(daysUntilExpiry)}
@@ -109,7 +127,7 @@ export function ExpiringContracts() {
                   </span>
                   <span className="flex items-center gap-1">
                     <Calendar className="h-3 w-3" />
-                    {new Date(contract.endDate).toLocaleDateString('hu-HU')}
+                    {contract.endDate ? new Date(contract.endDate).toLocaleDateString('hu-HU') : 'Nincs dátum'}
                   </span>
                 </div>
 
@@ -130,11 +148,11 @@ export function ExpiringContracts() {
           })}
         </div>
         
-        {data.length > 5 && (
+        {(Array.isArray(data) ? data.length : 0) > 5 && (
           <div className="mt-4 text-center">
             <Button variant="outline" size="sm" asChild>
               <Link href="/dashboard/contracts?filter=expiring">
-                További {data.length - 5} lejáró szerződés megtekintése
+                További {(Array.isArray(data) ? data.length : 0) - 5} lejáró szerződés megtekintése
               </Link>
             </Button>
           </div>

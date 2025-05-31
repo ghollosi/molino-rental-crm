@@ -9,7 +9,11 @@ import { Skeleton } from '@/components/ui/skeleton'
 import Link from 'next/link'
 
 export function OutstandingPayments() {
-  const { data, isLoading } = trpc.analytics.getOutstandingPayments.useQuery()
+  const { data, isLoading, error } = trpc.analytics.getOutstandingPayments.useQuery(undefined, {
+    retry: 3,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    cacheTime: 10 * 60 * 1000, // 10 minutes
+  })
 
   if (isLoading) {
     return (
@@ -35,7 +39,25 @@ export function OutstandingPayments() {
     )
   }
 
-  if (!data || data.length === 0) {
+  if (error) {
+    return (
+      <Card className="border-red-200 bg-red-50">
+        <CardHeader>
+          <CardTitle>Kintlévőségek követése</CardTitle>
+          <CardDescription>Hiba történt az adatok betöltése során</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-8 text-red-600">
+            <AlertCircle className="mx-auto h-12 w-12 mb-3" />
+            <p>Hiba történt a kintlévőségek betöltése során</p>
+            <p className="text-sm mt-1">{error.message}</p>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  if (!data || !Array.isArray(data) || data.length === 0) {
     return (
       <Card>
         <CardHeader>
@@ -74,7 +96,7 @@ export function OutstandingPayments() {
     return 'border-gray-200 bg-gray-50'
   }
 
-  const totalOutstanding = data.reduce((sum, payment) => sum + payment.amount, 0)
+  const totalOutstanding = Array.isArray(data) ? data.reduce((sum, payment) => sum + (payment?.amount ?? 0), 0) : 0
 
   return (
     <Card>
@@ -82,7 +104,7 @@ export function OutstandingPayments() {
         <div>
           <CardTitle>Kintlévőségek követése</CardTitle>
           <CardDescription>
-            Összesen: {totalOutstanding.toLocaleString('hu-HU')} Ft ({data.length} tétel)
+            Összesen: {totalOutstanding.toLocaleString('hu-HU')} Ft ({Array.isArray(data) ? data.length : 0} tétel)
           </CardDescription>
         </div>
         <Button variant="ghost" size="sm" asChild>
@@ -93,7 +115,8 @@ export function OutstandingPayments() {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {data.slice(0, 5).map((payment) => {
+          {(Array.isArray(data) ? data : []).slice(0, 5).map((payment) => {
+            if (!payment) return null;
             const daysOverdue = Math.max(0, Math.ceil(
               (new Date().getTime() - new Date(payment.dueDate).getTime()) / (1000 * 60 * 60 * 24)
             ))
@@ -107,17 +130,17 @@ export function OutstandingPayments() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <AlertCircle className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-medium">{payment.tenantName}</span>
+                    <span className="font-medium">{payment.tenantName || 'Ismeretlen bérlő'}</span>
                     {getUrgencyBadge(daysOverdue)}
                   </div>
                   <div className="text-lg font-bold text-orange-600">
-                    {payment.amount.toLocaleString('hu-HU')} Ft
+                    {(payment.amount ?? 0).toLocaleString('hu-HU')} Ft
                   </div>
                 </div>
                 
                 {/* Property and timing info */}
                 <div className="flex items-center justify-between mb-3 text-sm text-muted-foreground">
-                  <span>{payment.propertyAddress}</span>
+                  <span>{payment.propertyAddress || 'Ismeretlen cím'}</span>
                   <span className="flex items-center gap-1">
                     <Clock className="h-3 w-3" />
                     {daysOverdue > 0 ? `${daysOverdue} napja lejárt` : 'Ma esedékes'}
@@ -132,7 +155,7 @@ export function OutstandingPayments() {
                     className="flex-1 h-10 sm:h-8 text-sm" 
                     asChild
                   >
-                    <Link href={`mailto:${payment.tenantEmail}?subject=Fizetési emlékeztető&body=Kedves ${payment.tenantName},%0A%0AEmlékezzük, hogy a ${payment.propertyAddress} bérleti díja (${payment.amount.toLocaleString('hu-HU')} Ft) esedékes.%0A%0AKöszönjük!`}>
+                    <Link href={`mailto:${payment.tenantEmail || ''}?subject=Fizetési emlékeztető&body=Kedves ${payment.tenantName || 'Bérlő'},%0A%0AEmlékezzük, hogy a ${payment.propertyAddress || 'ingatlan'} bérleti díja (${(payment.amount ?? 0).toLocaleString('hu-HU')} Ft) esedékes.%0A%0AKöszönjük!`}>
                       <Mail className="h-4 w-4 mr-2" />
                       <span className="hidden sm:inline">Email küldés</span>
                       <span className="sm:hidden">Email</span>
@@ -159,24 +182,25 @@ export function OutstandingPayments() {
           })}
         </div>
         
-        {data.length > 5 && (
+        {(Array.isArray(data) ? data.length : 0) > 5 && (
           <div className="mt-4 text-center">
             <Button variant="outline" size="sm" asChild>
               <Link href="/dashboard/payments">
-                További {data.length - 5} kintlévőség megtekintése
+                További {(Array.isArray(data) ? data.length : 0) - 5} kintlévőség megtekintése
               </Link>
             </Button>
           </div>
         )}
 
         {/* Összesítő statisztika */}
-        {data.length > 0 && (
+        {(Array.isArray(data) ? data.length : 0) > 0 && (
           <div className="mt-4 p-3 bg-muted rounded-lg">
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
                 <div className="text-sm font-medium">Kritikus</div>
                 <div className="text-lg font-bold text-red-600">
-                  {data.filter(p => {
+                  {(Array.isArray(data) ? data : []).filter(p => {
+                    if (!p?.dueDate) return false;
                     const days = Math.ceil((new Date().getTime() - new Date(p.dueDate).getTime()) / (1000 * 60 * 60 * 24))
                     return days >= 30
                   }).length}
@@ -185,7 +209,8 @@ export function OutstandingPayments() {
               <div>
                 <div className="text-sm font-medium">Sürgős</div>
                 <div className="text-lg font-bold text-orange-600">
-                  {data.filter(p => {
+                  {(Array.isArray(data) ? data : []).filter(p => {
+                    if (!p?.dueDate) return false;
                     const days = Math.ceil((new Date().getTime() - new Date(p.dueDate).getTime()) / (1000 * 60 * 60 * 24))
                     return days >= 14 && days < 30
                   }).length}
@@ -194,7 +219,8 @@ export function OutstandingPayments() {
               <div>
                 <div className="text-sm font-medium">Figyelmeztetés</div>
                 <div className="text-lg font-bold text-yellow-600">
-                  {data.filter(p => {
+                  {(Array.isArray(data) ? data : []).filter(p => {
+                    if (!p?.dueDate) return false;
                     const days = Math.ceil((new Date().getTime() - new Date(p.dueDate).getTime()) / (1000 * 60 * 60 * 24))
                     return days >= 7 && days < 14
                   }).length}

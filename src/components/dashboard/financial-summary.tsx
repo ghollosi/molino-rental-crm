@@ -10,7 +10,7 @@ interface FinancialSummaryProps {
 }
 
 export function FinancialSummary({ userRole }: FinancialSummaryProps) {
-  const { data, isLoading } = trpc.analytics.getFinancialSummary.useQuery()
+  const { data, isLoading, error } = trpc.analytics.getFinancialSummary.useQuery()
 
   if (isLoading) {
     return (
@@ -33,7 +33,16 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
     )
   }
 
-  if (!data) return null
+  if (error || !data) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Pénzügyi összesítő</CardTitle>
+          <CardDescription>Hiba történt az adatok betöltése során</CardDescription>
+        </CardHeader>
+      </Card>
+    )
+  }
 
   return (
     <Card>
@@ -51,10 +60,10 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
                 Havi bevétel
               </div>
               <div className="text-lg md:text-xl font-bold text-green-900">
-                {data.monthlyRevenue.toLocaleString('hu-HU')} Ft
+                {(data.monthlyRevenue || 0).toLocaleString('hu-HU')} Ft
               </div>
               <div className="text-xs text-green-600">
-                {data.revenueChange >= 0 ? `+${data.revenueChange}%` : `${data.revenueChange}%`} előző hónaphoz képest
+                {(data.revenueChange || 0) >= 0 ? `+${data.revenueChange || 0}%` : `${data.revenueChange || 0}%`} előző hónaphoz képest
               </div>
             </div>
 
@@ -64,7 +73,7 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
                 Éves bevétel
               </div>
               <div className="text-lg md:text-xl font-bold text-blue-900">
-                {data.yearlyRevenue.toLocaleString('hu-HU')} Ft
+                {(data.yearlyRevenue || 0).toLocaleString('hu-HU')} Ft
               </div>
               <div className="text-xs text-blue-600">
                 {new Date().getFullYear()}. év várható
@@ -80,10 +89,10 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
                 Kintlévőségek
               </div>
               <div className="text-lg md:text-xl font-bold text-orange-900">
-                {data.outstandingPayments.toLocaleString('hu-HU')} Ft
+                {(data.outstandingPayments || 0).toLocaleString('hu-HU')} Ft
               </div>
               <div className="text-xs text-orange-600">
-                {data.overdueCount} késedelmes fizetés
+                {data.overdueCount || 0} késedelmes fizetés
               </div>
             </div>
 
@@ -93,17 +102,17 @@ export function FinancialSummary({ userRole }: FinancialSummaryProps) {
                 Kihasználtság
               </div>
               <div className="text-lg md:text-xl font-bold text-purple-900">
-                {data.occupancyRate}%
+                {data.occupancyRate || 0}%
               </div>
               <div className="text-xs text-purple-600">
-                {data.rentedProperties}/{data.totalProperties} ingatlan bérelt
+                {data.rentedProperties || 0}/{data.totalProperties || 0} ingatlan bérelt
               </div>
             </div>
           </div>
         </div>
 
         {/* Figyelmeztetés nagy kintlévőség esetén */}
-        {data.outstandingPayments > data.monthlyRevenue * 0.2 && (
+        {(data.outstandingPayments || 0) > (data.monthlyRevenue || 0) * 0.2 && (
           <div className="mt-4 p-3 bg-orange-50 border border-orange-200 rounded-lg">
             <div className="flex items-center">
               <AlertCircle className="h-4 w-4 text-orange-600 mr-2" />
