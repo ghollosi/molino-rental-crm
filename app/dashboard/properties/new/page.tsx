@@ -478,6 +478,7 @@ export default function NewPropertyPage() {
                 setValue('photos', newPhotos, { shouldValidate: true })
               }}
               maxFiles={10}
+              useCloudStorage={true}
             />
           </CardContent>
         </Card>

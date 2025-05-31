@@ -302,6 +302,7 @@ export default function EditPropertyPage({ params }: { params: Promise<{ id: str
                 value={formData.photos}
                 onChange={(photos) => setFormData({ ...formData, photos })}
                 maxFiles={10}
+                useCloudStorage={true}
               />
             </div>
           </CardContent>

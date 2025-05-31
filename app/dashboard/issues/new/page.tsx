@@ -256,6 +256,7 @@ export default function NewIssuePage() {
                 value={photos}
                 onChange={setPhotos}
                 maxFiles={5}
+                useCloudStorage={true}
               />
             </div>
 

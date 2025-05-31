@@ -211,6 +211,7 @@ export default function EditIssuePage({ params }: { params: Promise<{ id: string
                 value={formData.photos}
                 onChange={(photos) => setFormData({ ...formData, photos })}
                 maxFiles={5}
+                useCloudStorage={true}
               />
             </div>
 
