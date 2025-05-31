@@ -7,6 +7,7 @@
     "dev:with-session": "npm run session:start && next dev -p 3333",
     "build": "prisma generate && next build",
     "vercel-build": "prisma generate && next build",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint",
     "dev:log": "tsx src/scripts/dev-helper.ts",

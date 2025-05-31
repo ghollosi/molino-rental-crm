@@ -6,6 +6,7 @@
       "use": "@vercel/next"
     }
   ],
+  "buildCommand": "prisma generate && npm run build",
   "env": {
     "NODE_ENV": "production"
   },
