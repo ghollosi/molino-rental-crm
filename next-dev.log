@@ -1,0 +1,137 @@
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.90:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1656ms
+ ✓ Compiled /middleware in 278ms (108 modules)
+ ○ Compiling / ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (130kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled / in 2.2s (977 modules)
+ GET / 200 in 2508ms
+ ✓ Compiled in 374ms (459 modules)
+ GET / 200 in 49ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 801ms (1072 modules)
+ GET /login 200 in 1019ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 673ms (1298 modules)
+ GET /dashboard 200 in 765ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 532ms (1597 modules)
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 1306ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 17ms
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 36ms
+ ✓ Compiled /_not-found in 326ms (1601 modules)
+ GET /properties 404 in 390ms
+ GET /properties 404 in 106ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 200 in 10ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /dashboard 200 in 184ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 11ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 70ms
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 144ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 33ms
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 7ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 11ms
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 4ms
+ ✓ Compiled in 707ms (601 modules)
+ GET /dashboard 200 in 32ms
+ ✓ Compiled in 501ms (1308 modules)
+ GET /dashboard 200 in 142ms
+ GET /dashboard 200 in 239ms
+ ✓ Compiled /api/trpc/[trpc] in 409ms (1008 modules)
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 684ms
+ GET /dashboard 200 in 105ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 17ms
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 15ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 12ms
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 16ms
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on offer.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on tenant.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on issue.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+❌ tRPC failed on property.list: (0 , _lib_auth__WEBPACK_IMPORTED_MODULE_1__.auth) is not a function
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 500 in 31ms
+ GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 500 in 28ms
+ ✓ Compiled in 308ms (601 modules)
+ GET /dashboard 200 in 18ms
+ ✓ Compiled in 465ms (1609 modules)
+ GET /dashboard 200 in 71ms
+ ✓ Compiled in 492ms (1386 modules)
+ GET /dashboard 200 in 110ms
+ ✓ Compiled in 405ms (1386 modules)
+ GET /dashboard 200 in 111ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 456ms
+ ✓ Compiled in 717ms (1386 modules)
+ GET /dashboard 200 in 58ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 343ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 688ms
+ GET /dashboard 200 in 428ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 50ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 19ms
+ GET /dashboard 200 in 87ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 73ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 315ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 394ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 376ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 204ms

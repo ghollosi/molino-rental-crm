@@ -1,0 +1,309 @@
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.90:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1355ms
+ ✓ Compiled /middleware in 191ms (108 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 2.2s (1295 modules)
+ GET /dashboard 200 in 2981ms
+ ✓ Compiled in 678ms (594 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 626ms (1286 modules)
+ GET / 200 in 802ms
+ GET / 200 in 26ms
+ GET /dashboard 200 in 175ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 612ms (1362 modules)
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1279ms
+ GET /dashboard 200 in 298ms
+ GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 145ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 812ms (1383 modules)
+ GET /dashboard/properties 200 in 906ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 66ms
+ ✓ Compiled /dashboard/owners in 344ms (1398 modules)
+ GET /dashboard/owners 200 in 396ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 52ms
+ ✓ Compiled /dashboard/tenants in 490ms (1407 modules)
+ GET /dashboard/tenants 200 in 544ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 44ms
+ GET /dashboard/owners 200 in 31ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 10ms
+ GET /dashboard/tenants 200 in 21ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 13ms
+ ○ Compiling / ...
+ ✓ Compiled / in 512ms (718 modules)
+ GET / 200 in 801ms
+ ✓ Compiled in 447ms (600 modules)
+ ⨯ Error: Cannot find module './719.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/tenants/page.js:1:10127)
+    at Object.<anonymous> (.next/server/app/dashboard/tenants/page.js:1:10192) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/dashboard/tenants'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1277ms (1648 modules)
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js'
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/tenants/page.js:563:47)
+    at Object.<anonymous> (.next/server/app/dashboard/tenants/page.js:566:3) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js',
+  page: '/dashboard/tenants'
+}
+ GET /dashboard/tenants 500 in 1973ms
+ GET /dashboard/tenants 500 in 942ms
+ ✓ Compiled in 726ms (861 modules)
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js'
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/tenants/page.js:563:47)
+    at Object.<anonymous> (.next/server/app/dashboard/tenants/page.js:566:3) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js',
+  page: '/dashboard/tenants'
+}
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard/tenants 500 in 47ms
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js'
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/tenants/page.js:563:47)
+    at Object.<anonymous> (.next/server/app/dashboard/tenants/page.js:566:3) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js',
+  page: '/dashboard/tenants'
+}
+ GET /dashboard/tenants 500 in 227ms
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js'
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/tenants/page.js:563:47)
+    at Object.<anonymous> (.next/server/app/dashboard/tenants/page.js:566:3) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js',
+  page: '/dashboard/tenants'
+}
+ GET /dashboard/tenants 500 in 278ms
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js'
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/page.js:672:47)
+    at Object.<anonymous> (.next/server/app/dashboard/page.js:675:3) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js',
+  page: '/dashboard'
+}
+ GET /dashboard 500 in 274ms
+[Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'
+}
+[Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/15.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/15.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/15.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/15.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/15.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/15.pack.gz'
+}
+[Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/26.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/26.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/26.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/26.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/26.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/26.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/server-development/10.pack.gz'
+[Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development/21.pack.gz'
+ ✓ Compiled in 426ms (861 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/dashboard'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/dashboard'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET /dashboard 500 in 3374ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/Users/hollosigabor/molino-rental-crm/.next/cache/webpack/client-development-fallback/0.pack.gz'
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/dashboard'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages-manifest.json'
+}
+ GET /dashboard 500 in 132ms
+ ✓ Compiled in 416ms (861 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/dashboard'
+}
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 748ms (1652 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET /dashboard 500 in 788ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/65f7432e5c18cf03.webpack.hot-update.json 404 in 1034ms
+ ⨯ Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js'
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/page.js:672:47)
+    at Object.<anonymous> (.next/server/app/dashboard/page.js:675:3) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/vendor-chunks/lucide-react.js',
+  page: '/dashboard'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/pages/_document.js'
+}
+ GET /dashboard 500 in 52ms
