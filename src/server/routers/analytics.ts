@@ -235,6 +235,97 @@ export const analyticsRouter = createTRPCRouter({
       }
     }),
 
+  // Pénzügyi összesítő
+  getFinancialSummary: protectedProcedure
+    .query(async ({ ctx }) => {
+      // Havi bevétel (aktív bérletek)
+      const rentedProperties = await ctx.db.property.findMany({
+        where: {
+          status: 'RENTED',
+          rentAmount: { not: null }
+        },
+        select: {
+          rentAmount: true,
+          currency: true
+        }
+      })
+
+      const monthlyRevenue = rentedProperties.reduce((sum, property) => {
+        return sum + Number(property.rentAmount || 0)
+      }, 0)
+
+      // Éves bevétel becsült
+      const yearlyRevenue = monthlyRevenue * 12
+
+      // Kintlévőségek becslése (placeholder - valós rendszerben külön table kell)
+      const totalContracts = await ctx.db.contract.count({ where: { status: 'ACTIVE' } })
+      const outstandingAmount = Math.floor(monthlyRevenue * 0.1) // Becsült 10% késedelmes
+
+      // Kihasználtság
+      const [totalProperties, activeProperties] = await Promise.all([
+        ctx.db.property.count(),
+        ctx.db.property.count({ where: { status: 'RENTED' } })
+      ])
+
+      const occupancyRate = totalProperties > 0 ? (activeProperties / totalProperties * 100) : 0
+
+      return {
+        monthlyRevenue,
+        yearlyRevenue,
+        outstandingAmount,
+        occupancyRate
+      }
+    }),
+
+  // Kintlévőségek
+  getOutstandingPayments: protectedProcedure
+    .query(async ({ ctx }) => {
+      // Placeholder: valós rendszerben külön payments table kellene
+      // Most a late payments-t szimuláljuk aktív bérletek alapján
+      const activeContracts = await ctx.db.contract.findMany({
+        where: { status: 'ACTIVE' },
+        include: {
+          tenant: {
+            select: {
+              firstName: true,
+              lastName: true,
+              email: true,
+              phone: true
+            }
+          },
+          property: {
+            select: {
+              street: true,
+              city: true,
+              rentAmount: true
+            }
+          }
+        },
+        take: 10 // Legfeljebb 10 kintlévőség
+      })
+
+      // Szimuláljuk a késedelmes fizetéseket (valós rendszerben ez egy payments táblából jönne)
+      const mockOutstanding = activeContracts
+        .filter(() => Math.random() < 0.3) // 30% esély a késedelemre
+        .map((contract, index) => {
+          const daysOverdue = Math.floor(Math.random() * 45) + 1 // 1-45 nap késés
+          const dueDate = new Date()
+          dueDate.setDate(dueDate.getDate() - daysOverdue)
+
+          return {
+            id: `payment_${contract.id}_${index}`,
+            amount: Number(contract.property.rentAmount || 0),
+            dueDate: dueDate.toISOString(),
+            tenantName: `${contract.tenant.firstName} ${contract.tenant.lastName}`,
+            tenantEmail: contract.tenant.email,
+            tenantPhone: contract.tenant.phone,
+            propertyAddress: `${contract.property.street}, ${contract.property.city}`
+          }
+        })
+
+      return mockOutstanding.sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime())
+    }),
+
   // Legutóbbi tevékenységek
   recentActivity: protectedProcedure
     .input(z.object({
