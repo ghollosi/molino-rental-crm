@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
   // Optimize images
   images: {
     domains: ['localhost', 'uploadthing.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cd381d9453ab9baed52c917bb535aae2.r2.cloudflarestorage.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
     formats: ['image/avif', 'image/webp'],
   },
   

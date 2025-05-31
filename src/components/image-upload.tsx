@@ -10,9 +10,10 @@ interface ImageUploadProps {
   value: string[]
   onChange: (urls: string[]) => void
   maxFiles?: number
+  useCloudStorage?: boolean // New prop to enable/disable R2
 }
 
-export function ImageUpload({ value, onChange, maxFiles = 5 }: ImageUploadProps) {
+export function ImageUpload({ value, onChange, maxFiles = 5, useCloudStorage = false }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false)
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,21 +27,80 @@ export function ImageUpload({ value, onChange, maxFiles = 5 }: ImageUploadProps)
 
     setUploading(true)
     try {
-      // TODO: Implement actual file upload to cloud storage
-      // For now, we'll just use placeholder URLs
-      const newUrls = files.map((file, index) => 
-        `placeholder-${Date.now()}-${index}-${file.name}`
-      )
-      onChange([...value, ...newUrls])
+      if (useCloudStorage) {
+        // Cloud storage (R2) upload
+        const uploadPromises = files.map(async (file) => {
+          const formData = new FormData()
+          formData.append('file', file)
+          
+          // Determine prefix based on the page context
+          const currentPath = window.location.pathname
+          let prefix = 'general'
+          if (currentPath.includes('issues')) {
+            prefix = 'issues'
+          } else if (currentPath.includes('properties')) {
+            prefix = 'properties'
+          } else if (currentPath.includes('tenants')) {
+            prefix = 'tenants'
+          } else if (currentPath.includes('owners')) {
+            prefix = 'owners'
+          }
+          
+          formData.append('prefix', prefix)
+
+          const response = await fetch('/api/cloud-storage', {
+            method: 'POST',
+            body: formData,
+          })
+
+          if (!response.ok) {
+            const errorData = await response.json()
+            throw new Error(errorData.error || 'Upload failed')
+          }
+
+          const result = await response.json()
+          return result.data.url
+        })
+
+        const newUrls = await Promise.all(uploadPromises)
+        onChange([...value, ...newUrls])
+      } else {
+        // Placeholder mode (fallback)
+        const newUrls = files.map((file, index) => 
+          `placeholder-${Date.now()}-${index}-${file.name}`
+        )
+        onChange([...value, ...newUrls])
+      }
     } catch (error) {
       console.error('Upload error:', error)
-      alert('Hiba történt a feltöltés során')
+      alert(`Hiba történt a feltöltés során: ${error.message}`)
     } finally {
       setUploading(false)
     }
   }
 
-  const removeFile = (index: number) => {
+  const removeFile = async (index: number) => {
+    const urlToRemove = value[index]
+    
+    // If it's a real cloud storage URL and cloud storage is enabled, delete it from R2
+    if (useCloudStorage && urlToRemove && !urlToRemove.startsWith('placeholder-') && urlToRemove.includes('r2.cloudflarestorage.com')) {
+      try {
+        // Extract the key from the URL
+        const url = new URL(urlToRemove)
+        const key = url.pathname.substring(1) // Remove leading slash
+        
+        const response = await fetch(`/api/cloud-storage?key=${encodeURIComponent(key)}`, {
+          method: 'DELETE',
+        })
+        
+        if (!response.ok) {
+          console.error('Failed to delete file from cloud storage')
+        }
+      } catch (error) {
+        console.error('Error deleting file:', error)
+      }
+    }
+    
     const newValue = [...value]
     newValue.splice(index, 1)
     onChange(newValue)
@@ -73,6 +133,7 @@ export function ImageUpload({ value, onChange, maxFiles = 5 }: ImageUploadProps)
                     alt={`Document ${index + 1}`}
                     fill
                     className="object-cover rounded"
+                    unoptimized={url.includes('r2.cloudflarestorage.com')}
                   />
                 </div>
               ) : (
