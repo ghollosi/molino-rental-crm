@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-31T21:02:04.741Z",
+  "timestamp": "2025-05-31T21:57:04.852Z",
   "lastCommand": "start",
-  "currentFile": "none",
-  "gitStatus": "",
+  "currentFile": ".session-state.json",
+  "gitStatus": "M .session-state.json\n M app/dashboard/page.tsx\n M dev-server.log\n M prisma/schema.prisma\n?? .server.pid\n?? prisma/migrations/20250531215346_add_tenant_cotenants_and_documents/\n?? railway-env-import.txt\n?? src/components/forms/multi-step-tenant-form.tsx",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
@@ -66,7 +66,7 @@
     "tsx",
     "typescript"
   ],
-  "migrationStatus": "Environment variables loaded from .env\nPrisma schema loaded from prisma/schema.prisma\nDatasource \"db\": PostgreSQL database \"molino_rental\", schema \"public\" at \"localhost:5432\"\n\n1 migration found in prisma/migrations\n\nDatabase schema is up to date!",
+  "migrationStatus": "Environment variables loaded from .env\nPrisma schema loaded from prisma/schema.prisma\nDatasource \"db\": PostgreSQL database \"molino_rental\", schema \"public\" at \"localhost:5432\"\n\n2 migrations found in prisma/migrations\n\nDatabase schema is up to date!",
   "currentPhase": "Core infrastruktúra és alapfunkciók",
   "completedTasks": [
     "Projekt inicializálás - Next.js app létrehozása TypeScript és Tailwind támogatással",

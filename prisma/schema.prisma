@@ -176,7 +176,18 @@ model Tenant {
   emergencyName  String?
   emergencyPhone String?
   
+  // Profile & Documents
+  profilePhoto  String?
+  documents     String[]  // Array of document URLs (ID, contracts, etc.)
+  notes         String?   // Internal notes
+  
+  // Co-tenants relationship (self-referencing many-to-many)
+  mainTenantId  String?   // If this is a co-tenant, reference to main tenant
+  mainTenant    Tenant?   @relation("TenantCoTenants", fields: [mainTenantId], references: [id])
+  coTenants     Tenant[]  @relation("TenantCoTenants")
+  
   isActive      Boolean   @default(true)
+  isPrimary     Boolean   @default(true) // Is this the primary tenant?
   
   properties    Property[]
   contracts     Contract[]

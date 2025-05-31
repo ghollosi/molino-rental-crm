@@ -8,1237 +8,1166 @@
    - Environments: .env.local, .env
 
  ✓ Starting...
- ✓ Ready in 1327ms
- ✓ Compiled /middleware in 117ms (108 modules)
+ ✓ Ready in 1348ms
+ ✓ Compiled /middleware in 284ms (263 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
  ○ Compiling / ...
- ✓ Compiled / in 1557ms (1009 modules)
- GET / 200 in 1935ms
- ✓ Compiled in 479ms (473 modules)
+ ✓ Compiled / in 1765ms (1034 modules)
+ GET / 200 in 2011ms
+ ✓ Compiled in 319ms (484 modules)
  ○ Compiling /dashboard ...
- ✓ Compiled /dashboard in 975ms (1292 modules)
- GET /dashboard 200 in 1202ms
+ ✓ Compiled /dashboard in 1350ms (2377 modules)
+ GET /dashboard 200 in 1721ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1242ms (2543 modules)
+ GET /api/auth/session 200 in 1846ms
+ GET /api/auth/session 200 in 73ms
  ○ Compiling /api/trpc/[trpc] ...
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+ ✓ Compiled /api/trpc/[trpc] in 1110ms (2664 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1786ms
+ GET / 200 in 128ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 603ms (2709 modules)
+ GET /dashboard/issues 200 in 715ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 102ms
+ ✓ Compiled /dashboard/tenants in 388ms (2722 modules)
+ GET /dashboard/tenants 200 in 453ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 91ms
+ ○ Compiling /dashboard/tenants/new ...
+ ✓ Compiled /dashboard/tenants/new in 685ms (2741 modules)
+ GET /dashboard/tenants/new 200 in 770ms
+ GET / 200 in 130ms
+ GET / 200 in 62ms
+ GET / 200 in 50ms
+ ✓ Compiled in 769ms (1176 modules)
+ GET /dashboard/tenants/new 200 in 22ms
+ GET / 200 in 60ms
+ GET /api/auth/session 200 in 368ms
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 76ms
+ ✓ Compiled in 535ms (1176 modules)
+ GET /dashboard/tenants/new 200 in 26ms
+ ✓ Compiled in 1117ms (2634 modules)
+ GET /dashboard/tenants/new 200 in 159ms
+ ⨯ ./src/components/dashboard/financial-summary.tsx:8:1
+Module not found: Can't resolve '@/components/ui/skeleton'
+   6 | import { UserRole } from '@prisma/client'
+   7 | import { trpc } from '@/src/lib/trpc'
+>  8 | import { Skeleton } from '@/components/ui/skeleton'
+     | ^
+   9 |
+  10 | interface FinancialSummaryProps {
+  11 |   userRole: UserRole
+
+https://nextjs.org/docs/messages/module-not-found
 
 Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+./app/dashboard/page.tsx
+ ○ Compiling /_error ...
+ ⨯ ./src/components/dashboard/financial-summary.tsx:8:1
+Module not found: Can't resolve '@/components/ui/skeleton'
+   6 | import { UserRole } from '@prisma/client'
+   7 | import { trpc } from '@/src/lib/trpc'
+>  8 | import { Skeleton } from '@/components/ui/skeleton'
+     | ^
+   9 |
+  10 | interface FinancialSummaryProps {
+  11 |   userRole: UserRole
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
-
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- GET /api/auth/session 405 in 1775ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on offer.list: UNAUTHORIZED
-❌ tRPC failed on tenant.list: UNAUTHORIZED
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 1812ms
- GET /api/auth/session 405 in 28ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on offer.list: UNAUTHORIZED
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 401 in 9ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 13ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on offer.list: UNAUTHORIZED
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/property.list,issue.list,offer.list,tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%7D 401 in 47ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 59ms
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+https://nextjs.org/docs/messages/module-not-found
 
 Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
-
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
-
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
-
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
-
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+./app/dashboard/page.tsx
+ GET / 500 in 1848ms
+ GET /dashboard/tenants/new 500 in 637ms
+ GET /dashboard/tenants/new 500 in 34ms
+ GET /dashboard/tenants/new 500 in 55ms
+ GET /dashboard/tenants/new 500 in 20ms
+ GET / 500 in 20ms
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
 
 Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- GET /dashboard/properties 200 in 555ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 100ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 17ms
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
 
 Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
-
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
 
 Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
 
 Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- GET /dashboard/owners 200 in 313ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on owner.list: UNAUTHORIZED
- GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 61ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on owner.list: UNAUTHORIZED
- GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 17ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on owner.list: UNAUTHORIZED
- GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 24ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on owner.list: UNAUTHORIZED
- GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
-   Reload env: .env
- ✓ Compiled /dashboard/owners in 499ms (1425 modules)
- GET /dashboard/owners 200 in 145ms
- ✓ Compiled in 169ms (600 modules)
- ✓ Compiled in 416ms (614 modules)
- GET /dashboard/owners 200 in 15ms
- GET /dashboard 200 in 51ms
- ✓ Compiled /api/trpc/[trpc] in 442ms (942 modules)
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on offer.list: UNAUTHORIZED
-❌ tRPC failed on tenant.list: UNAUTHORIZED
-❌ tRPC failed on issue.list: UNAUTHORIZED
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list,issue.list,offer.list,tenant.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22OPEN%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22status%22%3A%22SENT%22%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A1%2C%22isActive%22%3Atrue%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 401 in 651ms
- ✓ Compiled /dashboard/properties in 146ms (951 modules)
- GET /dashboard/properties 200 in 210ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 89ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 25ms
- GET /dashboard/owners 200 in 56ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on owner.list: UNAUTHORIZED
- GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 30ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on owner.list: UNAUTHORIZED
- GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 83ms
- ○ Compiling /dashboard/tenants ...
- ✓ Compiled /dashboard/tenants in 681ms (1560 modules)
- GET /dashboard/tenants 200 in 745ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 69ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 14ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 25ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 30ms
- GET /dashboard/tenants 200 in 291ms
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ GET /dashboard/tenants/new 200 in 461ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ GET /_next/static/webpack/d81fb2debe3da99f.webpack.hot-update.json 404 in 1428ms
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ GET /dashboard/tenants/new 200 in 281ms
+ GET / 200 in 47ms
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ GET /api/auth/session 200 in 1342ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 208ms
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ ⚠ ./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/financial-summary.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/financial-summary.tsx
+./app/dashboard/page.tsx
+
+./src/components/dashboard/outstanding-payments.tsx
+Attempted import error: 'trpc' is not exported from '@/src/lib/trpc' (imported as 'trpc').
+
+Import trace for requested module:
+./src/components/dashboard/outstanding-payments.tsx
+./app/dashboard/page.tsx
+ GET /login 200 in 1336ms
+ GET /api/auth/session 200 in 97ms
+ GET /api/auth/session 200 in 387ms
+ GET / 200 in 44ms
+ GET /api/auth/providers 200 in 16ms
+ GET /api/auth/csrf 200 in 8ms
+ POST /api/auth/callback/credentials? 200 in 429ms
+ GET /api/auth/session 200 in 16ms
+ GET /dashboard 200 in 25ms
+ GET /dashboard 200 in 14ms
+ GET / 200 in 59ms
+ GET /api/auth/session 200 in 32ms
+ GET /api/auth/session 200 in 8ms
+ GET /dashboard 200 in 267ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 30ms
+ GET /api/auth/session 200 in 20ms
+ GET /api/auth/session 200 in 17ms
+ GET / 200 in 68ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 37ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 61ms
+ GET / 200 in 66ms
+ ✓ Compiled /login in 1859ms (2832 modules)
+ GET /dashboard 200 in 188ms
+ GET /dashboard/tenants/new 200 in 183ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 517ms (1562 modules)
+ GET / 200 in 1615ms
+ GET /api/auth/session 200 in 1975ms
  ○ Compiling /api/trpc/[trpc] ...
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+ ✓ Compiled /api/trpc/[trpc] in 1372ms (1683 modules)
+ GET /api/auth/session 200 in 1820ms
+❌ tRPC failed on analytics.getFinancialSummary: No procedure found on path "analytics.getFinancialSummary"
+❌ tRPC failed on analytics.getOutstandingPayments: No procedure found on path "analytics.getOutstandingPayments"
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 1979ms
+❌ tRPC failed on analytics.getFinancialSummary: No procedure found on path "analytics.getFinancialSummary"
+❌ tRPC failed on analytics.getOutstandingPayments: No procedure found on path "analytics.getOutstandingPayments"
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 17ms
+ GET /dashboard/tenants 200 in 84ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 17ms
+ GET /dashboard/tenants/new 200 in 73ms
+ GET / 200 in 194ms
+ ✓ Compiled in 1262ms (3119 modules)
+ ✓ Compiled in 0ms (1683 modules)
+ GET / 200 in 957ms
+ GET /dashboard/tenants/new 200 in 674ms
+ GET /dashboard/tenants/new 200 in 676ms
+ GET /api/auth/session 200 in 175ms
+ GET /api/auth/session 200 in 6ms
+ GET /dashboard/tenants/new 200 in 271ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 10ms
+ GET /dashboard 200 in 200ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 838ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 28ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- GET /api/auth/session 405 in 848ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 903ms
- GET /api/auth/session 405 in 36ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 60ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 28ms
-   Reload env: .env
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- GET /dashboard/tenants 200 in 86ms
- GET /dashboard/tenants 200 in 238ms
- GET /api/auth/session 405 in 94ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 241ms
- GET /api/auth/session 405 in 55ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 18ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on tenant.list: UNAUTHORIZED
- GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 10ms
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 97ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- ⚠ ./src/app/api/auth/[...nextauth]/route.ts
-export 'GET' (reexported as 'GET') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 39ms
+ GET / 200 in 62ms
+ GET /api/auth/session 200 in 75ms
+ GET /api/auth/session 200 in 14ms
+ GET /dashboard 200 in 278ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 12ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
 
-./src/app/api/auth/[...nextauth]/route.ts
-export 'POST' (reexported as 'POST') was not found in '@/auth' (possible exports: auth, handlers, signIn, signOut)
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
 
-Import trace for requested module:
-./src/app/api/auth/[...nextauth]/route.ts
- GET /dashboard/properties 200 in 337ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 66ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 14ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 34ms
-[31m[auth][error][0m JWTSessionError: Read more at https://errors.authjs.dev#jwtsessionerror
-[31m[auth][cause][0m: Error: no matching decryption secret
-    at clockTolerance (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:91:15)
-    at async flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/flattened/decrypt.js:110:15)
-    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwe/compact/decrypt.js:22:23)
-    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/webapi/jwt/decrypt.js:12:23)
-    at async Object.decode (webpack-internal:///(rsc)/./node_modules/@auth/core/jwt.js:82:25)
-    at async Module.session (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/session.js:30:29)
-    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:51:24)
-    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
-    at async Object.createTRPCContext [as createContext] (webpack-internal:///(rsc)/./src/server/trpc.ts:25:21)
-    at async Object.create (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:197:33)
-    at async resolveResponse (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/unstable-core-do-not-import/http/resolveResponse.mjs:235:9)
-    at async fetchRequestHandler (webpack-internal:///(rsc)/./node_modules/@trpc/server/dist/adapters/fetch/fetchRequestHandler.mjs:41:12)
-    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
-    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
-    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
-    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
-    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
-    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
-    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
-    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
-    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
-    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
-    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
-    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
-    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
-    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
-[31m[auth][details][0m: {}
-❌ tRPC failed on property.list: UNAUTHORIZED
- GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 401 in 27ms
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 207 in 157ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 22ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown argument `status`. Available options are marked with ?.
+❌ tRPC failed on analytics.getFinancialSummary: 
+Invalid `prisma.contract.count()` invocation:
+
+{
+  select: {
+    _count: {
+      select: {
+        _all: true
+      }
+    }
+  },
+  where: {
+    status: "ACTIVE",
+    ~~~~~~
+?   AND?: ContractWhereInput | ContractWhereInput[],
+?   OR?: ContractWhereInput[],
+?   NOT?: ContractWhereInput | ContractWhereInput[],
+?   id?: StringFilter | String,
+?   propertyId?: StringFilter | String,
+?   tenantId?: StringFilter | String,
+?   startDate?: DateTimeFilter | DateTime,
+?   endDate?: DateTimeFilter | DateTime,
+?   rentAmount?: DecimalFilter | Decimal,
+?   deposit?: DecimalNullableFilter | Decimal | Null,
+?   paymentDay?: IntFilter | Int,
+?   createdAt?: DateTimeFilter | DateTime,
+?   updatedAt?: DateTimeFilter | DateTime,
+?   property?: PropertyScalarRelationFilter | PropertyWhereInput,
+?   tenant?: TenantScalarRelationFilter | TenantWhereInput
+  }
+}
+
+Unknown argument `status`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 14ms
+ ✓ Compiled in 958ms (3119 modules)
+ GET /dashboard 200 in 76ms
+ GET /dashboard/tenants/new 200 in 112ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    endDate: {
+      gte: new Date("2025-05-31T21:42:44.434Z")
+    }
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        ~~~~~~~~~
+        lastName: true,
+        email: true,
+        phone: true,
+?       id?: true,
+?       userId?: true,
+?       emergencyName?: true,
+?       emergencyPhone?: true,
+?       isActive?: true,
+?       createdAt?: true,
+?       updatedAt?: true,
+?       user?: true,
+?       properties?: true,
+?       contracts?: true,
+?       _count?: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown field `firstName` for select statement on model `Tenant`. Available options are marked with ?.
+ GET /api/trpc/analytics.getFinancialSummary,analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 207 in 118ms
+ GET /dashboard/tenants 200 in 61ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 60ms
+ GET /dashboard/tenants/new 200 in 32ms
+ GET /dashboard 200 in 26ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    endDate: {
+      gte: new Date("2025-05-31T21:42:49.832Z")
+    }
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        ~~~~~~~~~
+        lastName: true,
+        email: true,
+        phone: true,
+?       id?: true,
+?       userId?: true,
+?       emergencyName?: true,
+?       emergencyPhone?: true,
+?       isActive?: true,
+?       createdAt?: true,
+?       updatedAt?: true,
+?       user?: true,
+?       properties?: true,
+?       contracts?: true,
+?       _count?: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown field `firstName` for select statement on model `Tenant`. Available options are marked with ?.
+ GET /api/trpc/analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 26ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    endDate: {
+      gte: new Date("2025-05-31T21:42:50.875Z")
+    }
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        ~~~~~~~~~
+        lastName: true,
+        email: true,
+        phone: true,
+?       id?: true,
+?       userId?: true,
+?       emergencyName?: true,
+?       emergencyPhone?: true,
+?       isActive?: true,
+?       createdAt?: true,
+?       updatedAt?: true,
+?       user?: true,
+?       properties?: true,
+?       contracts?: true,
+?       _count?: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown field `firstName` for select statement on model `Tenant`. Available options are marked with ?.
+ GET /api/trpc/analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 13ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    endDate: {
+      gte: new Date("2025-05-31T21:42:52.912Z")
+    }
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        ~~~~~~~~~
+        lastName: true,
+        email: true,
+        phone: true,
+?       id?: true,
+?       userId?: true,
+?       emergencyName?: true,
+?       emergencyPhone?: true,
+?       isActive?: true,
+?       createdAt?: true,
+?       updatedAt?: true,
+?       user?: true,
+?       properties?: true,
+?       contracts?: true,
+?       _count?: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown field `firstName` for select statement on model `Tenant`. Available options are marked with ?.
+ GET /api/trpc/analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 18ms
+ GET / 200 in 50ms
+❌ tRPC failed on analytics.getOutstandingPayments: 
+Invalid `prisma.contract.findMany()` invocation:
+
+{
+  where: {
+    endDate: {
+      gte: new Date("2025-05-31T21:42:56.962Z")
+    }
+  },
+  include: {
+    tenant: {
+      select: {
+        firstName: true,
+        ~~~~~~~~~
+        lastName: true,
+        email: true,
+        phone: true,
+?       id?: true,
+?       userId?: true,
+?       emergencyName?: true,
+?       emergencyPhone?: true,
+?       isActive?: true,
+?       createdAt?: true,
+?       updatedAt?: true,
+?       user?: true,
+?       properties?: true,
+?       contracts?: true,
+?       _count?: true
+      }
+    },
+    property: {
+      select: {
+        street: true,
+        city: true,
+        rentAmount: true
+      }
+    }
+  },
+  take: 10
+}
+
+Unknown field `firstName` for select statement on model `Tenant`. Available options are marked with ?.
+ GET /api/trpc/analytics.getOutstandingPayments?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 500 in 21ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 2.8s (3116 modules)
+ GET /dashboard/providers 200 in 2969ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1028ms
 [?25h
