@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3333",
     "dev:with-session": "npm run session:start && next dev -p 3333",
-    "build": "next build",
+    "build": "prisma generate && next build",
+    "vercel-build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "dev:log": "tsx src/scripts/dev-helper.ts",

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-31T20:27:04.706Z",
+  "timestamp": "2025-05-31T20:32:04.717Z",
   "lastCommand": "start",
-  "currentFile": "package-lock.json",
-  "gitStatus": "M package-lock.json\n?? public/uploads/",
+  "currentFile": "none",
+  "gitStatus": "",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
