@@ -128,13 +128,24 @@ export function ImageUpload({ value, onChange, maxFiles = 5, useCloudStorage = f
               </Button>
               {isImage(url) ? (
                 <div className="relative h-32 w-full">
-                  <Image
-                    src={url.startsWith('placeholder-') ? '/placeholder.svg' : url}
-                    alt={`Document ${index + 1}`}
-                    fill
-                    className="object-cover rounded"
-                    unoptimized={url.includes('r2.cloudflarestorage.com')}
-                  />
+                  {url.startsWith('placeholder-') ? (
+                    <Image
+                      src="/placeholder.svg"
+                      alt={`Document ${index + 1}`}
+                      fill
+                      className="object-cover rounded"
+                    />
+                  ) : (
+                    <img
+                      src={url}
+                      alt={`Document ${index + 1}`}
+                      className="w-full h-32 object-cover rounded"
+                      onError={(e) => {
+                        console.error('Image load error:', url);
+                        e.currentTarget.src = '/placeholder.svg';
+                      }}
+                    />
+                  )}
                 </div>
               ) : (
                 <div className="h-32 flex items-center justify-center bg-gray-100 rounded">
