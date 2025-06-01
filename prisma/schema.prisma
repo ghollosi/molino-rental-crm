@@ -73,7 +73,8 @@ model User {
   id            String    @id @default(cuid())
   email         String    @unique
   password      String
-  name          String
+  firstName     String    @map("name") // Use existing name column as firstName
+  lastName      String    @default("")  // Add lastName with default
   role          UserRole
   language      Language  @default(HU)
   phone         String?

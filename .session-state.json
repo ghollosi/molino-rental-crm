@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-05-31T21:57:04.852Z",
+  "timestamp": "2025-06-01T15:47:05.086Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M app/dashboard/page.tsx\n M dev-server.log\n M prisma/schema.prisma\n?? .server.pid\n?? prisma/migrations/20250531215346_add_tenant_cotenants_and_documents/\n?? railway-env-import.txt\n?? src/components/forms/multi-step-tenant-form.tsx",
+  "gitStatus": "M .session-state.json",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@hookform/resolvers",
