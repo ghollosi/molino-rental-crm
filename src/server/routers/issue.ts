@@ -296,6 +296,19 @@ export const issueRouter = createTRPCRouter({
         // Don't throw error to prevent issue creation failure
       }
 
+      // Automatikus szolgáltató hozzárendelés megkísérlése
+      try {
+        const { autoAssignProvider } = await import('@/src/lib/provider-matching')
+        const assignedProviderId = await autoAssignProvider(issue.id)
+        
+        if (assignedProviderId) {
+          console.log(`Issue ${issue.id} automatically assigned to provider ${assignedProviderId}`)
+        }
+      } catch (error) {
+        console.error('Failed to auto-assign provider:', error)
+        // Don't throw error to prevent issue creation failure
+      }
+
       return issue
     }),
 

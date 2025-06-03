@@ -236,7 +236,7 @@ export default function EditContractTemplatePage() {
             <CardHeader>
               <CardTitle>Változók</CardTitle>
               <CardDescription>
-                Definiálja a sablonban használt változókat. A változókat {{'{{'}{'{}'}} formátumban használhatja a szövegben.
+Definiálja a sablonban használt változókat. A változókat kettős kapcsos zárójelek között használhatja a szövegben.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -338,7 +338,7 @@ export default function EditContractTemplatePage() {
             <CardHeader>
               <CardTitle>Sablon tartalma</CardTitle>
               <CardDescription>
-                A szerződés szövege. Használja a fenti változókat {{'{{'}{'{}'}} formátumban.
+A szerződés szövege. Használja a fenti változókat kettős kapcsos zárójelek között.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">

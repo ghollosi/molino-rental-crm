@@ -1,3 +1,5 @@
+import { PWAInstallPrompt } from '@/components/pwa-install-prompt'
+
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
@@ -21,6 +23,7 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <PWAInstallPrompt />
     </div>
   );
 }

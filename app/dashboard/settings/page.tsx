@@ -9,10 +9,11 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow, Cloud } from 'lucide-react'
+import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, CheckCircle2, Smartphone, Workflow, Cloud } from 'lucide-react'
 import { useToast } from '@/src/hooks/use-toast'
 import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
+import { CompanySettings } from '@/components/settings/company-settings'
 
 export default function SettingsPage() {
   const { data: session, update } = useSession()
@@ -191,7 +192,7 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-7">
+        <TabsList className="grid w-full grid-cols-9">
           <TabsTrigger value="profile" className="flex items-center space-x-2">
             <User className="h-4 w-4" />
             <span>Profil</span>
@@ -215,6 +216,14 @@ export default function SettingsPage() {
           <TabsTrigger value="cloud-storage" className="flex items-center space-x-2">
             <Cloud className="h-4 w-4" />
             <span>Cloud Storage</span>
+          </TabsTrigger>
+          <TabsTrigger value="rate-limit" className="flex items-center space-x-2">
+            <Shield className="h-4 w-4" />
+            <span>Rate Limit</span>
+          </TabsTrigger>
+          <TabsTrigger value="sentry" className="flex items-center space-x-2">
+            <Shield className="h-4 w-4" />
+            <span>Sentry</span>
           </TabsTrigger>
           <TabsTrigger value="security" className="flex items-center space-x-2">
             <Shield className="h-4 w-4" />
@@ -308,51 +317,7 @@ export default function SettingsPage() {
         </TabsContent>
 
         <TabsContent value="company">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Building className="h-5 w-5" />
-                <span>Cég adatok</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <Label htmlFor="companyName">Cégnév</Label>
-                <Input id="companyName" defaultValue="Molino RENTAL Kft." />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="taxNumber">Adószám</Label>
-                  <Input id="taxNumber" defaultValue="12345678-1-42" />
-                </div>
-                <div>
-                  <Label htmlFor="bankAccount">Bankszámlaszám</Label>
-                  <Input id="bankAccount" defaultValue="12345678-12345678-12345678" />
-                </div>
-              </div>
-              
-              <div>
-                <Label htmlFor="address">Cím</Label>
-                <Input id="address" defaultValue="Váci út 1., 1133 Budapest" />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="companyEmail">E-mail</Label>
-                  <Input id="companyEmail" type="email" defaultValue="info@molino-rental.hu" />
-                </div>
-                <div>
-                  <Label htmlFor="companyPhone">Telefon</Label>
-                  <Input id="companyPhone" defaultValue="+36 1 234 5678" />
-                </div>
-              </div>
-              
-              <Button onClick={() => handleSave('Cég')}>
-                Változások mentése
-              </Button>
-            </CardContent>
-          </Card>
+          <CompanySettings />
         </TabsContent>
 
         <TabsContent value="email">
@@ -694,6 +659,214 @@ export default function SettingsPage() {
               <Button onClick={() => handleSave('Cloud Storage')}>
                 Beállítások mentése
               </Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="rate-limit">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Shield className="h-5 w-5" />
+                <span>Rate Limiting beállítások</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Shield className="h-5 w-5 text-green-600" />
+                  <h3 className="font-medium text-green-900">Rate Limiting aktív</h3>
+                </div>
+                <p className="text-green-700 text-sm">
+                  API végpontok védve vannak túlzott használat ellen. IP alapú korlátozás működik.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="font-medium">Védett útvonalak</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔐 API Routes</span>
+                      <span className="text-gray-600 font-medium">10 req/perc</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔑 Auth Routes</span>
+                      <span className="text-gray-600 font-medium">30 req/perc</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔐 Session Routes</span>
+                      <span className="text-gray-600 font-medium">100 req/perc</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📤 Upload Routes</span>
+                      <span className="text-gray-600 font-medium">5 req/perc</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📊 Export Routes</span>
+                      <span className="text-gray-600 font-medium">20 req/perc</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-medium">Védelem típusok</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>IP alapú korlátozás</span>
+                    </div>
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>Útvonal specifikus limitek</span>
+                    </div>
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>HTTP 429 válaszok</span>
+                    </div>
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>Retry-After fejlécek</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-medium">Rate Limit tesztelés</h4>
+                <p className="text-sm text-gray-600">
+                  Tesztelje a rate limiting működését különböző API végpontokon.
+                </p>
+                <Link href="/dashboard/settings/rate-limit">
+                  <Button className="w-full">
+                    Rate Limit teszt felület megnyitása
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="border-t pt-6">
+                <h4 className="font-medium mb-3">Technikai részletek</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <Label>Cache típus</Label>
+                    <div className="font-mono text-gray-600">LRU Cache</div>
+                  </div>
+                  <div>
+                    <Label>Azonosítás</Label>
+                    <div className="font-mono text-gray-600">IP alapú</div>
+                  </div>
+                  <div>
+                    <Label>Middleware</Label>
+                    <div className="font-mono text-gray-600">Next.js Edge</div>
+                  </div>
+                  <div>
+                    <Label>Állapot</Label>
+                    <div className="font-mono text-green-600">Aktív</div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="sentry">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Shield className="h-5 w-5" />
+                <span>Sentry Error Tracking</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Shield className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-medium text-blue-900">Error Monitoring Aktív</h3>
+                </div>
+                <p className="text-blue-700 text-sm">
+                  Automatikus hibakövetés, teljesítmény monitoring és session replay funkciókkal.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="font-medium">Hiba típusok</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🐛 JavaScript hibák</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔌 API hibák</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📊 Adatbázis hibák</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔑 Auth hibák</span>
+                      <span className="text-green-600 font-medium">Aktív</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-medium">Monitoring</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>Performance tracking</span>
+                    </div>
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>Session replays</span>
+                    </div>
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>User context</span>
+                    </div>
+                    <div className="flex items-center space-x-2 p-2 bg-gray-50 rounded">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <span>Environment detection</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-medium">Sentry Dashboard</h4>
+                <p className="text-sm text-gray-600">
+                  Részletes hiba analízis, tesztelés és konfiguráció beállítások.
+                </p>
+                <Link href="/dashboard/settings/sentry">
+                  <Button className="w-full">
+                    Sentry Dashboard megnyitása
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="border-t pt-6">
+                <h4 className="font-medium mb-3">Technikai részletek</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <Label>Platform</Label>
+                    <div className="font-mono text-gray-600">Next.js + Sentry</div>
+                  </div>
+                  <div>
+                    <Label>Környezet</Label>
+                    <div className="font-mono text-gray-600">{process.env.NODE_ENV || 'development'}</div>
+                  </div>
+                  <div>
+                    <Label>Sample Rate</Label>
+                    <div className="font-mono text-gray-600">Dev: 100%, Prod: 10%</div>
+                  </div>
+                  <div>
+                    <Label>Állapot</Label>
+                    <div className="font-mono text-green-600">Konfigurálva</div>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

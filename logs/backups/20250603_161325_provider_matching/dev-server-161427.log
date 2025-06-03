@@ -1836,9 +1836,3 @@ Error fetching current user: Error [TRPCError]: Session user not found in databa
  GET / 200 in 67ms
  GET / 200 in 56ms
  GET / 200 in 74ms
- GET / 200 in 65ms
- GET / 200 in 79ms
- GET / 200 in 74ms
- GET / 200 in 160ms
- GET / 200 in 66ms
- GET / 200 in 77ms

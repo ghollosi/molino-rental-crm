@@ -79,6 +79,8 @@ model User {
   language      Language  @default(HU)
   phone         String?
   isActive      Boolean   @default(true)
+  resetToken    String?   @unique
+  resetTokenExpiry DateTime?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -94,6 +96,10 @@ model User {
 model Company {
   id            String    @id @default(cuid())
   name          String
+  email         String?
+  phone         String?
+  website       String?
+  logo          String?
   taxNumber     String?
   bankAccount   String?
   
@@ -164,6 +170,8 @@ model Property {
   issues        Issue[]
   offers        Offer[]
   contracts     Contract[]
+  providers     PropertyProvider[]
+  ratings       ProviderRating[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -293,7 +301,15 @@ model Provider {
   
   rating        Float?     @default(0)
   
+  // Matching algorithm fields
+  maxRadius     Int?       @default(50) // Maximum kiszállási távolság km-ben
+  responseTime  Int?       @default(24) // Válaszadási idő órákban
+  isPreferred   Boolean    @default(false) // Preferált szolgáltató-e
+  
   assignedIssues Issue[]
+  propertyAssignments PropertyProvider[]
+  ratings       ProviderRating[]
+  slaTrackings  SLATracking[]
   
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
@@ -328,6 +344,8 @@ model Issue {
   
   timeline      IssueTimeline[]
   offers        Offer[]
+  ratings       ProviderRating[]
+  slaTracking   SLATracking?
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -372,4 +390,88 @@ model Offer {
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+}
+
+// Ingatlan-szolgáltató kapcsolatok (automatikus párosításhoz)
+model PropertyProvider {
+  id          String    @id @default(cuid())
+  propertyId  String
+  providerId  String
+  
+  property    Property  @relation(fields: [propertyId], references: [id])
+  provider    Provider  @relation(fields: [providerId], references: [id])
+  
+  // Kapcsolat jellege
+  isPrimary   Boolean   @default(false) // Elsődleges szolgáltató-e
+  categories  String[]  // Milyen kategóriákban dolgozik (IssueCategory értékek)
+  
+  // Teljesítmény adatok
+  avgResponseTime Int?  // Átlagos válaszidő órákban
+  completionRate  Float? @default(0) // Befejezési arány (0-100%)
+  rating         Float? @default(0) // Értékelés (1-5)
+  
+  // Státusz
+  isActive    Boolean   @default(true)
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@unique([propertyId, providerId])
+}
+
+// Szolgáltató értékelési rendszer
+model ProviderRating {
+  id          String    @id @default(cuid())
+  providerId  String
+  issueId     String?   // Melyik hibabejelentéshez kapcsolódik
+  propertyId  String
+  
+  provider    Provider  @relation(fields: [providerId], references: [id])
+  issue       Issue?    @relation(fields: [issueId], references: [id])
+  property    Property  @relation(fields: [propertyId], references: [id])
+  
+  // Értékelés részletei
+  rating      Int       // 1-5 skálán
+  quality     Int?      // Munka minősége (1-5)
+  timeliness  Int?      // Időben teljesítés (1-5)
+  communication Int?    // Kommunikáció (1-5)
+  price       Int?      // Ár-érték arány (1-5)
+  
+  comment     String?   // Szöveges értékelés
+  
+  // Metaadatok
+  ratedById   String?   // Ki értékelte (user id)
+  isVerified  Boolean   @default(false) // Ellenőrzött értékelés-e
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// SLA teljesítmény követés
+model SLATracking {
+  id          String      @id @default(cuid())
+  issueId     String      @unique
+  providerId  String?
+  
+  issue       Issue       @relation(fields: [issueId], references: [id])
+  provider    Provider?   @relation(fields: [providerId], references: [id])
+  
+  // SLA határidők
+  targetResponseTime Int // Cél válaszidő órákban
+  targetResolutionTime Int // Cél megoldási idő órákban
+  
+  // Tényleges teljesítés
+  actualResponseTime Int? // Tényleges válaszidő órákban
+  actualResolutionTime Int? // Tényleges megoldási idő órákban
+  
+  // Státusz
+  responseBreached Boolean @default(false) // Válaszidő túllépve
+  resolutionBreached Boolean @default(false) // Megoldási idő túllépve
+  
+  // Eszkaláció
+  escalationLevel Int @default(0) // 0=nincs, 1=első, 2=második, stb.
+  escalatedAt DateTime?
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }

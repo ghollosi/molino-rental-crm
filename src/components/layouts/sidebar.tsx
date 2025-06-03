@@ -18,6 +18,7 @@ import {
   FileSignature,
   ChevronLeft,
   ChevronRight,
+  Zap,
 } from 'lucide-react'
 import { useSidebar } from '@/contexts/sidebar-context'
 
@@ -30,6 +31,7 @@ const navigation = [
   { name: 'Hibabejelentések', href: '/dashboard/issues', icon: ClipboardList },
   { name: 'Ajánlatok', href: '/dashboard/offers', icon: FileText },
   { name: 'Szerződések', href: '/dashboard/contracts', icon: FileSignature },
+  { name: 'Szolgáltató Párosítás', href: '/dashboard/provider-matching', icon: Zap, adminOnly: true },
   { name: 'Jelentések', href: '/dashboard/reports', icon: BarChart3 },
   { name: 'Felhasználók', href: '/dashboard/users', icon: Users, adminOnly: true },
   { name: 'Beállítások', href: '/dashboard/settings', icon: Settings },
