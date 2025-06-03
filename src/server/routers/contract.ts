@@ -31,7 +31,8 @@ export const contractRouter = createTRPCRouter({
         where.OR = [
           { property: { street: { contains: search, mode: 'insensitive' as const } } },
           { property: { city: { contains: search, mode: 'insensitive' as const } } },
-          { tenant: { user: { name: { contains: search, mode: 'insensitive' as const } } } },
+          { tenant: { user: { firstName: { contains: search, mode: 'insensitive' as const } } } },
+          { tenant: { user: { lastName: { contains: search, mode: 'insensitive' as const } } } },
           { id: { contains: search, mode: 'insensitive' as const } },
         ]
       }
@@ -69,7 +70,8 @@ export const contractRouter = createTRPCRouter({
                 user: {
                   select: {
                     id: true,
-                    name: true,
+                    firstName: true,
+                    lastName: true,
                     email: true,
                     phone: true,
                   },
@@ -123,7 +125,8 @@ export const contractRouter = createTRPCRouter({
                   user: {
                     select: {
                       id: true,
-                      name: true,
+                      firstName: true,
+                      lastName: true,
                       email: true,
                       phone: true,
                     },
@@ -137,7 +140,8 @@ export const contractRouter = createTRPCRouter({
               user: {
                 select: {
                   id: true,
-                  name: true,
+                  firstName: true,
+                  lastName: true,
                   email: true,
                   phone: true,
                 },
@@ -180,6 +184,8 @@ export const contractRouter = createTRPCRouter({
       rentAmount: z.number().positive(),
       deposit: z.number().positive().optional(),
       paymentDay: z.number().min(1).max(31),
+      templateId: z.string().optional(),
+      content: z.string().optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -244,11 +250,63 @@ export const contractRouter = createTRPCRouter({
         })
       }
 
+      let contractContent = input.content
+
+      // If template is selected, generate content from template
+      if (input.templateId) {
+        const template = await ctx.db.contractTemplate.findUnique({
+          where: { id: input.templateId },
+        })
+
+        if (template && template.isActive) {
+          // Get property and tenant details for template variables
+          const [propertyDetails, tenantDetails] = await Promise.all([
+            ctx.db.property.findUnique({
+              where: { id: input.propertyId },
+              include: { owner: { include: { user: true } } },
+            }),
+            ctx.db.tenant.findUnique({
+              where: { id: input.tenantId },
+              include: { user: true },
+            }),
+          ])
+
+          // Replace template variables with actual data
+          contractContent = template.content
+          const variables = template.variables as Array<{key: string}>
+
+          // Common replacements
+          const replacements: Record<string, string> = {
+            ingatlan_cim: `${propertyDetails?.street}, ${propertyDetails?.city} ${propertyDetails?.postalCode}`,
+            ingatlan_alapterulet: propertyDetails?.size?.toString() || '',
+            ingatlan_szobaszam: propertyDetails?.rooms?.toString() || '',
+            berlo_nev: `${tenantDetails?.user.firstName} ${tenantDetails?.user.lastName}`,
+            berlo_lakcim: tenantDetails?.user.email || '', // Would need address field
+            berleti_dij: input.rentAmount.toString(),
+            berleti_dij_szoveg: input.rentAmount.toLocaleString('hu-HU'),
+            kaucio: input.deposit?.toString() || '0',
+            kaucio_szoveg: input.deposit?.toLocaleString('hu-HU') || 'nincs',
+            kezdo_datum: input.startDate.toLocaleDateString('hu-HU'),
+            veg_datum: input.endDate.toLocaleDateString('hu-HU'),
+            fizetes_napja: input.paymentDay.toString(),
+            tulajdonos_nev: `${propertyDetails?.owner?.user.firstName} ${propertyDetails?.owner?.user.lastName}`,
+          }
+
+          // Replace all variables
+          Object.entries(replacements).forEach(([key, value]) => {
+            const regex = new RegExp(`{{${key}}}`, 'g')
+            contractContent = contractContent?.replace(regex, value) || ''
+          })
+        }
+      }
+
       const contract = await ctx.db.contract.create({
         data: {
           ...input,
           rentAmount: new Decimal(input.rentAmount),
           deposit: input.deposit ? new Decimal(input.deposit) : null,
+          templateId: input.templateId,
+          content: contractContent,
         },
         include: {
           property: true,

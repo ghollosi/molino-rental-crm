@@ -16,7 +16,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
-import { Plus, Search, AlertCircle, Clock, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Plus, Search, AlertCircle, Clock, CheckCircle, ChevronLeft, ChevronRight, Eye, Edit, Trash2 } from 'lucide-react'
 import Link from 'next/link'
 import { ExportToolbar } from '@/components/export-toolbar'
 
@@ -241,13 +241,21 @@ export default function IssuesPage() {
                         {new Date(issue.createdAt).toLocaleDateString('hu-HU')}
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => router.push(`/dashboard/issues/${issue.id}`)}
-                        >
-                          Részletek
-                        </Button>
+                        <div className="flex items-center justify-end space-x-2">
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/dashboard/issues/${issue.id}`}>
+                              <Eye className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/dashboard/issues/${issue.id}/edit`}>
+                              <Edit className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}

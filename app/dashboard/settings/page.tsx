@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow } from 'lucide-react'
+import { Settings, User, Building, Mail, Bell, Shield, AlertCircle, CheckCircle, Smartphone, Workflow, Cloud } from 'lucide-react'
 import { useToast } from '@/src/hooks/use-toast'
 import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
@@ -27,20 +27,24 @@ export default function SettingsPage() {
     phone: ''
   })
   const [isFormInitialized, setIsFormInitialized] = useState(false)
+  
+  // Get current user data from database
+  const { data: currentUser } = api.user.getCurrentUser.useQuery(undefined, {
+    enabled: !!session?.user?.id
+  })
 
-  // Initialize form with session data only once
+  // Initialize form with current user data
   useEffect(() => {
-    if (session?.user && !isFormInitialized) {
-      const nameParts = session.user.name?.split(' ') || ['', '']
+    if (currentUser && !isFormInitialized) {
       setProfileData({
-        firstName: nameParts[0] || '',
-        lastName: nameParts.slice(1).join(' ') || '',
-        email: session.user.email || '',
-        phone: session.user.phone || ''
+        firstName: currentUser.firstName || '',
+        lastName: currentUser.lastName || '',
+        email: currentUser.email || '',
+        phone: currentUser.phone || ''
       })
       setIsFormInitialized(true)
     }
-  }, [session, isFormInitialized])
+  }, [currentUser, isFormInitialized])
 
   const updateUserMutation = api.user.update.useMutation({
     onSuccess: async (updatedUser) => {
@@ -52,26 +56,71 @@ export default function SettingsPage() {
       })
       setSuccess('Profil beállítások sikeresen mentve!')
       
-      // NextAuth session cache is stubborn, force complete page reload
-      console.log('Profile updated successfully, reloading page to refresh session...')
+      // Update NextAuth session immediately
+      console.log('Updating NextAuth session with new data...')
       
-      toast({
-        title: "Átirányítás",
-        description: "Profil frissítve! Az oldal újratöltődik...",
-      })
-      
-      setTimeout(() => {
-        // Clear any NextAuth cache and reload the entire page
-        window.location.href = '/dashboard'
-      }, 1500)
+      try {
+        await update({
+          ...session,
+          user: {
+            ...session?.user,
+            name: `${updatedUser.firstName} ${updatedUser.lastName}`,
+            firstName: updatedUser.firstName,
+            lastName: updatedUser.lastName,
+            email: updatedUser.email,
+            phone: updatedUser.phone,
+          }
+        })
+        
+        console.log('Session updated successfully')
+        
+        // Update local form data too
+        setProfileData({
+          firstName: updatedUser.firstName || '',
+          lastName: updatedUser.lastName || '',
+          email: updatedUser.email || '',
+          phone: updatedUser.phone || ''
+        })
+        
+        toast({
+          title: "Kész!",
+          description: "A profil frissítése megtörtént!",
+        })
+        
+      } catch (error) {
+        console.error('Session update failed:', error)
+        toast({
+          title: "Figyelmeztetés",
+          description: "Az adatok mentve, de a session frissítése sikertelen. Töltse újra az oldalt.",
+          variant: "destructive"
+        })
+      }
     },
     onError: (error) => {
-      toast({
-        title: "Hiba",
-        description: "Profil frissítés sikertelen: " + error.message,
-        variant: "destructive"
-      })
-      setError('Profil frissítés sikertelen')
+      console.error('Update error:', error)
+      
+      if (error.message.includes('not found') || error.message.includes('No record was found') || error.message.includes('Session user not found')) {
+        toast({
+          title: "Session hiba",
+          description: "A session lejárt vagy érvénytelen. Jelentkezzen be újra.",
+          variant: "destructive"
+        })
+        setError('Session hiba - kérjük jelentkezzen be újra')
+        
+        // Offer logout after 3 seconds
+        setTimeout(() => {
+          if (confirm('A session lejárt. Szeretne kijelentkezni és újra bejelentkezni?')) {
+            signOut({ callbackUrl: '/login' })
+          }
+        }, 3000)
+      } else {
+        toast({
+          title: "Hiba",
+          description: "Profil frissítés sikertelen: " + error.message,
+          variant: "destructive"
+        })
+        setError('Profil frissítés sikertelen')
+      }
     }
   })
 
@@ -85,14 +134,19 @@ export default function SettingsPage() {
       console.log('Profile data:', profileData)
       
       if (!session?.user?.id) {
-        console.error('Missing user ID!')
-        setError('Felhasználó azonosító hiányzik')
+        setError('Felhasználó azonosító hiányzik. Kérjük jelentkezzen be újra.')
+        toast({
+          title: "Hiba",
+          description: "Felhasználó azonosító hiányzik. Kérjük jelentkezzen be újra.",
+          variant: "destructive"
+        })
         return
       }
 
       const updateData = {
         id: session.user.id,
-        name: `${profileData.firstName} ${profileData.lastName}`.trim(),
+        firstName: profileData.firstName,
+        lastName: profileData.lastName,
         email: profileData.email,
         phone: profileData.phone || undefined
       }
@@ -137,7 +191,7 @@ export default function SettingsPage() {
       )}
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-6">
+        <TabsList className="grid w-full grid-cols-7">
           <TabsTrigger value="profile" className="flex items-center space-x-2">
             <User className="h-4 w-4" />
             <span>Profil</span>
@@ -158,6 +212,10 @@ export default function SettingsPage() {
             <Workflow className="h-4 w-4" />
             <span>Workflow</span>
           </TabsTrigger>
+          <TabsTrigger value="cloud-storage" className="flex items-center space-x-2">
+            <Cloud className="h-4 w-4" />
+            <span>Cloud Storage</span>
+          </TabsTrigger>
           <TabsTrigger value="security" className="flex items-center space-x-2">
             <Shield className="h-4 w-4" />
             <span>Biztonság</span>
@@ -173,6 +231,21 @@ export default function SettingsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
+              {error && error.includes('Session hiba') && (
+                <Alert className="border-orange-200 bg-orange-50">
+                  <AlertCircle className="h-4 w-4 text-orange-600" />
+                  <AlertDescription className="text-orange-800">
+                    <strong>Session hiba:</strong> Az adatbázis frissítése után a session érvénytelen lett. 
+                    Kérjük <button 
+                      onClick={() => signOut({ callbackUrl: '/login' })} 
+                      className="underline font-medium hover:text-orange-900"
+                    >
+                      jelentkezzen ki és be újra
+                    </button> a profil frissítéséhez.
+                  </AlertDescription>
+                </Alert>
+              )}
+              
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="firstName">Keresztnév</Label>
@@ -515,6 +588,112 @@ export default function SettingsPage() {
                   <p>• <strong>Statisztikák:</strong> Teljesítmény mérés és jelentések</p>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="cloud-storage">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Cloud className="h-5 w-5" />
+                <span>Cloud Storage beállítások</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Cloud className="h-5 w-5 text-blue-600" />
+                  <h3 className="font-medium text-blue-900">Cloudflare R2 Storage</h3>
+                </div>
+                <p className="text-blue-700 text-sm">
+                  Teljes fájlkezelési rendszer feltöltéssel, letöltéssel és tárolóstatisztikákkal.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="font-medium">Konfiguráció</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>☁️ R2 Endpoint</span>
+                      <span className="text-green-600 font-medium">Konfigurálva</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🔑 Access Keys</span>
+                      <span className="text-green-600 font-medium">Konfigurálva</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🪣 R2 Bucket</span>
+                      <span className="text-green-600 font-medium">molino-rental-uploads</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📡 Connection</span>
+                      <span className="text-yellow-600 font-medium">Tesztelés szükséges</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-medium">Funkciók</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📤 Fájl feltöltés</span>
+                      <span className="text-green-600 font-medium">Elérhető</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📥 Fájl letöltés</span>
+                      <span className="text-green-600 font-medium">Elérhető</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>🗂️ Fájl kezelés</span>
+                      <span className="text-green-600 font-medium">Elérhető</span>
+                    </div>
+                    <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                      <span>📊 Statisztikák</span>
+                      <span className="text-green-600 font-medium">Elérhető</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-medium">Cloud Storage kezelő felület</h4>
+                <p className="text-sm text-gray-600">
+                  Teljes R2 storage kezelés: kapcsolat tesztelése, fájl feltöltés, letöltés, törlés és statisztikák.
+                </p>
+                <Link href="/dashboard/settings/cloud-storage">
+                  <Button className="w-full">
+                    Cloud Storage kezelő megnyitása
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="border-t pt-6">
+                <h4 className="font-medium mb-3">R2 beállítások</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <Label>Provider</Label>
+                    <div className="font-mono text-gray-600">Cloudflare R2</div>
+                  </div>
+                  <div>
+                    <Label>S3 kompatibilitás</Label>
+                    <div className="font-mono text-gray-600">Igen</div>
+                  </div>
+                  <div>
+                    <Label>Maximális fájlméret</Label>
+                    <div className="font-mono text-gray-600">50MB</div>
+                  </div>
+                  <div>
+                    <Label>Támogatott formátumok</Label>
+                    <div className="font-mono text-gray-600">Minden típus</div>
+                  </div>
+                </div>
+              </div>
+
+              <Button onClick={() => handleSave('Cloud Storage')}>
+                Beállítások mentése
+              </Button>
             </CardContent>
           </Card>
         </TabsContent>

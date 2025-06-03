@@ -10,7 +10,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, AlertCircle } from 'lucide-react'
+import { ArrowLeft, AlertCircle, Upload, X } from 'lucide-react'
+import { ImageUpload } from '@/components/ui/image-upload'
 import Link from 'next/link'
 
 interface OwnerFormData {
@@ -22,12 +23,14 @@ interface OwnerFormData {
   isCompany: boolean
   companyName?: string
   taxNumber?: string
+  profilePhoto?: string
 }
 
 export default function NewOwnerPage() {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [isCompany, setIsCompany] = useState(false)
+  const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<OwnerFormData>({
     defaultValues: {
@@ -35,7 +38,7 @@ export default function NewOwnerPage() {
     }
   })
 
-  const createOwner = api.owner.create.useMutation({
+  const createOwner = api.owner.createWithUser.useMutation({
     onSuccess: () => {
       router.push('/dashboard/owners')
     },
@@ -55,6 +58,7 @@ export default function NewOwnerPage() {
       isCompany: data.isCompany,
       companyName: data.isCompany ? data.companyName : undefined,
       taxNumber: data.isCompany ? data.taxNumber : undefined,
+      profilePhoto: profilePhoto || undefined,
     })
   }
 
@@ -180,6 +184,20 @@ export default function NewOwnerPage() {
                 {errors.password && (
                   <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>
                 )}
+              </div>
+
+              <div>
+                <Label htmlFor="profilePhoto">Profilkép</Label>
+                <div className="mt-2">
+                  <ImageUpload
+                    value={profilePhoto ? [profilePhoto] : []}
+                    onChange={(urls) => setProfilePhoto(urls[0] || null)}
+                    maxFiles={1}
+                  />
+                </div>
+                <p className="text-sm text-gray-500 mt-1">
+                  Opcionális: Tölts fel egy profilképet a tulajdonoshoz
+                </p>
               </div>
 
               <div>

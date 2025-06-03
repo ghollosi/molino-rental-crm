@@ -29,7 +29,8 @@ export const providerRouter = createTRPCRouter({
           { businessName: { contains: search, mode: 'insensitive' as const } },
           { user: {
             OR: [
-              { name: { contains: search, mode: 'insensitive' as const } },
+              { firstName: { contains: search, mode: 'insensitive' as const } },
+              { lastName: { contains: search, mode: 'insensitive' as const } },
               { email: { contains: search, mode: 'insensitive' as const } },
             ],
           }},
@@ -51,7 +52,8 @@ export const providerRouter = createTRPCRouter({
             user: {
               select: {
                 id: true,
-                name: true,
+                firstName: true,
+              lastName: true,
                 email: true,
                 phone: true,
                 isActive: true,
@@ -88,7 +90,8 @@ export const providerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
               isActive: true,
@@ -106,7 +109,8 @@ export const providerRouter = createTRPCRouter({
               },
               reportedBy: {
                 select: {
-                  name: true,
+                  firstName: true,
+              lastName: true,
                   email: true,
                 },
               },
@@ -144,7 +148,8 @@ export const providerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
               isActive: true,
@@ -165,10 +170,33 @@ export const providerRouter = createTRPCRouter({
 
   create: protectedProcedure
     .input(z.object({
-      userId: z.string(),
-      businessName: z.string().min(1, 'Business name is required'),
-      specialty: z.array(z.string()).min(1, 'At least one specialty is required'),
-      hourlyRate: z.number().positive().optional(),
+      // Basic company info
+      businessName: z.string().min(1, 'Cégnév megadása kötelező'),
+      representativeName: z.string().optional(),
+      salutation: z.string().optional(),
+      
+      // Contact details
+      email: z.string().email('Érvényes email cím szükséges').optional(),
+      website: z.string().url('Érvényes weboldal cím szükséges').optional(),
+      
+      // Business details
+      taxNumber: z.string().optional(),
+      bankAccount: z.string().optional(),
+      
+      // Address
+      street: z.string().optional(),
+      city: z.string().optional(),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      
+      // Photos
+      companyLogo: z.string().optional(),
+      profilePhoto: z.string().optional(),
+      
+      // Service details
+      specialty: z.array(z.string()).min(1, 'Legalább egy szakterület megadása kötelező'),
+      hourlyRate: z.number().positive('Az óradíj pozitív szám kell legyen').optional(),
+      travelFee: z.number().min(0, 'A kiszállási díj nem lehet negatív').optional(),
       currency: z.string().default('EUR'),
       availability: z.record(z.any()).optional(),
     }))
@@ -177,35 +205,35 @@ export const providerRouter = createTRPCRouter({
       if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: 'Insufficient permissions',
+          message: 'Nincs jogosultsága szolgáltató létrehozásához',
         })
       }
 
-      // Check if provider profile already exists
-      const existingProvider = await ctx.db.provider.findUnique({
-        where: { userId: input.userId },
-      })
-
-      if (existingProvider) {
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          message: 'Provider profile already exists for this user',
-        })
-      }
-
-      // Update user role to PROVIDER if not already
-      await ctx.db.user.update({
-        where: { id: input.userId },
-        data: { role: 'PROVIDER' },
+      // Create a new user for the provider (simplified approach - no user account needed)
+      // We'll use a placeholder user with PROVIDER role
+      const user = await ctx.db.user.create({
+        data: {
+          email: input.email || `provider-${Date.now()}@temp.local`,
+          password: 'temp-password', // This will be updated when/if they set up login
+          firstName: input.representativeName || 'Szolgáltató',
+          lastName: '',
+          role: 'PROVIDER',
+          phone: '', // We'll get this from the provider form if needed
+          isActive: true,
+        },
       })
 
       const provider = await ctx.db.provider.create({
-        data: input,
+        data: {
+          ...input,
+          userId: user.id,
+        },
         include: {
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },
@@ -219,22 +247,38 @@ export const providerRouter = createTRPCRouter({
   update: protectedProcedure
     .input(z.object({
       id: z.string(),
-      userId: z.string(),
-      userData: z.object({
-        name: z.string().min(1, 'Name is required'),
-        email: z.string().email('Invalid email'),
-        phone: z.string().optional(),
-      }),
-      providerData: z.object({
-        businessName: z.string().optional(),
-        specialty: z.array(z.string()).optional(),
-        hourlyRate: z.number().positive().optional(),
-        currency: z.string().optional(),
-        availability: z.record(z.any()).optional(),
-      }),
+      // Basic company info
+      businessName: z.string().min(1, 'Cégnév megadása kötelező'),
+      representativeName: z.string().optional(),
+      salutation: z.string().optional(),
+      
+      // Contact details
+      email: z.string().email('Érvényes email cím szükséges').optional(),
+      website: z.string().url('Érvényes weboldal cím szükséges').optional(),
+      
+      // Business details
+      taxNumber: z.string().optional(),
+      bankAccount: z.string().optional(),
+      
+      // Address
+      street: z.string().optional(),
+      city: z.string().optional(),
+      postalCode: z.string().optional(),
+      country: z.string().optional(),
+      
+      // Photos
+      companyLogo: z.string().optional(),
+      profilePhoto: z.string().optional(),
+      
+      // Service details
+      specialty: z.array(z.string()).min(1, 'Legalább egy szakterület megadása kötelező'),
+      hourlyRate: z.number().positive('Az óradíj pozitív szám kell legyen').optional(),
+      travelFee: z.number().min(0, 'A kiszállási díj nem lehet negatív').optional(),
+      currency: z.string().default('EUR'),
+      availability: z.record(z.any()).optional(),
     }))
     .mutation(async ({ ctx, input }) => {
-      const { id, userId, userData, providerData } = input
+      const { id, ...updateData } = input
 
       // Check permissions - providers can update their own profile
       const provider = await ctx.db.provider.findUnique({
@@ -244,37 +288,43 @@ export const providerRouter = createTRPCRouter({
       if (!provider) {
         throw new TRPCError({
           code: 'NOT_FOUND',
-          message: 'Provider not found',
+          message: 'Szolgáltató nem található',
         })
       }
 
       if (ctx.session.user.role === 'PROVIDER' && provider.userId !== ctx.session.user.id) {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: 'You can only update your own profile',
+          message: 'Csak a saját profilt módosíthatja',
         })
       } else if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER', 'PROVIDER'].includes(ctx.session.user.role)) {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: 'Insufficient permissions',
+          message: 'Nincs jogosultsága',
         })
       }
 
-      // Update user data
-      await ctx.db.user.update({
-        where: { id: userId },
-        data: userData,
-      })
+      // Update user data if email or representative name changed
+      if (updateData.email || updateData.representativeName) {
+        await ctx.db.user.update({
+          where: { id: provider.userId },
+          data: {
+            ...(updateData.email && { email: updateData.email }),
+            ...(updateData.representativeName && { firstName: updateData.representativeName }),
+          },
+        })
+      }
 
       // Update provider data
       const updatedProvider = await ctx.db.provider.update({
         where: { id },
-        data: providerData,
+        data: updateData,
         include: {
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },
@@ -323,7 +373,8 @@ export const providerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },

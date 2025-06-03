@@ -1,0 +1,91 @@
+
+> molino-rental-crm@0.1.0 dev
+> next dev -p 3333
+
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.90:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1543ms
+ ✓ Compiled /middleware in 279ms (263 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ ○ Compiling /api/health-check ...
+ ✓ Compiled /api/health-check in 570ms (363 modules)
+ GET /api/health-check 200 in 667ms
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (128kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling / ...
+ ✓ Compiled / in 1724ms (1050 modules)
+ GET / 200 in 1898ms
+ ✓ Compiled in 266ms (484 modules)
+ ✓ Compiled in 438ms (484 modules)
+ GET / 200 in 31ms
+ GET / 200 in 24ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 712ms (1186 modules)
+ GET /api/auth/session 200 in 1671ms
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 137ms
+ GET / 200 in 52ms
+ GET / 200 in 34ms
+ GET /api/auth/session 200 in 33ms
+ GET /api/auth/session 200 in 67ms
+ ○ Compiling /dashboard/contracts/templates ...
+ ✓ Compiled /dashboard/contracts/templates in 1363ms (1497 modules)
+ GET / 200 in 813ms
+ GET /dashboard/contracts/templates 200 in 1665ms
+ GET /api/auth/session 200 in 100ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 550ms (1619 modules)
+ GET /api/auth/session 200 in 746ms
+=== CONTRACT TEMPLATE DEBUG ===
+ctx: true
+ctx.db: true
+ctx.session: true
+ctx.session.user: {
+  email: 'admin@molino.com',
+  id: 'cmbflb5q20001i8drg83gal7g',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/contractTemplate.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22search%22%3Anull%2C%22type%22%3Anull%2C%22limit%22%3A100%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1218ms
+ GET / 200 in 150ms
+ GET / 200 in 42ms
+ GET / 200 in 43ms
+ GET / 200 in 53ms
+ ✓ Compiled in 687ms (1345 modules)
+ GET /dashboard/contracts/templates 200 in 104ms
+ GET / 200 in 106ms
+ GET / 200 in 39ms
+ GET /dashboard/contracts/templates 200 in 206ms
+ ✓ Compiled /api/trpc/[trpc] in 360ms (892 modules)
+ ✓ Compiled (1014 modules)
+ GET /api/auth/session 200 in 904ms
+ GET /dashboard/contracts/templates 200 in 115ms
+ GET /api/auth/session 200 in 110ms
+ GET /api/trpc/contractTemplate.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22search%22%3Anull%2C%22type%22%3Anull%2C%22limit%22%3A100%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1060ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 1071ms (1638 modules)
+ GET /dashboard/reports 200 in 1139ms
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 254ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 689ms (1665 modules)
+ GET /dashboard/offers 200 in 746ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 83ms
+ GET / 200 in 105ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 869ms (1678 modules)
+ GET /dashboard/issues 200 in 941ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 139ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 536ms (1693 modules)
+ GET /dashboard/providers 200 in 611ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 75ms
+ ○ Compiling /dashboard/providers/new ...
+ ✓ Compiled /dashboard/providers/new in 600ms (1712 modules)
+ GET /dashboard/providers/new 200 in 666ms
+ GET /api/trpc/user.list,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 52ms
+ GET / 200 in 117ms
+ GET / 200 in 62ms
+ GET / 200 in 86ms

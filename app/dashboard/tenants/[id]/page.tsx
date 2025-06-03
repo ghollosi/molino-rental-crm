@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, use } from 'react'
 import { useRouter } from 'next/navigation'
 import { api } from '@/lib/trpc'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -36,11 +36,12 @@ import Link from 'next/link'
 import { format } from 'date-fns'
 import { hu } from 'date-fns/locale'
 
-export default function TenantDetailPage({ params }: { params: { id: string } }) {
+export default function TenantDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
   const [deleteError, setDeleteError] = useState<string | null>(null)
+  const { id } = use(params)
 
-  const { data: tenant, isLoading } = api.tenant.getById.useQuery(params.id)
+  const { data: tenant, isLoading } = api.tenant.getById.useQuery(id)
 
   const deleteTenant = api.tenant.delete.useMutation({
     onSuccess: () => {
@@ -63,7 +64,7 @@ export default function TenantDetailPage({ params }: { params: { id: string } })
 
   const handleDelete = async () => {
     if (confirm('Biztosan törölni szeretné ezt a bérlőt? Ez a művelet nem visszavonható.')) {
-      await deleteTenant.mutateAsync(params.id)
+      await deleteTenant.mutateAsync(id)
     }
   }
 

@@ -27,7 +27,8 @@ export const ownerRouter = createTRPCRouter({
       if (search) {
         where.user = {
           OR: [
-            { name: { contains: search, mode: 'insensitive' as const } },
+            { firstName: { contains: search, mode: 'insensitive' as const } },
+            { lastName: { contains: search, mode: 'insensitive' as const } },
             { email: { contains: search, mode: 'insensitive' as const } },
           ],
         }
@@ -46,7 +47,8 @@ export const ownerRouter = createTRPCRouter({
             user: {
               select: {
                 id: true,
-                name: true,
+                firstName: true,
+                lastName: true,
                 email: true,
                 phone: true,
                 isActive: true,
@@ -83,7 +85,8 @@ export const ownerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
               isActive: true,
@@ -122,6 +125,83 @@ export const ownerRouter = createTRPCRouter({
       return owner
     }),
 
+  createWithUser: protectedProcedure
+    .input(z.object({
+      firstName: z.string().min(1),
+      lastName: z.string().min(1),
+      email: z.string().email(),
+      password: z.string().min(6),
+      phone: z.string().optional(),
+      address: z.string().optional(),
+      isCompany: z.boolean().default(false),
+      companyName: z.string().optional(),
+      taxNumber: z.string().optional(),
+      profilePhoto: z.string().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Insufficient permissions',
+        })
+      }
+
+      // Check if user already exists
+      const existingUser = await ctx.db.user.findUnique({
+        where: { email: input.email },
+      })
+
+      if (existingUser) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'User with this email already exists',
+        })
+      }
+
+      const bcrypt = await import('bcryptjs')
+      const hashedPassword = await bcrypt.hash(input.password, 12)
+
+      // Create user and owner in transaction
+      const result = await ctx.db.$transaction(async (tx) => {
+        // Create user
+        const user = await tx.user.create({
+          data: {
+            firstName: input.firstName,
+            lastName: input.lastName,
+            email: input.email,
+            password: hashedPassword,
+            phone: input.phone,
+            role: 'OWNER',
+          },
+        })
+
+        // Create owner profile
+        const owner = await tx.owner.create({
+          data: {
+            userId: user.id,
+            profilePhoto: input.profilePhoto,
+            taxNumber: input.taxNumber,
+          },
+          include: {
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                email: true,
+                phone: true,
+              },
+            },
+          },
+        })
+
+        return owner
+      })
+
+      return result
+    }),
+
   getByUserId: protectedProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
@@ -131,7 +211,8 @@ export const ownerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
               isActive: true,
@@ -192,7 +273,8 @@ export const ownerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },
@@ -205,7 +287,8 @@ export const ownerRouter = createTRPCRouter({
 
   quickCreate: protectedProcedure
     .input(z.object({
-      name: z.string().min(1, 'Name is required'),
+      firstName: z.string().min(1, 'First name is required'),
+      lastName: z.string().min(1, 'Last name is required'),
       email: z.string().email('Invalid email'),
       phone: z.string().optional(),
       taxNumber: z.string().optional(),
@@ -247,7 +330,8 @@ export const ownerRouter = createTRPCRouter({
             user: {
               select: {
                 id: true,
-                name: true,
+                firstName: true,
+              lastName: true,
                 email: true,
                 phone: true,
               },
@@ -267,7 +351,8 @@ export const ownerRouter = createTRPCRouter({
       // Create new user and owner profile
       const user = await ctx.db.user.create({
         data: {
-          name: input.name,
+          firstName: input.firstName,
+          lastName: input.lastName,
           email: input.email,
           phone: input.phone,
           role: 'OWNER',
@@ -284,7 +369,8 @@ export const ownerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },
@@ -300,7 +386,8 @@ export const ownerRouter = createTRPCRouter({
       id: z.string(),
       userId: z.string(),
       userData: z.object({
-        name: z.string().min(1, 'Name is required'),
+        firstName: z.string().min(1, 'First name is required'),
+        lastName: z.string().min(1, 'Last name is required'),
         email: z.string().email('Invalid email'),
         phone: z.string().optional(),
       }),
@@ -356,7 +443,8 @@ export const ownerRouter = createTRPCRouter({
           user: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },

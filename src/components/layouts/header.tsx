@@ -12,21 +12,25 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Bell, LogOut, Settings, User } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { useSession, signOut } from 'next-auth/react'
+import { api } from '@/lib/trpc/client'
+import Link from 'next/link'
 
 export function Header() {
   const router = useRouter()
-  
-  // Temporarily hardcode user info
-  const mockSession = {
-    user: {
-      name: 'Admin User',
-      email: 'admin@molino.com'
-    }
-  }
+  const { data: session } = useSession()
+  const { data: currentUser } = api.user.getCurrentUser.useQuery()
 
   const handleSignOut = async () => {
-    router.push('/login')
+    await signOut({ 
+      callbackUrl: '/login',
+      redirect: true 
+    })
   }
+
+  const displayName = currentUser 
+    ? `${currentUser.firstName} ${currentUser.lastName}`.trim() 
+    : session?.user?.email?.split('@')[0] || 'Felhasználó'
 
   return (
     <header className="bg-white border-b border-gray-200">
@@ -49,7 +53,7 @@ export function Header() {
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
                   <AvatarFallback>
-                    {mockSession?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    {displayName?.charAt(0)?.toUpperCase() || 'U'}
                   </AvatarFallback>
                 </Avatar>
               </Button>
@@ -58,21 +62,25 @@ export function Header() {
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium leading-none">
-                    {mockSession?.user?.name}
+                    {displayName}
                   </p>
                   <p className="text-xs leading-none text-muted-foreground">
-                    {mockSession?.user?.email}
+                    {currentUser?.email || session?.user?.email}
                   </p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <User className="mr-2 h-4 w-4" />
-                <span>Profil</span>
+              <DropdownMenuItem asChild>
+                <Link href="/dashboard/settings">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Profil</span>
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Settings className="mr-2 h-4 w-4" />
-                <span>Beállítások</span>
+              <DropdownMenuItem asChild>
+                <Link href="/dashboard/settings">
+                  <Settings className="mr-2 h-4 w-4" />
+                  <span>Beállítások</span>
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleSignOut}>

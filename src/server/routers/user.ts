@@ -3,6 +3,42 @@ import { TRPCError } from '@trpc/server'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
 export const userRouter = createTRPCRouter({
+  // Debug endpoint to check current session
+  getCurrentUser: protectedProcedure
+    .query(async ({ ctx }) => {
+      console.log('=== SESSION DEBUG ===')
+      console.log('Session user:', ctx.session.user)
+      
+      try {
+        const dbUser = await ctx.db.user.findUnique({
+          where: { id: ctx.session.user.id },
+          select: {
+            id: true,
+            email: true,
+            firstName: true,
+            lastName: true,
+            phone: true,
+            role: true,
+            language: true,
+          }
+        })
+        
+        console.log('Database user:', dbUser)
+        
+        if (!dbUser) {
+          throw new TRPCError({
+            code: 'NOT_FOUND',
+            message: 'Session user not found in database. Please logout and login again.',
+          })
+        }
+        
+        return dbUser
+      } catch (error) {
+        console.error('Error fetching current user:', error)
+        throw error
+      }
+    }),
+
   list: protectedProcedure
     .input(z.object({
       page: z.number().default(1),
@@ -11,11 +47,11 @@ export const userRouter = createTRPCRouter({
       role: z.enum(['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'OWNER', 'SERVICE_MANAGER', 'PROVIDER', 'TENANT']).optional(),
     }))
     .query(async ({ ctx, input }) => {
-      // Check permissions
-      if (!['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+      // Check permissions - only ADMIN, EDITOR_ADMIN, and OFFICE_ADMIN can list all users
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: 'Insufficient permissions',
+          message: 'Csak adminisztrátorok férhetnek hozzá a felhasználók listájához',
         })
       }
 
@@ -25,7 +61,8 @@ export const userRouter = createTRPCRouter({
       const where = {
         ...(search && {
           OR: [
-            { name: { contains: search, mode: 'insensitive' as const } },
+            { firstName: { contains: search, mode: 'insensitive' as const } },
+            { lastName: { contains: search, mode: 'insensitive' as const } },
             { email: { contains: search, mode: 'insensitive' as const } },
           ],
         }),
@@ -39,7 +76,8 @@ export const userRouter = createTRPCRouter({
           take: limit,
           select: {
             id: true,
-            name: true,
+            firstName: true,
+            lastName: true,
             email: true,
             role: true,
             language: true,
@@ -68,7 +106,7 @@ export const userRouter = createTRPCRouter({
     .input(z.string())
     .query(async ({ ctx, input }) => {
       // Users can only view their own profile or admins can view any
-      if (ctx.session.user.id !== input && !['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+      if (ctx.session.user.id !== input && !['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
         throw new TRPCError({
           code: 'FORBIDDEN',
           message: 'Insufficient permissions',
@@ -79,7 +117,8 @@ export const userRouter = createTRPCRouter({
         where: { id: input },
         select: {
           id: true,
-          name: true,
+          firstName: true,
+          lastName: true,
           email: true,
           role: true,
           language: true,
@@ -127,7 +166,8 @@ export const userRouter = createTRPCRouter({
   update: protectedProcedure
     .input(z.object({
       id: z.string(),
-      name: z.string().optional(),
+      firstName: z.string().optional(),
+      lastName: z.string().optional(),
       email: z.string().email().optional(),
       phone: z.string().optional(),
       language: z.enum(['HU', 'EN']).optional(),
@@ -142,7 +182,7 @@ export const userRouter = createTRPCRouter({
       console.log('Session user role:', ctx.session.user.role)
 
       // Users can only update their own profile or admins can update any
-      if (ctx.session.user.id !== id && !['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+      if (ctx.session.user.id !== id && !['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
         console.error('Permission denied - user trying to update different user')
         throw new TRPCError({
           code: 'FORBIDDEN',
@@ -158,12 +198,27 @@ export const userRouter = createTRPCRouter({
       console.log('Filtered update data:', updateData)
 
       try {
+        // First check if the user exists
+        const existingUser = await ctx.db.user.findUnique({
+          where: { id },
+          select: { id: true }
+        })
+
+        if (!existingUser) {
+          console.error('User not found with ID:', id)
+          throw new TRPCError({
+            code: 'NOT_FOUND',
+            message: 'User not found',
+          })
+        }
+
         const user = await ctx.db.user.update({
           where: { id },
           data: updateData,
           select: {
             id: true,
-            name: true,
+            firstName: true,
+            lastName: true,
             email: true,
             phone: true,
             language: true,
@@ -176,6 +231,9 @@ export const userRouter = createTRPCRouter({
         return user
       } catch (error) {
         console.error('Database update failed:', error)
+        if (error instanceof TRPCError) {
+          throw error
+        }
         throw new TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
           message: 'Failed to update user',
@@ -189,12 +247,22 @@ export const userRouter = createTRPCRouter({
       role: z.enum(['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'OWNER', 'SERVICE_MANAGER', 'PROVIDER', 'TENANT']),
     }))
     .mutation(async ({ ctx, input }) => {
-      // Only admins can change roles
+      // Only full admins can change roles, EDITOR_ADMIN cannot create other admins
       if (ctx.session.user.role !== 'ADMIN') {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: 'Only admins can change user roles',
+          message: 'Csak adminisztrátorok változtathatják meg a szerepköröket',
         })
+      }
+
+      // Special rule: Only ADMIN can create/modify OFFICE_ADMIN users
+      if (input.role === 'OFFICE_ADMIN') {
+        if (ctx.session.user.role !== 'ADMIN') {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Csak főadminisztrátorok hozhatnak létre irodai adminokat',
+          })
+        }
       }
 
       const user = await ctx.db.user.update({
@@ -202,7 +270,8 @@ export const userRouter = createTRPCRouter({
         data: { role: input.role },
         select: {
           id: true,
-          name: true,
+          firstName: true,
+          lastName: true,
           email: true,
           role: true,
           updatedAt: true,
@@ -216,10 +285,10 @@ export const userRouter = createTRPCRouter({
     .input(z.string())
     .mutation(async ({ ctx, input }) => {
       // Only admins can activate/deactivate users
-      if (ctx.session.user.role !== 'ADMIN') {
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
         throw new TRPCError({
           code: 'FORBIDDEN',
-          message: 'Only admins can activate/deactivate users',
+          message: 'Csak adminisztrátorok aktiválhatják/inaktiválhatják a felhasználókat',
         })
       }
 
@@ -240,7 +309,8 @@ export const userRouter = createTRPCRouter({
         data: { isActive: !user.isActive },
         select: {
           id: true,
-          name: true,
+          firstName: true,
+          lastName: true,
           email: true,
           isActive: true,
           updatedAt: true,

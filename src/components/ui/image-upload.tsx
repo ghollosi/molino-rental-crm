@@ -65,7 +65,7 @@ export function ImageUpload({
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {value.map((url, index) => (
+        {value && value.map((url, index) => (
           <div key={index} className="relative group">
             <img
               src={url}

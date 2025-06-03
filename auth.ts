@@ -19,13 +19,16 @@ export const {
     async session({ token, session }) {
       if (token.sub && session.user) {
         session.user.id = token.sub
-      }
-
-      if (session.user) {
-        session.user.name = token.name
-        session.user.email = token.email!
-        session.user.role = token.role
-        session.user.language = token.language
+        
+        // Explicit assignment to ensure fields are included
+        const user = session.user as any
+        user.name = token.name
+        user.email = token.email
+        user.firstName = token.firstName
+        user.lastName = token.lastName
+        user.phone = token.phone
+        user.role = token.role
+        user.language = token.language
       }
 
       return session
@@ -38,7 +41,9 @@ export const {
         select: {
           id: true,
           email: true,
-          name: true,
+          firstName: true,
+          lastName: true,
+          phone: true,
           role: true,
           language: true,
         }
@@ -46,8 +51,15 @@ export const {
 
       if (!existingUser) return token
 
-      token.name = existingUser.name
+      // Build name from firstName + lastName if available, fallback to email
+      token.name = existingUser.firstName && existingUser.lastName 
+        ? `${existingUser.firstName} ${existingUser.lastName}`
+        : existingUser.email?.split('@')[0] || 'User'
+      
       token.email = existingUser.email
+      token.firstName = existingUser.firstName
+      token.lastName = existingUser.lastName
+      token.phone = existingUser.phone
       token.role = existingUser.role
       token.language = existingUser.language
 

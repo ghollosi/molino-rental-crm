@@ -10,7 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Plus, Search, FileText, Calendar, DollarSign, User, Building } from 'lucide-react'
+import { Plus, Search, FileText, Calendar, DollarSign, User, Building, Eye, Edit, Trash2 } from 'lucide-react'
 
 const statusColors = {
   ACTIVE: 'bg-green-500',
@@ -51,10 +51,16 @@ export default function ContractsPage() {
           <h1 className="text-3xl font-bold">Szerződések</h1>
           <p className="text-gray-500">Bérleti szerződések kezelése</p>
         </div>
-        <Button onClick={() => router.push('/dashboard/contracts/new')}>
-          <Plus className="w-4 h-4 mr-2" />
-          Új szerződés
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={() => router.push('/dashboard/contracts/templates')}>
+            <FileText className="w-4 h-4 mr-2" />
+            Sablonok
+          </Button>
+          <Button onClick={() => router.push('/dashboard/contracts/new')}>
+            <Plus className="w-4 h-4 mr-2" />
+            Új szerződés
+          </Button>
+        </div>
       </div>
 
       <Card>
@@ -173,13 +179,17 @@ export default function ContractsPage() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => router.push(`/dashboard/contracts/${contract.id}`)}
-                          >
-                            Részletek
-                          </Button>
+                          <div className="flex items-center justify-end space-x-2">
+                            <Button variant="ghost" size="sm" onClick={() => router.push(`/dashboard/contracts/${contract.id}`)}>
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                            <Button variant="ghost" size="sm" onClick={() => router.push(`/dashboard/contracts/${contract.id}/edit`)}>
+                              <Edit className="h-4 w-4" />
+                            </Button>
+                            <Button variant="ghost" size="sm">
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
                         </TableCell>
                       </TableRow>
                     )

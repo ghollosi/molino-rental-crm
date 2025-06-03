@@ -16,7 +16,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
-import { Plus, Search, FileText, Send, CheckCircle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Plus, Search, FileText, Send, CheckCircle, XCircle, ChevronLeft, ChevronRight, Eye, Edit, Trash2 } from 'lucide-react'
 import Link from 'next/link'
 import { ClientDate } from '@/lib/format-date'
 import { ExportToolbar } from '@/components/export-toolbar'
@@ -136,7 +136,6 @@ export default function OffersPage() {
                     <TableHead>Státusz</TableHead>
                     <TableHead>Ingatlan</TableHead>
                     <TableHead>Hibabejelentés</TableHead>
-                    <TableHead>Készítette</TableHead>
                     <TableHead>Összeg</TableHead>
                     <TableHead>Érvényesség</TableHead>
                     <TableHead>Létrehozva</TableHead>
@@ -169,9 +168,6 @@ export default function OffersPage() {
                           <span className="text-gray-400">-</span>
                         )}
                       </TableCell>
-                      <TableCell>
-                        {offer.createdBy.name}
-                      </TableCell>
                       <TableCell className="font-medium">
                         {formatCurrency(Number(offer.totalAmount))}
                       </TableCell>
@@ -182,13 +178,21 @@ export default function OffersPage() {
                         <ClientDate date={offer.createdAt} />
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => router.push(`/dashboard/offers/${offer.id}`)}
-                        >
-                          Részletek
-                        </Button>
+                        <div className="flex items-center justify-end space-x-2">
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/dashboard/offers/${offer.id}`}>
+                              <Eye className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/dashboard/offers/${offer.id}/edit`}>
+                              <Edit className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}

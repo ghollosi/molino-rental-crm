@@ -36,7 +36,7 @@ export const propertyRouter = createTRPCRouter({
       // Build where clause based on user role
       let where: any = {}
 
-      // If user is an owner, only show their properties
+      // Role-based filtering
       if (ctx.session.user.role === 'OWNER') {
         const owner = await ctx.db.owner.findUnique({
           where: { userId: ctx.session.user.id },
@@ -45,6 +45,41 @@ export const propertyRouter = createTRPCRouter({
           where.ownerId = owner.id
         } else {
           // Owner profile doesn't exist yet, return empty
+          return {
+            properties: [],
+            pagination: { page, limit, total: 0, totalPages: 0 },
+          }
+        }
+      } else if (ctx.session.user.role === 'TENANT') {
+        // Tenants only see properties they are assigned to
+        const tenant = await ctx.db.tenant.findUnique({
+          where: { userId: ctx.session.user.id },
+          include: { properties: { select: { id: true } } },
+        })
+        if (tenant && tenant.properties.length > 0) {
+          where.id = { in: tenant.properties.map(p => p.id) }
+        } else {
+          // No assigned properties, return empty
+          return {
+            properties: [],
+            pagination: { page, limit, total: 0, totalPages: 0 },
+          }
+        }
+      } else if (ctx.session.user.role === 'PROVIDER') {
+        // Providers only see properties where they have assigned issues
+        const provider = await ctx.db.provider.findUnique({
+          where: { userId: ctx.session.user.id },
+          include: {
+            assignedIssues: {
+              select: { propertyId: true },
+            },
+          },
+        })
+        if (provider && provider.assignedIssues.length > 0) {
+          const propertyIds = [...new Set(provider.assignedIssues.map(issue => issue.propertyId))]
+          where.id = { in: propertyIds }
+        } else {
+          // No assigned issues, return empty
           return {
             properties: [],
             pagination: { page, limit, total: 0, totalPages: 0 },
@@ -64,21 +99,31 @@ export const propertyRouter = createTRPCRouter({
       if (ownerId) where.ownerId = ownerId
       if (type) where.type = type
 
+      // Build include object based on user role
+      let include: any = {
+        _count: {
+          select: {
+            issues: true,
+            offers: true,
+          },
+        },
+      }
+
+      // Providers should not see owner details for privacy
+      if (ctx.session.user.role === 'PROVIDER') {
+        include.currentTenant = { include: { user: { select: { firstName: true, lastName: true, email: true } } } }
+        // Owner details are excluded for providers
+      } else {
+        include.owner = { include: { user: true } }
+        include.currentTenant = { include: { user: true } }
+      }
+
       const [properties, total] = await Promise.all([
         ctx.db.property.findMany({
           where,
           skip,
           take: limit,
-          include: {
-            owner: { include: { user: true } },
-            currentTenant: { include: { user: true } },
-            _count: {
-              select: {
-                issues: true,
-                offers: true,
-              },
-            },
-          },
+          include,
           orderBy: { createdAt: 'desc' },
         }),
         ctx.db.property.count({ where }),
@@ -98,34 +143,44 @@ export const propertyRouter = createTRPCRouter({
   getById: protectedProcedure
     .input(z.string())
     .query(async ({ ctx, input }) => {
-      const property = await ctx.db.property.findUnique({
-        where: { id: input },
-        include: {
-          owner: { include: { user: true } },
-          currentTenant: { include: { user: true } },
-          issues: {
-            orderBy: { createdAt: 'desc' },
-            take: 10,
-            include: {
-              reportedBy: true,
-              assignedTo: { include: { user: true } },
-            },
-          },
-          contracts: {
-            orderBy: { startDate: 'desc' },
-            include: {
-              tenant: { include: { user: true } },
-            },
-          },
-          offers: {
-            orderBy: { createdAt: 'desc' },
-            take: 5,
-            include: {
-              createdBy: true,
-              issue: true,
-            },
+      // Build include object based on user role
+      let include: any = {
+        issues: {
+          orderBy: { createdAt: 'desc' },
+          take: 10,
+          include: {
+            reportedBy: true,
+            assignedTo: { include: { user: true } },
           },
         },
+        contracts: {
+          orderBy: { startDate: 'desc' },
+          include: {
+            tenant: { include: { user: true } },
+          },
+        },
+        offers: {
+          orderBy: { createdAt: 'desc' },
+          take: 5,
+          include: {
+            createdBy: true,
+            issue: true,
+          },
+        },
+      }
+
+      // Providers should not see owner details for privacy
+      if (ctx.session.user.role === 'PROVIDER') {
+        include.currentTenant = { include: { user: { select: { firstName: true, lastName: true, email: true } } } }
+        // Owner details are excluded for providers
+      } else {
+        include.owner = { include: { user: true } }
+        include.currentTenant = { include: { user: true } }
+      }
+
+      const property = await ctx.db.property.findUnique({
+        where: { id: input },
+        include,
       })
 
       if (!property) {
@@ -135,7 +190,7 @@ export const propertyRouter = createTRPCRouter({
         })
       }
 
-      // Check permissions
+      // Role-based permission checks
       if (ctx.session.user.role === 'OWNER') {
         const owner = await ctx.db.owner.findUnique({
           where: { userId: ctx.session.user.id },
@@ -146,7 +201,34 @@ export const propertyRouter = createTRPCRouter({
             message: 'Access denied',
           })
         }
+      } else if (ctx.session.user.role === 'TENANT') {
+        const tenant = await ctx.db.tenant.findUnique({
+          where: { userId: ctx.session.user.id },
+          include: { properties: { select: { id: true } } },
+        })
+        if (!tenant || !tenant.properties.some(p => p.id === property.id)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Access denied',
+          })
+        }
+      } else if (ctx.session.user.role === 'PROVIDER') {
+        const provider = await ctx.db.provider.findUnique({
+          where: { userId: ctx.session.user.id },
+          include: {
+            assignedIssues: {
+              select: { propertyId: true },
+            },
+          },
+        })
+        if (!provider || !provider.assignedIssues.some(issue => issue.propertyId === property.id)) {
+          throw new TRPCError({
+            code: 'FORBIDDEN',
+            message: 'Access denied',
+          })
+        }
       }
+      // ADMIN, EDITOR_ADMIN, OFFICE_ADMIN, SERVICE_MANAGER can access all properties
 
       return property
     }),
@@ -262,67 +344,4 @@ export const propertyRouter = createTRPCRouter({
       return property
     }),
 
-  update: protectedProcedure
-    .input(z.object({
-      id: z.string(),
-      street: z.string().min(1, 'Street is required'),
-      city: z.string().min(1, 'City is required'),
-      postalCode: z.string().optional(),
-      country: z.string().optional(),
-      type: z.enum(['APARTMENT', 'HOUSE', 'OFFICE', 'COMMERCIAL']),
-      size: z.number().positive().optional(),
-      rooms: z.number().int().positive().optional(),
-      floor: z.number().int().optional(),
-      rentAmount: z.number().positive().optional(),
-      currency: z.string().default('EUR'),
-      status: z.enum(['AVAILABLE', 'RENTED', 'MAINTENANCE']).optional(),
-      description: z.string().optional(),
-      photos: z.array(z.string()).optional(),
-    }))
-    .mutation(async ({ ctx, input }) => {
-      const { id, ...data } = input
-
-      // Check permissions
-      const property = await ctx.db.property.findUnique({
-        where: { id },
-        include: { owner: true },
-      })
-
-      if (!property) {
-        throw new TRPCError({
-          code: 'NOT_FOUND',
-          message: 'Property not found',
-        })
-      }
-
-      // Owners can only update their own properties
-      if (ctx.session.user.role === 'OWNER') {
-        if (property.owner.userId !== ctx.session.user.id) {
-          throw new TRPCError({
-            code: 'FORBIDDEN',
-            message: 'You can only update your own properties',
-          })
-        }
-      } else if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
-        throw new TRPCError({
-          code: 'FORBIDDEN',
-          message: 'Insufficient permissions',
-        })
-      }
-
-      const updatedProperty = await ctx.db.property.update({
-        where: { id },
-        data,
-        include: {
-          owner: {
-            include: { user: true },
-          },
-          currentTenant: {
-            include: { user: true },
-          },
-        },
-      })
-
-      return updatedProperty
-    }),
 })

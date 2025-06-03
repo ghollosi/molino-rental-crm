@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ArrowLeft, Calendar, DollarSign, Building, User, Phone, Mail, FileText, AlertTriangle } from 'lucide-react'
+import { ArrowLeft, Calendar, DollarSign, Building, User, Phone, Mail, FileText, AlertTriangle, Download } from 'lucide-react'
 
 const statusColors = {
   ACTIVE: 'bg-green-500',
@@ -293,6 +293,57 @@ export default function ContractDetailPage() {
               </div>
             </CardContent>
           </Card>
+
+          {contract.content && (
+            <Card>
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle>Szerződés tartalma</CardTitle>
+                    <CardDescription>
+                      A szerződés teljes szövege
+                    </CardDescription>
+                  </div>
+                  <Button
+                    onClick={() => {
+                      const content = contract.content || ''
+                      const html = `
+                        <html>
+                        <head>
+                          <meta charset="UTF-8">
+                          <title>Szerződés - ${contract.id}</title>
+                          <style>
+                            body { font-family: Arial, sans-serif; margin: 40px; }
+                            pre { white-space: pre-wrap; font-family: inherit; }
+                          </style>
+                        </head>
+                        <body>
+                          <pre>${content}</pre>
+                          <script>window.print();</script>
+                        </body>
+                        </html>
+                      `
+                      const blob = new Blob([html], { type: 'text/html' })
+                      const url = URL.createObjectURL(blob)
+                      window.open(url, '_blank')
+                    }}
+                    size="sm"
+                    variant="outline"
+                  >
+                    <Download className="h-4 w-4 mr-2" />
+                    PDF
+                  </Button>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="bg-gray-50 rounded-lg p-6 max-h-[600px] overflow-y-auto">
+                  <pre className="whitespace-pre-wrap font-sans text-sm">
+                    {contract.content}
+                  </pre>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </TabsContent>
 
         <TabsContent value="payments" className="space-y-4">

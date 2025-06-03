@@ -116,6 +116,7 @@ model Owner {
   user          User      @relation(fields: [userId], references: [id])
   
   // Personal Info
+  profilePhoto  String?
   taxNumber     String?
   bankAccount   String?
   
@@ -206,14 +207,51 @@ model Contract {
   tenantId      String
   tenant        Tenant    @relation(fields: [tenantId], references: [id])
   
+  templateId    String?
+  template      ContractTemplate? @relation(fields: [templateId], references: [id])
+  
   startDate     DateTime
   endDate       DateTime
   rentAmount    Decimal
   deposit       Decimal?
   paymentDay    Int       // 1-31
   
+  // Contract content (filled template)
+  content       String?   @db.Text
+  
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+}
+
+model ContractTemplate {
+  id            String    @id @default(cuid())
+  name          String
+  type          ContractTemplateType
+  description   String?
+  
+  // Template content with placeholders
+  content       String    @db.Text
+  
+  // Variables that can be replaced in the template
+  variables     Json      @default("[]") // Array of {key: string, label: string, type: string}
+  
+  isActive      Boolean   @default(true)
+  isSystem      Boolean   @default(true) // System templates cannot be deleted
+  
+  contracts     Contract[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@index([type])
+}
+
+enum ContractTemplateType {
+  RENTAL           // Bérleti szerződés
+  MAINTENANCE      // Rendszeres karbantartási szerződés
+  OPERATION        // Komplett ingatlanüzemeltetési szerződés
+  MEDIATION        // Komplett bérbeadásközvetítői szerződés
+  CUSTOM           // Egyéni sablon
 }
 
 model Provider {
@@ -221,20 +259,44 @@ model Provider {
   userId        String    @unique
   user          User      @relation(fields: [userId], references: [id])
   
+  // Basic company info
   businessName  String
-  specialty     String[]  // Array of specialties
-  hourlyRate    Decimal?
-  currency      String    @default("EUR")
+  representativeName String? // Képviselő neve
+  salutation    String?    // Megszólítás (Mr./Ms./Dr.)
+  
+  // Contact details
+  email         String?
+  website       String?
+  
+  // Business details
+  taxNumber     String?    // Adószám
+  bankAccount   String?    // Bankszámlaszám
+  
+  // Address
+  street        String?
+  city          String?
+  postalCode    String?
+  country       String?
+  
+  // Photos/logo
+  companyLogo   String?    // Cég logó URL
+  profilePhoto  String?    // Képviselő fénykép URL
+  
+  // Service details
+  specialty     String[]   // Array of specialties
+  hourlyRate    Decimal?   // Óradíj
+  travelFee     Decimal?   // Kiszállási díj per km
+  currency      String     @default("EUR")
   
   // Availability stored as JSON
-  availability  Json      @default("{}")
+  availability  Json       @default("{}")
   
-  rating        Float?    @default(0)
+  rating        Float?     @default(0)
   
   assignedIssues Issue[]
   
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
 }
 
 model Issue {

@@ -75,7 +75,8 @@ export const offerRouter = createTRPCRouter({
             createdBy: {
               select: {
                 id: true,
-                name: true,
+                firstName: true,
+                lastName: true,
                 email: true,
               },
             },
@@ -111,7 +112,8 @@ export const offerRouter = createTRPCRouter({
             include: {
               reportedBy: {
                 select: {
-                  name: true,
+                  firstName: true,
+                lastName: true,
                   email: true,
                 },
               },
@@ -120,7 +122,8 @@ export const offerRouter = createTRPCRouter({
           createdBy: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
             },
           },
@@ -185,7 +188,8 @@ export const offerRouter = createTRPCRouter({
           issue: true,
           createdBy: {
             select: {
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
             },
           },

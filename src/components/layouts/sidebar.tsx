@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -30,12 +31,22 @@ const navigation = [
   { name: 'Ajánlatok', href: '/dashboard/offers', icon: FileText },
   { name: 'Szerződések', href: '/dashboard/contracts', icon: FileSignature },
   { name: 'Jelentések', href: '/dashboard/reports', icon: BarChart3 },
+  { name: 'Felhasználók', href: '/dashboard/users', icon: Users, adminOnly: true },
   { name: 'Beállítások', href: '/dashboard/settings', icon: Settings },
 ]
 
 export function Sidebar() {
   const pathname = usePathname()
+  const { data: session } = useSession()
   const { isCollapsed, toggleCollapse } = useSidebar()
+
+  // Filter navigation based on user role
+  const filteredNavigation = navigation.filter(item => {
+    if (item.adminOnly) {
+      return ['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(session?.user?.role || '')
+    }
+    return true
+  })
 
   return (
     <div className={cn(
@@ -69,7 +80,7 @@ export function Sidebar() {
         </div>
         <div className="flex-grow flex flex-col">
           <nav className="flex-1 px-2 space-y-1">
-            {navigation.map((item) => {
+            {filteredNavigation.map((item) => {
               const isActive = item.href === '/dashboard' 
                 ? pathname === '/dashboard'
                 : pathname?.startsWith(item.href)

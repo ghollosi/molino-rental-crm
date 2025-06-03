@@ -1,0 +1,652 @@
+
+> molino-rental-crm@0.1.0 dev
+> next dev -p 3333
+
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.90:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1451ms
+ ✓ Compiled /middleware in 262ms (263 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ ○ Compiling /api/health-check ...
+ ✓ Compiled /api/health-check in 600ms (363 modules)
+ GET /api/health-check 200 in 705ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1237ms (1050 modules)
+ GET / 200 in 1439ms
+ ✓ Compiled in 261ms (484 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 3.3s (3579 modules)
+ GET /dashboard 200 in 3843ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /api/auth/[...nextauth] in 3.5s (3583 modules)
+ ✓ Compiled in 908ms (1724 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 4960ms
+ GET /api/auth/session 200 in 3184ms
+ GET /api/auth/session 200 in 22ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 730ms (3857 modules)
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbflb5q20001i8drg83gal7g',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list,user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%2C%2212%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 207 in 1478ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbflb5q20001i8drg83gal7g',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 60ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbflb5q20001i8drg83gal7g',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 66ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbflb5q20001i8drg83gal7g',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 83ms
+ GET / 200 in 143ms
+ GET / 200 in 69ms
+ GET /dashboard 200 in 265ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1088ms (3873 modules)
+ GET /login 200 in 1327ms
+ ✓ Compiled /api/auth/[...nextauth] in 252ms (2144 modules)
+ GET /api/auth/session 200 in 370ms
+ GET /api/auth/session 200 in 5ms
+ GET / 200 in 168ms
+ GET /api/auth/providers 200 in 17ms
+ GET /api/auth/csrf 200 in 6ms
+ POST /api/auth/callback/credentials? 200 in 114ms
+ GET /api/auth/session 200 in 6ms
+ GET /dashboard 200 in 22ms
+ GET /dashboard 200 in 15ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list,user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%2C%2212%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 171ms
+ ✓ Compiled /_not-found in 371ms (3879 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 471ms
+ ○ Compiling /dashboard/users ...
+ ✓ Compiled /dashboard/users in 1169ms (3914 modules)
+ GET /dashboard/users 200 in 1214ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 196ms
+ GET / 200 in 54ms
+ GET / 200 in 98ms
+ GET / 200 in 40ms
+ ✓ Compiled in 1799ms (3636 modules)
+ GET /dashboard/users 200 in 120ms
+ ✓ Compiled in 756ms (3636 modules)
+ GET /dashboard/users 200 in 53ms
+ GET / 200 in 90ms
+ ✓ Compiled in 917ms (3636 modules)
+ GET /dashboard/users 200 in 31ms
+ ✓ Compiled in 602ms (3636 modules)
+ GET /dashboard/users 200 in 42ms
+ ✓ Compiled /api/health-check in 444ms (1891 modules)
+ GET /api/health-check 200 in 527ms
+ GET / 200 in 187ms
+ GET / 200 in 60ms
+ GET / 200 in 31ms
+ GET /dashboard/users 200 in 173ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 711ms (2041 modules)
+ ✓ Compiled (2163 modules)
+ GET /api/auth/session 200 in 1230ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1004ms
+ GET / 200 in 135ms
+ GET / 200 in 48ms
+ GET /login 200 in 106ms
+ GET /api/auth/session 200 in 9ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/providers 200 in 53ms
+ GET /api/auth/csrf 200 in 10ms
+ POST /api/auth/callback/credentials? 200 in 212ms
+ GET /api/auth/session 200 in 7ms
+ GET /dashboard 200 in 36ms
+ GET /dashboard 200 in 20ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list,user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%2C%2212%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 91ms
+ GET /dashboard/users 200 in 28ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 11ms
+ GET / 200 in 29ms
+ GET / 200 in 36ms
+ GET / 200 in 45ms
+ GET / 200 in 50ms
+ ✓ Compiled /api/trpc/[trpc] in 1365ms (3636 modules)
+ ✓ Compiled in 0ms (2161 modules)
+ GET /dashboard/users 200 in 593ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 920ms
+ GET / 200 in 115ms
+ ✓ Compiled in 1880ms (3922 modules)
+ GET /dashboard/users 200 in 36ms
+ ✓ Compiled in 775ms (3922 modules)
+ GET /dashboard/users 200 in 39ms
+ ✓ Compiled in 917ms (3922 modules)
+ GET /dashboard/users 200 in 33ms
+ GET / 200 in 51ms
+ ✓ Compiled /api/health-check in 366ms (2163 modules)
+ GET /api/health-check 200 in 386ms
+ GET / 200 in 91ms
+ GET /dashboard/users 200 in 159ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 510ms (2043 modules)
+ ✓ Compiled (2165 modules)
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 884ms
+ GET /api/auth/session 200 in 9ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1060ms
+ GET / 200 in 110ms
+ GET / 200 in 61ms
+ GET /api/auth/csrf 200 in 21ms
+ POST /api/auth/signout 200 in 10ms
+ GET /login 200 in 120ms
+ GET /api/auth/session 200 in 17ms
+ GET /api/auth/session 200 in 5ms
+ GET /api/auth/providers 200 in 12ms
+ GET /api/auth/csrf 200 in 7ms
+[31m[auth][error][0m CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+    at Module.callback (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/actions/callback/index.js:246:23)
+    at async AuthInternal (webpack-internal:///(rsc)/./node_modules/@auth/core/lib/index.js:70:24)
+    at async Auth (webpack-internal:///(rsc)/./node_modules/@auth/core/index.js:130:34)
+    at async AppRouteRouteModule.do (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:34112)
+    at async AppRouteRouteModule.handle (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:26:41338)
+    at async doRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1513:42)
+    at async DevServer.renderToResponseWithComponentsImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1915:28)
+    at async DevServer.renderPageComponent (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2403:24)
+    at async DevServer.renderToResponseImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:2440:32)
+    at async DevServer.pipeImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:1007:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next-server.js:305:17)
+    at async DevServer.handleRequestImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/base-server.js:899:17)
+    at async /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:371:20
+    at async Span.traceAsyncFn (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:237:21)
+    at async handleRequest (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:428:24)
+    at async requestHandlerImpl (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/router-server.js:452:13)
+    at async Server.requestListener (/Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js:158:13)
+ POST /api/auth/callback/credentials? 200 in 176ms
+ GET /api/auth/session 200 in 4ms
+ GET / 200 in 30ms
+ GET /api/auth/providers 200 in 34ms
+ GET /api/auth/csrf 200 in 5ms
+ POST /api/auth/callback/credentials? 200 in 83ms
+ GET /api/auth/session 200 in 5ms
+ GET /dashboard 200 in 29ms
+ GET /dashboard 200 in 14ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2212%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 68ms
+ GET /dashboard/users 200 in 17ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 16ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 1405ms (3929 modules)
+ GET /dashboard/properties 200 in 1469ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 121ms
+ GET / 200 in 102ms
+ GET / 200 in 41ms
+ GET / 200 in 24ms
+ GET / 200 in 54ms
+ GET / 200 in 40ms
+ GET / 200 in 48ms
+ GET / 200 in 38ms
+ GET /dashboard/properties 200 in 198ms
+ GET /api/auth/session 200 in 28ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 13ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 254ms
+ GET / 200 in 57ms
+ GET / 200 in 38ms
+ GET / 200 in 51ms
+ GET / 200 in 49ms
+ GET / 200 in 49ms
+ GET / 200 in 61ms
+ GET / 200 in 63ms
+ GET / 200 in 61ms
+ GET / 200 in 50ms
+ GET / 200 in 52ms
+ GET / 200 in 71ms
+ GET / 200 in 61ms
+ GET / 200 in 64ms
+ GET / 200 in 53ms
+ GET / 200 in 56ms
+ GET / 200 in 56ms
+ GET / 200 in 79ms
+ GET / 200 in 50ms
+ GET / 200 in 57ms
+ GET / 200 in 41ms
+ GET /api/auth/session 200 in 138ms
+ GET /api/auth/session 200 in 12ms
+ GET / 200 in 143ms
+ ✓ Compiled in 1675ms (1769 modules)
+ GET / 200 in 27ms
+ ✓ Compiled in 385ms (1769 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 331ms (1769 modules)
+ GET /dashboard/properties 200 in 103ms
+ GET /api/auth/session 200 in 25ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 12ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 391ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 1982ms (3938 modules)
+ GET /dashboard/owners 200 in 2201ms
+ GET / 200 in 341ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 322ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 1432ms (3961 modules)
+ GET /dashboard/tenants 200 in 1107ms
+ GET /dashboard/tenants 200 in 13ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 146ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 1007ms (3958 modules)
+ GET /dashboard/providers 200 in 1057ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 72ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 1037ms (3967 modules)
+ GET /dashboard/issues 200 in 1102ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 89ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 658ms (3978 modules)
+ GET /dashboard/offers 200 in 709ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 60ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/contracts in 856ms (3987 modules)
+ GET /dashboard/contracts 200 in 923ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 106ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 560ms (2868 modules)
+ GET /dashboard/reports 200 in 599ms
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 97ms
+ GET /dashboard/users 200 in 27ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 27ms
+ GET / 200 in 92ms
+ ✓ Compiled in 2.1s (2882 modules)
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 1613ms (2885 modules)
+ GET /dashboard/settings 200 in 1671ms
+ GET /dashboard/settings 200 in 15ms
+ GET /dashboard/settings 200 in 24ms
+ ✓ Compiled /dashboard in 500ms (2221 modules)
+ GET /dashboard 200 in 568ms
+ GET /api/trpc/analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%227%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 148ms
+ GET /dashboard 200 in 327ms
+ GET /api/auth/session 200 in 23ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 45ms
+ GET /api/auth/session 200 in 18ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 82ms
+ GET / 200 in 40ms
+ ✓ Compiled in 894ms (4021 modules)
+ GET /dashboard 200 in 45ms
+ ✓ Compiled in 872ms (3982 modules)
+ GET /dashboard 200 in 43ms
+ GET / 200 in 59ms
+ GET /dashboard 200 in 239ms
+ GET /api/auth/session 200 in 43ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 38ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 203ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 105ms
+ GET /dashboard/users 200 in 19ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 16ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 804ms (2190 modules)
+ GET /dashboard/reports 200 in 867ms
+ GET / 200 in 61ms
+ GET /api/trpc/analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 58ms
+ GET /dashboard/contracts 200 in 25ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 19ms
+ GET /dashboard/offers 200 in 27ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 14ms
+ GET / 200 in 28ms
+ GET / 200 in 104ms
+ GET /dashboard/contracts 200 in 192ms
+ GET /api/auth/session 200 in 27ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 23ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 66ms
+ GET /dashboard/offers 200 in 27ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 111ms
+ GET /dashboard/contracts 200 in 43ms
+ GET /dashboard/reports 200 in 19ms
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 50ms
+ GET /dashboard/offers 200 in 22ms
+ GET / 200 in 123ms
+ GET / 200 in 43ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 1863ms (2194 modules)
+ GET /dashboard/issues 200 in 2210ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 362ms
+ ✓ Compiled /dashboard/providers in 369ms (2201 modules)
+ GET /dashboard/providers 200 in 420ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 50ms
+ GET /dashboard/providers 200 in 187ms
+ ✓ Compiled /api/auth/[...nextauth] in 350ms (2203 modules)
+ GET /api/auth/session 200 in 699ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 7ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 689ms
+ GET / 200 in 100ms
+ GET / 200 in 79ms
+ GET / 200 in 73ms
+ GET /dashboard/issues 200 in 23ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 376ms
+ GET /dashboard/providers 200 in 32ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 38ms
+ GET / 200 in 87ms
+ GET / 200 in 64ms
+ GET / 200 in 61ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 2.3s (1900 modules)
+ GET /dashboard/tenants 200 in 2399ms
+ ✓ Compiled /api/trpc/[trpc] in 418ms (2186 modules)
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1071ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 1573ms (3979 modules)
+ GET /dashboard/owners 200 in 1306ms
+ GET /dashboard/owners 200 in 11ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 83ms
+ ✓ Compiled /dashboard/properties in 372ms (2185 modules)
+ GET /dashboard/properties 200 in 472ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 87ms
+ GET / 200 in 196ms
+ ✓ Compiled in 2.3s (3971 modules)
+ GET /dashboard/properties 200 in 45ms
+ GET /dashboard/providers 200 in 38ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 99ms
+ GET /dashboard/providers 200 in 156ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1060ms (1047 modules)
+ GET /api/auth/session 200 in 1420ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1453ms
+ GET /api/auth/session 200 in 13ms
+ GET /dashboard/issues 200 in 55ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 29ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 806ms (1056 modules)
+ GET /dashboard/offers 200 in 851ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 79ms
+ GET / 200 in 93ms
+ GET /dashboard/providers 200 in 38ms
+ ✓ Compiled /dashboard in 383ms (2181 modules)
+ GET /dashboard 200 in 436ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 152ms
+ GET /dashboard/properties 200 in 20ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 18ms
+ GET /dashboard/owners 200 in 24ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 8ms
+ GET /dashboard/tenants 200 in 23ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 10ms
+ GET /dashboard/providers 200 in 22ms
+ GET /dashboard/issues 200 in 29ms
+ GET /dashboard/offers 200 in 18ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/reports in 1056ms (2189 modules)
+ ✓ Compiled (2197 modules)
+ GET /dashboard/reports 200 in 957ms
+ GET /dashboard/contracts 200 in 1911ms
+ GET /api/trpc/analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 152ms
+ GET / 200 in 86ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 567ms (2208 modules)
+ GET /dashboard/settings 200 in 645ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 70ms
+ GET / 200 in 80ms
+ ○ Compiling /dashboard/users ...
+ ✓ Compiled /dashboard/users in 1036ms (2219 modules)
+ GET /dashboard/users 200 in 1089ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 60ms
+ GET / 200 in 112ms

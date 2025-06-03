@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,10 +9,12 @@ import { api } from '@/lib/trpc/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ArrowLeft, Calendar, DollarSign, FileText, Building, User } from 'lucide-react'
+import { toast } from 'sonner'
 
 const contractFormSchema = z.object({
   propertyId: z.string().min(1, 'Kérem válasszon ingatlant'),
@@ -21,7 +23,9 @@ const contractFormSchema = z.object({
   endDate: z.string().min(1, 'Kérem adja meg a befejezés dátumát'),
   rentAmount: z.string().min(1, 'Kérem adja meg a bérleti díjat'),
   deposit: z.string().optional(),
-  paymentDay: z.string()
+  paymentDay: z.string(),
+  templateId: z.string().optional(),
+  content: z.string().optional(),
 }).refine(data => {
   const start = new Date(data.startDate)
   const end = new Date(data.endDate)
@@ -36,11 +40,14 @@ type ContractFormData = z.infer<typeof contractFormSchema>
 export default function NewContractPage() {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
+  const [selectedTemplate, setSelectedTemplate] = useState<string>('')
+  const [useTemplate, setUseTemplate] = useState(true)
   
   const {
     register,
     handleSubmit,
     setValue,
+    watch,
     formState: { errors },
   } = useForm<ContractFormData>({
     resolver: zodResolver(contractFormSchema),
@@ -49,30 +56,37 @@ export default function NewContractPage() {
     }
   })
 
-  const { data: properties } = api.property.list.useQuery({ 
-    page: 1, 
+  // Fetch available properties
+  const { data: propertiesData } = api.property.list.useQuery({
+    page: 1,
     limit: 100,
     status: 'AVAILABLE'
   })
-  
-  const { data: tenants } = api.tenant.list.useQuery({ 
-    page: 1, 
-    limit: 100 
+
+  // Fetch available tenants
+  const { data: tenantsData } = api.tenant.list.useQuery({
+    page: 1,
+    limit: 100
   })
 
+  // Fetch contract templates
+  const { data: templatesData } = api.contractTemplate.listActive.useQuery()
+
+  // Create contract mutation
   const createContract = api.contract.create.useMutation({
     onSuccess: (data) => {
+      toast.success('Szerződés sikeresen létrehozva')
       router.push(`/dashboard/contracts/${data.id}`)
     },
     onError: (error) => {
-      console.error('Contract creation error:', error.message)
+      toast.error(error.message || 'Hiba történt a szerződés létrehozása során')
       setIsLoading(false)
-    },
+    }
   })
 
   const onSubmit = async (data: ContractFormData) => {
     setIsLoading(true)
-
+    
     createContract.mutate({
       propertyId: data.propertyId,
       tenantId: data.tenantId,
@@ -80,62 +94,53 @@ export default function NewContractPage() {
       endDate: new Date(data.endDate),
       rentAmount: parseFloat(data.rentAmount),
       deposit: data.deposit ? parseFloat(data.deposit) : undefined,
-      paymentDay: parseInt(data.paymentDay)
+      paymentDay: parseInt(data.paymentDay),
+      templateId: useTemplate ? data.templateId : undefined,
+      content: !useTemplate ? data.content : undefined,
     })
   }
 
   return (
-    <div className="container mx-auto p-6 max-w-2xl">
-      <div className="flex items-center gap-4 mb-6">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => router.push('/dashboard/contracts')}
-        >
-          <ArrowLeft className="w-4 h-4" />
-        </Button>
-        <div>
-          <h1 className="text-2xl font-bold">Új szerződés létrehozása</h1>
-          <p className="text-gray-500">Bérleti szerződés létrehozása új bérlő számára</p>
+    <div className="container mx-auto p-6">
+      <div className="max-w-3xl mx-auto">
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            onClick={() => router.push('/dashboard/contracts')}
+            className="mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Vissza
+          </Button>
+          <h1 className="text-3xl font-bold">Új szerződés</h1>
+          <p className="text-gray-500">Bérleti szerződés létrehozása</p>
         </div>
-      </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <FileText className="w-5 h-5" />
-            Szerződés adatok
-          </CardTitle>
-          <CardDescription>
-            Adja meg a bérleti szerződés részleteit
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            {Object.keys(errors).length > 0 && (
-              <Alert variant="destructive">
-                <AlertDescription>
-                  {Object.values(errors).map((error, idx) => (
-                    <div key={idx}>{error.message}</div>
-                  ))}
-                </AlertDescription>
-              </Alert>
-            )}
-
-            <div className="grid gap-4 md:grid-cols-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Alapadatok</CardTitle>
+              <CardDescription>
+                Válassza ki az ingatlant és a bérlőt
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="property" className="flex items-center gap-2">
-                  <Building className="w-4 h-4" />
+                <Label htmlFor="propertyId">
+                  <Building className="w-4 h-4 inline mr-2" />
                   Ingatlan *
                 </Label>
-                <Select onValueChange={(value) => setValue('propertyId', value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Válasszon ingatlant" />
+                <Select
+                  value={watch('propertyId') || ''}
+                  onValueChange={(value) => setValue('propertyId', value)}
+                >
+                  <SelectTrigger id="propertyId">
+                    <SelectValue placeholder="Válasszon ingatlant..." />
                   </SelectTrigger>
                   <SelectContent>
-                    {properties?.properties.map((property) => (
+                    {propertiesData?.properties.map((property) => (
                       <SelectItem key={property.id} value={property.id}>
-                        {property.street}, {property.city} ({property.type})
+                        {property.street}, {property.city} - {property.type}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -146,18 +151,21 @@ export default function NewContractPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="tenant" className="flex items-center gap-2">
-                  <User className="w-4 h-4" />
+                <Label htmlFor="tenantId">
+                  <User className="w-4 h-4 inline mr-2" />
                   Bérlő *
                 </Label>
-                <Select onValueChange={(value) => setValue('tenantId', value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Válasszon bérlőt" />
+                <Select
+                  value={watch('tenantId') || ''}
+                  onValueChange={(value) => setValue('tenantId', value)}
+                >
+                  <SelectTrigger id="tenantId">
+                    <SelectValue placeholder="Válasszon bérlőt..." />
                   </SelectTrigger>
                   <SelectContent>
-                    {tenants?.tenants.map((tenant) => (
+                    {tenantsData?.tenants.map((tenant) => (
                       <SelectItem key={tenant.id} value={tenant.id}>
-                        {tenant.user.name} ({tenant.user.email})
+                        {tenant.user.firstName} {tenant.user.lastName} - {tenant.user.email}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -166,113 +174,190 @@ export default function NewContractPage() {
                   <p className="text-sm text-red-500">{errors.tenantId.message}</p>
                 )}
               </div>
-            </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="startDate" className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Kezdés dátuma *
-                </Label>
-                <Input
-                  id="startDate"
-                  type="date"
-                  {...register('startDate')}
-                />
-                {errors.startDate && (
-                  <p className="text-sm text-red-500">{errors.startDate.message}</p>
-                )}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="startDate">
+                    <Calendar className="w-4 h-4 inline mr-2" />
+                    Kezdés dátuma *
+                  </Label>
+                  <Input
+                    type="date"
+                    id="startDate"
+                    {...register('startDate')}
+                  />
+                  {errors.startDate && (
+                    <p className="text-sm text-red-500">{errors.startDate.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="endDate">
+                    <Calendar className="w-4 h-4 inline mr-2" />
+                    Befejezés dátuma *
+                  </Label>
+                  <Input
+                    type="date"
+                    id="endDate"
+                    {...register('endDate')}
+                  />
+                  {errors.endDate && (
+                    <p className="text-sm text-red-500">{errors.endDate.message}</p>
+                  )}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Pénzügyi feltételek</CardTitle>
+              <CardDescription>
+                Bérleti díj és egyéb pénzügyi információk
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="rentAmount">
+                    <DollarSign className="w-4 h-4 inline mr-2" />
+                    Havi bérleti díj (Ft) *
+                  </Label>
+                  <Input
+                    type="number"
+                    id="rentAmount"
+                    placeholder="pl. 150000"
+                    {...register('rentAmount')}
+                  />
+                  {errors.rentAmount && (
+                    <p className="text-sm text-red-500">{errors.rentAmount.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="deposit">
+                    <DollarSign className="w-4 h-4 inline mr-2" />
+                    Kaució (Ft)
+                  </Label>
+                  <Input
+                    type="number"
+                    id="deposit"
+                    placeholder="pl. 300000"
+                    {...register('deposit')}
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="endDate" className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  Befejezés dátuma *
+                <Label htmlFor="paymentDay">
+                  Fizetési határnap (hónap napja) *
                 </Label>
-                <Input
-                  id="endDate"
-                  type="date"
-                  {...register('endDate')}
-                />
-                {errors.endDate && (
-                  <p className="text-sm text-red-500">{errors.endDate.message}</p>
-                )}
+                <Select
+                  value={watch('paymentDay') || '1'}
+                  onValueChange={(value) => setValue('paymentDay', value)}
+                >
+                  <SelectTrigger id="paymentDay">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[...Array(31)].map((_, i) => (
+                      <SelectItem key={i + 1} value={String(i + 1)}>
+                        {i + 1}. nap
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
-            </div>
+            </CardContent>
+          </Card>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="rentAmount" className="flex items-center gap-2">
-                  <DollarSign className="w-4 h-4" />
-                  Havi bérleti díj (Ft) *
+          <Card>
+            <CardHeader>
+              <CardTitle>Szerződés tartalma</CardTitle>
+              <CardDescription>
+                Válasszon sablont vagy írja meg egyedileg a szerződést
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center space-x-4">
+                <Label>
+                  <input
+                    type="radio"
+                    checked={useTemplate}
+                    onChange={() => setUseTemplate(true)}
+                    className="mr-2"
+                  />
+                  Sablon használata
                 </Label>
-                <Input
-                  id="rentAmount"
-                  type="number"
-                  placeholder="pl. 150000"
-                  {...register('rentAmount')}
-                  min="0"
-                  step="1000"
-                />
-                {errors.rentAmount && (
-                  <p className="text-sm text-red-500">{errors.rentAmount.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="deposit" className="flex items-center gap-2">
-                  <DollarSign className="w-4 h-4" />
-                  Kaució (Ft)
+                <Label>
+                  <input
+                    type="radio"
+                    checked={!useTemplate}
+                    onChange={() => setUseTemplate(false)}
+                    className="mr-2"
+                  />
+                  Egyedi szerződés
                 </Label>
-                <Input
-                  id="deposit"
-                  type="number"
-                  placeholder="pl. 300000"
-                  {...register('deposit')}
-                  min="0"
-                  step="1000"
-                />
-                {errors.deposit && (
-                  <p className="text-sm text-red-500">{errors.deposit.message}</p>
-                )}
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="paymentDay">Havi fizetési nap</Label>
-              <Select onValueChange={(value) => setValue('paymentDay', value)} defaultValue="1">
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
-                    <SelectItem key={day} value={day.toString()}>
-                      {day}. nap
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {errors.paymentDay && (
-                <p className="text-sm text-red-500">{errors.paymentDay.message}</p>
+              {useTemplate ? (
+                <div className="space-y-2">
+                  <Label htmlFor="templateId">
+                    <FileText className="w-4 h-4 inline mr-2" />
+                    Szerződés sablon
+                  </Label>
+                  <Select
+                    value={watch('templateId') || ''}
+                    onValueChange={(value) => setValue('templateId', value)}
+                  >
+                    <SelectTrigger id="templateId">
+                      <SelectValue placeholder="Válasszon sablont..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {templatesData?.map((template) => (
+                        <SelectItem key={template.id} value={template.id}>
+                          {template.name} ({template.type})
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <p className="text-sm text-muted-foreground">
+                    A kiválasztott sablon automatikusan kitöltésre kerül a szerződés adataival
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  <Label htmlFor="content">
+                    Szerződés szövege
+                  </Label>
+                  <Textarea
+                    id="content"
+                    placeholder="Írja be a szerződés szövegét..."
+                    className="min-h-[300px]"
+                    {...register('content')}
+                  />
+                  <p className="text-sm text-muted-foreground">
+                    Írja be vagy illessze be a teljes szerződés szövegét
+                  </p>
+                </div>
               )}
-            </div>
+            </CardContent>
+          </Card>
 
-            <div className="flex gap-4 pt-4">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => router.push('/dashboard/contracts')}
-                disabled={isLoading}
-              >
-                Mégse
-              </Button>
-              <Button type="submit" disabled={isLoading}>
-                {isLoading ? 'Létrehozás...' : 'Szerződés létrehozása'}
-              </Button>
-            </div>
-          </form>
-        </CardContent>
-      </Card>
+          <div className="flex justify-end gap-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => router.push('/dashboard/contracts')}
+            >
+              Mégse
+            </Button>
+            <Button type="submit" disabled={isLoading}>
+              {isLoading ? 'Mentés...' : 'Szerződés létrehozása'}
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

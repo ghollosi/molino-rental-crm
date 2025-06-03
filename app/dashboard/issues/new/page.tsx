@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { useSession } from 'next-auth/react'
 import { api } from '@/lib/trpc/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -10,7 +11,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, AlertCircle } from 'lucide-react'
+import { ArrowLeft, AlertCircle, User } from 'lucide-react'
 import Link from 'next/link'
 import { ImageUpload } from '@/components/ui/image-upload'
 
@@ -20,15 +21,13 @@ interface IssueFormData {
   priority: string
   category: string
   propertyId: string
-  tenantId?: string
-  ownerId?: string
   photos?: string[]
 }
 
 export default function NewIssuePage() {
   const router = useRouter()
+  const { data: session } = useSession()
   const [error, setError] = useState<string | null>(null)
-  const [reporterType, setReporterType] = useState<'tenant' | 'owner'>('tenant')
   const [photos, setPhotos] = useState<string[]>([])
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<IssueFormData>({
@@ -37,22 +36,13 @@ export default function NewIssuePage() {
     }
   })
 
+  // Felhasználó adatainak lekérdezése
+  const { data: currentUser } = api.user.getCurrentUser.useQuery()
+
   // Ingatlanok lekérdezése
   const { data: properties } = api.property.list.useQuery({ 
     page: 1, 
     limit: 100
-  })
-
-  // Bérlők lekérdezése
-  const { data: tenants } = api.tenant.list.useQuery({
-    page: 1,
-    limit: 100,
-  })
-
-  // Tulajdonosok lekérdezése
-  const { data: owners } = api.owner.list.useQuery({
-    page: 1,
-    limit: 100,
   })
 
   const createIssue = api.issue.create.useMutation({
@@ -92,6 +82,12 @@ export default function NewIssuePage() {
       <Card className="max-w-2xl mx-auto">
         <CardHeader>
           <CardTitle>Új hibabejelentés</CardTitle>
+          {currentUser && (
+            <div className="flex items-center gap-2 text-sm text-gray-600 mt-2">
+              <User className="h-4 w-4" />
+              <span>Bejelentő: {currentUser.firstName} {currentUser.lastName} ({currentUser.email})</span>
+            </div>
+          )}
         </CardHeader>
         <CardContent>
           {error && (
@@ -190,61 +186,6 @@ export default function NewIssuePage() {
                 )}
               </div>
 
-              <div>
-                <Label>Bejelentő típusa</Label>
-                <Select
-                  value={reporterType}
-                  onValueChange={(value) => setReporterType(value as 'tenant' | 'owner')}
-                >
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="tenant">Bérlő</SelectItem>
-                    <SelectItem value="owner">Tulajdonos</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {reporterType === 'tenant' ? (
-                <div>
-                  <Label htmlFor="tenantId">Bérlő</Label>
-                  <Select
-                    value={watch('tenantId') || ''}
-                    onValueChange={(value) => setValue('tenantId', value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Válasszon bérlőt (opcionális)" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {tenants?.tenants.map((tenant) => (
-                        <SelectItem key={tenant.id} value={tenant.id}>
-                          {tenant.user.name} ({tenant.user.email})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              ) : (
-                <div>
-                  <Label htmlFor="ownerId">Tulajdonos</Label>
-                  <Select
-                    value={watch('ownerId') || ''}
-                    onValueChange={(value) => setValue('ownerId', value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Válasszon tulajdonost (opcionális)" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {owners?.owners.map((owner) => (
-                        <SelectItem key={owner.id} value={owner.id}>
-                          {owner.user.name} ({owner.user.email})
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              )}
             </div>
 
             <div>

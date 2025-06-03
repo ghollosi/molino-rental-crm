@@ -4,7 +4,8 @@ import bcrypt from 'bcryptjs'
 import { createTRPCRouter, publicProcedure, protectedProcedure } from '../trpc'
 
 const registerSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
+  firstName: z.string().min(2, 'First name must be at least 2 characters'),
+  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
   role: z.enum(['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'OWNER', 'SERVICE_MANAGER', 'PROVIDER', 'TENANT']).default('TENANT'),
@@ -15,7 +16,7 @@ export const authRouter = createTRPCRouter({
   register: publicProcedure
     .input(registerSchema)
     .mutation(async ({ ctx, input }) => {
-      const { name, email, password, role, language } = input
+      const { firstName, lastName, email, password, role, language } = input
 
       const existingUser = await ctx.db.user.findUnique({
         where: { email },
@@ -32,7 +33,8 @@ export const authRouter = createTRPCRouter({
 
       const user = await ctx.db.user.create({
         data: {
-          name,
+          firstName,
+          lastName,
           email,
           password: hashedPassword,
           role,
@@ -40,7 +42,8 @@ export const authRouter = createTRPCRouter({
         },
         select: {
           id: true,
-          name: true,
+          firstName: true,
+          lastName: true,
           email: true,
           role: true,
           language: true,
@@ -57,7 +60,8 @@ export const authRouter = createTRPCRouter({
 
   updateProfile: protectedProcedure
     .input(z.object({
-      name: z.string().min(2).optional(),
+      firstName: z.string().min(2).optional(),
+      lastName: z.string().min(2).optional(),
       language: z.enum(['HU', 'EN', 'ES']).optional(),
       phone: z.string().optional(),
     }))
@@ -67,7 +71,8 @@ export const authRouter = createTRPCRouter({
         data: input,
         select: {
           id: true,
-          name: true,
+          firstName: true,
+          lastName: true,
           email: true,
           role: true,
           language: true,

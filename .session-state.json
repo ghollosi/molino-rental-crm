@@ -1,10 +1,12 @@
 {
-  "timestamp": "2025-06-01T15:47:05.086Z",
+  "timestamp": "2025-06-03T11:55:28.877Z",
   "lastCommand": "start",
-  "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json",
+  "currentFile": ".server.pid",
+  "gitStatus": "M .server.pid\n M .session-state.json\n M CLAUDE.md\n M README.md\n M app/api/upload/route.ts\n M app/dashboard/contracts/[id]/page.tsx\n M app/dashboard/contracts/new/page.tsx\n M app/dashboard/contracts/page.tsx\n M app/dashboard/issues/new/page.tsx\n M app/dashboard/issues/page.tsx\n M app/dashboard/offers/page.tsx\n M app/dashboard/owners/new/page.tsx\n M app/dashboard/owners/page.tsx\n M app/dashboard/page.tsx\n M app/dashboard/properties/[id]/page.tsx\n M app/dashboard/providers/new/page.tsx\n M app/dashboard/providers/page.tsx\n M app/dashboard/settings/page.tsx\n M app/dashboard/tenants/[id]/page.tsx\n M app/dashboard/tenants/new/page.tsx\n M app/dashboard/tenants/page.tsx\n M auth.ts\n M dev-server.log\n M next-auth.d.ts\n M package-lock.json\n M package.json\n M prisma/schema.prisma\n M prisma/seed.ts\n D src/components/forms/multi-step-tenant-form.tsx\n M src/components/layouts/header.tsx\n M src/components/layouts/sidebar.tsx\n M src/components/ui/alert.tsx\n M src/components/ui/image-upload.tsx\n M src/server/routers/_app.ts\n M src/server/routers/auth.ts\n M src/server/routers/contract.ts\n M src/server/routers/issue.ts\n M src/server/routers/offer.ts\n M src/server/routers/owner.ts\n M src/server/routers/property.ts\n M src/server/routers/provider.ts\n M src/server/routers/tenant.ts\n M src/server/routers/user.ts\n M src/server/trpc.ts\n M src/types/next-auth.d.ts\n?? API_DOCUMENTATION.md\n?? BACKUP_SNAPSHOT_2025.md\n?? COMPONENT_GUIDE.md\n?? DOCUMENTATION_INDEX.md\n?? GIT_STATUS_2025_06_03.md\n?? RECOVERY_PROCEDURES.md\n?? SYSTEM_ARCHITECTURE.md\n?? TROUBLESHOOTING.md\n?? app/api/cloud-storage/\n?? app/dashboard/contracts/templates/\n?? app/dashboard/settings/cloud-storage/\n?? app/dashboard/users/\n?? docs/\n?? logs/\n?? public/uploads/1748872444210-721580028-test-file.txt\n?? public/uploads/1748873934016-33025235-test-r2-file.txt\n?? src/components/dashboard/calendar-widget.tsx\n?? src/components/loading-spinner.tsx\n?? src/components/property/\n?? src/components/ui/calendar.tsx\n?? src/components/ui/file-upload.tsx\n?? src/components/ui/switch.tsx\n?? src/lib/cloud-storage.ts\n?? src/server/routers/contractTemplate.ts\n?? test-file.txt\n?? test-r2-file.txt",
   "installedPackages": [
     "@auth/prisma-adapter",
+    "@aws-sdk/client-s3",
+    "@aws-sdk/s3-request-presigner",
     "@hookform/resolvers",
     "@prisma/client",
     "@radix-ui/react-avatar",
@@ -14,6 +16,7 @@
     "@radix-ui/react-label",
     "@radix-ui/react-select",
     "@radix-ui/react-slot",
+    "@radix-ui/react-switch",
     "@radix-ui/react-tabs",
     "@tanstack/react-query",
     "@trpc/client",
@@ -66,7 +69,7 @@
     "tsx",
     "typescript"
   ],
-  "migrationStatus": "Environment variables loaded from .env\nPrisma schema loaded from prisma/schema.prisma\nDatasource \"db\": PostgreSQL database \"molino_rental\", schema \"public\" at \"localhost:5432\"\n\n2 migrations found in prisma/migrations\n\nDatabase schema is up to date!",
+  "migrationStatus": "no migrations",
   "currentPhase": "Core infrastruktúra és alapfunkciók",
   "completedTasks": [
     "Projekt inicializálás - Next.js app létrehozása TypeScript és Tailwind támogatással",

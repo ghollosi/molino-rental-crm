@@ -19,6 +19,7 @@ import {
   Home,
 } from 'lucide-react'
 import { api } from '@/lib/trpc'
+import { SimplePropertyCalendar } from '@/components/property/simple-property-calendar'
 
 export default function PropertyDetailPage() {
   const params = useParams()
@@ -180,8 +181,12 @@ export default function PropertyDetailPage() {
             </Card>
           )}
 
-          <Tabs defaultValue="issues" className="w-full">
+          <Tabs defaultValue="calendar" className="w-full">
             <TabsList>
+              <TabsTrigger value="calendar">
+                <Calendar className="h-4 w-4 mr-2" />
+                Naptár
+              </TabsTrigger>
               <TabsTrigger value="issues">
                 <AlertCircle className="h-4 w-4 mr-2" />
                 Hibabejelentések ({property.issues.length})
@@ -195,6 +200,10 @@ export default function PropertyDetailPage() {
                 Ajánlatok ({property.offers.length})
               </TabsTrigger>
             </TabsList>
+
+            <TabsContent value="calendar" className="mt-4">
+              <SimplePropertyCalendar propertyId={propertyId} />
+            </TabsContent>
 
             <TabsContent value="issues" className="mt-4">
               <Card>
@@ -249,7 +258,7 @@ export default function PropertyDetailPage() {
                         >
                           <div>
                             <h4 className="font-medium">
-                              {contract.tenant.user.name}
+                              {contract.tenant.user.firstName} {contract.tenant.user.lastName}
                             </h4>
                             <p className="text-sm text-gray-500">
                               {new Date(contract.startDate).toLocaleDateString()} -{' '}
@@ -318,7 +327,7 @@ export default function PropertyDetailPage() {
                   <User className="h-6 w-6 text-gray-600" />
                 </div>
                 <div>
-                  <p className="font-medium">{property.owner.user.name}</p>
+                  <p className="font-medium">{property.owner.user.firstName} {property.owner.user.lastName}</p>
                   <p className="text-sm text-gray-500">{property.owner.user.email}</p>
                   {property.owner.user.phone && (
                     <p className="text-sm text-gray-500">{property.owner.user.phone}</p>
@@ -339,7 +348,7 @@ export default function PropertyDetailPage() {
                     <Home className="h-6 w-6 text-gray-600" />
                   </div>
                   <div>
-                    <p className="font-medium">{property.currentTenant.user.name}</p>
+                    <p className="font-medium">{property.currentTenant.user.firstName} {property.currentTenant.user.lastName}</p>
                     <p className="text-sm text-gray-500">
                       {property.currentTenant.user.email}
                     </p>

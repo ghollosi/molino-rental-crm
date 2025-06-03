@@ -90,7 +90,8 @@ export const issueRouter = createTRPCRouter({
             reportedBy: {
               select: {
                 id: true,
-                name: true,
+                firstName: true,
+                lastName: true,
                 email: true,
               },
             },
@@ -99,7 +100,8 @@ export const issueRouter = createTRPCRouter({
                 user: {
                   select: {
                     id: true,
-                    name: true,
+                    firstName: true,
+                    lastName: true,
                     email: true,
                     phone: true,
                   },
@@ -109,7 +111,8 @@ export const issueRouter = createTRPCRouter({
             managedBy: {
               select: {
                 id: true,
-                name: true,
+                firstName: true,
+                lastName: true,
                 email: true,
               },
             },
@@ -154,7 +157,8 @@ export const issueRouter = createTRPCRouter({
           reportedBy: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
               phone: true,
             },
@@ -164,7 +168,8 @@ export const issueRouter = createTRPCRouter({
               user: {
                 select: {
                   id: true,
-                  name: true,
+                  firstName: true,
+                  lastName: true,
                   email: true,
                   phone: true,
                 },
@@ -174,7 +179,8 @@ export const issueRouter = createTRPCRouter({
           managedBy: {
             select: {
               id: true,
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
             },
           },
@@ -182,7 +188,8 @@ export const issueRouter = createTRPCRouter({
             include: {
               changedBy: {
                 select: {
-                  name: true,
+                  firstName: true,
+                  lastName: true,
                   email: true,
                 },
               },
@@ -193,7 +200,8 @@ export const issueRouter = createTRPCRouter({
             include: {
               createdBy: {
                 select: {
-                  name: true,
+                  firstName: true,
+                  lastName: true,
                   email: true,
                 },
               },
@@ -249,7 +257,8 @@ export const issueRouter = createTRPCRouter({
           },
           reportedBy: {
             select: {
-              name: true,
+              firstName: true,
+              lastName: true,
               email: true,
             },
           },
@@ -484,7 +493,7 @@ export const issueRouter = createTRPCRouter({
           issueId: input.id,
           status: 'ASSIGNED',
           changedById: ctx.session.user.id,
-          notes: input.notes || `Assigned to ${issue.assignedTo?.user.name}`,
+          notes: input.notes || `Assigned to ${issue.assignedTo?.user.firstName} ${issue.assignedTo?.user.lastName}`,
         },
       })
 

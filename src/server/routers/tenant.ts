@@ -200,10 +200,14 @@ export const tenantRouter = createTRPCRouter({
       emergencyName: z.string().optional(),
       emergencyPhone: z.string().optional(),
       
-      // Profile & documents
-      profilePhoto: z.string().optional(),
+      // Documents
       documents: z.array(z.string()).default([]),
       notes: z.string().optional(),
+      
+      // Bérlési adatok
+      propertyId: z.string().optional(),
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
       
       // Co-tenants
       coTenants: z.array(z.object({
@@ -211,6 +215,7 @@ export const tenantRouter = createTRPCRouter({
         lastName: z.string().min(1, 'Keresztnév kötelező'),
         email: z.string().email('Érvényes email cím szükséges'),
         phone: z.string().optional(),
+        documents: z.array(z.string()).default([]),
       })).default([])
     }))
     .mutation(async ({ ctx, input }) => {
@@ -222,7 +227,7 @@ export const tenantRouter = createTRPCRouter({
         })
       }
 
-      const { firstName, lastName, email, password, coTenants, ...tenantData } = input
+      const { firstName, lastName, email, password, coTenants, propertyId, startDate, endDate, ...tenantData } = input
 
       // Check if email already exists
       const existingUser = await ctx.db.user.findUnique({
@@ -259,7 +264,6 @@ export const tenantRouter = createTRPCRouter({
             userId: mainUser.id,
             emergencyName: tenantData.emergencyName,
             emergencyPhone: tenantData.emergencyPhone,
-            profilePhoto: tenantData.profilePhoto,
             documents: tenantData.documents,
             notes: tenantData.notes,
             isPrimary: true,
@@ -311,6 +315,7 @@ export const tenantRouter = createTRPCRouter({
               mainTenantId: mainTenant.id,
               isPrimary: false,
               isActive: true,
+              documents: coTenantData.documents || [],
             },
             include: {
               user: {
@@ -326,6 +331,53 @@ export const tenantRouter = createTRPCRouter({
           })
 
           createdCoTenants.push(coTenant)
+        }
+
+        // Ha van ingatlan és bérlési időszak, hozzunk létre szerződést
+        if (propertyId && startDate && endDate) {
+          // Ellenőrizzük, hogy az ingatlan elérhető-e
+          const property = await tx.property.findUnique({
+            where: { id: propertyId },
+          })
+
+          if (!property) {
+            throw new TRPCError({
+              code: 'NOT_FOUND',
+              message: 'Az ingatlan nem található',
+            })
+          }
+
+          if (property.status !== 'AVAILABLE') {
+            throw new TRPCError({
+              code: 'BAD_REQUEST',
+              message: 'Az ingatlan nem elérhető bérlésre',
+            })
+          }
+
+          // Szerződés létrehozása
+          await tx.contract.create({
+            data: {
+              tenantId: mainTenant.id,
+              propertyId,
+              startDate: new Date(startDate),
+              endDate: new Date(endDate),
+              rentAmount: property.rentAmount || 0,
+              deposit: property.rentAmount ? Number(property.rentAmount) * 2 : 0, // 2 havi kauciója
+              paymentDay: 1, // Alapértelmezett fizetési nap
+            },
+          })
+
+          // Ingatlan státusz frissítése RENTED-re
+          await tx.property.update({
+            where: { id: propertyId },
+            data: { status: 'RENTED' },
+          })
+
+          // Bérlő hozzárendelése az ingatlanhoz
+          await tx.property.update({
+            where: { id: propertyId },
+            data: { currentTenantId: mainTenant.id },
+          })
         }
 
         return {

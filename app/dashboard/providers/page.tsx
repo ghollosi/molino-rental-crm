@@ -15,7 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Badge } from '@/components/ui/badge'
-import { Plus, Search, Phone, Mail, Wrench, Star, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Plus, Search, Phone, Mail, Wrench, Star, ChevronLeft, ChevronRight, Eye, Edit, Trash2 } from 'lucide-react'
 import Link from 'next/link'
 import { ExportToolbar } from '@/components/export-toolbar'
 
@@ -79,10 +79,10 @@ export default function ProvidersPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Név</TableHead>
+                    <TableHead>Cégnév</TableHead>
                     <TableHead>Email</TableHead>
-                    <TableHead>Telefon</TableHead>
                     <TableHead>Szolgáltatások</TableHead>
+                    <TableHead>Óradíj</TableHead>
                     <TableHead>Értékelés</TableHead>
                     <TableHead>Státusz</TableHead>
                     <TableHead className="text-right">Műveletek</TableHead>
@@ -94,24 +94,14 @@ export default function ProvidersPage() {
                       <TableCell className="font-medium">
                         <div className="flex items-center">
                           <Wrench className="mr-2 h-4 w-4 text-gray-400" />
-                          {provider.user.name}
+                          {provider.businessName}
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center">
                           <Mail className="mr-2 h-4 w-4 text-gray-400" />
-                          {provider.user.email}
+                          {provider.email || provider.user.email}
                         </div>
-                      </TableCell>
-                      <TableCell>
-                        {provider.user.phone ? (
-                          <div className="flex items-center">
-                            <Phone className="mr-2 h-4 w-4 text-gray-400" />
-                            {provider.user.phone}
-                          </div>
-                        ) : (
-                          <span className="text-gray-400">-</span>
-                        )}
                       </TableCell>
                       <TableCell>
                         <div className="flex gap-1 flex-wrap">
@@ -121,6 +111,15 @@ export default function ProvidersPage() {
                             </Badge>
                           ))}
                         </div>
+                      </TableCell>
+                      <TableCell>
+                        {provider.hourlyRate ? (
+                          <div className="font-medium">
+                            {provider.hourlyRate} {provider.currency}
+                          </div>
+                        ) : (
+                          <span className="text-gray-400">-</span>
+                        )}
                       </TableCell>
                       <TableCell>
                         {provider.rating ? (
@@ -138,13 +137,21 @@ export default function ProvidersPage() {
                         </Badge>
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => router.push(`/dashboard/providers/${provider.id}`)}
-                        >
-                          Részletek
-                        </Button>
+                        <div className="flex items-center justify-end space-x-2">
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/dashboard/providers/${provider.id}`}>
+                              <Eye className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/dashboard/providers/${provider.id}/edit`}>
+                              <Edit className="h-4 w-4" />
+                            </Link>
+                          </Button>
+                          <Button variant="ghost" size="sm">
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
