@@ -22,6 +22,7 @@ import { reconciliationRouter } from './reconciliation'
 import { integrationConfigRouter } from './integrationConfig'
 import { aiPricingRouter } from './ai-pricing'
 import { smartLockRouter } from './smart-lock'
+import { accessAutomationRouter } from './access-automation'
 
 export const appRouter = createTRPCRouter({
   auth: authRouter,
@@ -47,6 +48,7 @@ export const appRouter = createTRPCRouter({
   integrationConfig: integrationConfigRouter,
   aiPricing: aiPricingRouter,
   smartLock: smartLockRouter,
+  accessAutomation: accessAutomationRouter,
 })
 
 export type AppRouter = typeof appRouter

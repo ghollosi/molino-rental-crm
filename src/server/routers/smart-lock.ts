@@ -682,8 +682,12 @@ export const smartLockRouter = createTRPCRouter({
 
       return {
         logs,
-        total,
-        pages: Math.ceil(total / input.limit)
+        pagination: {
+          page: input.page,
+          limit: input.limit,
+          total,
+          totalPages: Math.ceil(total / input.limit)
+        }
       }
     })
 })

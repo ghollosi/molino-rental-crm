@@ -77,6 +77,8 @@ const navigation = [
           { name: 'Uplisting.io', href: '/dashboard/settings/uplisting', icon: Settings },
           { name: 'AI Árazás', href: '/dashboard/settings/ai-pricing', icon: Brain },
           { name: 'Smart Zárak', href: '/dashboard/settings/smart-locks', icon: Lock },
+          { name: 'Hozzáférés Automatizálás', href: '/dashboard/settings/access-automation', icon: Shield },
+          { name: 'Zárhasználatok Naplója', href: '/dashboard/settings/access-logs', icon: FileText },
           { name: 'Spanish VAT', href: '/dashboard/settings/spanish-vat', icon: Calculator },
           { name: 'Párosítás', href: '/dashboard/settings/payment-reconciliation', icon: BarChart3 }
         ]

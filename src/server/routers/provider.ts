@@ -432,4 +432,133 @@ export const providerRouter = createTRPCRouter({
 
       return { success: true }
     }),
+
+  // Szolgáltató ingatlanhoz rendelése
+  assignToProperty: protectedProcedure
+    .input(z.object({
+      providerId: z.string(),
+      propertyId: z.string(),
+      categories: z.array(z.string()).default([]),
+      isPrimary: z.boolean().default(false),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Nincs jogosultsága szolgáltató hozzárendeléséhez',
+        })
+      }
+
+      // Ellenőrizzük, hogy már létezik-e a kapcsolat
+      const existingAssignment = await ctx.db.propertyProvider.findUnique({
+        where: {
+          propertyId_providerId: {
+            propertyId: input.propertyId,
+            providerId: input.providerId,
+          },
+        },
+      })
+
+      if (existingAssignment) {
+        throw new TRPCError({
+          code: 'CONFLICT',
+          message: 'Ez a szolgáltató már hozzá van rendelve ehhez az ingatlanhoz',
+        })
+      }
+
+      // Hozzárendelés létrehozása
+      const assignment = await ctx.db.propertyProvider.create({
+        data: {
+          providerId: input.providerId,
+          propertyId: input.propertyId,
+          categories: input.categories,
+          isPrimary: input.isPrimary,
+          isActive: true,
+        },
+        include: {
+          provider: {
+            include: {
+              user: true,
+            },
+          },
+          property: true,
+        },
+      })
+
+      // Automatikus hozzáférési szabály létrehozása
+      try {
+        const accessAutomationService = await import('@/lib/access-automation')
+        await accessAutomationService.accessAutomationService.setupRegularProviderAccess({
+          propertyId: input.propertyId,
+          providerId: input.providerId,
+          providerType: input.isPrimary ? 'REGULAR' : 'OCCASIONAL',
+          timeRestriction: 'BUSINESS_HOURS', // Szolgáltatók munkaidőben
+          allowedWeekdays: [1, 2, 3, 4, 5], // Hétfő-Péntek
+          renewalPeriodDays: input.isPrimary ? 180 : 30, // Elsődleges: 6 hó, egyéb: 1 hó
+          notes: `Automatikusan létrehozott hozzáférési szabály - ${assignment.provider.businessName} (${assignment.provider.user.firstName} ${assignment.provider.user.lastName})`
+        })
+        
+        console.log(`✅ Automatikus hozzáférési szabály létrehozva szolgáltatónak: ${assignment.provider.businessName}`)
+      } catch (accessError) {
+        console.warn('Hozzáférési szabály létrehozás sikertelen:', accessError)
+        // Nem dobunk hibát, csak logoljuk - a hozzárendelés sikeresen megtörtént
+      }
+
+      return assignment
+    }),
+
+  // Szolgáltató ingatlanról eltávolítása
+  removeFromProperty: protectedProcedure
+    .input(z.object({
+      providerId: z.string(),
+      propertyId: z.string(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Nincs jogosultsága szolgáltató eltávolításához',
+        })
+      }
+
+      await ctx.db.propertyProvider.delete({
+        where: {
+          propertyId_providerId: {
+            propertyId: input.propertyId,
+            providerId: input.providerId,
+          },
+        },
+      })
+
+      return { success: true }
+    }),
+
+  // Ingatlan szolgáltatóinak lekérdezése
+  getPropertyProviders: protectedProcedure
+    .input(z.object({
+      propertyId: z.string(),
+    }))
+    .query(async ({ ctx, input }) => {
+      const assignments = await ctx.db.propertyProvider.findMany({
+        where: {
+          propertyId: input.propertyId,
+          isActive: true,
+        },
+        include: {
+          provider: {
+            include: {
+              user: true,
+            },
+          },
+        },
+        orderBy: [
+          { isPrimary: 'desc' },
+          { createdAt: 'desc' },
+        ],
+      })
+
+      return assignments
+    }),
 })

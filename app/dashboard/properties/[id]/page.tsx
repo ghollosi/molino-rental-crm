@@ -11,6 +11,7 @@ import {
   Building,
   MapPin,
   User,
+  Users,
   Calendar,
   Edit,
   Trash2,
@@ -20,6 +21,7 @@ import {
 } from 'lucide-react'
 import { api } from '@/lib/trpc'
 import { SimplePropertyCalendar } from '@/components/property/simple-property-calendar'
+import { ProviderAssignment } from '@/components/property/provider-assignment'
 
 export default function PropertyDetailPage() {
   const params = useParams()
@@ -199,6 +201,10 @@ export default function PropertyDetailPage() {
                 <FileText className="h-4 w-4 mr-2" />
                 Ajánlatok ({property.offers.length})
               </TabsTrigger>
+              <TabsTrigger value="providers">
+                <Users className="h-4 w-4 mr-2" />
+                Szolgáltatók
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="calendar" className="mt-4">
@@ -312,6 +318,10 @@ export default function PropertyDetailPage() {
                   )}
                 </CardContent>
               </Card>
+            </TabsContent>
+
+            <TabsContent value="providers" className="mt-4">
+              <ProviderAssignment propertyId={propertyId} />
             </TabsContent>
           </Tabs>
         </div>

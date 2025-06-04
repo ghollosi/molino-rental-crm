@@ -200,8 +200,6 @@ model Property {
   smartLocks    SmartLock[]
   accessCodes   AccessCode[]
   accessLogs    AccessLog[]
-  accessRules   AccessRule[]
-  accessMonitoring AccessMonitoring[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -249,7 +247,6 @@ model Tenant {
   properties    Property[]
   contracts     Contract[]
   invoices      Invoice[]
-  accessRules   AccessRule[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -359,7 +356,6 @@ model Provider {
   propertyAssignments PropertyProvider[]
   ratings       ProviderRating[]
   slaTrackings  SLATracking[]
-  accessRules   AccessRule[]
   
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
@@ -1065,7 +1061,6 @@ model SmartLock {
   // Access management
   accessCodes       AccessCode[]
   accessLogs        AccessLog[]
-  accessMonitoring  AccessMonitoring[]
   
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
@@ -1131,11 +1126,8 @@ model AccessCode {
   purpose           String?   // Cél (pl. "Takarítás", "Karbantartás", "Vendég")
   notes             String?   // Megjegyzések
   
-  // Access logs and monitoring
+  // Access logs
   accessLogs        AccessLog[]
-  accessRule        AccessRule? @relation(fields: [accessRuleId], references: [id])
-  accessRuleId      String?
-  accessMonitoring  AccessMonitoring[]
   
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
@@ -1212,9 +1204,6 @@ model AccessLog {
   
   createdAt         DateTime  @default(now())
   
-  // Monitoring relationship
-  accessMonitoring  AccessMonitoring?
-  
   @@index([smartLockId])
   @@index([propertyId])
   @@index([accessCodeId])
@@ -1250,142 +1239,4 @@ enum AccessMethod {
   MANUAL            // Kézi (kulcs)
   EMERGENCY         // Vészhelyzeti
   UNKNOWN           // Ismeretlen
-}
-
-enum ProviderType {
-  REGULAR           // Rendszeres szolgáltató (6 havonta megújítás)
-  OCCASIONAL        // Alkalmi szolgáltató (naptár alapú)
-  EMERGENCY         // Vészhelyzeti szolgáltató
-}
-
-enum TenantType {
-  LONG_TERM         // Hosszútávú bérlő (negyed éves megújítás)
-  SHORT_TERM        // Rövidtávú bérlő (14 napig, telefonszám alapú kód)
-  VACATION_RENTAL   // Vacation rental vendég
-}
-
-enum AccessRenewalStatus {
-  ACTIVE            // Aktív hozzáférés
-  PENDING_RENEWAL   // Megújításra vár
-  EXPIRED           // Lejárt
-  SUSPENDED         // Felfüggesztett
-}
-
-enum AccessTimeRestriction {
-  BUSINESS_HOURS    // Munkaidő (9:00-17:00)
-  EXTENDED_HOURS    // Kibővített (7:00-19:00)
-  DAYLIGHT_ONLY     // Csak nappal (6:00-20:00)
-  CUSTOM            // Egyedi időszak
-  NO_RESTRICTION    // Nincs korlátozás
-}
-
-// Automatikus hozzáférés kezelési szabályok
-model AccessRule {
-  id                String    @id @default(cuid())
-  
-  // Kapcsolat
-  propertyId        String
-  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
-  
-  // Szolgáltató/bérlő info
-  providerId        String?   // Provider ID (ha szolgáltató)
-  provider          Provider? @relation(fields: [providerId], references: [id], onDelete: Cascade)
-  tenantId          String?   // Tenant ID (ha bérlő)
-  tenant            Tenant?   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  
-  // Rule típus
-  ruleType          String    // "PROVIDER" vagy "TENANT"
-  providerType      ProviderType?
-  tenantType        TenantType?
-  
-  // Hozzáférési beállítások
-  timeRestriction   AccessTimeRestriction @default(BUSINESS_HOURS)
-  customTimeStart   String?   // "09:00" formátum
-  customTimeEnd     String?   // "17:00" formátum
-  allowedWeekdays   String    @default("1,2,3,4,5") // JSON: "1,2,3,4,5" (H-P)
-  
-  // Megújítási beállítások
-  renewalPeriodDays Int       @default(90) // 90 nap = negyed év
-  renewalStatus     AccessRenewalStatus @default(ACTIVE)
-  lastRenewalDate   DateTime  @default(now())
-  nextRenewalDate   DateTime  // Számított mező
-  
-  // Automatikus kód generálás (rövid távú bérlők)
-  autoGenerateCode  Boolean   @default(false)
-  codeGenerationRule String?  // "PHONE_LAST_5" vagy egyéb szabály
-  codeDeliveryDays  Int       @default(3) // 3 nappal a bérleti időszak előtt
-  
-  // Metadata
-  isActive          Boolean   @default(true)
-  notes             String?   // Admin megjegyzések
-  
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
-  
-  // Generated access codes
-  accessCodes       AccessCode[]
-  accessMonitoring  AccessMonitoring[]
-  
-  @@index([propertyId])
-  @@index([providerId])
-  @@index([tenantId])
-  @@index([ruleType])
-  @@index([renewalStatus])
-  @@index([nextRenewalDate])
-}
-
-// Hozzáférés monitorozás és riporting
-model AccessMonitoring {
-  id                String    @id @default(cuid())
-  
-  // Kapcsolatok
-  propertyId        String
-  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
-  smartLockId       String
-  smartLock         SmartLock @relation(fields: [smartLockId], references: [id], onDelete: Cascade)
-  accessLogId       String    @unique
-  accessLog         AccessLog @relation(fields: [accessLogId], references: [id], onDelete: Cascade)
-  
-  // Monitoring adatok
-  monitoringDate    DateTime  @default(now())
-  accessTime        DateTime  // Belépés időpontja
-  exitTime          DateTime? // Kilépés időpontja (ha elérhető)
-  duration          Int?      // Bent töltött idő percekben
-  
-  // Kinek a hozzáférése?
-  accessorType      String    // "PROVIDER", "TENANT", "GUEST", "ADMIN"
-  accessorId        String?   // Provider/Tenant/User ID
-  accessorName      String    // Név/azonosító
-  accessorPhone     String?   // Telefonszám
-  
-  // Engedély ellenőrzés
-  wasAuthorized     Boolean   @default(true)  // Volt-e engedélye?
-  ruleId            String?   // Melyik szabály alapján?
-  accessRule        AccessRule? @relation(fields: [ruleId], references: [id])
-  accessCodeId      String?   // Melyik kóddal?
-  accessCode        AccessCode? @relation(fields: [accessCodeId], references: [id])
-  
-  // Időkorlátozás ellenőrzés
-  withinTimeLimit   Boolean   @default(true)  // Időkorláton belül?
-  expectedTimeStart String?   // Elvárható kezdési idő
-  expectedTimeEnd   String?   // Elvárható befejezési idő
-  
-  // Riasztások
-  isViolation       Boolean   @default(false) // Szabálysértés?
-  violationType     String?   // "TIME_VIOLATION", "UNAUTHORIZED_ACCESS", stb.
-  alertsSent        Boolean   @default(false) // Küldtünk-e riasztást?
-  
-  // Metadata
-  notes             String?   // Monitoring megjegyzések
-  
-  createdAt         DateTime  @default(now())
-  
-  @@index([propertyId])
-  @@index([smartLockId])
-  @@index([accessTime])
-  @@index([accessorType])
-  @@index([accessorId])
-  @@index([wasAuthorized])
-  @@index([isViolation])
-  @@index([monitoringDate])
 }

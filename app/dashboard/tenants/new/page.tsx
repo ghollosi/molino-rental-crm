@@ -84,7 +84,31 @@ export default function NewTenantPage() {
   }
 
   const createTenant = api.tenant.create.useMutation({
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
+      // Automatikus hozzáférési szabály létrehozása ha van ingatlan hozzárendelve
+      if (data.currentPropertyId) {
+        try {
+          await api.accessAutomation.setupLongTermTenantAccess.mutate({
+            propertyId: data.currentPropertyId,
+            tenantId: data.id,
+            tenantType: 'LONG_TERM',
+            timeRestriction: 'NO_RESTRICTION', // Bérlők 24/7 hozzáférés
+            allowedWeekdays: [1, 2, 3, 4, 5, 6, 7], // Minden nap
+            renewalPeriodDays: 90, // Negyed éves megújítás
+            autoGenerateCode: false, // Manuális kódkezelés hosszútávú bérlőknek
+            codeGenerationRule: undefined,
+            codeDeliveryDays: 3,
+            notes: `Automatikusan létrehozott hozzáférési szabály - ${data.user?.firstName} ${data.user?.lastName}`
+          })
+          
+          // Sikeres hozzáférés létrehozás jelzése
+          alert('✅ Bérlő létrehozva és automatikus hozzáférési szabály beállítva!')
+        } catch (accessError) {
+          console.warn('Hozzáférési szabály létrehozás sikertelen:', accessError)
+          alert('⚠️ Bérlő létrehozva, de hozzáférési szabály manuálisan szükséges!')
+        }
+      }
+      
       router.push(`/dashboard/tenants/${data.id}`)
     },
     onError: (error) => {
