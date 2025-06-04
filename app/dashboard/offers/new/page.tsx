@@ -10,8 +10,10 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, AlertCircle, Plus, Trash2 } from 'lucide-react'
+import { ArrowLeft, AlertCircle, Plus, Trash2, Calculator } from 'lucide-react'
 import Link from 'next/link'
+import { calculateDynamicPrice } from '@/lib/dynamic-pricing'
+import { format } from 'date-fns'
 
 interface OfferFormData {
   propertyId: string
@@ -133,6 +135,33 @@ export default function NewOfferPage() {
   const itemsTotal = watchItems.reduce((sum, item) => sum + (item.total || 0), 0)
   const calculatedTotal = itemsTotal + watchLaborCost + watchMaterialCost
 
+  // Dynamic pricing kiszámítása
+  const calculateDynamicPricing = () => {
+    const selectedIssue = issues?.issues.find(i => i.id === watchIssueId)
+    if (!selectedIssue) {
+      alert('Kérjük, válasszon hibabejelentést a dinamikus árazáshoz!')
+      return
+    }
+
+    const basePrice = Number(watchLaborCost) + Number(watchMaterialCost) + itemsTotal
+    const dynamicPrice = calculateDynamicPrice(
+      basePrice,
+      selectedIssue.priority,
+      new Date(),
+      'REGULAR' // Később lehet tenant típus alapján
+    )
+
+    setValue('totalAmount', dynamicPrice.finalPrice)
+    
+    // Visszajelzés a felhasználónak
+    if (dynamicPrice.appliedModifiers.length > 0) {
+      const modifierText = dynamicPrice.appliedModifiers
+        .map(m => `${m.name}: ${m.value > 0 ? '+' : ''}${(m.value * 100).toFixed(0)}%`)
+        .join('\n')
+      alert(`Dinamikus árazás alkalmazva:\n\n${modifierText}\n\nAlap ár: ${basePrice.toFixed(0)} EUR\nVégső ár: ${dynamicPrice.finalPrice.toFixed(0)} EUR`)
+    }
+  }
+
   return (
     <div className="container mx-auto py-6 px-4">
       <div className="mb-6">
@@ -197,21 +226,35 @@ export default function NewOfferPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="issueId">Kapcsolódó hibabejelentés</Label>
-                <Select
-                  value={watchIssueId || undefined}
-                  onValueChange={(value) => setValue('issueId', value || undefined)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Válasszon hibabejelentést (opcionális)" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {issues?.issues.map((issue) => (
-                      <SelectItem key={issue.id} value={issue.id}>
-                        {issue.title} - {issue.property?.street}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="flex gap-2">
+                  <Select
+                    value={watchIssueId || undefined}
+                    onValueChange={(value) => setValue('issueId', value || undefined)}
+                    className="flex-1"
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Válasszon hibabejelentést (opcionális)" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {issues?.issues.map((issue) => (
+                        <SelectItem key={issue.id} value={issue.id}>
+                          {issue.title} - {issue.property?.street}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {watchIssueId && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={calculateDynamicPricing}
+                      className="flex items-center gap-2"
+                    >
+                      <Calculator className="h-4 w-4" />
+                      Dinamikus ár
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
 

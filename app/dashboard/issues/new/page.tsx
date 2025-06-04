@@ -14,6 +14,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ArrowLeft, AlertCircle, User } from 'lucide-react'
 import Link from 'next/link'
 import { ImageUpload } from '@/components/ui/image-upload'
+import { analyzeIssueDescription } from '@/lib/ai-categorization'
+import { Sparkles } from 'lucide-react'
 
 interface IssueFormData {
   title: string
@@ -67,6 +69,19 @@ export default function NewIssuePage() {
   }
 
   const watchPropertyId = watch('propertyId')
+  const watchDescription = watch('description')
+
+  // AI kategorizálás a leírás alapján
+  const handleAIAnalyze = () => {
+    if (!watchDescription) {
+      setError('Kérjük, először írja le a hibát!')
+      return
+    }
+
+    const analysis = analyzeIssueDescription(watchDescription)
+    setValue('category', analysis.category)
+    setValue('priority', analysis.priority)
+  }
 
   return (
     <div className="container mx-auto py-6 px-4">
@@ -113,15 +128,29 @@ export default function NewIssuePage() {
 
               <div>
                 <Label htmlFor="description">Részletes leírás *</Label>
-                <textarea
-                  id="description"
-                  {...register('description', { required: 'A leírás megadása kötelező' })}
-                  placeholder="Részletes leírás a hibáról..."
-                  className="w-full min-h-[120px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                {errors.description && (
-                  <p className="text-sm text-red-500 mt-1">{errors.description.message}</p>
-                )}
+                <div className="space-y-2">
+                  <textarea
+                    id="description"
+                    {...register('description', { required: 'A leírás megadása kötelező' })}
+                    placeholder="Részletes leírás a hibáról..."
+                    className="w-full min-h-[120px] px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  {errors.description && (
+                    <p className="text-sm text-red-500 mt-1">{errors.description.message}</p>
+                  )}
+                  {watchDescription && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={handleAIAnalyze}
+                      className="flex items-center gap-2"
+                    >
+                      <Sparkles className="h-4 w-4" />
+                      AI elemzés
+                    </Button>
+                  )}
+                </div>
               </div>
 
               <div>

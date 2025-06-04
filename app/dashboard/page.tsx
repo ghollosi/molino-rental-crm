@@ -10,6 +10,7 @@ import { PropertyOverview } from '@/components/dashboard/property-overview'
 import { FinancialSummary } from '@/src/components/dashboard/financial-summary'
 import { OutstandingPayments } from '@/src/components/dashboard/outstanding-payments'
 import { CalendarWidget } from '@/src/components/dashboard/calendar-widget'
+import { FinancialForecastingWidget } from '@/components/provider-matching/financial-forecasting-widget'
 import { api } from '@/lib/trpc/client'
 
 export default function DashboardPage() {
@@ -53,6 +54,9 @@ export default function DashboardPage() {
 
       {/* Calendar Widget - Full Width */}
       <CalendarWidget userRole={session.user.role} />
+
+      {/* Financial Forecasting Widget */}
+      <FinancialForecastingWidget />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <QuickActions userRole={session.user.role} />
