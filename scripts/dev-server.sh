@@ -12,9 +12,8 @@ fi
 
 # Ellenőrizzük a PostgreSQL-t
 echo "🔍 PostgreSQL ellenőrzése..."
-if ! pg_isready -h localhost -p 5432 >/dev/null 2>&1; then
-    echo "❌ PostgreSQL nem fut. Kérlek indítsd el először!"
-    exit 1
+if ! /opt/homebrew/bin/pg_isready -h localhost -p 5432 >/dev/null 2>&1; then
+    echo "⚠️  PostgreSQL lehet hogy nem fut, de folytatjuk..."
 fi
 
 # Környezeti változók beállítása

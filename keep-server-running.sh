@@ -1,65 +1,26 @@
 #!/bin/bash
+# Szerver monitor script
 
-# Script a szerver folyamatos futtatásához
-# Ez biztosítja, hogy a fejlesztői szerver mindig fusson
+echo "🔄 Szerver monitor indítása..."
 
-echo "🚀 Molino CRM Server Monitor"
-echo "=========================="
-
-# Színek
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-# Funkció a szerver ellenőrzésére
-check_server() {
-    if curl -s http://localhost:3333/ > /dev/null 2>&1; then
-        return 0
-    else
-        return 1
-    fi
-}
-
-# Funkció a szerver indítására
-start_server() {
-    echo -e "${YELLOW}⚡ Szerver indítása...${NC}"
-    cd /Users/hollosigabor/molino-rental-crm
-    npm run dev > dev-server.log 2>&1 &
-    SERVER_PID=$!
-    echo $SERVER_PID > .server.pid
-    sleep 5
-}
-
-# Főciklus
 while true; do
-    if check_server; then
-        echo -e "${GREEN}✅ Szerver fut ($(date +%H:%M:%S))${NC}"
-    else
-        echo -e "${RED}❌ Szerver nem fut!${NC}"
+    # Ellenőrizzük a szervert
+    if ! curl -s -f http://localhost:3333 > /dev/null 2>&1; then
+        echo "❌ Szerver nem válaszol, újraindítás..."
         
-        # Megpróbáljuk leállítani a régi folyamatot
-        if [ -f .server.pid ]; then
-            OLD_PID=$(cat .server.pid)
-            kill -9 $OLD_PID 2>/dev/null
-            rm .server.pid
-        fi
+        # Leállítjuk a hibás folyamatokat
+        pkill -f "next dev" 2>/dev/null || true
+        sleep 2
         
-        # Port felszabadítása
-        lsof -ti:3333 | xargs kill -9 2>/dev/null
+        # Újraindítjuk
+        cd /Users/hollosigabor/molino-rental-crm
+        nohup npm run dev > dev-server.log 2>&1 &
         
-        # Újraindítás
-        start_server
-        
-        # Ellenőrzés hogy sikerült-e
+        echo "🚀 Szerver újraindítva"
         sleep 5
-        if check_server; then
-            echo -e "${GREEN}✅ Szerver sikeresen újraindult!${NC}"
-        else
-            echo -e "${RED}❌ Nem sikerült újraindítani! Nézd meg a dev-server.log fájlt!${NC}"
-        fi
+    else
+        echo "✅ $(date '+%H:%M:%S') - Szerver működik: http://localhost:3333"
     fi
     
-    # Várunk 30 másodpercet a következő ellenőrzésig
-    sleep 30
+    sleep 10
 done
