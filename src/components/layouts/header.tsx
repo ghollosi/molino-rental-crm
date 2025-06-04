@@ -15,11 +15,13 @@ import { useRouter } from 'next/navigation'
 import { useSession, signOut } from 'next-auth/react'
 import { api } from '@/lib/trpc/client'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function Header() {
   const router = useRouter()
   const { data: session } = useSession()
   const { data: currentUser } = api.user.getCurrentUser.useQuery()
+  const { data: company } = api.company.get.useQuery()
 
   const handleSignOut = async () => {
     await signOut({ 
@@ -36,9 +38,27 @@ export function Header() {
     <header className="bg-white border-b border-gray-200">
       <div className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center space-x-4">
-          <h2 className="text-lg font-semibold text-gray-900">
-            Vezérlőpult
-          </h2>
+          {/* Company Logo */}
+          {company?.logo ? (
+            <div className="flex items-center space-x-3">
+              <div className="relative w-8 h-8">
+                <Image
+                  src={company.logo}
+                  alt={company.name || 'Cég logó'}
+                  fill
+                  sizes="32px"
+                  className="object-contain rounded"
+                />
+              </div>
+              <h2 className="text-lg font-semibold text-gray-900">
+                {company.name || 'Vezérlőpult'}
+              </h2>
+            </div>
+          ) : (
+            <h2 className="text-lg font-semibold text-gray-900">
+              {company?.name || 'Vezérlőpult'}
+            </h2>
+          )}
         </div>
 
         <div className="flex items-center space-x-4">

@@ -20,6 +20,7 @@ import { whatsappRouter } from './whatsapp'
 import { bookingRouter } from './booking'
 import { reconciliationRouter } from './reconciliation'
 import { integrationConfigRouter } from './integrationConfig'
+import { aiPricingRouter } from './ai-pricing'
 
 export const appRouter = createTRPCRouter({
   auth: authRouter,
@@ -43,6 +44,7 @@ export const appRouter = createTRPCRouter({
   booking: bookingRouter,
   reconciliation: reconciliationRouter,
   integrationConfig: integrationConfigRouter,
+  aiPricing: aiPricingRouter,
 })
 
 export type AppRouter = typeof appRouter

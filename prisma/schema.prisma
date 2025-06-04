@@ -92,6 +92,7 @@ model User {
   offers        Offer[]
   statusChanges IssueTimeline[]
   uploadedFiles UploadedFile[]
+  propertyPricing PropertyPricing[]
 }
 
 model Company {
@@ -177,12 +178,15 @@ model Property {
   type          PropertyType
   size          Float?    // m²
   rooms         Int?
+  bedrooms      Int?      // New field for bedroom count
   floor         Int?
   rentAmount    Decimal?
   currency      String    @default("EUR")
   
   photos        String[]  // Array of URLs
   status        PropertyStatus @default(AVAILABLE)
+  address       String?   // Full address string
+  reference     String?   // Reference number
   
   issues        Issue[]
   offers        Offer[]
@@ -191,9 +195,27 @@ model Property {
   ratings       ProviderRating[]
   invoices      Invoice[]
   bookings      Booking[]
+  pricingHistory PropertyPricing[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+}
+
+model PropertyPricing {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  date       DateTime
+  price      Decimal
+  source     String   // 'ai', 'manual', 'rule-based'
+  appliedBy  String
+  appliedByUser User  @relation(fields: [appliedBy], references: [id])
+  appliedAt  DateTime @default(now())
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([propertyId, date])
 }
 
 model Tenant {

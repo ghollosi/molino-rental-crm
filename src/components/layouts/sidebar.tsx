@@ -30,7 +30,8 @@ import {
   Shield,
   Mail,
   Workflow,
-  Cloud
+  Cloud,
+  Brain
 } from 'lucide-react'
 import { useSidebar } from '@/contexts/sidebar-context'
 import { useState } from 'react'
@@ -73,6 +74,7 @@ const navigation = [
           { name: 'WhatsApp', href: '/dashboard/settings/whatsapp', icon: MessageCircle },
           { name: 'Booking.com', href: '/dashboard/settings/booking', icon: Calendar },
           { name: 'Uplisting.io', href: '/dashboard/settings/uplisting', icon: Settings },
+          { name: 'AI Árazás', href: '/dashboard/settings/ai-pricing', icon: Brain },
           { name: 'Spanish VAT', href: '/dashboard/settings/spanish-vat', icon: Calculator },
           { name: 'Párosítás', href: '/dashboard/settings/payment-reconciliation', icon: BarChart3 }
         ]
