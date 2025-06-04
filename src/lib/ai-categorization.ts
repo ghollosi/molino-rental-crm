@@ -31,7 +31,8 @@ const categoryKeywords: Record<IssueCategory, string[]> = {
   ],
   ELECTRICAL: [
     'villany', 'áram', 'kapcsoló', 'lámpa', 'konnekt', 'biztosíték', 'vezeték',
-    'világítás', 'elektromos', 'rövidzárlat', 'megszakító', 'káble', 'izzó',
+    'világítás', 'elektromos', 'rövidzárlat', 'megszakító', 'káble', 'izzó', 'világít',
+    'nem világít', 'kiégett', 'égő', 'fény', 'sötét', 'áramszünet', 'kontakt',
     'electric', 'power', 'switch', 'light', 'socket', 'fuse', 'wire', 'cable'
   ],
   HVAC: [
