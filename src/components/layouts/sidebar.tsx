@@ -65,12 +65,14 @@ const navigation = [
         ]
       },
       {
-        name: 'Spanyol Integrációk',
+        name: 'Integrációk',
         items: [
+          { name: 'Integration Config', href: '/dashboard/admin/integrations', icon: Settings, adminOnly: true },
           { name: 'Zoho Books', href: '/dashboard/settings/zoho', icon: CreditCard },
           { name: 'CaixaBank', href: '/dashboard/settings/caixabank', icon: DollarSign },
           { name: 'WhatsApp', href: '/dashboard/settings/whatsapp', icon: MessageCircle },
           { name: 'Booking.com', href: '/dashboard/settings/booking', icon: Calendar },
+          { name: 'Uplisting.io', href: '/dashboard/settings/uplisting', icon: Settings },
           { name: 'Spanish VAT', href: '/dashboard/settings/spanish-vat', icon: Calculator },
           { name: 'Párosítás', href: '/dashboard/settings/payment-reconciliation', icon: BarChart3 }
         ]
@@ -100,9 +102,9 @@ export function Sidebar() {
     }))
   }
 
-  // Auto-open submenu if we're on a settings page
+  // Auto-open submenu if we're on a settings or admin page
   React.useEffect(() => {
-    if (pathname?.startsWith('/dashboard/settings')) {
+    if (pathname?.startsWith('/dashboard/settings') || pathname?.startsWith('/dashboard/admin')) {
       setOpenSubmenus(prev => ({
         ...prev,
         'Beállítások': true
@@ -183,7 +185,14 @@ export function Sidebar() {
                             <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                               {category.name}
                             </div>
-                            {category.items.map((subItem) => {
+                            {category.items
+                              .filter(subItem => {
+                                if (subItem.adminOnly) {
+                                  return ['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(session?.user?.role || '')
+                                }
+                                return true
+                              })
+                              .map((subItem) => {
                               const isSubActive = pathname === subItem.href
                               return (
                                 <Link

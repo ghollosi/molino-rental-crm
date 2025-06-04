@@ -114,7 +114,7 @@ export default function PaymentReconciliationPage() {
 
           <div className="text-sm text-muted-foreground space-y-1">
             <p>🔄 <strong>Automatikus ütemezés:</strong> Naponta 6:00, 12:00, 18:00</p>
-            <p>🎯 <strong>Párosítási logika:</strong> Összeg ±1 EUR, dátum ±7 nap, konfidencia >90%</p>
+            <p>🎯 <strong>Párosítási logika:</strong> Összeg ±1 EUR, dátum ±7 nap, konfidencia &gt;90%</p>
             <p>📱 <strong>Értesítések:</strong> WhatsApp automatikus fizetés visszaigazolás</p>
           </div>
         </CardContent>
@@ -346,7 +346,7 @@ export default function PaymentReconciliationPage() {
             </div>
             <div>
               <strong>Konfidencia küszöb:</strong><br />
-              <code className="text-xs bg-muted px-2 py-1 rounded">>90%</code>
+              <code className="text-xs bg-muted px-2 py-1 rounded">&gt;90%</code>
             </div>
             <div>
               <strong>Cron ütemezés:</strong><br />

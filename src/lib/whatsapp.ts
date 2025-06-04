@@ -4,6 +4,7 @@
  */
 
 import { env } from '@/env'
+import { getWhatsAppConfig } from '@/lib/integration-config'
 
 export interface WhatsAppConfig {
   businessAccountId: string
@@ -583,16 +584,17 @@ class WhatsAppBusinessAPI {
 // Singleton instance
 let whatsappInstance: WhatsAppBusinessAPI | null = null
 
-export function getWhatsAppClient(): WhatsAppBusinessAPI {
+export async function getWhatsAppClient(): Promise<WhatsAppBusinessAPI> {
   if (!whatsappInstance) {
-    const config: WhatsAppConfig = {
-      businessAccountId: env.WHATSAPP_BUSINESS_ACCOUNT_ID || '',
-      phoneNumberId: env.WHATSAPP_PHONE_NUMBER_ID || '',
-      accessToken: env.WHATSAPP_ACCESS_TOKEN || '',
-      webhookSecret: env.WHATSAPP_WEBHOOK_SECRET || '',
+    const config = await getWhatsAppConfig()
+    const whatsappConfig: WhatsAppConfig = {
+      businessAccountId: config.businessAccountId,
+      phoneNumberId: config.phoneNumberId,
+      accessToken: config.accessToken,
+      webhookSecret: config.webhookSecret || '',
     }
 
-    whatsappInstance = new WhatsAppBusinessAPI(config)
+    whatsappInstance = new WhatsAppBusinessAPI(whatsappConfig)
   }
 
   return whatsappInstance

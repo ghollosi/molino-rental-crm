@@ -4,6 +4,7 @@
  */
 
 import { env } from '@/env'
+import { getZohoConfig } from '@/lib/integration-config'
 
 export interface ZohoConfig {
   clientId: string
@@ -483,17 +484,18 @@ class ZohoBooksAPI {
 // Singleton instance
 let zohoBooksInstance: ZohoBooksAPI | null = null
 
-export function getZohoBooksClient(): ZohoBooksAPI {
+export async function getZohoBooksClient(): Promise<ZohoBooksAPI> {
   if (!zohoBooksInstance) {
-    const config: ZohoConfig = {
-      clientId: env.ZOHO_CLIENT_ID || '',
-      clientSecret: env.ZOHO_CLIENT_SECRET || '',
-      refreshToken: env.ZOHO_REFRESH_TOKEN || '',
-      organizationId: env.ZOHO_ORGANIZATION_ID || '',
-      region: 'eu', // Spain uses EU region
+    const config = await getZohoConfig()
+    const zohoConfig: ZohoConfig = {
+      clientId: config.clientId,
+      clientSecret: config.clientSecret,
+      refreshToken: config.refreshToken || '',
+      organizationId: config.organizationId || '',
+      region: config.region === 'eu' ? 'eu' : 'com',
     }
 
-    zohoBooksInstance = new ZohoBooksAPI(config)
+    zohoBooksInstance = new ZohoBooksAPI(zohoConfig)
   }
 
   return zohoBooksInstance

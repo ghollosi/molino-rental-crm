@@ -4,6 +4,7 @@
  */
 
 import { env } from '@/env'
+import { getCaixaBankConfig } from '@/lib/integration-config'
 
 export interface CaixaBankConfig {
   clientId: string
@@ -406,17 +407,18 @@ class CaixaBankAPI {
 // Singleton instance
 let caixaBankInstance: CaixaBankAPI | null = null
 
-export function getCaixaBankClient(): CaixaBankAPI {
+export async function getCaixaBankClient(): Promise<CaixaBankAPI> {
   if (!caixaBankInstance) {
-    const config: CaixaBankConfig = {
-      clientId: env.CAIXABANK_CLIENT_ID || '',
-      clientSecret: env.CAIXABANK_CLIENT_SECRET || '',
-      sandboxMode: env.CAIXABANK_SANDBOX || true,
-      iban: env.CAIXABANK_IBAN || '',
-      consentId: env.CAIXABANK_CONSENT_ID || undefined,
+    const config = await getCaixaBankConfig()
+    const caixaBankConfig: CaixaBankConfig = {
+      clientId: config.clientId,
+      clientSecret: config.clientSecret,
+      sandboxMode: config.environment === 'sandbox',
+      iban: config.iban,
+      consentId: undefined, // This will be set during consent flow
     }
 
-    caixaBankInstance = new CaixaBankAPI(config)
+    caixaBankInstance = new CaixaBankAPI(caixaBankConfig)
   }
 
   return caixaBankInstance

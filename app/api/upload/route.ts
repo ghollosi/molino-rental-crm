@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { writeFile } from 'fs/promises'
 import path from 'path'
 import { cloudStorage } from '@/lib/cloud-storage'
+import { db } from '@/lib/db'
+import { auth } from '@/auth'
 
 export async function POST(request: Request) {
   try {
@@ -14,6 +16,39 @@ export async function POST(request: Request) {
 
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
+    
+    // Try database storage first if user is authenticated
+    const session = await auth()
+    if (session?.user?.id) {
+      try {
+        // Generate unique filename
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+        const filename = file.name.replace(/[^a-zA-Z0-9.-]/g, '_')
+        const uniqueFilename = `${uniqueSuffix}-${filename}`
+
+        // Store in database as base64
+        const base64Data = buffer.toString('base64')
+        const fileRecord = await db.uploadedFile.create({
+          data: {
+            filename: uniqueFilename,
+            originalName: file.name,
+            mimeType: file.type,
+            size: file.size,
+            data: base64Data,
+            uploadedBy: session.user.id,
+          }
+        })
+
+        return NextResponse.json({ 
+          url: `/api/files/${fileRecord.id}`,
+          id: fileRecord.id,
+          filename: uniqueFilename,
+          storage: 'database'
+        })
+      } catch (dbError) {
+        console.warn('Database storage failed, falling back to other methods:', dbError)
+      }
+    }
 
     // Check if R2 cloud storage is configured and available
     if (cloudStorage.isConfigured()) {

@@ -288,7 +288,7 @@ export default function CaixaBankSettingsPage() {
             <p>🔄 <strong>Automatikus párosítás:</strong> Bérleti díjak és tranzakciók</p>
             <p>💰 <strong>Tolerance:</strong> ±1 cent pontosság</p>
             <p>📅 <strong>Időzítés:</strong> Esedékesség ±7 nap</p>
-            <p>🎯 <strong>Konfidencia:</strong> >90% automatikus, <90% felülvizsgálat</p>
+            <p>🎯 <strong>Konfidencia:</strong> &gt;90% automatikus, &lt;90% felülvizsgálat</p>
           </div>
         </CardContent>
       </Card>

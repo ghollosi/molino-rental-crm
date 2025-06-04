@@ -11,6 +11,7 @@ import {
   Settings2, Workflow, Cloud
 } from 'lucide-react'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
 const SETTINGS_CATEGORIES = {
   general: {
@@ -36,9 +37,18 @@ const SETTINGS_CATEGORIES = {
     ]
   },
   integrations: {
-    title: 'Spanyol Integrációk',
+    title: 'Integrációk',
     icon: CreditCard,
     items: [
+      { 
+        id: 'integration-config', 
+        title: 'Integration Config', 
+        icon: Settings2, 
+        description: 'Központi integráció konfiguráció',
+        badge: 'Admin',
+        href: '/dashboard/admin/integrations',
+        adminOnly: true
+      },
       { 
         id: 'zoho', 
         title: 'Zoho Books', 
@@ -92,11 +102,13 @@ const SETTINGS_CATEGORIES = {
 }
 
 export default function SettingsPage() {
+  const { data: session } = useSession()
   
   const getBadgeVariant = (badge: string) => {
     switch (badge) {
       case 'Aktív': return 'default'
       case 'Elérhető': return 'secondary'
+      case 'Admin': return 'destructive'
       default: return 'outline'
     }
   }
@@ -140,11 +152,18 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* Spanish Integrations Grid */}
+      {/* Integrations Grid */}
       <div className="mb-8">
-        <h3 className="text-lg font-semibold mb-4">🇪🇸 Spanyol Integrációk</h3>
+        <h3 className="text-lg font-semibold mb-4">🔗 Integrációk</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SETTINGS_CATEGORIES.integrations.items.map((item) => {
+          {SETTINGS_CATEGORIES.integrations.items
+            .filter((item: any) => {
+              if (item.adminOnly) {
+                return ['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(session?.user?.role || '')
+              }
+              return true
+            })
+            .map((item) => {
             const IconComponent = item.icon
             
             return (

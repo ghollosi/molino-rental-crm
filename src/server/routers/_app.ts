@@ -13,11 +13,13 @@ import { analyticsRouter } from './analytics'
 import { providerMatchingRouter } from './provider-matching'
 import { providerRatingRouter } from './provider-rating'
 import { financialForecastingRouter } from './financial-forecasting'
+import { companyRouter } from './company'
 import { zohoRouter } from './zoho'
 import { caixabankRouter } from './caixabank'
 import { whatsappRouter } from './whatsapp'
 import { bookingRouter } from './booking'
 import { reconciliationRouter } from './reconciliation'
+import { integrationConfigRouter } from './integrationConfig'
 
 export const appRouter = createTRPCRouter({
   auth: authRouter,
@@ -34,11 +36,13 @@ export const appRouter = createTRPCRouter({
   providerMatching: providerMatchingRouter,
   providerRating: providerRatingRouter,
   financialForecasting: financialForecastingRouter,
+  company: companyRouter,
   zoho: zohoRouter,
   caixabank: caixabankRouter,
   whatsapp: whatsappRouter,
   booking: bookingRouter,
   reconciliation: reconciliationRouter,
+  integrationConfig: integrationConfigRouter,
 })
 
 export type AppRouter = typeof appRouter

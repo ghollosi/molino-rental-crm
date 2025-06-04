@@ -16,7 +16,7 @@ export const rateLimitConfig = {
   // File upload routes
   upload: {
     windowMs: 60 * 1000, // 1 minute
-    max: 5, // 5 uploads per minute
+    max: 20, // 20 uploads per minute (increased for testing)
   },
   
   // Export routes (PDF, Excel)

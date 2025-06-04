@@ -9,7 +9,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { FileUpload } from '@/components/ui/file-upload'
 import { Building, AlertCircle, CheckCircle2, Image } from 'lucide-react'
 import { api } from '@/lib/trpc/client'
-import { useToast } from '@/src/hooks/use-toast'
+import { useToast } from '@/hooks/use-toast'
 
 export function CompanySettings() {
   const { toast } = useToast()
@@ -81,11 +81,23 @@ export function CompanySettings() {
   }, [company])
 
   const handleSave = async () => {
-    updateCompanyMutation.mutate(companyData)
+    console.log('Attempting to save company data:', companyData)
+    
+    // Filter out empty strings to avoid validation errors
+    const filteredData = Object.fromEntries(
+      Object.entries(companyData).filter(([key, value]) => {
+        if (key === 'email' && value === '') return false // Skip empty email
+        if (value === '') return false // Skip empty strings
+        return true
+      })
+    )
+    
+    console.log('Filtered data for update:', filteredData)
+    updateCompanyMutation.mutate(filteredData)
   }
   
-  const handleLogoUpload = (url: string) => {
-    setCompanyData(prev => ({ ...prev, logo: url }))
+  const handleLogoUpload = (url: string | undefined) => {
+    setCompanyData(prev => ({ ...prev, logo: url || '' }))
   }
 
   if (isLoading) {

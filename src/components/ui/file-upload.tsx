@@ -35,42 +35,91 @@ export function FileUpload({
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
-    if (!file) return
+    console.log('File selected:', file)
+    
+    if (!file) {
+      console.log('No file selected')
+      return
+    }
+
+    console.log('File details:', {
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      maxSize: maxSize * 1024 * 1024
+    })
 
     // Validate file size
     if (file.size > maxSize * 1024 * 1024) {
-      setError(`A fájl mérete nem lehet nagyobb ${maxSize}MB-nál`)
+      const errorMsg = `A fájl mérete nem lehet nagyobb ${maxSize}MB-nál`
+      console.error('File size validation failed:', errorMsg)
+      setError(errorMsg)
       return
     }
 
     // Validate file type
     if (accept && !file.type.match(accept.replace('*', '.*'))) {
-      setError('Nem támogatott fájltípus')
+      const errorMsg = 'Nem támogatott fájltípus'
+      console.error('File type validation failed:', errorMsg, 'accept:', accept, 'file.type:', file.type)
+      setError(errorMsg)
       return
     }
 
+    console.log('File validations passed, starting upload...')
     setError(null)
     setIsUploading(true)
 
     try {
       const formData = new FormData()
       formData.append('file', file)
+      console.log('FormData created, making fetch request...')
 
       const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       })
 
+      console.log('Fetch response received:', {
+        ok: response.ok,
+        status: response.status,
+        statusText: response.statusText
+      })
+
       if (!response.ok) {
-        throw new Error('Feltöltési hiba')
+        const errorText = await response.text()
+        console.error('Upload response error:', response.status, errorText)
+        throw new Error(`Feltöltési hiba: ${response.status} - ${errorText}`)
       }
 
-      const result = await response.json()
+      // Try to parse JSON response with better error handling
+      let result
+      try {
+        const responseText = await response.text()
+        console.log('Raw response text:', responseText)
+        result = JSON.parse(responseText)
+        console.log('Parsed JSON result:', result)
+      } catch (parseError) {
+        console.error('JSON parse error:', parseError)
+        throw new Error(`Feltöltési hiba: Érvénytelen válasz a szervertől`)
+      }
+
+      // Validate response structure
+      if (!result || !result.url) {
+        console.error('Invalid response structure:', result)
+        throw new Error(`Feltöltési hiba: Hiányzó URL a válaszban`)
+      }
+
+      console.log('Upload success, calling onChange with URL:', result.url)
       onChange(result.url)
     } catch (error) {
-      console.error('Upload error:', error)
-      setError('Hiba történt a fájl feltöltése során')
+      console.error('Upload error caught:', error)
+      if (error instanceof Error && error.message.includes('429')) {
+        setError('Túl sok feltöltési kérés. Kérjük várjon egy percet, majd próbálja újra.')
+      } else {
+        setError(`Hiba történt a fájl feltöltése során: ${error instanceof Error ? error.message : 'Ismeretlen hiba'}`)
+      }
     } finally {
+      console.log('Upload process finished, setting isUploading to false')
       setIsUploading(false)
     }
   }
@@ -104,6 +153,7 @@ export function FileUpload({
                       src={value}
                       alt="Preview"
                       fill
+                      sizes="48px"
                       className="object-cover rounded"
                     />
                   </div>

@@ -91,6 +91,7 @@ model User {
   managedIssues  Issue[]  @relation("ManagedBy")
   offers        Offer[]
   statusChanges IssueTimeline[]
+  uploadedFiles UploadedFile[]
 }
 
 model Company {
@@ -114,6 +115,22 @@ model Company {
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+}
+
+model UploadedFile {
+  id            String    @id @default(cuid())
+  filename      String    // Generated unique filename
+  originalName  String    // Original filename from user
+  mimeType      String    // MIME type (image/jpeg, etc.)
+  size          Int       // File size in bytes
+  data          String    @db.Text // Base64 encoded file data
+  uploadedBy    String    // User ID who uploaded
+  user          User      @relation(fields: [uploadedBy], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@map("uploaded_files")
 }
 
 model Owner {
@@ -639,4 +656,306 @@ model ReconciliationLog {
   
   @@index([processedAt])
   @@index([autoReconciled])
+}
+
+// ========================================
+// INTEGRATION CONFIGURATIONS
+// ========================================
+
+enum IntegrationType {
+  ZOHO_BOOKS
+  CAIXABANK_PSD2
+  WHATSAPP_BUSINESS
+  BOOKING_COM
+  UPLISTING_IO
+  SPANISH_VAT
+  PAYMENT_RECONCILIATION
+}
+
+enum IntegrationStatus {
+  INACTIVE    // Inaktív
+  ACTIVE      // Aktív
+  ERROR       // Hibás konfiguráció
+  TESTING     // Tesztelés alatt
+}
+
+// Központi integráció konfiguráció tábla
+model IntegrationConfig {
+  id              String            @id @default(cuid())
+  
+  // Alapadatok
+  type            IntegrationType   @unique
+  name            String            // Megjelenített név
+  description     String?           // Leírás
+  status          IntegrationStatus @default(INACTIVE)
+  
+  // Konfigurációs adatok (titkosítva tárolva)
+  config          Json              // Encrypted configuration data
+  
+  // Metadata
+  isEnabled       Boolean           @default(false)
+  lastTested      DateTime?         // Utolsó teszt időpontja
+  lastTestResult  String?           // Utolsó teszt eredménye
+  
+  // Versioning és audit
+  version         Int               @default(1)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  createdBy       String?           // User ID who created
+  updatedBy       String?           // User ID who last updated
+  
+  @@index([type])
+  @@index([status])
+  @@index([isEnabled])
+}
+
+// Zoho Books specifikus konfiguráció
+model ZohoConfig {
+  id                String    @id @default(cuid())
+  
+  // OAuth konfiguráció
+  clientId          String    // Client ID (titkosítva)
+  clientSecret      String    // Client Secret (titkosítva)
+  refreshToken      String?   // Refresh Token (titkosítva)
+  accessToken       String?   // Access Token (titkosítva)
+  organizationId    String?   // Organization ID
+  
+  // Beállítások
+  region            String    @default("eu") // eu, us, au, in
+  environment       String    @default("production") // production, sandbox
+  
+  // Spanish VAT beállítások
+  defaultVatRate    Decimal   @default(21) // Alapértelmezett IVA %
+  vatMapping        Json?     // Service type -> VAT rate mapping
+  
+  // AEAT SII export beállítások
+  aeatEnabled       Boolean   @default(true)
+  aeatNif           String?   // Spanish tax ID
+  aeatCompanyName   String?   // Company name for AEAT
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastSync          DateTime?
+  syncStatus        String?   // SUCCESS, ERROR, PENDING
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+}
+
+// CaixaBank PSD2 konfiguráció
+model CaixaBankConfig {
+  id                String    @id @default(cuid())
+  
+  // PSD2 API konfiguráció
+  clientId          String    // Client ID (titkosítva)
+  clientSecret      String    // Client Secret (titkosítva)
+  consentId         String?   // Banking consent ID
+  
+  // Bank account adatok
+  iban              String    // Business IBAN
+  accountName       String?   // Account holder name
+  
+  // Beállítások
+  environment       String    @default("sandbox") // sandbox, production
+  region            String    @default("ES") // Country code
+  
+  // Reconciliation beállítások
+  autoReconcile     Boolean   @default(true)
+  amountTolerance   Decimal   @default(1.00) // ±EUR tolerance
+  daysTolerance     Int       @default(7) // ±days tolerance
+  confidenceThreshold Decimal @default(0.90) // 90% confidence minimum
+  
+  // Webhook beállítások
+  webhookUrl        String?   // Webhook endpoint URL
+  webhookSecret     String?   // Webhook validation secret
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastTransaction   DateTime?
+  syncStatus        String?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([iban])
+}
+
+// WhatsApp Business konfiguráció
+model WhatsAppConfig {
+  id                    String    @id @default(cuid())
+  
+  // Meta Business API konfiguráció
+  businessAccountId     String    // Business Account ID (titkosítva)
+  phoneNumberId         String    // Phone Number ID (titkosítva)
+  accessToken           String    // Access Token (titkosítva)
+  webhookSecret         String?   // Webhook verification secret
+  
+  // Template beállítások
+  defaultLanguage       String    @default("es") // es, en, hu
+  rentReminderTemplate  String    @default("rent_reminder_spanish_v2")
+  paymentConfirmTemplate String   @default("payment_confirmed_spanish")
+  maintenanceTemplate   String    @default("maintenance_notice_spanish")
+  
+  // Automatizáció beállítások
+  autoReminders         Boolean   @default(true)
+  reminderDays          Json      @default("[5, 1, 0]") // Days before due date
+  overdueReminders      Boolean   @default(true)
+  overdueFrequency      Int       @default(3) // Days between overdue reminders
+  
+  // Business hours
+  enableBusinessHours   Boolean   @default(true)
+  businessHoursStart    String    @default("09:00")
+  businessHoursEnd      String    @default("18:00")
+  businessDays          Json      @default("[1,2,3,4,5]") // Monday-Friday
+  
+  // Webhook konfiguráció
+  webhookUrl            String?   // Webhook endpoint
+  webhookVerifyToken    String?   // Verification token
+  
+  // Metadata
+  isActive              Boolean   @default(false)
+  lastMessage           DateTime?
+  messageCount          Int       @default(0)
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([phoneNumberId])
+}
+
+// Booking.com konfiguráció
+model BookingConfig {
+  id                String    @id @default(cuid())
+  
+  // Partner API konfiguráció
+  username          String    // Partner username (titkosítva)
+  password          String    // Partner password (titkosítva)
+  hotelId           String    // Hotel/Property ID
+  
+  // API beállítások
+  environment       String    @default("test") // test, live
+  apiVersion        String    @default("v2")
+  endpoint          String    @default("https://distribution-xml.booking.com/2.0/")
+  
+  // Szinkronizáció beállítások
+  autoSync          Boolean   @default(true)
+  syncFrequency     Int       @default(60) // Minutes between syncs
+  lastSync          DateTime?
+  
+  // Árazási beállítások
+  enableDynamicPricing Boolean @default(true)
+  basePrice         Decimal?  // Base room price
+  weekendMarkup     Decimal   @default(1.30) // 30% weekend markup
+  highSeasonMarkup  Decimal   @default(1.50) // 50% high season markup
+  
+  // High season dates (JSON array of date ranges)
+  highSeasonDates   Json?     // [{"start": "2025-06-01", "end": "2025-08-31"}]
+  
+  // Commission beállítások
+  defaultCommission Decimal   @default(0.15) // 15% default commission
+  
+  // Availability beállítások
+  defaultAvailability Boolean @default(true)
+  maxGuestsDefault    Int     @default(2)
+  checkInTime         String  @default("15:00")
+  checkOutTime        String  @default("11:00")
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastBooking       DateTime?
+  bookingCount      Int       @default(0)
+  revenue           Decimal   @default(0)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([hotelId])
+}
+
+// Uplisting.io konfiguráció
+model UplistingConfig {
+  id                String    @id @default(cuid())
+  
+  // API konfiguráció
+  apiKey            String    // API Key (titkosítva)
+  apiSecret         String    // API Secret (titkosítva)
+  accountId         String    // Account ID
+  
+  // API beállítások
+  environment       String    @default("sandbox") // sandbox, production
+  apiVersion        String    @default("v1")
+  endpoint          String    @default("https://api.uplisting.io/v1/")
+  
+  // Multi-channel beállítások
+  enableAirbnb      Boolean   @default(true)
+  enableBookingCom  Boolean   @default(true)
+  enableVrbo        Boolean   @default(true)
+  enableDirectBooking Boolean @default(true)
+  
+  // Szinkronizáció beállítások
+  autoSync          Boolean   @default(true)
+  syncFrequency     Int       @default(30) // Minutes between syncs
+  lastSync          DateTime?
+  
+  // Kalender és elérhetőség
+  blockOffDays      Int       @default(1) // Days to block off before check-in
+  autoCalendarSync  Boolean   @default(true)
+  defaultMinStay    Int       @default(2) // Minimum nights
+  defaultMaxStay    Int       @default(30) // Maximum nights
+  
+  // Árazási beállítások
+  enableDynamicPricing Boolean @default(true)
+  basePrice         Decimal?  // Base nightly rate
+  weekendMarkup     Decimal   @default(1.25) // 25% weekend markup
+  highSeasonMarkup  Decimal   @default(1.40) // 40% high season markup
+  lastMinuteDiscount Decimal  @default(0.90) // 10% discount for last minute
+  
+  // High season dates (JSON array of date ranges)
+  highSeasonDates   Json?     // [{"start": "2025-06-01", "end": "2025-08-31"}]
+  
+  // Guest management
+  autoGuestMessaging Boolean  @default(true)
+  checkInInstructions String? @db.Text
+  checkOutInstructions String? @db.Text
+  houseRules        String?   @db.Text
+  
+  // Cleaning management
+  autoCleaningSchedule Boolean @default(true)
+  cleaningDuration  Int       @default(120) // Minutes for cleaning
+  cleaningFee       Decimal?  // Fixed cleaning fee
+  
+  // Security & verification
+  requireIdVerification Boolean @default(true)
+  securityDeposit   Decimal?  // Security deposit amount
+  damageProtection  Boolean   @default(true)
+  
+  // Revenue management
+  channelCommissions Json?    // {"airbnb": 0.03, "booking": 0.15, "vrbo": 0.05}
+  revenueOptimization Boolean @default(true)
+  
+  // Automation rules
+  automationRules   Json?     // Complex automation rules in JSON
+  
+  // Webhook konfiguráció
+  webhookUrl        String?   // Webhook endpoint URL
+  webhookSecret     String?   // Webhook validation secret
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastBooking       DateTime?
+  totalBookings     Int       @default(0)
+  totalRevenue      Decimal   @default(0)
+  occupancyRate     Decimal?  // Current occupancy rate
+  avgDailyRate      Decimal?  // Average daily rate
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([accountId])
 }

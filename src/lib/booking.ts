@@ -4,6 +4,7 @@
  */
 
 import { env } from '@/env'
+import { getBookingConfig } from '@/lib/integration-config'
 
 export interface BookingConfig {
   username: string
@@ -420,16 +421,17 @@ class BookingPartnerAPI {
 // Singleton instance
 let bookingInstance: BookingPartnerAPI | null = null
 
-export function getBookingClient(): BookingPartnerAPI {
+export async function getBookingClient(): Promise<BookingPartnerAPI> {
   if (!bookingInstance) {
-    const config: BookingConfig = {
-      username: env.BOOKING_USERNAME || '',
-      password: env.BOOKING_PASSWORD || '',
-      hotelId: env.BOOKING_HOTEL_ID || '',
-      environment: env.BOOKING_ENVIRONMENT || 'test',
+    const config = await getBookingConfig()
+    const bookingConfig: BookingConfig = {
+      username: config.username,
+      password: config.password,
+      hotelId: config.hotelId,
+      environment: config.environment,
     }
 
-    bookingInstance = new BookingPartnerAPI(config)
+    bookingInstance = new BookingPartnerAPI(bookingConfig)
   }
 
   return bookingInstance
