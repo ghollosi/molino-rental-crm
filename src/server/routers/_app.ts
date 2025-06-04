@@ -11,6 +11,8 @@ import { contractRouter } from './contract'
 import { contractTemplateRouter } from './contractTemplate'
 import { analyticsRouter } from './analytics'
 import { providerMatchingRouter } from './provider-matching'
+import { providerRatingRouter } from './provider-rating'
+import { financialForecastingRouter } from './financial-forecasting'
 
 export const appRouter = createTRPCRouter({
   auth: authRouter,
@@ -25,6 +27,8 @@ export const appRouter = createTRPCRouter({
   contractTemplate: contractTemplateRouter,
   analytics: analyticsRouter,
   providerMatching: providerMatchingRouter,
+  providerRating: providerRatingRouter,
+  financialForecasting: financialForecastingRouter,
 })
 
 export type AppRouter = typeof appRouter

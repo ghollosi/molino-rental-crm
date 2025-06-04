@@ -1842,3 +1842,1903 @@ Error fetching current user: Error [TRPCError]: Session user not found in databa
  GET / 200 in 160ms
  GET / 200 in 66ms
  GET / 200 in 77ms
+ GET / 200 in 92ms
+ GET /dashboard/owners 200 in 603ms
+ GET /api/auth/session 200 in 91ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 5ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 1018ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 100ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 222ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 119ms
+ GET / 200 in 71ms
+ GET / 200 in 86ms
+ GET / 200 in 74ms
+ GET / 200 in 55ms
+ GET / 200 in 68ms
+ GET / 200 in 67ms
+ GET / 200 in 82ms
+ GET / 200 in 111ms
+ GET / 200 in 176ms
+ GET / 200 in 84ms
+ ✓ Compiled in 2.4s (1800 modules)
+ GET /dashboard/owners 200 in 20ms
+ ✓ Compiled in 1598ms (3715 modules)
+ GET /dashboard/owners 200 in 203ms
+ GET / 200 in 99ms
+ GET / 200 in 66ms
+ GET / 200 in 100ms
+ GET / 200 in 111ms
+ GET / 200 in 93ms
+ GET / 200 in 73ms
+ GET / 200 in 78ms
+ GET / 200 in 115ms
+ GET /dashboard/owners 200 in 516ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2.8s (2083 modules)
+ ✓ Compiled (2208 modules)
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 5399ms
+ GET /dashboard/owners 200 in 174ms
+ GET /api/auth/session 200 in 43ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 6261ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 141ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 121ms
+ ✓ Compiled in 2.3s (4009 modules)
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 2247ms
+ GET /dashboard/owners 200 in 73ms
+ GET / 200 in 117ms
+ GET / 200 in 45ms
+ GET / 200 in 88ms
+ GET / 200 in 132ms
+ GET / 200 in 73ms
+ GET / 200 in 155ms
+ GET / 200 in 60ms
+ ✓ Compiled in 1312ms (1800 modules)
+ GET /dashboard/owners 200 in 25ms
+ GET / 200 in 58ms
+ ✓ Compiled in 519ms (1800 modules)
+ GET /dashboard/owners 200 in 14ms
+ GET / 200 in 70ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 1037ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 183ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 233ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 105ms
+ GET / 200 in 58ms
+ GET / 200 in 60ms
+ ✓ Compiled in 1034ms (1800 modules)
+ GET /dashboard/owners 200 in 24ms
+ GET / 200 in 81ms
+ ✓ Compiled in 495ms (1800 modules)
+ GET /dashboard/owners 200 in 30ms
+ GET / 200 in 47ms
+ ✓ Compiled in 484ms (1800 modules)
+ GET /dashboard/owners 200 in 33ms
+ ○ Compiling /api/health-check ...
+ ✓ Compiled /api/health-check in 1595ms (3719 modules)
+ GET /api/health-check 200 in 1767ms
+ GET / 200 in 222ms
+ GET / 200 in 50ms
+ GET / 200 in 50ms
+ GET / 200 in 121ms
+ GET / 200 in 66ms
+ GET /dashboard/owners 200 in 443ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1610ms (2083 modules)
+ ✓ Compiled (2209 modules)
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 2505ms
+ GET /api/auth/session 200 in 20ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 2958ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 150ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 143ms
+ GET / 200 in 376ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 222ms
+ GET / 200 in 110ms
+ ✓ Compiled in 2s (1800 modules)
+ GET /dashboard/owners 200 in 38ms
+ GET / 200 in 39ms
+ GET / 200 in 75ms
+ GET / 200 in 100ms
+ GET / 200 in 103ms
+ GET / 200 in 62ms
+ GET / 200 in 70ms
+ ✓ Compiled in 1122ms (1800 modules)
+ GET /dashboard/owners 200 in 21ms
+ ✓ Compiled in 1456ms (3715 modules)
+ GET /dashboard/owners 200 in 197ms
+ GET / 200 in 140ms
+ ✓ Compiled in 521ms (1800 modules)
+ GET /dashboard/owners 200 in 32ms
+ ✓ Compiled in 745ms (1800 modules)
+ GET /dashboard/owners 200 in 57ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 2.3s (2208 modules)
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /dashboard/owners 200 in 90ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 3642ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 91ms
+ GET / 200 in 108ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 93ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 84ms
+ GET /dashboard/owners 200 in 275ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 706ms (2210 modules)
+ GET /api/auth/session 200 in 1286ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 1459ms
+ GET /api/auth/session 200 in 32ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 56ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 153ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 106ms
+ GET / 200 in 119ms
+ GET / 200 in 33ms
+ ✓ Compiled in 770ms (1800 modules)
+ GET /dashboard/owners 200 in 58ms
+ ✓ Compiled in 1601ms (1800 modules)
+ GET /dashboard/owners 200 in 20ms
+ GET / 200 in 111ms
+ GET / 200 in 87ms
+ GET / 200 in 56ms
+ GET / 200 in 75ms
+ GET /dashboard/owners 200 in 511ms
+ GET /api/auth/session 200 in 106ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 59ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 1107ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 102ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 189ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 295ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 8.5s (4007 modules)
+ GET / 200 in 2611ms
+ GET /dashboard/providers 200 in 10064ms
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 495ms
+ ○ Compiling /dashboard/provider-matching ...
+ ✓ Compiled /dashboard/provider-matching in 5.6s (4043 modules)
+ GET /dashboard/provider-matching 200 in 5904ms
+ GET /api/trpc/property.list,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 681ms
+ GET / 200 in 375ms
+ GET / 200 in 100ms
+ GET / 200 in 121ms
+ GET /dashboard/provider-matching 200 in 1210ms
+ GET /api/auth/session 200 in 175ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 79ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,property.list,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 207 in 1388ms
+ GET / 200 in 96ms
+ ✓ Compiled in 1659ms (1824 modules)
+ GET /dashboard/provider-matching 200 in 33ms
+ GET / 200 in 48ms
+ GET / 200 in 239ms
+ GET / 200 in 123ms
+ GET / 200 in 257ms
+ ✓ Compiled in 1902ms (1824 modules)
+ GET /dashboard/provider-matching 200 in 23ms
+ ✓ Compiled in 1678ms (3756 modules)
+ GET /dashboard/provider-matching 200 in 190ms
+ ✓ Compiled in 879ms (1824 modules)
+ GET /dashboard/provider-matching 200 in 34ms
+ GET / 200 in 130ms
+ GET / 200 in 46ms
+ GET / 200 in 29ms
+ GET / 200 in 206ms
+ GET / 200 in 75ms
+ GET / 200 in 175ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1899ms (2100 modules)
+ GET /api/auth/session 200 in 2217ms
+ GET /api/auth/session 200 in 19ms
+ GET / 200 in 259ms
+ GET / 200 in 57ms
+ GET / 200 in 102ms
+ ✓ Compiled in 2.5s (1824 modules)
+ GET / 200 in 109ms
+ GET /dashboard/provider-matching 200 in 156ms
+ ✓ Compiled in 2.2s (3756 modules)
+ GET /dashboard/provider-matching 200 in 237ms
+ GET / 200 in 188ms
+ ✓ Compiled in 1140ms (3756 modules)
+ GET /dashboard/provider-matching 200 in 75ms
+ ✓ Compiled in 3.5s (3756 modules)
+ GET /dashboard/provider-matching 200 in 60ms
+ GET / 200 in 122ms
+ ✓ Compiled in 2.7s (3762 modules)
+ GET /dashboard/provider-matching 200 in 53ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 6.1s (2230 modules)
+ GET /dashboard 200 in 4466ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,property.list,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 207 in 11620ms
+ GET /dashboard 200 in 115ms
+ GET / 200 in 152ms
+ GET / 200 in 167ms
+ GET / 200 in 120ms
+ GET / 200 in 120ms
+ GET /dashboard 200 in 1324ms
+ GET / 200 in 103ms
+ ○ Compiling /api/auth/[...nextauth] ...
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 2933ms
+ ✓ Compiled /api/auth/[...nextauth] in 5.8s (4059 modules)
+ GET /api/auth/session 200 in 5008ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 471ms
+ GET /dashboard 200 in 423ms
+ GET /api/auth/session 200 in 52ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 775ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 107ms
+=== SESSION DEBUG ===
+Session user: {
+  name: 'Gábor Hollósi',
+  email: 'admin@molino.com',
+  id: 'cmb6sr8py0001i8fr3v8df5oi',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 94ms
+ GET / 200 in 356ms
+ ✓ Compiled in 2.4s (4059 modules)
+ GET /dashboard 200 in 58ms
+ ✓ Compiled in 1044ms (4059 modules)
+ GET /dashboard 200 in 49ms
+ ✓ Compiled in 2.3s (4059 modules)
+ GET /dashboard 200 in 79ms
+ ✓ Compiled in 967ms (4059 modules)
+ GET /dashboard 200 in 52ms
+ GET / 200 in 218ms
+ GET /dashboard/provider-matching 200 in 66ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/hollosigabor/molino-rental-crm/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4.5s (4096 modules)
+ GET /dashboard/provider-matching 200 in 6122ms
+ GET /dashboard/provider-matching 200 in 17ms
+ GET / 500 in 10243ms
+ GET /dashboard/provider-matching 200 in 27ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 5.2s (4086 modules)
+ GET /_next/static/css/app/layout.css?v=1748962726058 404 in 5509ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/dashboard/provider-matching/page.js:1:86036)
+    at Object.<anonymous> (.next/server/app/dashboard/provider-matching/page.js:1:86134) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/dashboard/provider-matching'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /dashboard/provider-matching 500 in 6211ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 1180ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 171ms
+ ○ Compiling /api/health-check ...
+ ✓ Compiled /api/health-check in 1827ms (2040 modules)
+ GET /api/health-check 200 in 2143ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 143ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 113ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 116ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 356ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 336ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/dashboard/page.js:10:12579)
+    at Object.<anonymous> (.next/server/app/dashboard/page.js:10:12682) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/dashboard'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /dashboard 500 in 654ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/app/dashboard/page.js:10:12579)
+    at Object.<anonymous> (.next/server/app/dashboard/page.js:10:12682) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/dashboard'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/api/health-check/route.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:208:28)
+    at <unknown> (.next/server/webpack-runtime.js:116:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:167:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /dashboard 500 in 342ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 8.4s (4086 modules)
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/_not-found/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/chunks/fallback/main.js 500 in 8675ms
+ GET /_next/static/chunks/fallback/webpack.js 500 in 8678ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 8676ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 8675ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 8674ms
+ ✓ Compiled in 6.2s (4060 modules)
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ HEAD / 500 in 84ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/page.js:1:6508)
+    at Object.<anonymous> (.next/server/app/page.js:1:6566) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './8548.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/pages/_document.js:1:392)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:435) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 123ms
+ GET /dashboard 200 in 960ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/css/app/layout.css?v=1748962982413 500 in 90ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/chunks/main-app.js?v=1748962982413 500 in 111ms
+ GET /_next/static/chunks/app-pages-internals.js 500 in 111ms
+ GET /_next/static/chunks/app/error.js 500 in 82ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/chunks/app/dashboard/layout.js 500 in 71ms
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './4447.js'
+Require stack:
+- /Users/hollosigabor/molino-rental-crm/.next/server/webpack-runtime.js
+- /Users/hollosigabor/molino-rental-crm/.next/server/app/page.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/require.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/load-components.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/utils.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/options.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/swc/index.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/config.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/next.js
+- /Users/hollosigabor/molino-rental-crm/node_modules/next/dist/server/lib/start-server.js
+    at __webpack_require__.f.require (.next/server/webpack-runtime.js:203:28)
+    at <unknown> (.next/server/webpack-runtime.js:111:40)
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (.next/server/webpack-runtime.js:162:22)
+    at <unknown> (.next/server/app/_not-found/page.js:1:2020)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:1:2073) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/chunks/app/global-error.js 500 in 57ms
+ GET /_next/static/chunks/app/dashboard/page.js 500 in 62ms
+[?25h

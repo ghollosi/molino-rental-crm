@@ -130,7 +130,7 @@ export default function OwnersPage() {
                   {data.owners.map((owner) => (
                     <TableRow key={owner.id}>
                       <TableCell className="font-medium">
-                        {owner.user.name}
+                        {owner.user.firstName} {owner.user.lastName}
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center">

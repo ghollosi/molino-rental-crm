@@ -14,6 +14,11 @@ import {
   getProviderLeaderboard,
   predictSLAPerformance
 } from '@/src/lib/sla-analytics'
+import {
+  calculateDynamicPrice,
+  calculateBatchPricing,
+  savePricingQuote
+} from '@/src/lib/dynamic-pricing'
 
 const prisma = new PrismaClient()
 
@@ -414,6 +419,111 @@ export const providerMatchingRouter = createTRPCRouter({
         throw new TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
           message: 'Failed to generate SLA forecast'
+        })
+      }
+    }),
+
+  // === DINAMIKUS ÁRAZÁS VÉGPONTOK ===
+
+  // Egyedi ár kalkuláció
+  calculatePrice: protectedProcedure
+    .input(z.object({
+      category: z.enum(['PLUMBING', 'ELECTRICAL', 'HVAC', 'STRUCTURAL', 'OTHER']),
+      priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']),
+      propertyId: z.string(),
+      providerId: z.string().optional(),
+      estimatedHours: z.number().positive().optional(),
+      materials: z.array(z.object({
+        name: z.string(),
+        cost: z.number().positive(),
+        quantity: z.number().positive()
+      })).optional(),
+      description: z.string().optional(),
+      scheduledDate: z.date().optional(),
+      isEmergency: z.boolean().default(false)
+    }))
+    .mutation(async ({ input }) => {
+      try {
+        const result = await calculateDynamicPrice(input)
+        return result
+      } catch (error) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to calculate dynamic price'
+        })
+      }
+    }),
+
+  // Batch árazás több hibabejelentéshez
+  calculateBatchPrice: protectedProcedure
+    .input(z.object({
+      items: z.array(z.object({
+        category: z.enum(['PLUMBING', 'ELECTRICAL', 'HVAC', 'STRUCTURAL', 'OTHER']),
+        priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']),
+        propertyId: z.string(),
+        providerId: z.string().optional(),
+        estimatedHours: z.number().positive().optional(),
+        materials: z.array(z.object({
+          name: z.string(),
+          cost: z.number().positive(),
+          quantity: z.number().positive()
+        })).optional(),
+        description: z.string().optional(),
+        scheduledDate: z.date().optional(),
+        isEmergency: z.boolean().default(false)
+      }))
+    }))
+    .mutation(async ({ input }) => {
+      try {
+        const result = await calculateBatchPricing(input.items)
+        return result
+      } catch (error) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to calculate batch pricing'
+        })
+      }
+    }),
+
+  // Árajánlat mentése
+  savePriceQuote: protectedProcedure
+    .input(z.object({
+      propertyId: z.string(),
+      providerId: z.string().optional(),
+      category: z.enum(['PLUMBING', 'ELECTRICAL', 'HVAC', 'STRUCTURAL', 'OTHER']),
+      priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']),
+      estimatedHours: z.number().positive().optional(),
+      materials: z.array(z.object({
+        name: z.string(),
+        cost: z.number().positive(),
+        quantity: z.number().positive()
+      })).optional(),
+      description: z.string().optional(),
+      scheduledDate: z.date().optional(),
+      isEmergency: z.boolean().default(false)
+    }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        // Ár kalkulálás
+        const result = await calculateDynamicPrice(input)
+        
+        // Árajánlat mentése
+        await savePricingQuote(
+          input.propertyId,
+          input.providerId || null,
+          input,
+          result
+        )
+        
+        return {
+          success: true,
+          quote: result,
+          message: 'Árajánlat sikeresen mentve'
+        }
+      } catch (error) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to save pricing quote'
         })
       }
     })

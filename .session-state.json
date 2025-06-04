@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-06-03T14:15:29.169Z",
+  "timestamp": "2025-06-04T06:07:43.832Z",
   "lastCommand": "start",
   "currentFile": ".session-state.json",
-  "gitStatus": "M .session-state.json\n M CLAUDE.md\n M app/dashboard/contracts/templates/[id]/edit/page.tsx\n M app/dashboard/contracts/templates/new/page.tsx\n M app/dashboard/settings/page.tsx\n M app/page.tsx\n M dev-server.log\n M middleware.ts\n M package-lock.json\n M package.json\n M prisma/schema.prisma\n M public/manifest.json\n M public/offline.html\n M src/components/layouts/sidebar.tsx\n M src/server/routers/_app.ts\n M src/server/routers/auth.ts\n M src/server/routers/company.ts\n M src/server/routers/issue.ts\n?? __tests__/\n?? app/(auth)/forgot-password/\n?? app/(auth)/reset-password/\n?? app/api/pwa-test/\n?? app/api/sentry-test/\n?? app/api/test-rate-limit/\n?? app/dashboard/provider-matching/\n?? app/dashboard/settings/rate-limit/\n?? app/dashboard/settings/sentry/\n?? components/\n?? jest.config.js\n?? jest.setup.js\n?? logs/backups/20250603_161325_provider_matching/\n?? sentry.client.config.ts\n?? sentry.edge.config.ts\n?? sentry.server.config.ts\n?? src/components/settings/\n?? src/lib/error-handler.ts\n?? src/lib/provider-matching.ts\n?? src/lib/rate-limit-config.ts\n?? src/lib/rate-limit.ts\n?? src/lib/sentry.ts\n?? src/lib/sla-analytics.ts\n?? src/server/routers/provider-matching.ts",
+  "gitStatus": "M .session-state.json\n M app/dashboard/layout.tsx\n M app/dashboard/owners/page.tsx\n M app/dashboard/provider-matching/page.tsx\n M dev-server.log\n M dev.log\n M src/server/routers/_app.ts\n M src/server/routers/provider-matching.ts\n?? app/dashboard/issues/camera/\n?? docs/GIT_CHECKPOINT_20250603_1614.md\n?? src/components/mobile/\n?? src/components/provider-matching/\n?? src/components/ui/sheet.tsx\n?? src/lib/ai-categorization.ts\n?? src/lib/dynamic-pricing.ts\n?? src/lib/financial-forecasting.ts\n?? src/server/routers/financial-forecasting.ts\n?? src/server/routers/provider-rating.ts",
   "installedPackages": [
     "@auth/prisma-adapter",
     "@aws-sdk/client-s3",
