@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { api } from '@/lib/trpc/client'
@@ -10,10 +10,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, AlertCircle, Plus, Trash2, Calculator, X, Check } from 'lucide-react'
+import { ArrowLeft, AlertCircle, Plus, Trash2, Calculator, X, Check, User, Camera, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 // Dynamic pricing átmozgatva a backend-re
 import { format } from 'date-fns'
+import { useSession } from 'next-auth/react'
+import { ImageUpload } from '@/components/ui/image-upload'
+import { analyzeIssueWithAI } from '@/lib/ai-categorization'
 
 interface OfferFormData {
   propertyId: string
@@ -35,9 +38,25 @@ interface OfferFormData {
   }
 }
 
+interface IssueFormData {
+  title: string
+  description: string
+  priority: string
+  category: string
+  propertyId: string
+  photos?: string[]
+}
+
 export default function NewOfferPage() {
   const router = useRouter()
+  const { data: session } = useSession()
   const [error, setError] = useState<string | null>(null)
+  
+  // Issue modal states
+  const [showIssueModal, setShowIssueModal] = useState(false)
+  const [issueError, setIssueError] = useState<string | null>(null)
+  const [issuePhotos, setIssuePhotos] = useState<string[]>([])
+  const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [items, setItems] = useState([
     { description: 'Munkadíj', quantity: 1, unitPrice: 0, total: 0 },
     { description: 'Anyagköltség', quantity: 1, unitPrice: 0, total: 0 }
@@ -73,12 +92,23 @@ export default function NewOfferPage() {
     limit: 100,
   })
 
-  // Hibabejelentések lekérdezése (csak nyitottak)
-  const { data: issues } = api.issue.list.useQuery({ 
+  // Watch form fields  
+  const watchPropertyId = watch('propertyId')
+  const watchIssueId = watch('issueId')
+
+  // Hibabejelentések lekérdezése (nyitott)
+  const { data: allIssues } = api.issue.list.useQuery({ 
     page: 1, 
     limit: 100,
     status: 'OPEN'
   })
+
+  // Szűrjük le a hibabejelentéseket a kiválasztott ingatlan alapján
+  const issues = {
+    issues: allIssues?.issues?.filter(issue => 
+      !watchPropertyId || issue.propertyId === watchPropertyId
+    ) || []
+  }
 
   const createOffer = api.offer.create.useMutation({
     onSuccess: () => {
@@ -88,6 +118,92 @@ export default function NewOfferPage() {
       setError(error.message)
     },
   })
+
+  // Issue form hook
+  const issueForm = useForm<IssueFormData>({
+    defaultValues: {
+      priority: 'MEDIUM',
+      propertyId: watchPropertyId || '',
+    }
+  })
+
+  // Current user data
+  const { data: currentUser } = api.user.getCurrentUser.useQuery()
+
+  // Query refetch function
+  const { refetch: refetchIssues } = api.issue.list.useQuery({ 
+    page: 1, 
+    limit: 100,
+    status: 'OPEN'
+  })
+
+  // Create issue mutation
+  const createIssue = api.issue.create.useMutation({
+    onSuccess: async (newIssue) => {
+      setShowIssueModal(false)
+      issueForm.reset()
+      setIssuePhotos([])
+      setIssueError(null)
+      // Frissítjük a hibabejelentések listáját
+      await refetchIssues()
+      // Automatikusan kiválasztjuk az új hibabejelentést
+      setValue('issueId', newIssue.id)
+    },
+    onError: (error) => {
+      setIssueError(error.message)
+    },
+  })
+
+  // Issue form submit handler
+  const onIssueSubmit = async (data: IssueFormData) => {
+    setIssueError(null)
+
+    // Beállítjuk a propertyId-t
+    data.propertyId = watchPropertyId!
+
+    await createIssue.mutateAsync({
+      ...data,
+      photos: issuePhotos,
+    })
+  }
+
+  // AI analysis function
+  const handleAIAnalysis = async () => {
+    const title = issueForm.watch('title')
+    const description = issueForm.watch('description')
+
+    if (!title || !description) {
+      setIssueError('Kérjük, töltse ki a címet és leírást az AI elemzéshez')
+      return
+    }
+
+    setIsAnalyzing(true)
+    try {
+      // Kombináljuk a címet és leírást az elemzéshez
+      const fullDescription = `${title}. ${description}`
+      const result = await analyzeIssueWithAI(fullDescription, issuePhotos)
+      
+      // Beállítjuk az eredményeket
+      issueForm.setValue('priority', result.priority.priority)
+      issueForm.setValue('category', result.category.category)
+      
+      console.log('AI Analysis Result:', result) // Debug log
+    } catch (error) {
+      console.error('AI Analysis Error:', error) // Debug log
+      setIssueError('Hiba történt az AI elemzés során: ' + (error as Error).message)
+    } finally {
+      setIsAnalyzing(false)
+    }
+  }
+
+  // Ha az ingatlan megváltozik, töröljük a kiválasztott hibabejelentést és árazást
+  useEffect(() => {
+    setValue('issueId', undefined)
+    setAppliedPricing(null)
+    setPricingCalculation(null)
+    // Frissítjük az issue form propertyId mezőjét is
+    issueForm.setValue('propertyId', watchPropertyId || '')
+  }, [watchPropertyId, setValue, issueForm])
 
   const addItem = () => {
     setItems([...items, { description: '', quantity: 1, unitPrice: 0, total: 0 }])
@@ -132,7 +248,7 @@ export default function NewOfferPage() {
     }
 
     const itemsTotal = validItems.reduce((sum, item) => sum + item.total, 0)
-    const totalAmount = itemsTotal
+    const totalAmount = appliedPricing ? appliedPricing.finalPrice : itemsTotal
 
     await createOffer.mutateAsync({
       propertyId: data.propertyId,
@@ -150,8 +266,6 @@ export default function NewOfferPage() {
     })
   }
 
-  const watchIssueId = watch('issueId')
-  const watchPropertyId = watch('propertyId')
   const watchItems = watch('items') || []
   const watchTotalAmount = watch('totalAmount') || 0
   const itemsTotal = watchItems.reduce((sum, item) => sum + (item.total || 0), 0)
@@ -297,21 +411,52 @@ export default function NewOfferPage() {
               <div>
                 <Label htmlFor="issueId">Kapcsolódó hibabejelentés</Label>
                 <div className="flex gap-2">
-                  <Select
-                    value={watchIssueId || undefined}
-                    onValueChange={(value) => setValue('issueId', value || undefined)}
-                  >
+                  <div className="flex-1">
+                    <Select
+                      value={watchIssueId || undefined}
+                      onValueChange={(value) => {
+                        // Ne állítsuk be a dummy value-kat
+                        if (value && value !== 'no-property' && value !== 'no-issues') {
+                          setValue('issueId', value)
+                        } else {
+                          setValue('issueId', undefined)
+                        }
+                      }}
+                    >
                     <SelectTrigger>
-                      <SelectValue placeholder="Válasszon hibabejelentést (opcionális)" />
+                      <SelectValue placeholder={watchPropertyId ? "Válasszon hibabejelentést (opcionális)" : "Először válasszon ingatlant"} />
                     </SelectTrigger>
                     <SelectContent>
-                      {issues?.issues.map((issue) => (
-                        <SelectItem key={issue.id} value={issue.id}>
-                          {issue.title} - {issue.property?.street}
+                      {!watchPropertyId ? (
+                        <SelectItem value="no-property" disabled>
+                          Először válasszon ingatlant
                         </SelectItem>
-                      ))}
+                      ) : issues?.issues.length === 0 ? (
+                        <SelectItem value="no-issues" disabled>
+                          Nincs nyitott hibabejelentés ehhez az ingatlanhoz
+                        </SelectItem>
+                      ) : (
+                        issues?.issues.map((issue) => (
+                          <SelectItem key={issue.id} value={issue.id}>
+                            {issue.title}
+                          </SelectItem>
+                        ))
+                      )}
                     </SelectContent>
-                  </Select>
+                    </Select>
+                  </div>
+                  {watchPropertyId && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setShowIssueModal(true)}
+                      className="whitespace-nowrap"
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Új hiba
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
@@ -564,6 +709,166 @@ export default function NewOfferPage() {
                 Elvetés
               </Button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Új hibabejelentés modal */}
+      {showIssueModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Új hibabejelentés</h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setShowIssueModal(false)
+                  setIssueError(null)
+                  issueForm.reset()
+                  setIssuePhotos([])
+                }}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+
+            {issueError && (
+              <Alert variant="destructive" className="mb-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>{issueError}</AlertDescription>
+              </Alert>
+            )}
+
+            <form onSubmit={issueForm.handleSubmit(onIssueSubmit)} className="space-y-4">
+              <div>
+                <Label htmlFor="issue-title">Cím *</Label>
+                <Input
+                  id="issue-title"
+                  {...issueForm.register('title', { required: 'A cím megadása kötelező' })}
+                  placeholder="Rövid összefoglaló a problémáról"
+                />
+                {issueForm.formState.errors.title && (
+                  <p className="text-sm text-red-500 mt-1">
+                    {issueForm.formState.errors.title.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <Label htmlFor="issue-description">Részletes leírás *</Label>
+                <textarea
+                  id="issue-description"
+                  {...issueForm.register('description', { required: 'A leírás megadása kötelező' })}
+                  placeholder="Részletes leírás a problémáról, tünetekről, és körülményekről"
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                {issueForm.formState.errors.description && (
+                  <p className="text-sm text-red-500 mt-1">
+                    {issueForm.formState.errors.description.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="issue-priority">Prioritás *</Label>
+                  <Select
+                    value={issueForm.watch('priority')}
+                    onValueChange={(value) => issueForm.setValue('priority', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Válasszon prioritást" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="LOW">Alacsony</SelectItem>
+                      <SelectItem value="MEDIUM">Közepes</SelectItem>
+                      <SelectItem value="HIGH">Magas</SelectItem>
+                      <SelectItem value="URGENT">Sürgős</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <Label htmlFor="issue-category">Kategória *</Label>
+                  <Select
+                    value={issueForm.watch('category')}
+                    onValueChange={(value) => issueForm.setValue('category', value)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Válasszon kategóriát" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="PLUMBING">Vízvezeték</SelectItem>
+                      <SelectItem value="ELECTRICAL">Elektromos</SelectItem>
+                      <SelectItem value="HVAC">Fűtés/Klíma</SelectItem>
+                      <SelectItem value="STRUCTURAL">Szerkezeti</SelectItem>
+                      <SelectItem value="OTHER">Egyéb</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div>
+                <Label>Fényképek</Label>
+                <ImageUpload
+                  value={issuePhotos}
+                  onChange={setIssuePhotos}
+                  maxFiles={5}
+                  description="Töltsen fel képeket a problémáról (maximum 5 kép, egyenként max 5MB)"
+                />
+              </div>
+
+              {/* AI Analysis */}
+              <div className="border-t pt-4">
+                <div className="flex items-center justify-between mb-2">
+                  <Label className="text-base font-medium">AI elemzés</Label>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={handleAIAnalysis}
+                    disabled={isAnalyzing}
+                    className="flex items-center gap-2"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    {isAnalyzing ? 'Elemzés...' : 'AI automatikus kategorizálás'}
+                  </Button>
+                </div>
+                <p className="text-sm text-gray-600">
+                  Az AI automatikusan beállítja a prioritást és kategóriát a megadott cím és leírás alapján.
+                </p>
+                {isAnalyzing && (
+                  <div className="mt-2 text-sm text-blue-600">
+                    🤖 AI elemzés folyamatban...
+                  </div>
+                )}
+              </div>
+
+              <div className="flex gap-2 pt-4 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setShowIssueModal(false)
+                    setIssueError(null)
+                    issueForm.reset()
+                    setIssuePhotos([])
+                  }}
+                  className="flex-1"
+                >
+                  Mégse
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={createIssue.isPending}
+                  className="flex-1"
+                >
+                  {createIssue.isPending ? 'Mentés...' : 'Hibabejelentés létrehozása'}
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       )}

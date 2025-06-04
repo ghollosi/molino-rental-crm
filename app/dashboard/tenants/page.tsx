@@ -24,15 +24,30 @@ export default function TenantsPage() {
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
 
-  const { data, isLoading } = api.tenant.list.useQuery({
+  const { data, isLoading, refetch } = api.tenant.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
   })
 
+  const deleteTenant = api.tenant.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    },
+  })
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     setPage(1)
+  }
+
+  const handleDelete = async (tenantId: string, tenantName: string) => {
+    if (confirm(`Biztosan törölni szeretné ezt a bérlőt: ${tenantName}? Ez a művelet nem visszavonható.`)) {
+      await deleteTenant.mutateAsync(tenantId)
+    }
   }
 
   return (
@@ -130,7 +145,12 @@ export default function TenantsPage() {
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => handleDelete(tenant.id, `${tenant.user.firstName} ${tenant.user.lastName}`)}
+                            disabled={deleteTenant.isPending}
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

@@ -32,16 +32,31 @@ export default function ContractsPage() {
   const [search, setSearch] = useState('')
   const [status, setStatus] = useState('all')
 
-  const { data, isLoading, error } = api.contract.list.useQuery({
+  const { data, isLoading, error, refetch } = api.contract.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
     status: status !== 'all' ? status as 'ACTIVE' | 'EXPIRED' | 'TERMINATED' | 'PENDING' : undefined,
   })
 
+  const deleteContract = api.contract.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    }
+  })
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     setPage(1)
+  }
+
+  const handleDelete = async (id: string, propertyAddress: string) => {
+    if (confirm(`Biztosan törölni szeretné a következő szerződést: ${propertyAddress}?`)) {
+      await deleteContract.mutateAsync(id)
+    }
   }
 
   return (
@@ -186,7 +201,12 @@ export default function ContractsPage() {
                             <Button variant="ghost" size="sm" onClick={() => router.push(`/dashboard/contracts/${contract.id}/edit`)}>
                               <Edit className="h-4 w-4" />
                             </Button>
-                            <Button variant="ghost" size="sm">
+                            <Button 
+                              variant="ghost" 
+                              size="sm"
+                              onClick={() => handleDelete(contract.id, `${contract.property.street}, ${contract.property.city}`)}
+                              disabled={deleteContract.isPending}
+                            >
                               <Trash2 className="h-4 w-4" />
                             </Button>
                           </div>

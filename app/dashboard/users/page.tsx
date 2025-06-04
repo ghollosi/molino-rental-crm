@@ -98,6 +98,15 @@ export default function UsersPage() {
     },
   })
 
+  const deleteUser = api.user.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    }
+  })
+
   const handleRoleChange = async (userId: string, newRole: string) => {
     try {
       await updateRole.mutateAsync({ userId, role: newRole as any })
@@ -111,6 +120,12 @@ export default function UsersPage() {
       await toggleActive.mutateAsync(userId)
     } catch (error) {
       console.error('Failed to toggle user status:', error)
+    }
+  }
+
+  const handleDelete = async (id: string, name: string) => {
+    if (confirm(`Biztosan törölni szeretné a következő felhasználót: ${name}?`)) {
+      await deleteUser.mutateAsync(id)
     }
   }
 
@@ -310,7 +325,12 @@ export default function UsersPage() {
                                 <Edit className="h-4 w-4" />
                               </Link>
                             </Button>
-                            <Button variant="ghost" size="sm">
+                            <Button 
+                              variant="ghost" 
+                              size="sm"
+                              onClick={() => handleDelete(user.id, `${user.firstName} ${user.lastName}`)}
+                              disabled={deleteUser.isPending}
+                            >
                               <Trash2 className="h-4 w-4" />
                             </Button>
                           </div>

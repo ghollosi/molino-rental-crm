@@ -24,15 +24,30 @@ export default function ProvidersPage() {
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
 
-  const { data, isLoading } = api.provider.list.useQuery({
+  const { data, isLoading, refetch } = api.provider.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
   })
 
+  const deleteProvider = api.provider.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    }
+  })
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     setPage(1)
+  }
+
+  const handleDelete = async (id: string, businessName: string) => {
+    if (confirm(`Biztosan törölni szeretné a következő szolgáltatót: ${businessName}?`)) {
+      await deleteProvider.mutateAsync(id)
+    }
   }
 
   return (
@@ -148,7 +163,12 @@ export default function ProvidersPage() {
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => handleDelete(provider.id, provider.businessName)}
+                            disabled={deleteProvider.isPending}
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

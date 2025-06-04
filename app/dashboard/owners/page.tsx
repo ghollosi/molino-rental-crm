@@ -26,16 +26,31 @@ export default function OwnersPage() {
   const [ownerType, setOwnerType] = useState<string>('all')
   const [page, setPage] = useState(1)
 
-  const { data, isLoading } = api.owner.list.useQuery({
+  const { data, isLoading, refetch } = api.owner.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
     isCompany: ownerType === 'all' ? undefined : ownerType === 'company',
   })
 
+  const deleteOwner = api.owner.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    },
+  })
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     setPage(1)
+  }
+
+  const handleDelete = async (ownerId: string, ownerName: string) => {
+    if (confirm(`Biztosan törölni szeretné ezt a tulajdonost: ${ownerName}? Ez a művelet nem visszavonható.`)) {
+      await deleteOwner.mutateAsync(ownerId)
+    }
   }
 
   return (
@@ -171,7 +186,12 @@ export default function OwnersPage() {
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => handleDelete(owner.id, `${owner.user.firstName} ${owner.user.lastName}`)}
+                            disabled={deleteOwner.isPending}
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

@@ -27,12 +27,21 @@ export default function IssuesPage() {
   const [priority, setPriority] = useState<string>('all')
   const [page, setPage] = useState(1)
 
-  const { data, isLoading } = api.issue.list.useQuery({
+  const { data, isLoading, refetch } = api.issue.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
     status: status !== 'all' ? status as 'OPEN' | 'ASSIGNED' | 'IN_PROGRESS' | 'COMPLETED' | 'CLOSED' : undefined,
     priority: priority !== 'all' ? priority as 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT' : undefined,
+  })
+
+  const deleteIssue = api.issue.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    },
   })
 
   const getPriorityColor = (priority: string) => {
@@ -101,6 +110,12 @@ export default function IssuesPage() {
       CLOSED: 'Lezárt',
     }
     return labels[status] || status
+  }
+
+  const handleDelete = async (issueId: string, issueTitle: string) => {
+    if (confirm(`Biztosan törölni szeretné ezt a hibabejelentést: "${issueTitle}"? Ez a művelet nem visszavonható.`)) {
+      await deleteIssue.mutateAsync(issueId)
+    }
   }
 
   return (
@@ -252,7 +267,12 @@ export default function IssuesPage() {
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => handleDelete(issue.id, issue.title)}
+                            disabled={deleteIssue.isPending}
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

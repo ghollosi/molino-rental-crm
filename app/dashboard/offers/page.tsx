@@ -27,16 +27,31 @@ export default function OffersPage() {
   const [status, setStatus] = useState<string>('all')
   const [page, setPage] = useState(1)
 
-  const { data, isLoading } = api.offer.list.useQuery({
+  const { data, isLoading, refetch } = api.offer.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
     status: status !== 'all' ? status as 'DRAFT' | 'SENT' | 'ACCEPTED' | 'REJECTED' : undefined,
   })
 
+  const deleteOffer = api.offer.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    },
+  })
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     setPage(1)
+  }
+
+  const handleDelete = async (offerId: string, offerNumber: string) => {
+    if (confirm(`Biztosan törölni szeretné a(z) ${offerNumber} számú ajánlatot? Ez a művelet nem visszavonható.`)) {
+      await deleteOffer.mutateAsync(offerId)
+    }
   }
 
   const getStatusColor = (status: string) => {
@@ -194,7 +209,12 @@ export default function OffersPage() {
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => handleDelete(offer.id, offer.offerNumber)}
+                            disabled={deleteOffer.isPending}
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

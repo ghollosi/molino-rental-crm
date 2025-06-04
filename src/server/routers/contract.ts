@@ -491,4 +491,42 @@ export const contractRouter = createTRPCRouter({
         deposit: contract.deposit?.toNumber() || null,
       }))
     }),
+
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      // Only admins can delete contracts
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Only admins can delete contracts',
+        })
+      }
+
+      // Check if contract exists
+      const contract = await ctx.db.contract.findUnique({
+        where: { id: input },
+      })
+
+      if (!contract) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Contract not found',
+        })
+      }
+
+      // Check if contract is active - prevent deletion of active contracts
+      if (contract.status === 'ACTIVE') {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Cannot delete active contract. Please terminate the contract first.',
+        })
+      }
+
+      await ctx.db.contract.delete({
+        where: { id: input },
+      })
+
+      return { success: true }
+    }),
 })

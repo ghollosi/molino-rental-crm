@@ -25,12 +25,21 @@ export default function PropertiesPage() {
   const [typeFilter, setTypeFilter] = useState<string>('all')
   const [statusFilter, setStatusFilter] = useState<string>('all')
 
-  const { data, isLoading } = api.property.list.useQuery({
+  const { data, isLoading, refetch } = api.property.list.useQuery({
     page,
     limit: 10,
     search: search || undefined,
     type: typeFilter !== 'all' ? typeFilter as any : undefined,
     status: statusFilter !== 'all' ? statusFilter as any : undefined,
+  })
+
+  const deleteProperty = api.property.delete.useMutation({
+    onSuccess: () => {
+      refetch()
+    },
+    onError: (error) => {
+      alert(`Hiba történt a törlés során: ${error.message}`)
+    },
   })
 
   const getStatusBadge = (status: string) => {
@@ -59,6 +68,12 @@ export default function PropertiesPage() {
       COMMERCIAL: 'Üzlet',
     }
     return labels[type] || type
+  }
+
+  const handleDelete = async (propertyId: string, propertyAddress: string) => {
+    if (confirm(`Biztosan törölni szeretné ezt az ingatlant: ${propertyAddress}? Ez a művelet nem visszavonható.`)) {
+      await deleteProperty.mutateAsync(propertyId)
+    }
   }
 
   return (
@@ -201,7 +216,12 @@ export default function PropertiesPage() {
                               <Edit className="h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="ghost" size="sm">
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            onClick={() => handleDelete(property.id, `${property.street}, ${property.city}`)}
+                            disabled={deleteProperty.isPending}
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>

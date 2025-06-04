@@ -454,4 +454,57 @@ export const ownerRouter = createTRPCRouter({
 
       return updatedOwner
     }),
+
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      // Only admins can delete owners
+      if (!['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Only admins can delete owners',
+        })
+      }
+
+      // Check if owner exists
+      const owner = await ctx.db.owner.findUnique({
+        where: { id: input },
+        include: {
+          properties: true,
+          user: true,
+        },
+      })
+
+      if (!owner) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Owner not found',
+        })
+      }
+
+      // Check if owner has properties - prevent deletion if they do
+      if (owner.properties.length > 0) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Cannot delete owner who has properties. Please transfer or delete properties first.',
+        })
+      }
+
+      // Delete owner and associated user in transaction
+      await ctx.db.$transaction(async (tx) => {
+        // Delete owner first
+        await tx.owner.delete({
+          where: { id: input },
+        })
+
+        // Delete associated user if they exist
+        if (owner.user) {
+          await tx.user.delete({
+            where: { id: owner.userId },
+          })
+        }
+      })
+
+      return { success: true }
+    }),
 })

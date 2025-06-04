@@ -319,4 +319,62 @@ export const userRouter = createTRPCRouter({
 
       return updatedUser
     }),
+
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      // Only admins can delete users
+      if (ctx.session.user.role !== 'ADMIN') {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Only admins can delete users',
+        })
+      }
+
+      // Prevent self-deletion
+      if (input === ctx.session.user.id) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'You cannot delete your own account',
+        })
+      }
+
+      // Check if user exists
+      const user = await ctx.db.user.findUnique({
+        where: { id: input },
+        include: {
+          owner: true,
+          tenant: true,
+          provider: true,
+        },
+      })
+
+      if (!user) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'User not found',
+        })
+      }
+
+      // Delete user and related data in transaction
+      await ctx.db.$transaction(async (tx) => {
+        // Delete related profiles first
+        if (user.owner) {
+          await tx.owner.delete({ where: { userId: input } })
+        }
+        if (user.tenant) {
+          await tx.tenant.delete({ where: { userId: input } })
+        }
+        if (user.provider) {
+          await tx.provider.delete({ where: { userId: input } })
+        }
+
+        // Delete user
+        await tx.user.delete({
+          where: { id: input },
+        })
+      })
+
+      return { success: true }
+    }),
 })

@@ -388,4 +388,48 @@ export const providerRouter = createTRPCRouter({
 
       return providers
     }),
+
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input }) => {
+      // Only admins can delete providers
+      if (!['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Only admins can delete providers',
+        })
+      }
+
+      // Check if provider exists
+      const provider = await ctx.db.provider.findUnique({
+        where: { id: input },
+        include: {
+          user: true,
+        },
+      })
+
+      if (!provider) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Provider not found',
+        })
+      }
+
+      // Delete provider and associated user in transaction
+      await ctx.db.$transaction(async (tx) => {
+        // Delete provider first
+        await tx.provider.delete({
+          where: { id: input },
+        })
+
+        // Delete associated user if they exist
+        if (provider.user) {
+          await tx.user.delete({
+            where: { id: provider.userId },
+          })
+        }
+      })
+
+      return { success: true }
+    }),
 })
