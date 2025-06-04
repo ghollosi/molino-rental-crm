@@ -14,7 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ArrowLeft, AlertCircle, User } from 'lucide-react'
 import Link from 'next/link'
 import { ImageUpload } from '@/components/ui/image-upload'
-import { analyzeIssueDescription } from '@/lib/ai-categorization'
+import { analyzeIssueWithAI } from '@/lib/ai-categorization'
 import { Sparkles } from 'lucide-react'
 
 interface IssueFormData {
@@ -72,15 +72,22 @@ export default function NewIssuePage() {
   const watchDescription = watch('description')
 
   // AI kategorizálás a leírás alapján
-  const handleAIAnalyze = () => {
+  const handleAIAnalyze = async () => {
     if (!watchDescription) {
       setError('Kérjük, először írja le a hibát!')
       return
     }
 
-    const analysis = analyzeIssueDescription(watchDescription)
-    setValue('category', analysis.category)
-    setValue('priority', analysis.priority)
+    try {
+      const analysis = await analyzeIssueWithAI(watchDescription)
+      setValue('category', analysis.category.category)
+      setValue('priority', analysis.priority.priority)
+      
+      // Visszajelzés a felhasználónak
+      alert(`AI elemzés kész!\n\nKategória: ${analysis.category.category}\nPrioritás: ${analysis.priority.priority}\n\nIndoklás: ${analysis.category.reasoning}`)
+    } catch (error) {
+      setError('AI elemzés sikertelen. Próbálja újra!')
+    }
   }
 
   return (
