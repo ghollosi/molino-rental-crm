@@ -93,6 +93,7 @@ model User {
   statusChanges IssueTimeline[]
   uploadedFiles UploadedFile[]
   propertyPricing PropertyPricing[]
+  grantedAccessCodes AccessCode[]
 }
 
 model Company {
@@ -1034,14 +1035,16 @@ model SmartLock {
   propertyId        String
   property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   
-  // TTLock device info
-  ttlockId          String    @unique // TTLock device ID
+  // Platform és device info
+  platform          LockPlatform @default(TTLOCK) // Zár platform
+  externalId        String    @unique // Device ID (TTLock ID, Nuki ID, stb.)
   lockName          String    // Zár neve
   lockAlias         String?   // Zár beceneve
   lockMac           String?   // MAC address
   
   // Device details
   lockType          String    // Zár típusa
+  lockModel         String?   // Zár modell (pl. "Nuki Smart Lock 3.0", "TTLock Pro")
   batteryLevel      Int?      @default(100) // Akkumulátor szint
   lockStatus        LockStatus @default(UNKNOWN) // Zár állapota
   signalStrength    Int?      // Jelerősség
@@ -1063,8 +1066,17 @@ model SmartLock {
   updatedAt         DateTime  @updatedAt
   
   @@index([propertyId])
-  @@index([ttlockId])
+  @@index([platform])
+  @@index([externalId])
   @@index([lockStatus])
+}
+
+enum LockPlatform {
+  TTLOCK       // TTLock platform
+  NUKI         // Nuki platform
+  YALE         // Yale Connect
+  AUGUST       // August Home
+  SCHLAGE      // Schlage Encode
 }
 
 enum LockStatus {

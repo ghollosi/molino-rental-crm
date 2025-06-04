@@ -72,7 +72,7 @@ export default function SmartLocksPage() {
 
   // Get smart locks
   const { data: smartLocksData, refetch: refetchLocks } = api.smartLock.list.useQuery({
-    propertyId: selectedProperty || undefined,
+    propertyId: selectedProperty === "all" ? undefined : selectedProperty || undefined,
     page: 1,
     limit: 100
   })
@@ -186,7 +186,7 @@ export default function SmartLocksPage() {
                 <SelectValue placeholder="Összes ingatlan" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Összes ingatlan</SelectItem>
+                <SelectItem value="all">Összes ingatlan</SelectItem>
                 {properties?.properties?.map((property) => (
                   <SelectItem key={property.id} value={property.id}>
                     {property.address || `${property.street}, ${property.city}`}
@@ -384,9 +384,11 @@ function CreateLockForm({
 }) {
   const [formData, setFormData] = useState({
     propertyId: '',
-    ttlockId: '',
+    platform: 'TTLOCK',
+    externalId: '',
     lockName: '',
     lockAlias: '',
+    lockModel: '',
     location: '',
     floor: ''
   })
@@ -418,12 +420,40 @@ function CreateLockForm({
       </div>
 
       <div>
-        <Label htmlFor="ttlockId">TTLock Device ID *</Label>
+        <Label htmlFor="platform">Smart Lock Platform *</Label>
+        <Select value={formData.platform} onValueChange={(value) => setFormData(prev => ({ ...prev, platform: value }))}>
+          <SelectTrigger>
+            <SelectValue placeholder="Válassz platformot" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="TTLOCK">TTLock</SelectItem>
+            <SelectItem value="NUKI">Nuki</SelectItem>
+            <SelectItem value="YALE">Yale Connect</SelectItem>
+            <SelectItem value="AUGUST">August Home</SelectItem>
+            <SelectItem value="SCHLAGE">Schlage Encode</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div>
+        <Label htmlFor="externalId">
+          {formData.platform === 'TTLOCK' && 'TTLock Device ID *'}
+          {formData.platform === 'NUKI' && 'Nuki Smart Lock ID *'}
+          {formData.platform === 'YALE' && 'Yale Device ID *'}
+          {formData.platform === 'AUGUST' && 'August Lock ID *'}
+          {formData.platform === 'SCHLAGE' && 'Schlage Device ID *'}
+        </Label>
         <Input
-          id="ttlockId"
-          value={formData.ttlockId}
-          onChange={(e) => setFormData(prev => ({ ...prev, ttlockId: e.target.value }))}
-          placeholder="123456789"
+          id="externalId"
+          value={formData.externalId}
+          onChange={(e) => setFormData(prev => ({ ...prev, externalId: e.target.value }))}
+          placeholder={
+            formData.platform === 'TTLOCK' ? '123456789' :
+            formData.platform === 'NUKI' ? '12345678' :
+            formData.platform === 'YALE' ? 'YRD256-CBA-619' :
+            formData.platform === 'AUGUST' ? 'AUG-SL01-123' :
+            'SCH-BE469-456'
+          }
           required
         />
       </div>
@@ -446,6 +476,22 @@ function CreateLockForm({
           value={formData.lockAlias}
           onChange={(e) => setFormData(prev => ({ ...prev, lockAlias: e.target.value }))}
           placeholder="Bejárati ajtó"
+        />
+      </div>
+
+      <div>
+        <Label htmlFor="lockModel">Zár modell</Label>
+        <Input
+          id="lockModel"
+          value={formData.lockModel}
+          onChange={(e) => setFormData(prev => ({ ...prev, lockModel: e.target.value }))}
+          placeholder={
+            formData.platform === 'TTLOCK' ? 'TTLock Pro G3' :
+            formData.platform === 'NUKI' ? 'Nuki Smart Lock 3.0 Pro' :
+            formData.platform === 'YALE' ? 'Yale Assure Lock SL' :
+            formData.platform === 'AUGUST' ? 'August Wi-Fi Smart Lock' :
+            'Schlage Encode Plus'
+          }
         />
       </div>
 

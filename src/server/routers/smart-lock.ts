@@ -2,14 +2,18 @@ import { z } from 'zod'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 import { TRPCError } from '@trpc/server'
 import { ttlockService } from '@/lib/ttlock'
+import { universalSmartLockService, SmartLockFactory } from '@/lib/smart-lock-factory'
+import type { LockPlatform } from '@/lib/smart-lock-factory'
 import crypto from 'crypto'
 
 // Input validation schemas
 const createSmartLockSchema = z.object({
   propertyId: z.string(),
-  ttlockId: z.string(),
+  platform: z.enum(['TTLOCK', 'NUKI', 'YALE', 'AUGUST', 'SCHLAGE']),
+  externalId: z.string(), // TTLock ID, Nuki ID, etc.
   lockName: z.string(),
   lockAlias: z.string().optional(),
+  lockModel: z.string().optional(),
   location: z.string().optional(),
   floor: z.number().optional()
 })
