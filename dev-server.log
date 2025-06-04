@@ -230,3 +230,609 @@ Database user: {
  GET / 200 in 30ms
  GET / 200 in 38ms
  GET / 200 in 40ms
+ GET / 200 in 39ms
+ GET / 200 in 41ms
+ GET / 200 in 38ms
+ GET / 200 in 42ms
+ GET / 200 in 27ms
+ GET / 200 in 44ms
+ GET / 200 in 28ms
+ GET / 200 in 38ms
+ GET / 200 in 46ms
+ GET / 200 in 43ms
+ GET / 200 in 44ms
+ GET / 200 in 43ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 40ms
+ GET / 200 in 23ms
+ GET / 200 in 27ms
+ GET / 200 in 35ms
+ GET / 200 in 42ms
+ GET / 200 in 28ms
+ GET / 200 in 48ms
+ GET / 200 in 38ms
+ GET / 200 in 30ms
+ GET / 200 in 32ms
+ GET / 200 in 30ms
+ GET / 200 in 28ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 28ms
+ GET / 200 in 29ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
+ GET / 200 in 38ms
+ GET / 200 in 27ms
+ GET / 200 in 33ms
+ GET / 200 in 29ms
+ GET / 200 in 29ms
+ GET / 200 in 40ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms
+ GET / 200 in 28ms
+ GET / 200 in 26ms
+ GET / 200 in 29ms
+ GET / 200 in 28ms
+ GET / 200 in 32ms
+ GET / 200 in 31ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 26ms
+ GET / 200 in 32ms
+ GET / 200 in 31ms
+ GET / 200 in 26ms
+ GET / 200 in 22ms
+ GET / 200 in 34ms
+ GET / 200 in 29ms
+ GET / 200 in 26ms
+ GET / 200 in 30ms
+ GET / 200 in 44ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 39ms
+ GET / 200 in 29ms
+ GET / 200 in 23ms
+ GET / 200 in 40ms
+ ○ Compiling /api/health-check ...
+ ✓ Compiled /api/health-check in 1077ms (1459 modules)
+ GET /api/health-check 200 in 1181ms
+ GET / 200 in 175ms
+ GET / 200 in 25ms
+ GET / 200 in 33ms
+ GET / 200 in 29ms
+ GET / 200 in 30ms
+ GET / 200 in 42ms
+ GET / 200 in 26ms
+ GET / 200 in 58ms
+ GET / 200 in 29ms
+ GET / 200 in 38ms
+ GET / 200 in 31ms
+ GET / 200 in 25ms
+ GET / 200 in 26ms
+ GET / 200 in 25ms
+ GET / 200 in 27ms
+ GET / 200 in 25ms
+ GET / 200 in 24ms
+ GET / 200 in 26ms
+ GET / 200 in 28ms
+ GET / 200 in 25ms
+ GET / 200 in 25ms
+ GET / 200 in 24ms
+ GET / 200 in 19ms
+ GET / 200 in 27ms
+ GET / 200 in 37ms
+ GET / 200 in 25ms
+ GET / 200 in 47ms
+ GET / 200 in 42ms
+ GET / 200 in 40ms
+ GET / 200 in 44ms
+ GET / 200 in 43ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 787ms (974 modules)
+ GET /api/auth/session 200 in 951ms
+ GET /api/auth/session 200 in 5ms
+ GET / 200 in 139ms
+ GET / 200 in 27ms
+ GET / 200 in 25ms
+ GET / 200 in 34ms
+ GET / 200 in 19ms
+ GET / 200 in 43ms
+ GET / 200 in 59ms
+ GET / 200 in 62ms
+ GET / 200 in 48ms
+ GET / 200 in 39ms
+ GET / 200 in 27ms
+ GET / 200 in 34ms
+ GET / 200 in 27ms
+ GET / 200 in 37ms
+ GET / 200 in 29ms
+ GET / 200 in 37ms
+ GET / 200 in 23ms
+ GET / 200 in 33ms
+ GET / 200 in 29ms
+ GET / 200 in 34ms
+ GET / 200 in 43ms
+ GET / 200 in 39ms
+ GET / 200 in 26ms
+ GET / 200 in 58ms
+ GET / 200 in 47ms
+ GET / 200 in 28ms
+ GET / 200 in 35ms
+ GET / 200 in 46ms
+ GET / 200 in 48ms
+ GET / 200 in 45ms
+ GET / 200 in 46ms
+ GET / 200 in 40ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 48ms
+ GET / 200 in 40ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms
+ GET / 200 in 28ms
+ GET / 200 in 29ms
+ GET / 200 in 29ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 29ms
+ GET / 200 in 28ms
+ GET / 200 in 26ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 21ms
+ GET / 200 in 39ms
+ GET / 200 in 43ms
+ GET /api/auth/session 200 in 101ms
+ GET /api/auth/session 200 in 7ms
+ GET / 200 in 41ms
+ GET / 200 in 28ms
+ GET / 200 in 30ms
+ GET / 200 in 32ms
+ GET / 200 in 34ms
+ GET / 200 in 83ms
+ GET / 200 in 24ms
+ GET / 200 in 39ms
+ GET / 200 in 29ms
+ GET / 200 in 75ms
+ GET / 200 in 26ms
+ GET / 200 in 24ms
+ GET / 200 in 28ms
+ GET / 200 in 41ms
+ GET / 200 in 23ms
+ GET / 200 in 41ms
+ GET / 200 in 28ms
+ GET / 200 in 32ms
+ GET / 200 in 28ms
+ GET / 200 in 48ms
+ GET / 200 in 30ms
+ GET / 200 in 32ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 28ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 29ms
+ GET / 200 in 42ms
+ GET / 200 in 26ms
+ GET / 200 in 31ms
+ GET / 200 in 52ms
+ GET / 200 in 29ms
+ GET / 200 in 48ms
+ GET / 200 in 27ms
+ GET / 200 in 71ms
+ GET / 200 in 28ms
+ GET / 200 in 50ms
+ GET / 200 in 47ms
+ GET / 200 in 82ms
+ GET / 200 in 30ms
+ GET / 200 in 62ms
+ GET / 200 in 26ms
+ GET / 200 in 28ms
+ GET / 200 in 31ms
+ GET / 200 in 28ms
+ GET / 200 in 30ms
+ GET / 200 in 42ms
+ GET / 200 in 60ms
+ GET / 200 in 53ms
+ GET / 200 in 37ms
+ GET / 200 in 29ms
+ GET / 200 in 37ms
+ GET / 200 in 32ms
+ GET / 200 in 41ms
+ GET / 200 in 26ms
+ GET / 200 in 30ms
+ GET / 200 in 31ms
+ GET / 200 in 43ms
+ GET / 200 in 27ms
+ GET / 200 in 30ms
+ GET / 200 in 25ms
+ GET / 200 in 23ms
+ GET / 200 in 27ms
+ GET / 200 in 25ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 26ms
+ GET / 200 in 45ms
+ GET / 200 in 27ms
+ GET / 200 in 25ms
+ GET / 200 in 51ms
+ GET / 200 in 39ms
+ GET / 200 in 31ms
+ GET / 200 in 33ms
+ GET / 200 in 32ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 29ms
+ GET / 200 in 29ms
+ ✓ Compiled in 561ms (649 modules)
+ GET /dashboard/offers 200 in 29ms
+ GET / 200 in 26ms
+ GET / 200 in 36ms
+ GET / 200 in 54ms
+   Reload env: .env.local
+ ✓ Compiled in 562ms (1752 modules)
+ GET /dashboard/offers 200 in 158ms
+ GET / 200 in 75ms
+ GET / 200 in 38ms
+ ✓ Compiled in 234ms (649 modules)
+ GET /dashboard/offers 200 in 13ms
+ GET / 200 in 27ms
+ GET / 200 in 24ms
+ GET / 200 in 30ms
+ GET / 200 in 45ms
+ GET / 200 in 23ms
+ GET / 200 in 67ms
+ ✓ Compiled in 528ms (649 modules)
+ GET /dashboard/offers 200 in 53ms
+ GET / 200 in 68ms
+ GET / 200 in 60ms
+ ✓ Compiled in 207ms (649 modules)
+ GET /dashboard/offers 200 in 13ms
+ GET / 200 in 47ms
+ ✓ Compiled in 206ms (649 modules)
+ GET /dashboard/offers 200 in 16ms
+ GET / 200 in 67ms
+ GET / 200 in 54ms
+ GET / 200 in 52ms
+ GET / 200 in 58ms
+ GET / 200 in 62ms
+ GET / 200 in 23ms
+ GET / 200 in 44ms
+ GET / 200 in 51ms
+ GET / 200 in 46ms
+ GET / 200 in 56ms
+ GET / 200 in 44ms
+ GET / 200 in 66ms
+ GET / 200 in 39ms
+ GET / 200 in 58ms
+ GET / 200 in 50ms
+ GET / 200 in 50ms
+ GET / 200 in 46ms
+ GET / 200 in 26ms
+ ✓ Compiled in 1444ms (1766 modules)
+ GET /dashboard/offers 200 in 943ms
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET /dashboard/offers 200 in 10ms
+ GET / 200 in 116ms
+ GET / 200 in 30ms
+ GET / 200 in 45ms
+ GET / 200 in 52ms
+ GET / 200 in 36ms
+ GET / 200 in 51ms
+ GET / 200 in 33ms
+ GET / 200 in 41ms
+ ✓ Compiled in 1257ms (649 modules)
+ GET /dashboard/offers 200 in 106ms
+ GET / 200 in 25ms
+   Reload env: .env.local
+ ✓ Compiled in 729ms (1766 modules)
+ GET /dashboard/offers 200 in 159ms
+ ✓ Compiled in 314ms (649 modules)
+ GET /dashboard/offers 200 in 19ms
+ GET / 200 in 109ms
+ GET / 200 in 52ms
+ GET / 200 in 64ms
+ GET / 200 in 71ms
+ GET / 200 in 49ms
+ GET / 200 in 42ms
+ GET / 200 in 25ms
+ ✓ Compiled in 807ms (649 modules)
+ GET /dashboard/offers 200 in 51ms
+ ✓ Compiled in 249ms (649 modules)
+ GET /dashboard/offers 200 in 20ms
+ GET / 200 in 22ms
+ ✓ Compiled in 351ms (649 modules)
+ GET /dashboard/offers 200 in 19ms
+ GET / 200 in 45ms
+ GET / 200 in 45ms
+ GET / 200 in 40ms
+ GET / 200 in 29ms
+ GET / 200 in 42ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1379ms (974 modules)
+ GET /api/auth/session 200 in 1590ms
+ GET /api/auth/session 200 in 7ms
+ GET / 200 in 167ms
+ GET /dashboard/offers 200 in 200ms
+ GET /api/auth/session 200 in 15ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1199ms (1108 modules)
+ ✓ Compiled in 0ms (1108 modules)
+ ✓ Compiled in 0ms (1108 modules)
+ ✓ Compiled in 1ms (1108 modules)
+ GET /api/auth/session 200 in 1451ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 2016ms
+ GET /dashboard/offers 200 in 1001ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 3.1s (4004 modules)
+ GET /dashboard 200 in 3318ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22OPEN%22%7D%7D%2C%2212%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 365ms
+ GET / 200 in 121ms
+ ✓ Compiled in 1484ms (4315 modules)
+ GET /dashboard 200 in 1031ms
+ GET /dashboard 200 in 15ms
+ GET / 200 in 129ms
+ GET / 200 in 37ms
+ GET / 200 in 34ms
+ GET / 200 in 37ms
+ GET / 200 in 47ms
+ GET / 200 in 27ms
+ GET / 200 in 57ms
+ GET / 200 in 39ms
+ GET / 200 in 48ms
+ ✓ Compiled in 603ms (1778 modules)
+ GET /dashboard 200 in 41ms
+ GET / 200 in 34ms
+ GET / 200 in 62ms
+ GET / 200 in 41ms
+ GET / 200 in 31ms
+ GET /dashboard 200 in 299ms
+ GET /api/auth/session 200 in 71ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 31ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 460ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22OPEN%22%7D%7D%2C%2212%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 325ms
+ GET / 200 in 37ms
+ ○ Compiling /dashboard/settings ...
+ ✓ Compiled /dashboard/settings in 1154ms (4069 modules)
+ GET /dashboard/settings 200 in 1254ms
+ GET / 200 in 151ms
+ GET /dashboard 200 in 33ms
+ ✓ Compiled in 338ms (1809 modules)
+ GET /dashboard 200 in 17ms
+ GET / 200 in 30ms
+ ✓ Compiled in 1673ms (4083 modules)
+ GET /dashboard 200 in 58ms
+ GET / 200 in 80ms
+ ✓ Compiled in 768ms (4085 modules)
+ GET /dashboard 200 in 40ms
+ GET / 200 in 84ms
+ GET / 200 in 30ms
+ GET / 200 in 31ms
+ GET / 200 in 27ms
+ GET / 200 in 30ms
+ GET / 200 in 33ms
+ GET / 200 in 40ms
+ GET /dashboard 200 in 313ms
+ ✓ Compiled in 1281ms (4078 modules)
+ GET /dashboard 200 in 104ms
+ GET / 200 in 70ms
+ GET / 200 in 42ms
+ GET / 200 in 47ms
+ GET / 200 in 54ms
+ GET / 200 in 37ms
+ GET / 200 in 50ms
+ GET / 200 in 54ms
+ GET / 200 in 56ms
+ ✓ Compiled in 651ms (1809 modules)
+ GET /dashboard 200 in 26ms
+ GET / 200 in 25ms
+ GET / 200 in 37ms
+ GET / 200 in 46ms
+ GET / 200 in 44ms
+ GET / 200 in 53ms
+ GET / 200 in 55ms
+ ✓ Compiled in 875ms (1809 modules)
+ GET /dashboard 200 in 21ms
+ GET / 200 in 58ms
+ ✓ Compiled in 248ms (1809 modules)
+ GET /dashboard 200 in 13ms
+ ✓ Compiled in 235ms (1809 modules)
+ GET /dashboard 200 in 14ms
+ GET / 200 in 19ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 846ms (2140 modules)
+ GET /api/auth/session 200 in 1010ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 136ms
+ GET / 200 in 67ms
+ GET / 200 in 53ms
+ GET / 200 in 49ms
+ GET / 200 in 33ms
+ GET /api/auth/session 200 in 44ms
+ GET /api/auth/session 200 in 9ms
+ GET / 200 in 32ms
+ GET /dashboard 200 in 249ms
+ GET /api/auth/session 200 in 54ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 658ms (2278 modules)
+ ✓ Compiled in 0ms (2278 modules)
+ ✓ Compiled in 1ms (2278 modules)
+ ✓ Compiled in 0ms (2278 modules)
+ GET /api/auth/session 200 in 1303ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 1694ms
+ GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22OPEN%22%7D%7D%2C%2212%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1470ms
+ GET /dashboard 200 in 1226ms
+ GET /dashboard/settings 200 in 28ms
+ GET / 200 in 97ms
+ GET /dashboard 200 in 20ms
+ GET / 200 in 32ms
+ GET / 200 in 26ms
+ GET / 200 in 28ms
+ GET / 200 in 21ms
+ GET / 200 in 45ms
+ GET /dashboard 200 in 487ms
+ ✓ Compiled in 2.1s (4384 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET /dashboard 200 in 47ms
+ GET / 200 in 61ms
+ GET / 200 in 47ms
+ GET / 200 in 45ms
+ GET / 200 in 93ms
+ ✓ Compiled in 597ms (3781 modules)
+ GET /dashboard 200 in 97ms
+ GET / 200 in 66ms
+ GET / 200 in 26ms
+ ✓ Compiled in 437ms (1809 modules)
+ GET /dashboard 200 in 53ms
+ GET / 200 in 37ms
+ GET / 200 in 30ms
+ GET / 200 in 53ms
+ ✓ Compiled in 976ms (4078 modules)
+ GET /dashboard 200 in 750ms
+ GET /dashboard 200 in 10ms
+ GET / 200 in 70ms
+ GET / 200 in 60ms
+ GET / 200 in 46ms
+ GET / 200 in 47ms
+ GET / 200 in 31ms
+ GET / 200 in 58ms
+ GET /dashboard 200 in 297ms
+ ✓ Compiled in 1258ms (4078 modules)
+ GET /dashboard 200 in 40ms
+ GET / 200 in 80ms
+ GET / 200 in 58ms
+ GET / 200 in 33ms
+ GET / 200 in 25ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 974ms (2140 modules)
+ GET /api/auth/session 200 in 1145ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 91ms
+ ✓ Compiled in 1713ms (4246 modules)
+ GET /dashboard 200 in 1333ms
+ GET /dashboard 200 in 22ms
+ GET / 200 in 93ms
+ GET / 200 in 32ms
+ GET / 200 in 44ms
+ GET / 200 in 57ms
+ GET / 200 in 34ms
+ GET / 200 in 32ms
+ ✓ Compiled in 388ms (1809 modules)
+ GET /dashboard 200 in 19ms
+ GET / 200 in 35ms
+ ✓ Compiled in 221ms (1809 modules)
+ GET /dashboard 200 in 16ms
+ ✓ Compiled in 261ms (1809 modules)
+ GET /dashboard 200 in 18ms
+ GET / 200 in 24ms
+ GET / 200 in 40ms
+ GET /api/auth/session 200 in 176ms
+ GET /api/auth/session 200 in 18ms
+ GET / 200 in 31ms
+ GET / 200 in 44ms
+ GET / 200 in 28ms
+ GET / 200 in 41ms
+ GET /api/auth/session 200 in 24ms
+ GET /api/auth/session 200 in 17ms
+ GET /dashboard 200 in 442ms
+ ✓ Compiled in 1682ms (4246 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET /dashboard 200 in 82ms
+ GET / 200 in 86ms
+ GET / 200 in 56ms
+ GET / 200 in 59ms
+ GET / 200 in 40ms
+ GET / 200 in 30ms
+ GET / 200 in 40ms
+ GET / 200 in 31ms
+ GET / 200 in 50ms
+ GET / 200 in 53ms
+ GET / 200 in 57ms
+ GET / 200 in 47ms
+ GET / 200 in 58ms
+ GET / 200 in 36ms
+ GET / 200 in 47ms
+ GET / 200 in 48ms
+ GET / 200 in 45ms
+ GET / 200 in 49ms
+ GET / 200 in 49ms
+ GET / 200 in 47ms
+ GET / 200 in 31ms
+ GET / 200 in 37ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 31ms
+ GET / 200 in 40ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms
+ GET / 200 in 32ms
+ GET / 200 in 30ms
+ GET / 200 in 41ms
+ GET / 200 in 31ms
+ GET / 200 in 35ms
+ GET / 200 in 31ms
+ GET / 200 in 58ms
+ GET / 200 in 49ms
+ GET / 200 in 34ms

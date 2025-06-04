@@ -172,6 +172,8 @@ model Property {
   contracts     Contract[]
   providers     PropertyProvider[]
   ratings       ProviderRating[]
+  invoices      Invoice[]
+  bookings      Booking[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -201,6 +203,7 @@ model Tenant {
   
   properties    Property[]
   contracts     Contract[]
+  invoices      Invoice[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -477,4 +480,163 @@ model SLATracking {
   
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+// Számlázás - Zoho Books integráció
+model Invoice {
+  id                    String    @id @default(cuid())
+  
+  // Kapcsolatok
+  tenantId              String
+  tenant                Tenant    @relation(fields: [tenantId], references: [id])
+  
+  propertyId            String  
+  property              Property  @relation(fields: [propertyId], references: [id])
+  
+  // Számla adatok
+  amount                Decimal
+  currency              String    @default("EUR")
+  dueDate               DateTime
+  description           String?
+  invoiceType           InvoiceType @default(RENTAL)
+  status                InvoiceStatus @default(PENDING)
+  
+  // Zoho Books integráció
+  externalInvoiceId     String?   @unique // Zoho invoice ID
+  externalInvoiceNumber String?   // Zoho invoice number
+  externalInvoiceUrl    String?   // Zoho invoice URL
+  externalPdfUrl        String?   // Zoho PDF URL
+  
+  // Fizetési adatok
+  paidAt                DateTime?
+  paymentMethod         String?
+  paymentReference      String?
+  
+  // Spanyol specifikus mezők
+  vatRate               Decimal?  @default(21) // Spanish VAT rate
+  vatAmount             Decimal? // VAT amount
+  netAmount             Decimal? // Amount without VAT
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  
+  @@index([tenantId])
+  @@index([propertyId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+enum InvoiceType {
+  RENTAL      // Bérleti díj
+  MAINTENANCE // Karbantartás
+  DEPOSIT     // Óvadék
+  UTILITIES   // Közüzemi díj
+  OTHER       // Egyéb
+}
+
+enum InvoiceStatus {
+  PENDING     // Függőben
+  SENT        // Elküldve
+  VIEWED      // Megtekintve
+  PAID        // Kifizetve
+  OVERDUE     // Lejárt
+  CANCELLED   // Visszavonva
+}
+
+// Rövid távú bérlések - Booking.com, Airbnb integráció
+model Booking {
+  id                String    @id @default(cuid())
+  
+  // Külső platform adatok
+  externalId        String    @unique // Booking.com reservation ID
+  platform          BookingPlatform @default(BOOKING_COM)
+  
+  // Kapcsolatok
+  propertyId        String?
+  property          Property? @relation(fields: [propertyId], references: [id])
+  
+  // Vendég adatok
+  guestName         String
+  guestEmail        String?
+  guestPhone        String?
+  guestCountry      String?
+  
+  // Foglalási adatok
+  checkIn           DateTime
+  checkOut          DateTime
+  nights            Int
+  adults            Int
+  children          Int       @default(0)
+  
+  // Pénzügyi adatok
+  totalAmount       Decimal
+  currency          String    @default("EUR")
+  commission        Decimal?  // Platform províziója
+  netAmount         Decimal?  // Nettó bevétel
+  
+  // Státusz és metaadatok
+  status            BookingStatus @default(CONFIRMED)
+  bookedAt          DateTime
+  cancelledAt       DateTime?
+  
+  // További adatok
+  specialRequests   String?
+  guestComments     String?
+  arrivalTime       String?
+  cancellationPolicy String?
+  
+  // Platform specifikus adatok (JSON)
+  platformData      Json?     // Extra platform-specific data
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([platform])
+  @@index([status])
+  @@index([checkIn])
+  @@index([checkOut])
+  @@index([propertyId])
+}
+
+enum BookingPlatform {
+  BOOKING_COM     // Booking.com
+  AIRBNB          // Airbnb
+  UPLISTING       // Uplisting.io
+  DIRECT          // Közvetlen foglalás
+  OTHER           // Egyéb platform
+}
+
+enum BookingStatus {
+  CONFIRMED       // Megerősített
+  CANCELLED       // Lemondott
+  MODIFIED        // Módosított
+  NO_SHOW         // Nem jelent meg
+  CHECKED_IN      // Bejelentkezett
+  CHECKED_OUT     // Kijelentkezett
+}
+
+// Automatikus párosítási napló
+model ReconciliationLog {
+  id                  String    @id @default(cuid())
+  
+  // Feldolgozási adatok
+  processedAt         DateTime  @default(now())
+  contractsChecked    Int       // Ellenőrzött szerződések száma
+  transactionsMatched Int       // Párosított tranzakciók száma
+  autoReconciled      Int       // Automatikusan párosított
+  invoicesUpdated     Int       // Frissített számlák
+  notificationsSent   Int       // Küldött értesítések
+  errors              Int       // Hibák száma
+  
+  // Részletes összefoglaló (JSON)
+  summary             Json?     // Detailed reconciliation results
+  
+  // Metadata
+  executionTime       Int?      // Execution time in milliseconds
+  triggerType         String    @default("cron") // cron, manual, webhook
+  
+  createdAt           DateTime  @default(now())
+  
+  @@index([processedAt])
+  @@index([autoReconciled])
 }
