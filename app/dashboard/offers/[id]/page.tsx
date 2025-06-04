@@ -289,12 +289,47 @@ export default function OfferDetailPage() {
                         </TableCell>
                       </TableRow>
                     ))}
+                    {/* Dinamikus árazás megjelenítése */}
+                    {offer.dynamicPricing && (offer.dynamicPricing as any).applied && (
+                      <>
+                        <TableRow>
+                          <TableCell colSpan={3} className="text-right text-sm text-gray-600">
+                            Alap összeg:
+                          </TableCell>
+                          <TableCell className="text-right text-sm text-gray-600">
+                            {formatCurrency((offer.dynamicPricing as any).basePrice)}
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell colSpan={3} className="text-right text-sm text-blue-600">
+                            Dinamikus árazás:
+                          </TableCell>
+                          <TableCell className="text-right text-sm">
+                            <div className="space-y-1">
+                              {((offer.dynamicPricing as any).modifiers as string[]).map((modifier: string, index: number) => (
+                                <div key={index} className="text-green-600">
+                                  + {modifier}
+                                </div>
+                              ))}
+                              <div className="font-medium text-green-700">
+                                Kiigazítás: {(offer.dynamicPricing as any).adjustment >= 0 ? '+' : ''}{formatCurrency((offer.dynamicPricing as any).adjustment)}
+                              </div>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      </>
+                    )}
                     <TableRow>
                       <TableCell colSpan={3} className="text-right font-semibold">
                         Összesen:
                       </TableCell>
                       <TableCell className="text-right font-bold">
                         {formatCurrency(Number(offer.totalAmount))}
+                        {offer.dynamicPricing && (offer.dynamicPricing as any).applied && (
+                          <span className="text-xs text-green-600 ml-2">
+                            (Dinamikus árazás alkalmazva)
+                          </span>
+                        )}
                       </TableCell>
                     </TableRow>
                   </TableBody>

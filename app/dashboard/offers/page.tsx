@@ -170,6 +170,11 @@ export default function OffersPage() {
                       </TableCell>
                       <TableCell className="font-medium">
                         {formatCurrency(Number(offer.totalAmount))}
+                        {offer.dynamicPricing && (offer.dynamicPricing as any).applied && (
+                          <span className="text-xs text-green-600 block">
+                            (Dinamikus árazás)
+                          </span>
+                        )}
                       </TableCell>
                       <TableCell>
                         <ClientDate date={offer.validUntil} />

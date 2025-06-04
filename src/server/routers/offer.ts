@@ -160,6 +160,12 @@ export const offerRouter = createTRPCRouter({
       currency: z.string().default('EUR'),
       validUntil: z.date(),
       notes: z.string().optional(),
+      dynamicPricing: z.object({
+        modifiers: z.array(z.string()),
+        adjustment: z.number(),
+        basePrice: z.number(),
+        applied: z.boolean(),
+      }).optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions

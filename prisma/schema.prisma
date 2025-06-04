@@ -384,6 +384,9 @@ model Offer {
   totalAmount   Decimal
   currency      String    @default("EUR")
   
+  // Dinamikus árazás
+  dynamicPricing Json?     // {modifiers: string[], adjustment: number, basePrice: number, applied: boolean}
+  
   validUntil    DateTime
   status        OfferStatus @default(DRAFT)
   notes         String?

@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, AlertCircle, Plus, Trash2, Calculator } from 'lucide-react'
+import { ArrowLeft, AlertCircle, Plus, Trash2, Calculator, X, Check } from 'lucide-react'
 import Link from 'next/link'
 // Dynamic pricing átmozgatva a backend-re
 import { format } from 'date-fns'
@@ -18,8 +18,6 @@ import { format } from 'date-fns'
 interface OfferFormData {
   propertyId: string
   issueId?: string
-  laborCost?: number
-  materialCost?: number
   totalAmount: number
   validUntil: string
   notes?: string
@@ -29,21 +27,42 @@ interface OfferFormData {
     unitPrice: number
     total: number
   }[]
+  dynamicPricing?: {
+    modifiers: string[]
+    adjustment: number
+    basePrice: number
+    applied: boolean
+  }
 }
 
 export default function NewOfferPage() {
   const router = useRouter()
   const [error, setError] = useState<string | null>(null)
   const [items, setItems] = useState([
-    { description: '', quantity: 1, unitPrice: 0, total: 0 }
+    { description: 'Munkadíj', quantity: 1, unitPrice: 0, total: 0 },
+    { description: 'Anyagköltség', quantity: 1, unitPrice: 0, total: 0 }
   ])
+
+  // State a dinamikus árazás párbeszédpanelhez
+  const [showPricingModal, setShowPricingModal] = useState(false)
+  const [pricingCalculation, setPricingCalculation] = useState<{
+    basePrice: number
+    multiplier: number
+    finalPrice: number
+    modifiers: string[]
+    selectedIssue: any
+    adjustment: number
+  } | null>(null)
+  const [appliedPricing, setAppliedPricing] = useState<{
+    modifiers: string[]
+    adjustment: number
+    finalPrice: number
+  } | null>(null)
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<OfferFormData>({
     defaultValues: {
       validUntil: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 nap múlva
       items: items,
-      laborCost: 0,
-      materialCost: 0,
       totalAmount: 0,
     }
   })
@@ -94,9 +113,9 @@ export default function NewOfferPage() {
     
     setItems(newItems)
     
-    // Számoljuk ki a teljes összeget
-    const totalAmount = newItems.reduce((sum, item) => sum + item.total, 0)
-    setValue('totalAmount', totalAmount)
+    // Nullázzuk a totalAmount-ot és a dinamikus árazást
+    setValue('totalAmount', 0)
+    setAppliedPricing(null)
     setValue('items', newItems)
   }
 
@@ -113,29 +132,34 @@ export default function NewOfferPage() {
     }
 
     const itemsTotal = validItems.reduce((sum, item) => sum + item.total, 0)
-    const totalAmount = itemsTotal + (data.laborCost || 0) + (data.materialCost || 0)
+    const totalAmount = itemsTotal
 
     await createOffer.mutateAsync({
       propertyId: data.propertyId,
       issueId: data.issueId || undefined,
       items: validItems,
-      laborCost: data.laborCost || undefined,
-      materialCost: data.materialCost || undefined,
       totalAmount: totalAmount,
       validUntil: new Date(data.validUntil),
       notes: data.notes || undefined,
+      dynamicPricing: appliedPricing ? {
+        modifiers: appliedPricing.modifiers,
+        adjustment: appliedPricing.adjustment,
+        basePrice: itemsTotal,
+        applied: true
+      } : undefined,
     })
   }
 
   const watchIssueId = watch('issueId')
   const watchPropertyId = watch('propertyId')
-  const watchLaborCost = watch('laborCost') || 0
-  const watchMaterialCost = watch('materialCost') || 0
   const watchItems = watch('items') || []
+  const watchTotalAmount = watch('totalAmount') || 0
   const itemsTotal = watchItems.reduce((sum, item) => sum + (item.total || 0), 0)
-  const calculatedTotal = itemsTotal + watchLaborCost + watchMaterialCost
+  
+  // A megjelenített összeg: ha van totalAmount beállítva (dinamikus árazás), azt használjuk, különben a tételek összege
+  const displayTotal = watchTotalAmount > 0 ? watchTotalAmount : itemsTotal
 
-  // Dynamic pricing kiszámítása (egyszerűsített verzió)
+  // Dynamic pricing kiszámítása (előnézet verzió)
   const calculateDynamicPricing = () => {
     const selectedIssue = issues?.issues.find(i => i.id === watchIssueId)
     if (!selectedIssue) {
@@ -143,7 +167,7 @@ export default function NewOfferPage() {
       return
     }
 
-    const basePrice = Number(watchLaborCost) + Number(watchMaterialCost) + itemsTotal
+    const basePrice = itemsTotal
     let multiplier = 1.0
     let modifiers: string[] = []
 
@@ -176,11 +200,36 @@ export default function NewOfferPage() {
 
     const finalPrice = basePrice * multiplier
 
-    setValue('totalAmount', Math.round(finalPrice))
+    const adjustment = Math.round(finalPrice) - basePrice
     
-    // Visszajelzés a felhasználónak
-    const modifierText = modifiers.join('\n')
-    alert(`Dinamikus árazás alkalmazva:\n\n${modifierText}\n\nAlap ár: ${basePrice.toFixed(0)} HUF\nSzorzó: ${multiplier.toFixed(2)}x\nVégső ár: ${Math.round(finalPrice).toFixed(0)} HUF`)
+    // Előnézet megjelenítése párbeszédpanelben
+    setPricingCalculation({
+      basePrice,
+      multiplier,
+      finalPrice: Math.round(finalPrice),
+      modifiers,
+      selectedIssue,
+      adjustment
+    })
+    setShowPricingModal(true)
+  }
+
+  // Dinamikus ár alkalmazása
+  const applyDynamicPricing = () => {
+    if (pricingCalculation) {
+      setValue('totalAmount', pricingCalculation.finalPrice)
+      setAppliedPricing({
+        modifiers: pricingCalculation.modifiers,
+        adjustment: pricingCalculation.adjustment,
+        finalPrice: pricingCalculation.finalPrice
+      })
+    }
+    setShowPricingModal(false)
+  }
+
+  // Dinamikus ár elvetése
+  const rejectDynamicPricing = () => {
+    setShowPricingModal(false)
   }
 
   return (
@@ -251,7 +300,6 @@ export default function NewOfferPage() {
                   <Select
                     value={watchIssueId || undefined}
                     onValueChange={(value) => setValue('issueId', value || undefined)}
-                    className="flex-1"
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Válasszon hibabejelentést (opcionális)" />
@@ -264,54 +312,10 @@ export default function NewOfferPage() {
                       ))}
                     </SelectContent>
                   </Select>
-                  {watchIssueId && (
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={calculateDynamicPricing}
-                      className="flex items-center gap-2"
-                    >
-                      <Calculator className="h-4 w-4" />
-                      Dinamikus ár
-                    </Button>
-                  )}
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="laborCost">Munkadíj</Label>
-                <Input
-                  id="laborCost"
-                  type="number"
-                  {...register('laborCost', { 
-                    valueAsNumber: true,
-                    min: { value: 0, message: 'A munkadíj nem lehet negatív' }
-                  })}
-                  placeholder="0"
-                />
-                {errors.laborCost && (
-                  <p className="text-sm text-red-500 mt-1">{errors.laborCost.message}</p>
-                )}
-              </div>
-
-              <div>
-                <Label htmlFor="materialCost">Anyagköltség</Label>
-                <Input
-                  id="materialCost"
-                  type="number"
-                  {...register('materialCost', { 
-                    valueAsNumber: true,
-                    min: { value: 0, message: 'Az anyagköltség nem lehet negatív' }
-                  })}
-                  placeholder="0"
-                />
-                {errors.materialCost && (
-                  <p className="text-sm text-red-500 mt-1">{errors.materialCost.message}</p>
-                )}
-              </div>
-            </div>
 
             <div>
               <Label htmlFor="notes">Megjegyzések</Label>
@@ -325,7 +329,12 @@ export default function NewOfferPage() {
 
             <div>
               <div className="flex justify-between items-center mb-4">
-                <Label>Tételek *</Label>
+                <div>
+                  <Label>Tételek *</Label>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Munkadíj, anyagköltség, egyéb szolgáltatások
+                  </p>
+                </div>
                 <Button
                   type="button"
                   variant="outline"
@@ -396,33 +405,71 @@ export default function NewOfferPage() {
                       maximumFractionDigits: 0,
                     }).format(itemsTotal)}
                   </p>
-                  {watchLaborCost > 0 && (
-                    <p className="text-sm text-gray-600">
-                      Munkadíj: {new Intl.NumberFormat('hu-HU', {
-                        style: 'currency',
-                        currency: 'HUF',
-                        maximumFractionDigits: 0,
-                      }).format(watchLaborCost)}
-                    </p>
+                  
+                  {/* Dinamikus árazás részletezés */}
+                  {appliedPricing && (
+                    <div className="mt-3 pt-3 border-t border-gray-200">
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-blue-700">Dinamikus árazás:</p>
+                        {appliedPricing.modifiers.map((modifier, index) => (
+                          <p key={index} className="text-sm text-green-600">
+                            + {modifier}
+                          </p>
+                        ))}
+                        <p className="text-sm font-semibold text-green-700">
+                          Kiigazítás: {appliedPricing.adjustment >= 0 ? '+' : ''}{new Intl.NumberFormat('hu-HU', {
+                            style: 'currency',
+                            currency: 'HUF',
+                            maximumFractionDigits: 0,
+                          }).format(appliedPricing.adjustment)}
+                        </p>
+                      </div>
+                    </div>
                   )}
-                  {watchMaterialCost > 0 && (
-                    <p className="text-sm text-gray-600">
-                      Anyagköltség: {new Intl.NumberFormat('hu-HU', {
-                        style: 'currency',
-                        currency: 'HUF',
-                        maximumFractionDigits: 0,
-                      }).format(watchMaterialCost)}
-                    </p>
-                  )}
+                  
                   <p className="text-lg font-semibold mt-2 pt-2 border-t">
                     Összesen: {new Intl.NumberFormat('hu-HU', {
                       style: 'currency',
                       currency: 'HUF',
                       maximumFractionDigits: 0,
-                    }).format(calculatedTotal)}
+                    }).format(displayTotal)}
                   </p>
                 </div>
               </div>
+              
+              {/* Dinamikus árazás gomb */}
+              {watchIssueId && !appliedPricing && (
+                <div className="mt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={calculateDynamicPricing}
+                    className="flex items-center gap-2"
+                  >
+                    <Calculator className="h-4 w-4" />
+                    Dinamikus árazás alkalmazása
+                  </Button>
+                  <p className="text-xs text-gray-500 mt-1">
+                    A prioritás és szezonalitás alapján automatikus árkiigazítás
+                  </p>
+                </div>
+              )}
+              
+              {appliedPricing && (
+                <div className="mt-4">
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => {
+                      setValue('totalAmount', 0)
+                      setAppliedPricing(null)
+                    }}
+                    className="text-sm text-gray-600 hover:text-gray-800"
+                  >
+                    Dinamikus árazás eltávolítása
+                  </Button>
+                </div>
+              )}
             </div>
 
             <div className="flex gap-4">
@@ -443,6 +490,83 @@ export default function NewOfferPage() {
           </form>
         </CardContent>
       </Card>
+
+      {/* Dinamikus árazás párbeszédpanel */}
+      {showPricingModal && pricingCalculation && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Dinamikus árazás előnézet</h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={rejectDynamicPricing}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            
+            <div className="space-y-3 mb-6">
+              <div className="bg-blue-50 p-3 rounded">
+                <p className="text-sm font-medium text-blue-800">
+                  Hibabejelentés: {pricingCalculation.selectedIssue.title}
+                </p>
+                <p className="text-sm text-blue-600">
+                  Prioritás: {pricingCalculation.selectedIssue.priority}
+                </p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-sm">Alap ár:</span>
+                  <span className="font-medium">{pricingCalculation.basePrice.toLocaleString()} HUF</span>
+                </div>
+                
+                {pricingCalculation.modifiers.map((modifier, index) => (
+                  <div key={index} className="flex justify-between text-sm text-green-600">
+                    <span>+ {modifier}</span>
+                  </div>
+                ))}
+                
+                <div className="border-t pt-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm">Szorzó:</span>
+                    <span className="font-medium">{pricingCalculation.multiplier.toFixed(2)}x</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span>Kiigazítás:</span>
+                    <span className={`font-medium ${pricingCalculation.adjustment >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {pricingCalculation.adjustment >= 0 ? '+' : ''}{pricingCalculation.adjustment.toLocaleString()} HUF
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-lg font-bold">
+                    <span>Végső ár:</span>
+                    <span className="text-green-600">{pricingCalculation.finalPrice.toLocaleString()} HUF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex gap-3">
+              <Button
+                onClick={applyDynamicPricing}
+                className="flex-1 bg-green-600 hover:bg-green-700"
+              >
+                <Check className="mr-2 h-4 w-4" />
+                Alkalmazás
+              </Button>
+              <Button
+                variant="outline"
+                onClick={rejectDynamicPricing}
+                className="flex-1"
+              >
+                <X className="mr-2 h-4 w-4" />
+                Elvetés
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
