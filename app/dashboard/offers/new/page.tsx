@@ -12,7 +12,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ArrowLeft, AlertCircle, Plus, Trash2, Calculator } from 'lucide-react'
 import Link from 'next/link'
-import { calculateDynamicPrice } from '@/lib/dynamic-pricing'
+// Dynamic pricing átmozgatva a backend-re
 import { format } from 'date-fns'
 
 interface OfferFormData {
@@ -135,7 +135,7 @@ export default function NewOfferPage() {
   const itemsTotal = watchItems.reduce((sum, item) => sum + (item.total || 0), 0)
   const calculatedTotal = itemsTotal + watchLaborCost + watchMaterialCost
 
-  // Dynamic pricing kiszámítása
+  // Dynamic pricing kiszámítása (egyszerűsített verzió)
   const calculateDynamicPricing = () => {
     const selectedIssue = issues?.issues.find(i => i.id === watchIssueId)
     if (!selectedIssue) {
@@ -144,22 +144,43 @@ export default function NewOfferPage() {
     }
 
     const basePrice = Number(watchLaborCost) + Number(watchMaterialCost) + itemsTotal
-    const dynamicPrice = calculateDynamicPrice(
-      basePrice,
-      selectedIssue.priority,
-      new Date(),
-      'REGULAR' // Később lehet tenant típus alapján
-    )
+    let multiplier = 1.0
+    let modifiers: string[] = []
 
-    setValue('totalAmount', dynamicPrice.finalPrice)
+    // Prioritás alapú szorzó
+    switch (selectedIssue.priority) {
+      case 'URGENT':
+        multiplier += 0.5 // +50%
+        modifiers.push('Sürgős prioritás: +50%')
+        break
+      case 'HIGH':
+        multiplier += 0.25 // +25%
+        modifiers.push('Magas prioritás: +25%')
+        break
+      case 'MEDIUM':
+        multiplier += 0.1 // +10%
+        modifiers.push('Közepes prioritás: +10%')
+        break
+      case 'LOW':
+        multiplier += 0.0 // +0%
+        modifiers.push('Alacsony prioritás: +0%')
+        break
+    }
+
+    // Szezonális szorzó (egyszerű)
+    const month = new Date().getMonth()
+    if (month >= 11 || month <= 1) { // December-február
+      multiplier += 0.15 // +15% télen
+      modifiers.push('Téli szezon: +15%')
+    }
+
+    const finalPrice = basePrice * multiplier
+
+    setValue('totalAmount', Math.round(finalPrice))
     
     // Visszajelzés a felhasználónak
-    if (dynamicPrice.appliedModifiers.length > 0) {
-      const modifierText = dynamicPrice.appliedModifiers
-        .map(m => `${m.name}: ${m.value > 0 ? '+' : ''}${(m.value * 100).toFixed(0)}%`)
-        .join('\n')
-      alert(`Dinamikus árazás alkalmazva:\n\n${modifierText}\n\nAlap ár: ${basePrice.toFixed(0)} EUR\nVégső ár: ${dynamicPrice.finalPrice.toFixed(0)} EUR`)
-    }
+    const modifierText = modifiers.join('\n')
+    alert(`Dinamikus árazás alkalmazva:\n\n${modifierText}\n\nAlap ár: ${basePrice.toFixed(0)} HUF\nSzorzó: ${multiplier.toFixed(2)}x\nVégső ár: ${Math.round(finalPrice).toFixed(0)} HUF`)
   }
 
   return (
