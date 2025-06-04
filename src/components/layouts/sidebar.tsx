@@ -31,7 +31,8 @@ import {
   Mail,
   Workflow,
   Cloud,
-  Brain
+  Brain,
+  Lock
 } from 'lucide-react'
 import { useSidebar } from '@/contexts/sidebar-context'
 import { useState } from 'react'
@@ -75,6 +76,7 @@ const navigation = [
           { name: 'Booking.com', href: '/dashboard/settings/booking', icon: Calendar },
           { name: 'Uplisting.io', href: '/dashboard/settings/uplisting', icon: Settings },
           { name: 'AI Árazás', href: '/dashboard/settings/ai-pricing', icon: Brain },
+          { name: 'Smart Zárak', href: '/dashboard/settings/smart-locks', icon: Lock },
           { name: 'Spanish VAT', href: '/dashboard/settings/spanish-vat', icon: Calculator },
           { name: 'Párosítás', href: '/dashboard/settings/payment-reconciliation', icon: BarChart3 }
         ]

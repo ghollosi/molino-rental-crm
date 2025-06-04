@@ -196,6 +196,9 @@ model Property {
   invoices      Invoice[]
   bookings      Booking[]
   pricingHistory PropertyPricing[]
+  smartLocks    SmartLock[]
+  accessCodes   AccessCode[]
+  accessLogs    AccessLog[]
   
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
@@ -980,4 +983,248 @@ model UplistingConfig {
   
   @@index([isActive])
   @@index([accountId])
+}
+
+// ========================================
+// IOT SMART LOCK SYSTEM - TTLock Integration
+// ========================================
+
+// Smart Lock konfigurációk (TTLock integration)
+model SmartLockConfig {
+  id                String    @id @default(cuid())
+  
+  // TTLock API konfiguráció
+  apiKey            String    // TTLock API Key (titkosítva)
+  apiSecret         String    // TTLock API Secret (titkosítva)
+  clientId          String    // TTLock Client ID
+  
+  // API beállítások
+  environment       String    @default("sandbox") // sandbox, production
+  apiVersion        String    @default("v1.3")
+  endpoint          String    @default("https://euapi.ttlock.com")
+  
+  // Webhook beállítások
+  webhookUrl        String?   // Webhook endpoint URL
+  webhookSecret     String?   // Webhook validation secret
+  
+  // Automatizáció beállítások
+  autoCodeGeneration Boolean  @default(true) // Automatikus kód generálás
+  codeValidityHours Int       @default(24)   // Kód érvényességi idő órában
+  maxSimultaneousCodes Int    @default(50)   // Max egyidejű aktív kódok
+  
+  // Notification beállítások
+  enableNotifications Boolean @default(true)
+  notificationTypes Json      @default("{\"unlock\": true, \"lock\": true, \"lowBattery\": true, \"tamper\": true}")
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastSync          DateTime?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+}
+
+// Smart Lock eszközök
+model SmartLock {
+  id                String    @id @default(cuid())
+  
+  // Property kapcsolat
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // TTLock device info
+  ttlockId          String    @unique // TTLock device ID
+  lockName          String    // Zár neve
+  lockAlias         String?   // Zár beceneve
+  lockMac           String?   // MAC address
+  
+  // Device details
+  lockType          String    // Zár típusa
+  batteryLevel      Int?      @default(100) // Akkumulátor szint
+  lockStatus        LockStatus @default(UNKNOWN) // Zár állapota
+  signalStrength    Int?      // Jelerősség
+  
+  // Location details
+  location          String?   // Zár helye (pl. "Főbejárat", "Hátsó ajtó")
+  floor             Int?      // Emelet
+  
+  // Configuration
+  isActive          Boolean   @default(true)
+  isOnline          Boolean   @default(false)
+  lastHeartbeat     DateTime? // Utolsó életjel
+  
+  // Access management
+  accessCodes       AccessCode[]
+  accessLogs        AccessLog[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([propertyId])
+  @@index([ttlockId])
+  @@index([lockStatus])
+}
+
+enum LockStatus {
+  LOCKED
+  UNLOCKED
+  UNKNOWN
+  MAINTENANCE
+  LOW_BATTERY
+  OFFLINE
+}
+
+// Access kódok kezelése
+model AccessCode {
+  id                String    @id @default(cuid())
+  
+  // Smart Lock kapcsolat
+  smartLockId       String
+  smartLock         SmartLock @relation(fields: [smartLockId], references: [id], onDelete: Cascade)
+  
+  // Property kapcsolat (gyorsabb lekérdezéshez)
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // TTLock passcode info
+  ttlockPasscodeId  String?   @unique // TTLock passcode ID
+  code              String    // Access code (titkosítva)
+  codeType          AccessCodeType
+  
+  // Access rights
+  grantedTo         String?   // Ki kapta (user ID, provider ID, guest name)
+  grantedToType     GranteeType
+  grantedBy         String    // Ki adta (user ID)
+  grantedByUser     User      @relation(fields: [grantedBy], references: [id])
+  
+  // Validity period
+  startDate         DateTime
+  endDate           DateTime
+  isRecurring       Boolean   @default(false)
+  recurringPattern  Json?     // {"days": [1,2,3,4,5], "times": ["09:00", "18:00"]}
+  
+  // Usage tracking
+  maxUsages         Int?      // Max használatok száma
+  currentUsages     Int       @default(0)
+  isActive          Boolean   @default(true)
+  
+  // Purpose and notes
+  purpose           String?   // Cél (pl. "Takarítás", "Karbantartás", "Vendég")
+  notes             String?   // Megjegyzések
+  
+  // Access logs
+  accessLogs        AccessLog[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([smartLockId])
+  @@index([propertyId])
+  @@index([grantedTo])
+  @@index([startDate, endDate])
+  @@index([isActive])
+}
+
+enum AccessCodeType {
+  PERMANENT         // Állandó kód (tulajdonos, manager)
+  TEMPORARY         // Ideiglenes kód (vendég, szolgáltató)
+  RECURRING         // Ismétlődő kód (takarítás, karbantartás)
+  EMERGENCY         // Vészhelyzeti kód
+  MASTER            // Master kód (admin)
+}
+
+enum GranteeType {
+  USER              // Rendszer felhasználó
+  PROVIDER          // Szolgáltató
+  TENANT            // Bérlő
+  GUEST             // Vendég
+  EMERGENCY         // Vészhelyzeti
+  SYSTEM            // Rendszer
+}
+
+// Access log - ki, mikor, hogyan nyitott/zárt
+model AccessLog {
+  id                String    @id @default(cuid())
+  
+  // Smart Lock kapcsolat
+  smartLockId       String
+  smartLock         SmartLock @relation(fields: [smartLockId], references: [id], onDelete: Cascade)
+  
+  // Property kapcsolat
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // Access Code kapcsolat (ha kóddal nyitott)
+  accessCodeId      String?
+  accessCode        AccessCode? @relation(fields: [accessCodeId], references: [id])
+  
+  // Event details
+  eventType         AccessEventType
+  accessMethod      AccessMethod
+  eventTimestamp    DateTime  @default(now())
+  
+  // Who accessed
+  accessedBy        String?   // Ki (user ID, provider ID, guest name)
+  accessedByType    GranteeType?
+  deviceInfo        Json?     // Device info (phone model, app version, etc.)
+  
+  // TTLock event data
+  ttlockEventId     String?   // TTLock event ID
+  batteryLevel      Int?      // Akkumulátor szint az esemény idején
+  signalStrength    Int?      // Jelerősség az esemény idején
+  
+  // Location and context
+  ipAddress         String?   // IP cím (ha app-ból)
+  gpsLocation       Json?     // GPS koordináták {"lat": 38.3452, "lng": -0.4810}
+  
+  // Result and status
+  success           Boolean   @default(true)
+  errorCode         String?   // Hibakód (ha sikertelen)
+  errorMessage      String?   // Hibaüzenet
+  
+  // Audit trail
+  notes             String?   // Admin megjegyzések
+  flagged           Boolean   @default(false) // Gyanús tevékenység
+  reviewedBy        String?   // Ki ellenőrizte (user ID)
+  reviewedAt        DateTime? // Mikor ellenőrizte
+  
+  createdAt         DateTime  @default(now())
+  
+  @@index([smartLockId])
+  @@index([propertyId])
+  @@index([accessCodeId])
+  @@index([eventTimestamp])
+  @@index([accessedBy])
+  @@index([eventType])
+  @@index([flagged])
+}
+
+enum AccessEventType {
+  UNLOCK            // Nyitás
+  LOCK              // Zárás
+  UNLOCK_FAILED     // Sikertelen nyitás
+  LOCK_FAILED       // Sikertelen zárás
+  CODE_ADDED        // Kód hozzáadása
+  CODE_REMOVED      // Kód eltávolítása
+  BATTERY_LOW       // Alacsony akkumulátor
+  DEVICE_OFFLINE    // Eszköz offline
+  DEVICE_ONLINE     // Eszköz online
+  TAMPER_ALERT      // Illetéktelen hozzáférés
+  FIRMWARE_UPDATE   // Firmware frissítés
+  FACTORY_RESET     // Gyári beállítások
+}
+
+enum AccessMethod {
+  PASSCODE          // Kód megadása
+  MOBILE_APP        // Mobil app
+  KEYCARD           // Kulcskártya
+  FINGERPRINT       // Ujjlenyomat
+  BLUETOOTH         // Bluetooth kulcs
+  NFC               // NFC
+  REMOTE            // Távoli nyitás
+  MANUAL            // Kézi (kulcs)
+  EMERGENCY         // Vészhelyzeti
+  UNKNOWN           // Ismeretlen
 }
