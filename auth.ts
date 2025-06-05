@@ -24,9 +24,7 @@ export const {
         const user = session.user as any
         user.name = token.name
         user.email = token.email
-        user.phone = token.phone
         user.role = token.role
-        user.language = token.language
       }
 
       return session
@@ -39,21 +37,15 @@ export const {
         select: {
           id: true,
           email: true,
-          firstName: true,
-          lastName: true,
-          phone: true,
           role: true,
-          language: true,
         }
       })
 
       if (!existingUser) return token
 
-      token.name = `${existingUser.firstName || ''} ${existingUser.lastName || ''}`.trim() || existingUser.email?.split('@')[0] || 'User'
+      token.name = existingUser.email?.split('@')[0] || 'User'
       token.email = existingUser.email
-      token.phone = existingUser.phone
       token.role = existingUser.role
-      token.language = existingUser.language
 
       return token
     },

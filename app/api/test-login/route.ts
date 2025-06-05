@@ -8,17 +8,14 @@ export async function POST(request: Request) {
     
     console.log('Direct test login attempt:', email)
     
-    // Direct database check
+    // Direct database check - try minimal fields first
     const user = await prisma.user.findUnique({
       where: { email },
       select: {
         id: true,
         email: true,
-        firstName: true,
-        lastName: true,
         password: true,
         role: true,
-        language: true,
         isActive: true,
       }
     })
@@ -65,7 +62,6 @@ export async function POST(request: Request) {
       user: {
         id: user.id,
         email: user.email,
-        name: `${user.firstName || ''} ${user.lastName || ''}`.trim(),
         role: user.role
       }
     })
