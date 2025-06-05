@@ -4153,3 +4153,716 @@ If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-r
  GET / 200 in 39ms
  GET / 200 in 49ms
  GET / 200 in 58ms
+ GET / 200 in 76ms
+ GET / 200 in 137ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 82ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 12ms
+ GET / 200 in 90ms
+ GET / 200 in 55ms
+ GET / 200 in 54ms
+ GET / 200 in 38ms
+ GET / 200 in 69ms
+ GET / 200 in 38ms
+ GET / 200 in 49ms
+ GET / 200 in 38ms
+ GET / 200 in 41ms
+ GET / 200 in 36ms
+ GET / 200 in 45ms
+ GET / 200 in 328ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 38ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 60ms
+ GET / 200 in 57ms
+ GET / 200 in 56ms
+ GET / 200 in 60ms
+ GET / 200 in 59ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 124ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 77ms
+ GET / 200 in 43ms
+ GET / 200 in 61ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 46ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET / 200 in 89ms
+ GET /api/auth/session 200 in 69ms
+ GET / 200 in 53ms
+ GET / 200 in 41ms
+ GET / 200 in 59ms
+ GET / 200 in 40ms
+ GET / 200 in 36ms
+ GET / 200 in 35ms
+ GET / 200 in 63ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 25ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 17ms
+ GET / 200 in 34ms
+ GET / 200 in 46ms
+ GET / 200 in 56ms
+ GET / 200 in 48ms
+ GET / 200 in 54ms
+ GET / 200 in 71ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 69ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 13ms
+ GET / 200 in 42ms
+ GET / 200 in 49ms
+ GET / 200 in 56ms
+ GET / 200 in 46ms
+ ✓ Compiled in 1781ms (4196 modules)
+ GET / 200 in 219ms
+ GET / 200 in 71ms
+ GET / 200 in 45ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 138ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 11ms
+ GET / 200 in 31ms
+ GET / 200 in 69ms
+ GET / 200 in 58ms
+ GET / 200 in 50ms
+ GET / 200 in 55ms
+ GET / 200 in 43ms
+ GET / 200 in 51ms
+ GET / 200 in 47ms
+ GET / 200 in 46ms
+ GET / 200 in 33ms
+ GET / 200 in 37ms
+ GET / 200 in 51ms
+ GET / 200 in 31ms
+ GET / 200 in 38ms
+ GET / 200 in 52ms
+ GET / 200 in 35ms
+ GET / 200 in 53ms
+ GET / 200 in 44ms
+ GET / 200 in 51ms
+ GET / 200 in 42ms
+ GET / 200 in 31ms
+ GET / 200 in 47ms
+ GET / 200 in 61ms
+ GET / 200 in 46ms
+ GET / 200 in 46ms
+ GET / 200 in 55ms
+ GET / 200 in 31ms
+ GET / 200 in 42ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 49ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 310ms
+ GET / 200 in 64ms
+ GET / 200 in 54ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 28ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 15ms
+ GET / 200 in 33ms
+ GET / 200 in 60ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 22ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 19ms
+ GET / 200 in 31ms
+ GET / 200 in 61ms
+ GET / 200 in 31ms
+ GET / 200 in 45ms
+ GET / 200 in 30ms
+ GET / 200 in 42ms
+ GET / 200 in 50ms
+ GET / 200 in 52ms
+ GET / 200 in 30ms
+ GET / 200 in 55ms
+ GET / 200 in 34ms
+ GET / 200 in 39ms
+ GET / 200 in 32ms
+ GET / 200 in 66ms
+ GET / 200 in 32ms
+ GET / 200 in 48ms
+ GET / 200 in 31ms
+ GET / 200 in 45ms
+ GET / 200 in 36ms
+ GET / 200 in 50ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 51ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 12ms
+ GET / 200 in 43ms
+ GET / 200 in 36ms
+ GET / 200 in 35ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 19ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 32ms
+ GET / 200 in 46ms
+ GET / 200 in 36ms
+ GET / 200 in 45ms
+ GET / 200 in 41ms
+ GET / 200 in 50ms
+ GET / 200 in 52ms
+ GET / 200 in 38ms
+ GET / 200 in 85ms
+ GET / 200 in 40ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 50ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 21ms
+ GET / 200 in 46ms
+ GET / 200 in 51ms
+ GET / 200 in 38ms
+ GET / 200 in 60ms
+ GET / 200 in 51ms
+ GET / 200 in 42ms
+ GET / 200 in 66ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 30ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 12ms
+ GET / 200 in 35ms
+ GET / 200 in 51ms
+ GET / 200 in 57ms
+ GET / 200 in 57ms
+ GET / 200 in 42ms
+ GET / 200 in 37ms
+ GET / 200 in 47ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 93ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 14ms
+ GET / 200 in 53ms
+ GET / 200 in 49ms
+ GET / 200 in 46ms
+ GET / 200 in 51ms
+ GET / 200 in 37ms
+ GET / 200 in 43ms
+ GET / 200 in 49ms
+ GET / 200 in 35ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 47ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 14ms
+ GET / 200 in 60ms
+ GET / 200 in 52ms
+ GET / 200 in 59ms
+ GET / 200 in 51ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 88ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 19ms
+ GET / 200 in 64ms
+ GET / 200 in 52ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 31ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 35ms
+ GET / 200 in 88ms
+ GET / 200 in 65ms
+ GET / 200 in 40ms
+ GET / 200 in 45ms
+ GET / 200 in 42ms
+ GET / 200 in 45ms
+ GET / 200 in 63ms
+ GET / 200 in 30ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 106ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 15ms
+ GET / 200 in 45ms
+ GET / 200 in 41ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 27ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET /api/auth/session 200 in 16ms
+ GET / 200 in 62ms
+ GET / 200 in 42ms
+ GET / 200 in 49ms
+ GET / 200 in 39ms
+ ✓ Compiled in 1208ms (4210 modules)
+ GET / 200 in 236ms
+ ✓ Compiled in 593ms (4196 modules)
