@@ -433,13 +433,34 @@ export const providerRouter = createTRPCRouter({
       return { success: true }
     }),
 
-  // Szolgáltató ingatlanhoz rendelése
+  // Fejlett szolgáltató ingatlanhoz rendelése (egyedi/rendszeres)
   assignToProperty: protectedProcedure
     .input(z.object({
       providerId: z.string(),
       propertyId: z.string(),
       categories: z.array(z.string()).default([]),
       isPrimary: z.boolean().default(false),
+      
+      // Új hozzárendelési mezők
+      assignmentType: z.enum(['ONE_TIME', 'RECURRING', 'PERMANENT']).default('ONE_TIME'),
+      priority: z.enum(['LOW', 'NORMAL', 'HIGH', 'URGENT']).default('NORMAL'),
+      description: z.string().optional(),
+      notes: z.string().optional(),
+      
+      // Egyedi hozzárendelések
+      startDate: z.date().optional(),
+      endDate: z.date().optional(),
+      
+      // Rendszeres hozzárendelések
+      isRecurring: z.boolean().default(false),
+      recurringPattern: z.object({
+        type: z.enum(['daily', 'weekly', 'monthly']),
+        days: z.array(z.number()).optional(), // 1-7 hétköznapok
+        time: z.string().optional(), // "09:00" formátum
+        interval: z.number().default(1), // minden x napban/hetben/hónapban
+      }).optional(),
+      recurringStartDate: z.date().optional(),
+      recurringEndDate: z.date().optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -474,6 +495,24 @@ export const providerRouter = createTRPCRouter({
           propertyId: input.propertyId,
           categories: input.categories,
           isPrimary: input.isPrimary,
+          
+          // Új mezők
+          assignmentType: input.assignmentType,
+          priority: input.priority,
+          description: input.description,
+          notes: input.notes,
+          assignedBy: ctx.session.user.id,
+          
+          // Egyedi hozzárendelések
+          startDate: input.startDate,
+          endDate: input.endDate,
+          
+          // Rendszeres hozzárendelések
+          isRecurring: input.isRecurring,
+          recurringPattern: input.recurringPattern,
+          recurringStartDate: input.recurringStartDate,
+          recurringEndDate: input.recurringEndDate,
+          
           isActive: true,
         },
         include: {
@@ -489,17 +528,27 @@ export const providerRouter = createTRPCRouter({
       // Automatikus hozzáférési szabály létrehozása
       try {
         const accessAutomationService = await import('@/lib/access-automation')
+        
+        // Determine provider type based on assignment
+        let providerType: 'REGULAR' | 'OCCASIONAL' | 'EMERGENCY' = 'OCCASIONAL'
+        if (input.assignmentType === 'PERMANENT' || input.isPrimary) {
+          providerType = 'REGULAR'
+        } else if (input.priority === 'URGENT') {
+          providerType = 'EMERGENCY'
+        }
+        
+        // Setup access rules based on assignment type
         await accessAutomationService.accessAutomationService.setupRegularProviderAccess({
           propertyId: input.propertyId,
           providerId: input.providerId,
-          providerType: input.isPrimary ? 'REGULAR' : 'OCCASIONAL',
-          timeRestriction: 'BUSINESS_HOURS', // Szolgáltatók munkaidőben
-          allowedWeekdays: [1, 2, 3, 4, 5], // Hétfő-Péntek
-          renewalPeriodDays: input.isPrimary ? 180 : 30, // Elsődleges: 6 hó, egyéb: 1 hó
-          notes: `Automatikusan létrehozott hozzáférési szabály - ${assignment.provider.businessName} (${assignment.provider.user.firstName} ${assignment.provider.user.lastName})`
+          providerType,
+          timeRestriction: input.assignmentType === 'PERMANENT' ? 'NO_RESTRICTION' : 'BUSINESS_HOURS',
+          allowedWeekdays: input.recurringPattern?.days || [1, 2, 3, 4, 5],
+          renewalPeriodDays: input.assignmentType === 'PERMANENT' ? 365 : (input.isPrimary ? 180 : 30),
+          notes: `Automatikus szabály - ${input.assignmentType} hozzárendelés: ${assignment.provider.businessName}`
         })
         
-        console.log(`✅ Automatikus hozzáférési szabály létrehozva szolgáltatónak: ${assignment.provider.businessName}`)
+        console.log(`✅ Automatikus hozzáférési szabály létrehozva: ${assignment.provider.businessName} (${input.assignmentType})`)
       } catch (accessError) {
         console.warn('Hozzáférési szabály létrehozás sikertelen:', accessError)
         // Nem dobunk hibát, csak logoljuk - a hozzárendelés sikeresen megtörtént
@@ -555,10 +604,304 @@ export const providerRouter = createTRPCRouter({
         },
         orderBy: [
           { isPrimary: 'desc' },
+          { priority: 'desc' },
           { createdAt: 'desc' },
         ],
       })
 
       return assignments
+    }),
+
+  // Szolgáltató ingatlanainak lekérdezése (fordított irány)
+  getProviderProperties: protectedProcedure
+    .input(z.object({
+      providerId: z.string(),
+    }))
+    .query(async ({ ctx, input }) => {
+      const assignments = await ctx.db.propertyProvider.findMany({
+        where: {
+          providerId: input.providerId,
+          isActive: true,
+        },
+        include: {
+          property: {
+            include: {
+              owner: {
+                include: {
+                  user: {
+                    select: {
+                      firstName: true,
+                      lastName: true,
+                      email: true,
+                      phone: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        orderBy: [
+          { isPrimary: 'desc' },
+          { priority: 'desc' },
+          { createdAt: 'desc' },
+        ],
+      })
+
+      return assignments
+    }),
+
+  // Hozzárendelés frissítése
+  updateAssignment: protectedProcedure
+    .input(z.object({
+      propertyId: z.string(),
+      providerId: z.string(),
+      
+      // Frissíthető mezők
+      categories: z.array(z.string()).optional(),
+      isPrimary: z.boolean().optional(),
+      assignmentType: z.enum(['ONE_TIME', 'RECURRING', 'PERMANENT']).optional(),
+      priority: z.enum(['LOW', 'NORMAL', 'HIGH', 'URGENT']).optional(),
+      description: z.string().optional(),
+      notes: z.string().optional(),
+      
+      // Egyedi hozzárendelések
+      startDate: z.date().optional(),
+      endDate: z.date().optional(),
+      
+      // Rendszeres hozzárendelések
+      isRecurring: z.boolean().optional(),
+      recurringPattern: z.object({
+        type: z.enum(['daily', 'weekly', 'monthly']),
+        days: z.array(z.number()).optional(),
+        time: z.string().optional(),
+        interval: z.number().default(1),
+      }).optional(),
+      recurringStartDate: z.date().optional(),
+      recurringEndDate: z.date().optional(),
+      
+      isActive: z.boolean().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Nincs jogosultsága hozzárendelés módosításához',
+        })
+      }
+
+      const { propertyId, providerId, ...updateData } = input
+
+      // Check if assignment exists
+      const existingAssignment = await ctx.db.propertyProvider.findUnique({
+        where: {
+          propertyId_providerId: {
+            propertyId,
+            providerId,
+          },
+        },
+      })
+
+      if (!existingAssignment) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Hozzárendelés nem található',
+        })
+      }
+
+      // Update assignment
+      const updatedAssignment = await ctx.db.propertyProvider.update({
+        where: {
+          propertyId_providerId: {
+            propertyId,
+            providerId,
+          },
+        },
+        data: updateData,
+        include: {
+          provider: {
+            include: {
+              user: true,
+            },
+          },
+          property: true,
+        },
+      })
+
+      return updatedAssignment
+    }),
+
+  // Összes hozzárendelés lekérdezése (admin dashboard-hoz)
+  getAllAssignments: protectedProcedure
+    .input(z.object({
+      page: z.number().default(1),
+      limit: z.number().default(20),
+      assignmentType: z.enum(['ONE_TIME', 'RECURRING', 'PERMANENT']).optional(),
+      priority: z.enum(['LOW', 'NORMAL', 'HIGH', 'URGENT']).optional(),
+      isActive: z.boolean().optional(),
+    }))
+    .query(async ({ ctx, input }) => {
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Nincs jogosultsága az összes hozzárendelés megtekintéséhez',
+        })
+      }
+
+      const { page, limit, assignmentType, priority, isActive } = input
+      const skip = (page - 1) * limit
+
+      const where: any = {}
+      if (assignmentType) where.assignmentType = assignmentType
+      if (priority) where.priority = priority
+      if (isActive !== undefined) where.isActive = isActive
+
+      const [assignments, total] = await Promise.all([
+        ctx.db.propertyProvider.findMany({
+          where,
+          skip,
+          take: limit,
+          include: {
+            provider: {
+              include: {
+                user: {
+                  select: {
+                    firstName: true,
+                    lastName: true,
+                    email: true,
+                    phone: true,
+                  },
+                },
+              },
+            },
+            property: {
+              select: {
+                id: true,
+                street: true,
+                city: true,
+                type: true,
+              },
+            },
+          },
+          orderBy: [
+            { priority: 'desc' },
+            { isPrimary: 'desc' },
+            { updatedAt: 'desc' },
+          ],
+        }),
+        ctx.db.propertyProvider.count({ where }),
+      ])
+
+      return {
+        assignments,
+        pagination: {
+          page,
+          limit,
+          total,
+          totalPages: Math.ceil(total / limit),
+        },
+      }
+    }),
+
+  // Szolgáltató ingatlanhoz rendelése (fordított irány - szolgáltató oldalról)
+  assignPropertyToProvider: protectedProcedure
+    .input(z.object({
+      providerId: z.string(),
+      propertyId: z.string(),
+      categories: z.array(z.string()).default([]),
+      isPrimary: z.boolean().default(false),
+      
+      // Hozzárendelési mezők
+      assignmentType: z.enum(['ONE_TIME', 'RECURRING', 'PERMANENT']).default('ONE_TIME'),
+      priority: z.enum(['LOW', 'NORMAL', 'HIGH', 'URGENT']).default('NORMAL'),
+      description: z.string().optional(),
+      notes: z.string().optional(),
+      
+      // Egyedi hozzárendelések
+      startDate: z.date().optional(),
+      endDate: z.date().optional(),
+      
+      // Rendszeres hozzárendelések
+      isRecurring: z.boolean().default(false),
+      recurringPattern: z.object({
+        type: z.enum(['daily', 'weekly', 'monthly']),
+        days: z.array(z.number()).optional(),
+        time: z.string().optional(),
+        interval: z.number().default(1),
+      }).optional(),
+      recurringStartDate: z.date().optional(),
+      recurringEndDate: z.date().optional(),
+    }))
+    .mutation(async ({ ctx, input }) => {
+      // Ez ugyanaz a logika, mint az assignToProperty, csak más oldalról indítva
+      // Ugyanazt a kódot futtatjuk, csak a bemeneti paraméterek sorrendje más
+      const { providerId, propertyId, ...restInput } = input
+      
+      // Call the existing assignToProperty logic with proper parameter mapping
+      const assignToPropertyInput = {
+        providerId,
+        propertyId,
+        ...restInput,
+      }
+      
+      // Manually invoke the same logic as assignToProperty
+      // Check permissions
+      if (!['ADMIN', 'EDITOR_ADMIN', 'OFFICE_ADMIN', 'SERVICE_MANAGER'].includes(ctx.session.user.role)) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Nincs jogosultsága szolgáltató hozzárendeléséhez',
+        })
+      }
+
+      // Check for existing assignment
+      const existingAssignment = await ctx.db.propertyProvider.findUnique({
+        where: {
+          propertyId_providerId: {
+            propertyId,
+            providerId,
+          },
+        },
+      })
+
+      if (existingAssignment) {
+        throw new TRPCError({
+          code: 'CONFLICT',
+          message: 'Ez a szolgáltató már hozzá van rendelve ehhez az ingatlanhoz',
+        })
+      }
+
+      // Create assignment
+      const assignment = await ctx.db.propertyProvider.create({
+        data: {
+          providerId,
+          propertyId,
+          categories: input.categories,
+          isPrimary: input.isPrimary,
+          assignmentType: input.assignmentType,
+          priority: input.priority,
+          description: input.description,
+          notes: input.notes,
+          assignedBy: ctx.session.user.id,
+          startDate: input.startDate,
+          endDate: input.endDate,
+          isRecurring: input.isRecurring,
+          recurringPattern: input.recurringPattern,
+          recurringStartDate: input.recurringStartDate,
+          recurringEndDate: input.recurringEndDate,
+          isActive: true,
+        },
+        include: {
+          provider: {
+            include: {
+              user: true,
+            },
+          },
+          property: true,
+        },
+      })
+
+      return assignment
     }),
 })

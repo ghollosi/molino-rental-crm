@@ -751,5 +751,98 @@ export const smartLockRouter = createTRPCRouter({
           totalPages: Math.ceil(total / input.limit)
         }
       }
+    }),
+
+  /**
+   * Get smart locks by property ID
+   */
+  getByProperty: protectedProcedure
+    .input(z.string())
+    .query(async ({ ctx, input: propertyId }) => {
+      // Check if user has access to this property
+      const property = await ctx.db.property.findUnique({
+        where: { id: propertyId },
+        include: { owner: true }
+      })
+
+      if (!property) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Property not found'
+        })
+      }
+
+      const hasAccess = property.owner.userId === ctx.session.user.id ||
+        ['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)
+
+      if (!hasAccess) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Access denied'
+        })
+      }
+
+      return await ctx.db.smartLock.findMany({
+        where: { 
+          propertyId,
+          isActive: true 
+        },
+        orderBy: { createdAt: 'desc' }
+      })
+    }),
+
+  /**
+   * Delete smart lock
+   */
+  delete: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ ctx, input: id }) => {
+      const smartLock = await ctx.db.smartLock.findUnique({
+        where: { id },
+        include: { property: { include: { owner: true } } }
+      })
+
+      if (!smartLock) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Smart lock not found'
+        })
+      }
+
+      // Check permissions
+      const hasAccess = smartLock.property.owner.userId === ctx.session.user.id ||
+        ['ADMIN', 'EDITOR_ADMIN'].includes(ctx.session.user.role)
+
+      if (!hasAccess) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Access denied'
+        })
+      }
+
+      // Deactivate all access codes for this lock first
+      await ctx.db.accessCode.updateMany({
+        where: { smartLockId: id },
+        data: { isActive: false }
+      })
+
+      // Log the deletion
+      await ctx.db.accessLog.create({
+        data: {
+          smartLockId: id,
+          propertyId: smartLock.propertyId,
+          eventType: 'DEVICE_REMOVED',
+          eventTimestamp: new Date(),
+          accessedBy: ctx.session.user.id,
+          notes: 'Smart lock removed from property'
+        }
+      })
+
+      // Delete the smart lock
+      await ctx.db.smartLock.delete({
+        where: { id }
+      })
+
+      return { success: true }
     })
 })

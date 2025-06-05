@@ -16,6 +16,7 @@ import { ArrowLeft, Loader2, Plus } from 'lucide-react'
 import { api } from '@/lib/trpc'
 import { ImageUpload } from '@/components/ui/image-upload'
 import { NewOwnerModal } from '@/components/modals/new-owner-modal'
+import { SmartLockManager } from '@/components/property/smart-lock-manager'
 import { UserPlus } from 'lucide-react'
 
 const propertySchema = z.object({
@@ -323,6 +324,14 @@ export default function NewPropertyPage() {
             />
           </CardContent>
         </Card>
+
+        <SmartLockManager
+          readonly={false}
+          onChange={(locks) => {
+            console.log('Smart locks updated:', locks)
+            // Smart locks will be associated after property creation
+          }}
+        />
 
         <div className="flex justify-end space-x-4">
           <Button

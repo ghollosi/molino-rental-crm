@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { ImageUpload } from '@/components/ui/image-upload'
+import { SmartLockManager } from '@/components/property/smart-lock-manager'
 import { ArrowLeft, Save } from 'lucide-react'
 import Link from 'next/link'
 
@@ -320,6 +321,11 @@ export default function EditPropertyPage() {
             </div>
           </CardContent>
         </Card>
+
+        <SmartLockManager
+          propertyId={id}
+          readonly={false}
+        />
 
         <div className="flex gap-4">
           <Button type="submit" disabled={updateMutation.isPending}>

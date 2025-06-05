@@ -179,6 +179,7 @@ export const contractRouter = createTRPCRouter({
     .input(z.object({
       propertyId: z.string(),
       tenantId: z.string(),
+      rentalType: z.enum(['SHORT_TERM', 'LONG_TERM']).default('LONG_TERM'),
       startDate: z.date(),
       endDate: z.date(),
       rentAmount: z.number().positive(),
@@ -186,6 +187,8 @@ export const contractRouter = createTRPCRouter({
       paymentDay: z.number().min(1).max(31),
       templateId: z.string().optional(),
       content: z.string().optional(),
+      notes: z.string().optional(),
+      status: z.enum(['DRAFT', 'ACTIVE', 'EXPIRED', 'TERMINATED', 'CANCELLED']).default('ACTIVE'),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -528,5 +531,45 @@ export const contractRouter = createTRPCRouter({
       })
 
       return { success: true }
+    }),
+
+  getByProperty: protectedProcedure
+    .input(z.object({
+      propertyId: z.string(),
+    }))
+    .query(async ({ ctx, input }) => {
+      const contracts = await ctx.db.contract.findMany({
+        where: {
+          propertyId: input.propertyId,
+        },
+        include: {
+          tenant: {
+            include: {
+              user: {
+                select: {
+                  id: true,
+                  firstName: true,
+                  lastName: true,
+                  email: true,
+                  phone: true,
+                },
+              },
+            },
+          },
+          property: {
+            select: {
+              id: true,
+              street: true,
+              city: true,
+            },
+          },
+        },
+        orderBy: [
+          { status: 'desc' }, // Active contracts first
+          { startDate: 'desc' },
+        ],
+      })
+
+      return contracts
     }),
 })

@@ -18,10 +18,13 @@ import {
   AlertCircle,
   FileText,
   Home,
+  Lock,
 } from 'lucide-react'
 import { api } from '@/lib/trpc'
 import { SimplePropertyCalendar } from '@/components/property/simple-property-calendar'
-import { ProviderAssignment } from '@/components/property/provider-assignment'
+import { PropertyProvidersTab } from '@/components/property-provider/property-providers-tab'
+import { PropertyTenantsTab } from '@/components/tenant-property/property-tenants-tab'
+import { SmartLockManager } from '@/components/property/smart-lock-manager'
 
 export default function PropertyDetailPage() {
   const params = useParams()
@@ -190,26 +193,34 @@ export default function PropertyDetailPage() {
           )}
 
           <Tabs defaultValue="calendar" className="w-full">
-            <TabsList>
-              <TabsTrigger value="calendar">
+            <TabsList className="w-full max-w-full overflow-x-auto flex-wrap h-auto">
+              <TabsTrigger value="calendar" className="flex-shrink-0">
                 <Calendar className="h-4 w-4 mr-2" />
                 Naptár
               </TabsTrigger>
-              <TabsTrigger value="issues">
+              <TabsTrigger value="issues" className="flex-shrink-0">
                 <AlertCircle className="h-4 w-4 mr-2" />
                 Hibabejelentések ({property.issues.length})
               </TabsTrigger>
-              <TabsTrigger value="contracts">
+              <TabsTrigger value="contracts" className="flex-shrink-0">
                 <FileText className="h-4 w-4 mr-2" />
                 Szerződések ({property.contracts.length})
               </TabsTrigger>
-              <TabsTrigger value="offers">
+              <TabsTrigger value="offers" className="flex-shrink-0">
                 <FileText className="h-4 w-4 mr-2" />
                 Ajánlatok ({property.offers.length})
               </TabsTrigger>
-              <TabsTrigger value="providers">
+              <TabsTrigger value="providers" className="flex-shrink-0">
                 <Users className="h-4 w-4 mr-2" />
                 Szolgáltatók
+              </TabsTrigger>
+              <TabsTrigger value="tenants" className="flex-shrink-0">
+                <User className="h-4 w-4 mr-2" />
+                Bérlők
+              </TabsTrigger>
+              <TabsTrigger value="smart-locks" className="flex-shrink-0">
+                <Lock className="h-4 w-4 mr-2" />
+                Smart Zárak
               </TabsTrigger>
             </TabsList>
 
@@ -327,7 +338,24 @@ export default function PropertyDetailPage() {
             </TabsContent>
 
             <TabsContent value="providers" className="mt-4">
-              <ProviderAssignment propertyId={propertyId} />
+              <PropertyProvidersTab 
+                propertyId={propertyId} 
+                propertyName={`${property.street}, ${property.city}`}
+              />
+            </TabsContent>
+
+            <TabsContent value="tenants" className="mt-4">
+              <PropertyTenantsTab 
+                propertyId={propertyId} 
+                propertyName={`${property.street}, ${property.city}`}
+              />
+            </TabsContent>
+
+            <TabsContent value="smart-locks" className="mt-4">
+              <SmartLockManager 
+                propertyId={propertyId}
+                readonly={false}
+              />
             </TabsContent>
           </Tabs>
         </div>

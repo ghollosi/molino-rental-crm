@@ -30,11 +30,13 @@ import {
   FileText,
   Image as ImageIcon,
   Download,
-  Plus
+  Plus,
+  Building
 } from 'lucide-react'
 import Link from 'next/link'
 import { format } from 'date-fns'
 import { hu } from 'date-fns/locale'
+import { TenantPropertiesTab } from '@/components/tenant-property/tenant-properties-tab'
 
 export default function TenantDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
@@ -172,14 +174,18 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
       </div>
 
       <Tabs defaultValue="details" className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
-          <TabsTrigger value="details">Részletek</TabsTrigger>
-          <TabsTrigger value="cotenants">
+        <TabsList className="w-full max-w-full overflow-x-auto flex-wrap h-auto">
+          <TabsTrigger value="details" className="flex-shrink-0">Részletek</TabsTrigger>
+          <TabsTrigger value="cotenants" className="flex-shrink-0">
             Albérlők ({tenant.coTenants?.length || 0})
           </TabsTrigger>
-          <TabsTrigger value="documents">Dokumentumok</TabsTrigger>
-          <TabsTrigger value="contracts">Szerződések</TabsTrigger>
-          <TabsTrigger value="issues">Hibabejelentések</TabsTrigger>
+          <TabsTrigger value="documents" className="flex-shrink-0">Dokumentumok</TabsTrigger>
+          <TabsTrigger value="contracts" className="flex-shrink-0">Szerződések</TabsTrigger>
+          <TabsTrigger value="properties" className="flex-shrink-0">
+            <Building className="h-4 w-4 mr-2" />
+            Ingatlanok
+          </TabsTrigger>
+          <TabsTrigger value="issues" className="flex-shrink-0">Hibabejelentések</TabsTrigger>
         </TabsList>
 
         <TabsContent value="details" className="space-y-6">
@@ -446,6 +452,13 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
               )}
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="properties" className="mt-4">
+          <TenantPropertiesTab 
+            tenantId={tenant.id} 
+            tenantName={`${tenant.user.firstName} ${tenant.user.lastName}`}
+          />
         </TabsContent>
 
         <TabsContent value="issues" className="space-y-4">

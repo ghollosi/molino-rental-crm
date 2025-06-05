@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { ArrowLeft, Mail, Phone, MapPin, Calendar, DollarSign, Star, Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react'
+import { ProviderPropertiesTab } from '@/components/property-provider/provider-properties-tab'
 
 const ratingColors = {
   high: 'bg-green-500',
@@ -224,6 +225,7 @@ export default function ProviderDetailPage() {
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="overview">Áttekintés</TabsTrigger>
+          <TabsTrigger value="properties">Ingatlanok</TabsTrigger>
           <TabsTrigger value="issues">Hibajegyek</TabsTrigger>
           <TabsTrigger value="history">Előzmények</TabsTrigger>
         </TabsList>
@@ -259,6 +261,13 @@ export default function ProviderDetailPage() {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="properties" className="space-y-4">
+          <ProviderPropertiesTab 
+            providerId={providerId} 
+            providerName={provider.businessName}
+          />
         </TabsContent>
 
         <TabsContent value="issues" className="space-y-4">
