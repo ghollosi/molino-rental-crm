@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server'
-import { Pool } from 'pg'
 import bcrypt from 'bcryptjs'
 
 // IMPORTANT: Delete this file after using it!
@@ -13,59 +12,65 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    if (!process.env.DATABASE_URL) {
-      return NextResponse.json({ error: 'Database not configured' }, { status: 500 })
-    }
-
-    const pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
+    // Create a new Prisma client instance with the production URL
+    const { PrismaClient } = await import('@prisma/client')
+    const prisma = new PrismaClient({
+      datasources: {
+        db: {
+          url: process.env.DATABASE_URL
+        }
+      }
     })
 
     const hashedPassword = await bcrypt.hash('admin123', 10)
     const adminEmail = 'admin@molino.com'
 
     try {
-      // Check if admin exists
-      const existingResult = await pool.query(
-        'SELECT id, email, name, role FROM "User" WHERE email = $1',
-        [adminEmail]
-      )
+      // Try to use the simple user fields that should exist
+      const existingUser = await prisma.user.findFirst({
+        where: { email: adminEmail },
+        select: { id: true, email: true, role: true }
+      })
 
-      if (existingResult.rows.length > 0) {
-        // Update existing admin
-        await pool.query(
-          'UPDATE "User" SET password = $1, role = $2, "isActive" = $3, "updatedAt" = NOW() WHERE email = $4',
-          [hashedPassword, 'ADMIN', true, adminEmail]
-        )
+      if (existingUser) {
+        // Update existing user - use minimal fields
+        const updated = await prisma.user.update({
+          where: { email: adminEmail },
+          data: {
+            password: hashedPassword,
+            role: 'ADMIN',
+            isActive: true
+          },
+          select: { email: true, role: true }
+        })
         
         return NextResponse.json({ 
           message: 'Admin user password updated successfully',
-          email: adminEmail,
-          role: 'ADMIN'
+          email: updated.email,
+          role: updated.role
         })
       } else {
-        // Generate CUID-like ID
-        const generateId = () => {
-          const timestamp = Date.now().toString(36)
-          const randomPart = Math.random().toString(36).substring(2, 15)
-          return `c${timestamp}${randomPart}`
-        }
-        const newUserId = generateId()
-
-        // Create new admin
-        await pool.query(
-          'INSERT INTO "User" (id, email, password, name, role, language, "isActive", "createdAt", "updatedAt") VALUES ($1, $2, $3, $4, $5, $6, $7, NOW(), NOW())',
-          [newUserId, adminEmail, hashedPassword, 'Admin User', 'ADMIN', 'HU', true]
-        )
+        // Create new user - use minimal required fields only
+        const admin = await prisma.user.create({
+          data: {
+            email: adminEmail,
+            password: hashedPassword,
+            name: 'Admin User',
+            role: 'ADMIN',
+            language: 'HU',
+            isActive: true
+          },
+          select: { email: true, role: true }
+        })
 
         return NextResponse.json({ 
           message: 'Admin user created successfully',
-          email: adminEmail,
-          role: 'ADMIN'
+          email: admin.email,
+          role: admin.role
         })
       }
     } finally {
-      await pool.end()
+      await prisma.$disconnect()
     }
   } catch (error) {
     console.error('Error creating admin:', error)
