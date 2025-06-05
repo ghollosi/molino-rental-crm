@@ -24,8 +24,6 @@ export const {
         const user = session.user as any
         user.name = token.name
         user.email = token.email
-        user.firstName = token.firstName
-        user.lastName = token.lastName
         user.phone = token.phone
         user.role = token.role
         user.language = token.language
@@ -41,8 +39,7 @@ export const {
         select: {
           id: true,
           email: true,
-          firstName: true,
-          lastName: true,
+          name: true,
           phone: true,
           role: true,
           language: true,
@@ -51,14 +48,8 @@ export const {
 
       if (!existingUser) return token
 
-      // Build name from firstName + lastName if available, fallback to email
-      token.name = existingUser.firstName && existingUser.lastName 
-        ? `${existingUser.firstName} ${existingUser.lastName}`
-        : existingUser.email?.split('@')[0] || 'User'
-      
+      token.name = existingUser.name || existingUser.email?.split('@')[0] || 'User'
       token.email = existingUser.email
-      token.firstName = existingUser.firstName
-      token.lastName = existingUser.lastName
       token.phone = existingUser.phone
       token.role = existingUser.role
       token.language = existingUser.language
