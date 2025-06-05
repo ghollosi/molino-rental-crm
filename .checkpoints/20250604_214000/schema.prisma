@@ -1,0 +1,1391 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR_ADMIN
+  OFFICE_ADMIN
+  OWNER
+  SERVICE_MANAGER
+  PROVIDER
+  TENANT
+}
+
+enum Language {
+  HU
+  EN
+  ES
+}
+
+enum PropertyType {
+  APARTMENT
+  HOUSE
+  OFFICE
+  COMMERCIAL
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  RENTED
+  MAINTENANCE
+}
+
+enum IssueCategory {
+  PLUMBING
+  ELECTRICAL
+  HVAC
+  STRUCTURAL
+  OTHER
+}
+
+enum IssuePriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum IssueStatus {
+  OPEN
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  CLOSED
+}
+
+enum OfferStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  firstName     String    @map("name") // Use existing name column as firstName
+  lastName      String    @default("")  // Add lastName with default
+  role          UserRole
+  language      Language  @default(HU)
+  phone         String?
+  isActive      Boolean   @default(true)
+  resetToken    String?   @unique
+  resetTokenExpiry DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  owner         Owner?
+  tenant        Tenant?
+  provider      Provider?
+  reportedIssues Issue[]  @relation("ReportedBy")
+  managedIssues  Issue[]  @relation("ManagedBy")
+  offers        Offer[]
+  statusChanges IssueTimeline[]
+  uploadedFiles UploadedFile[]
+  propertyPricing PropertyPricing[]
+  grantedAccessCodes AccessCode[]
+}
+
+model Company {
+  id            String    @id @default(cuid())
+  name          String
+  email         String?
+  phone         String?
+  website       String?
+  logo          String?
+  taxNumber     String?
+  bankAccount   String?
+  
+  // Address
+  street        String?
+  city          String?
+  postalCode    String?
+  country       String?
+  
+  // Settings stored as JSON
+  settings      Json      @default("{}")
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model UploadedFile {
+  id            String    @id @default(cuid())
+  filename      String    // Generated unique filename
+  originalName  String    // Original filename from user
+  mimeType      String    // MIME type (image/jpeg, etc.)
+  size          Int       // File size in bytes
+  data          String    @db.Text // Base64 encoded file data
+  uploadedBy    String    // User ID who uploaded
+  user          User      @relation(fields: [uploadedBy], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@map("uploaded_files")
+}
+
+model Owner {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  // Personal Info
+  profilePhoto  String?
+  taxNumber     String?
+  bankAccount   String?
+  
+  // Billing Address
+  billingStreet     String?
+  billingCity       String?
+  billingPostalCode String?
+  billingCountry    String?
+  
+  properties    Property[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Property {
+  id            String    @id @default(cuid())
+  
+  // Address
+  street        String
+  city          String
+  postalCode    String?
+  country       String?
+  
+  // Coordinates
+  latitude      Float?
+  longitude     Float?
+  
+  // Relations
+  ownerId       String
+  owner         Owner     @relation(fields: [ownerId], references: [id])
+  currentTenantId String?
+  currentTenant  Tenant?   @relation(fields: [currentTenantId], references: [id])
+  
+  // Details
+  type          PropertyType
+  size          Float?    // m²
+  rooms         Int?
+  bedrooms      Int?      // New field for bedroom count
+  floor         Int?
+  rentAmount    Decimal?
+  currency      String    @default("EUR")
+  
+  photos        String[]  // Array of URLs
+  status        PropertyStatus @default(AVAILABLE)
+  address       String?   // Full address string
+  reference     String?   // Reference number
+  
+  issues        Issue[]
+  offers        Offer[]
+  contracts     Contract[]
+  providers     PropertyProvider[]
+  ratings       ProviderRating[]
+  invoices      Invoice[]
+  bookings      Booking[]
+  pricingHistory PropertyPricing[]
+  smartLocks    SmartLock[]
+  accessCodes   AccessCode[]
+  accessLogs    AccessLog[]
+  accessRules   AccessRule[]
+  accessMonitoring AccessMonitoring[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model PropertyPricing {
+  id         String   @id @default(cuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  date       DateTime
+  price      Decimal
+  source     String   // 'ai', 'manual', 'rule-based'
+  appliedBy  String
+  appliedByUser User  @relation(fields: [appliedBy], references: [id])
+  appliedAt  DateTime @default(now())
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([propertyId, date])
+}
+
+model Tenant {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  // Emergency Contact
+  emergencyName  String?
+  emergencyPhone String?
+  
+  // Profile & Documents
+  profilePhoto  String?
+  documents     String[]  // Array of document URLs (ID, contracts, etc.)
+  notes         String?   // Internal notes
+  
+  // Co-tenants relationship (self-referencing many-to-many)
+  mainTenantId  String?   // If this is a co-tenant, reference to main tenant
+  mainTenant    Tenant?   @relation("TenantCoTenants", fields: [mainTenantId], references: [id])
+  coTenants     Tenant[]  @relation("TenantCoTenants")
+  
+  isActive      Boolean   @default(true)
+  isPrimary     Boolean   @default(true) // Is this the primary tenant?
+  
+  properties    Property[]
+  contracts     Contract[]
+  invoices      Invoice[]
+  accessRules   AccessRule[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Contract {
+  id            String    @id @default(cuid())
+  
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  
+  tenantId      String
+  tenant        Tenant    @relation(fields: [tenantId], references: [id])
+  
+  templateId    String?
+  template      ContractTemplate? @relation(fields: [templateId], references: [id])
+  
+  startDate     DateTime
+  endDate       DateTime
+  rentAmount    Decimal
+  deposit       Decimal?
+  paymentDay    Int       // 1-31
+  
+  // Contract content (filled template)
+  content       String?   @db.Text
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model ContractTemplate {
+  id            String    @id @default(cuid())
+  name          String
+  type          ContractTemplateType
+  description   String?
+  
+  // Template content with placeholders
+  content       String    @db.Text
+  
+  // Variables that can be replaced in the template
+  variables     Json      @default("[]") // Array of {key: string, label: string, type: string}
+  
+  isActive      Boolean   @default(true)
+  isSystem      Boolean   @default(true) // System templates cannot be deleted
+  
+  contracts     Contract[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@index([type])
+}
+
+enum ContractTemplateType {
+  RENTAL           // Bérleti szerződés
+  MAINTENANCE      // Rendszeres karbantartási szerződés
+  OPERATION        // Komplett ingatlanüzemeltetési szerződés
+  MEDIATION        // Komplett bérbeadásközvetítői szerződés
+  CUSTOM           // Egyéni sablon
+}
+
+model Provider {
+  id            String    @id @default(cuid())
+  userId        String    @unique
+  user          User      @relation(fields: [userId], references: [id])
+  
+  // Basic company info
+  businessName  String
+  representativeName String? // Képviselő neve
+  salutation    String?    // Megszólítás (Mr./Ms./Dr.)
+  
+  // Contact details
+  email         String?
+  website       String?
+  
+  // Business details
+  taxNumber     String?    // Adószám
+  bankAccount   String?    // Bankszámlaszám
+  
+  // Address
+  street        String?
+  city          String?
+  postalCode    String?
+  country       String?
+  
+  // Photos/logo
+  companyLogo   String?    // Cég logó URL
+  profilePhoto  String?    // Képviselő fénykép URL
+  
+  // Service details
+  specialty     String[]   // Array of specialties
+  hourlyRate    Decimal?   // Óradíj
+  travelFee     Decimal?   // Kiszállási díj per km
+  currency      String     @default("EUR")
+  
+  // Availability stored as JSON
+  availability  Json       @default("{}")
+  
+  rating        Float?     @default(0)
+  
+  // Matching algorithm fields
+  maxRadius     Int?       @default(50) // Maximum kiszállási távolság km-ben
+  responseTime  Int?       @default(24) // Válaszadási idő órákban
+  isPreferred   Boolean    @default(false) // Preferált szolgáltató-e
+  
+  assignedIssues Issue[]
+  propertyAssignments PropertyProvider[]
+  ratings       ProviderRating[]
+  slaTrackings  SLATracking[]
+  accessRules   AccessRule[]
+  
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Issue {
+  id            String    @id @default(cuid())
+  ticketNumber  String    @unique @default(cuid())
+  
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  
+  reportedById  String
+  reportedBy    User      @relation("ReportedBy", fields: [reportedById], references: [id])
+  
+  assignedToId  String?
+  assignedTo    Provider? @relation(fields: [assignedToId], references: [id])
+  
+  managedById   String?
+  managedBy     User?     @relation("ManagedBy", fields: [managedById], references: [id])
+  
+  title         String
+  description   String
+  category      IssueCategory
+  priority      IssuePriority @default(MEDIUM)
+  photos        String[]
+  
+  status        IssueStatus @default(OPEN)
+  
+  scheduledDate DateTime?
+  completedDate DateTime?
+  
+  timeline      IssueTimeline[]
+  offers        Offer[]
+  ratings       ProviderRating[]
+  slaTracking   SLATracking?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model IssueTimeline {
+  id            String    @id @default(cuid())
+  
+  issueId       String
+  issue         Issue     @relation(fields: [issueId], references: [id])
+  
+  status        IssueStatus
+  changedById   String
+  changedBy     User      @relation(fields: [changedById], references: [id])
+  notes         String?
+  
+  timestamp     DateTime  @default(now())
+}
+
+model Offer {
+  id            String    @id @default(cuid())
+  offerNumber   String    @unique @default(cuid())
+  
+  issueId       String?
+  issue         Issue?    @relation(fields: [issueId], references: [id])
+  
+  propertyId    String
+  property      Property  @relation(fields: [propertyId], references: [id])
+  
+  createdById   String
+  createdBy     User      @relation(fields: [createdById], references: [id])
+  
+  items         Json      // Array of items
+  laborCost     Decimal?
+  materialCost  Decimal?
+  totalAmount   Decimal
+  currency      String    @default("EUR")
+  
+  // Dinamikus árazás
+  dynamicPricing Json?     // {modifiers: string[], adjustment: number, basePrice: number, applied: boolean}
+  
+  validUntil    DateTime
+  status        OfferStatus @default(DRAFT)
+  notes         String?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// Ingatlan-szolgáltató kapcsolatok (automatikus párosításhoz)
+model PropertyProvider {
+  id          String    @id @default(cuid())
+  propertyId  String
+  providerId  String
+  
+  property    Property  @relation(fields: [propertyId], references: [id])
+  provider    Provider  @relation(fields: [providerId], references: [id])
+  
+  // Kapcsolat jellege
+  isPrimary   Boolean   @default(false) // Elsődleges szolgáltató-e
+  categories  String[]  // Milyen kategóriákban dolgozik (IssueCategory értékek)
+  
+  // Teljesítmény adatok
+  avgResponseTime Int?  // Átlagos válaszidő órákban
+  completionRate  Float? @default(0) // Befejezési arány (0-100%)
+  rating         Float? @default(0) // Értékelés (1-5)
+  
+  // Státusz
+  isActive    Boolean   @default(true)
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  @@unique([propertyId, providerId])
+}
+
+// Szolgáltató értékelési rendszer
+model ProviderRating {
+  id          String    @id @default(cuid())
+  providerId  String
+  issueId     String?   // Melyik hibabejelentéshez kapcsolódik
+  propertyId  String
+  
+  provider    Provider  @relation(fields: [providerId], references: [id])
+  issue       Issue?    @relation(fields: [issueId], references: [id])
+  property    Property  @relation(fields: [propertyId], references: [id])
+  
+  // Értékelés részletei
+  rating      Int       // 1-5 skálán
+  quality     Int?      // Munka minősége (1-5)
+  timeliness  Int?      // Időben teljesítés (1-5)
+  communication Int?    // Kommunikáció (1-5)
+  price       Int?      // Ár-érték arány (1-5)
+  
+  comment     String?   // Szöveges értékelés
+  
+  // Metaadatok
+  ratedById   String?   // Ki értékelte (user id)
+  isVerified  Boolean   @default(false) // Ellenőrzött értékelés-e
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// SLA teljesítmény követés
+model SLATracking {
+  id          String      @id @default(cuid())
+  issueId     String      @unique
+  providerId  String?
+  
+  issue       Issue       @relation(fields: [issueId], references: [id])
+  provider    Provider?   @relation(fields: [providerId], references: [id])
+  
+  // SLA határidők
+  targetResponseTime Int // Cél válaszidő órákban
+  targetResolutionTime Int // Cél megoldási idő órákban
+  
+  // Tényleges teljesítés
+  actualResponseTime Int? // Tényleges válaszidő órákban
+  actualResolutionTime Int? // Tényleges megoldási idő órákban
+  
+  // Státusz
+  responseBreached Boolean @default(false) // Válaszidő túllépve
+  resolutionBreached Boolean @default(false) // Megoldási idő túllépve
+  
+  // Eszkaláció
+  escalationLevel Int @default(0) // 0=nincs, 1=első, 2=második, stb.
+  escalatedAt DateTime?
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Számlázás - Zoho Books integráció
+model Invoice {
+  id                    String    @id @default(cuid())
+  
+  // Kapcsolatok
+  tenantId              String
+  tenant                Tenant    @relation(fields: [tenantId], references: [id])
+  
+  propertyId            String  
+  property              Property  @relation(fields: [propertyId], references: [id])
+  
+  // Számla adatok
+  amount                Decimal
+  currency              String    @default("EUR")
+  dueDate               DateTime
+  description           String?
+  invoiceType           InvoiceType @default(RENTAL)
+  status                InvoiceStatus @default(PENDING)
+  
+  // Zoho Books integráció
+  externalInvoiceId     String?   @unique // Zoho invoice ID
+  externalInvoiceNumber String?   // Zoho invoice number
+  externalInvoiceUrl    String?   // Zoho invoice URL
+  externalPdfUrl        String?   // Zoho PDF URL
+  
+  // Fizetési adatok
+  paidAt                DateTime?
+  paymentMethod         String?
+  paymentReference      String?
+  
+  // Spanyol specifikus mezők
+  vatRate               Decimal?  @default(21) // Spanish VAT rate
+  vatAmount             Decimal? // VAT amount
+  netAmount             Decimal? // Amount without VAT
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  
+  @@index([tenantId])
+  @@index([propertyId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+enum InvoiceType {
+  RENTAL      // Bérleti díj
+  MAINTENANCE // Karbantartás
+  DEPOSIT     // Óvadék
+  UTILITIES   // Közüzemi díj
+  OTHER       // Egyéb
+}
+
+enum InvoiceStatus {
+  PENDING     // Függőben
+  SENT        // Elküldve
+  VIEWED      // Megtekintve
+  PAID        // Kifizetve
+  OVERDUE     // Lejárt
+  CANCELLED   // Visszavonva
+}
+
+// Rövid távú bérlések - Booking.com, Airbnb integráció
+model Booking {
+  id                String    @id @default(cuid())
+  
+  // Külső platform adatok
+  externalId        String    @unique // Booking.com reservation ID
+  platform          BookingPlatform @default(BOOKING_COM)
+  
+  // Kapcsolatok
+  propertyId        String?
+  property          Property? @relation(fields: [propertyId], references: [id])
+  
+  // Vendég adatok
+  guestName         String
+  guestEmail        String?
+  guestPhone        String?
+  guestCountry      String?
+  
+  // Foglalási adatok
+  checkIn           DateTime
+  checkOut          DateTime
+  nights            Int
+  adults            Int
+  children          Int       @default(0)
+  
+  // Pénzügyi adatok
+  totalAmount       Decimal
+  currency          String    @default("EUR")
+  commission        Decimal?  // Platform províziója
+  netAmount         Decimal?  // Nettó bevétel
+  
+  // Státusz és metaadatok
+  status            BookingStatus @default(CONFIRMED)
+  bookedAt          DateTime
+  cancelledAt       DateTime?
+  
+  // További adatok
+  specialRequests   String?
+  guestComments     String?
+  arrivalTime       String?
+  cancellationPolicy String?
+  
+  // Platform specifikus adatok (JSON)
+  platformData      Json?     // Extra platform-specific data
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([platform])
+  @@index([status])
+  @@index([checkIn])
+  @@index([checkOut])
+  @@index([propertyId])
+}
+
+enum BookingPlatform {
+  BOOKING_COM     // Booking.com
+  AIRBNB          // Airbnb
+  UPLISTING       // Uplisting.io
+  DIRECT          // Közvetlen foglalás
+  OTHER           // Egyéb platform
+}
+
+enum BookingStatus {
+  CONFIRMED       // Megerősített
+  CANCELLED       // Lemondott
+  MODIFIED        // Módosított
+  NO_SHOW         // Nem jelent meg
+  CHECKED_IN      // Bejelentkezett
+  CHECKED_OUT     // Kijelentkezett
+}
+
+// Automatikus párosítási napló
+model ReconciliationLog {
+  id                  String    @id @default(cuid())
+  
+  // Feldolgozási adatok
+  processedAt         DateTime  @default(now())
+  contractsChecked    Int       // Ellenőrzött szerződések száma
+  transactionsMatched Int       // Párosított tranzakciók száma
+  autoReconciled      Int       // Automatikusan párosított
+  invoicesUpdated     Int       // Frissített számlák
+  notificationsSent   Int       // Küldött értesítések
+  errors              Int       // Hibák száma
+  
+  // Részletes összefoglaló (JSON)
+  summary             Json?     // Detailed reconciliation results
+  
+  // Metadata
+  executionTime       Int?      // Execution time in milliseconds
+  triggerType         String    @default("cron") // cron, manual, webhook
+  
+  createdAt           DateTime  @default(now())
+  
+  @@index([processedAt])
+  @@index([autoReconciled])
+}
+
+// ========================================
+// INTEGRATION CONFIGURATIONS
+// ========================================
+
+enum IntegrationType {
+  ZOHO_BOOKS
+  CAIXABANK_PSD2
+  WHATSAPP_BUSINESS
+  BOOKING_COM
+  UPLISTING_IO
+  SPANISH_VAT
+  PAYMENT_RECONCILIATION
+}
+
+enum IntegrationStatus {
+  INACTIVE    // Inaktív
+  ACTIVE      // Aktív
+  ERROR       // Hibás konfiguráció
+  TESTING     // Tesztelés alatt
+}
+
+// Központi integráció konfiguráció tábla
+model IntegrationConfig {
+  id              String            @id @default(cuid())
+  
+  // Alapadatok
+  type            IntegrationType   @unique
+  name            String            // Megjelenített név
+  description     String?           // Leírás
+  status          IntegrationStatus @default(INACTIVE)
+  
+  // Konfigurációs adatok (titkosítva tárolva)
+  config          Json              // Encrypted configuration data
+  
+  // Metadata
+  isEnabled       Boolean           @default(false)
+  lastTested      DateTime?         // Utolsó teszt időpontja
+  lastTestResult  String?           // Utolsó teszt eredménye
+  
+  // Versioning és audit
+  version         Int               @default(1)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  createdBy       String?           // User ID who created
+  updatedBy       String?           // User ID who last updated
+  
+  @@index([type])
+  @@index([status])
+  @@index([isEnabled])
+}
+
+// Zoho Books specifikus konfiguráció
+model ZohoConfig {
+  id                String    @id @default(cuid())
+  
+  // OAuth konfiguráció
+  clientId          String    // Client ID (titkosítva)
+  clientSecret      String    // Client Secret (titkosítva)
+  refreshToken      String?   // Refresh Token (titkosítva)
+  accessToken       String?   // Access Token (titkosítva)
+  organizationId    String?   // Organization ID
+  
+  // Beállítások
+  region            String    @default("eu") // eu, us, au, in
+  environment       String    @default("production") // production, sandbox
+  
+  // Spanish VAT beállítások
+  defaultVatRate    Decimal   @default(21) // Alapértelmezett IVA %
+  vatMapping        Json?     // Service type -> VAT rate mapping
+  
+  // AEAT SII export beállítások
+  aeatEnabled       Boolean   @default(true)
+  aeatNif           String?   // Spanish tax ID
+  aeatCompanyName   String?   // Company name for AEAT
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastSync          DateTime?
+  syncStatus        String?   // SUCCESS, ERROR, PENDING
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+}
+
+// CaixaBank PSD2 konfiguráció
+model CaixaBankConfig {
+  id                String    @id @default(cuid())
+  
+  // PSD2 API konfiguráció
+  clientId          String    // Client ID (titkosítva)
+  clientSecret      String    // Client Secret (titkosítva)
+  consentId         String?   // Banking consent ID
+  
+  // Bank account adatok
+  iban              String    // Business IBAN
+  accountName       String?   // Account holder name
+  
+  // Beállítások
+  environment       String    @default("sandbox") // sandbox, production
+  region            String    @default("ES") // Country code
+  
+  // Reconciliation beállítások
+  autoReconcile     Boolean   @default(true)
+  amountTolerance   Decimal   @default(1.00) // ±EUR tolerance
+  daysTolerance     Int       @default(7) // ±days tolerance
+  confidenceThreshold Decimal @default(0.90) // 90% confidence minimum
+  
+  // Webhook beállítások
+  webhookUrl        String?   // Webhook endpoint URL
+  webhookSecret     String?   // Webhook validation secret
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastTransaction   DateTime?
+  syncStatus        String?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([iban])
+}
+
+// WhatsApp Business konfiguráció
+model WhatsAppConfig {
+  id                    String    @id @default(cuid())
+  
+  // Meta Business API konfiguráció
+  businessAccountId     String    // Business Account ID (titkosítva)
+  phoneNumberId         String    // Phone Number ID (titkosítva)
+  accessToken           String    // Access Token (titkosítva)
+  webhookSecret         String?   // Webhook verification secret
+  
+  // Template beállítások
+  defaultLanguage       String    @default("es") // es, en, hu
+  rentReminderTemplate  String    @default("rent_reminder_spanish_v2")
+  paymentConfirmTemplate String   @default("payment_confirmed_spanish")
+  maintenanceTemplate   String    @default("maintenance_notice_spanish")
+  
+  // Automatizáció beállítások
+  autoReminders         Boolean   @default(true)
+  reminderDays          Json      @default("[5, 1, 0]") // Days before due date
+  overdueReminders      Boolean   @default(true)
+  overdueFrequency      Int       @default(3) // Days between overdue reminders
+  
+  // Business hours
+  enableBusinessHours   Boolean   @default(true)
+  businessHoursStart    String    @default("09:00")
+  businessHoursEnd      String    @default("18:00")
+  businessDays          Json      @default("[1,2,3,4,5]") // Monday-Friday
+  
+  // Webhook konfiguráció
+  webhookUrl            String?   // Webhook endpoint
+  webhookVerifyToken    String?   // Verification token
+  
+  // Metadata
+  isActive              Boolean   @default(false)
+  lastMessage           DateTime?
+  messageCount          Int       @default(0)
+  
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([phoneNumberId])
+}
+
+// Booking.com konfiguráció
+model BookingConfig {
+  id                String    @id @default(cuid())
+  
+  // Partner API konfiguráció
+  username          String    // Partner username (titkosítva)
+  password          String    // Partner password (titkosítva)
+  hotelId           String    // Hotel/Property ID
+  
+  // API beállítások
+  environment       String    @default("test") // test, live
+  apiVersion        String    @default("v2")
+  endpoint          String    @default("https://distribution-xml.booking.com/2.0/")
+  
+  // Szinkronizáció beállítások
+  autoSync          Boolean   @default(true)
+  syncFrequency     Int       @default(60) // Minutes between syncs
+  lastSync          DateTime?
+  
+  // Árazási beállítások
+  enableDynamicPricing Boolean @default(true)
+  basePrice         Decimal?  // Base room price
+  weekendMarkup     Decimal   @default(1.30) // 30% weekend markup
+  highSeasonMarkup  Decimal   @default(1.50) // 50% high season markup
+  
+  // High season dates (JSON array of date ranges)
+  highSeasonDates   Json?     // [{"start": "2025-06-01", "end": "2025-08-31"}]
+  
+  // Commission beállítások
+  defaultCommission Decimal   @default(0.15) // 15% default commission
+  
+  // Availability beállítások
+  defaultAvailability Boolean @default(true)
+  maxGuestsDefault    Int     @default(2)
+  checkInTime         String  @default("15:00")
+  checkOutTime        String  @default("11:00")
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastBooking       DateTime?
+  bookingCount      Int       @default(0)
+  revenue           Decimal   @default(0)
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([hotelId])
+}
+
+// Uplisting.io konfiguráció
+model UplistingConfig {
+  id                String    @id @default(cuid())
+  
+  // API konfiguráció
+  apiKey            String    // API Key (titkosítva)
+  apiSecret         String    // API Secret (titkosítva)
+  accountId         String    // Account ID
+  
+  // API beállítások
+  environment       String    @default("sandbox") // sandbox, production
+  apiVersion        String    @default("v1")
+  endpoint          String    @default("https://api.uplisting.io/v1/")
+  
+  // Multi-channel beállítások
+  enableAirbnb      Boolean   @default(true)
+  enableBookingCom  Boolean   @default(true)
+  enableVrbo        Boolean   @default(true)
+  enableDirectBooking Boolean @default(true)
+  
+  // Szinkronizáció beállítások
+  autoSync          Boolean   @default(true)
+  syncFrequency     Int       @default(30) // Minutes between syncs
+  lastSync          DateTime?
+  
+  // Kalender és elérhetőség
+  blockOffDays      Int       @default(1) // Days to block off before check-in
+  autoCalendarSync  Boolean   @default(true)
+  defaultMinStay    Int       @default(2) // Minimum nights
+  defaultMaxStay    Int       @default(30) // Maximum nights
+  
+  // Árazási beállítások
+  enableDynamicPricing Boolean @default(true)
+  basePrice         Decimal?  // Base nightly rate
+  weekendMarkup     Decimal   @default(1.25) // 25% weekend markup
+  highSeasonMarkup  Decimal   @default(1.40) // 40% high season markup
+  lastMinuteDiscount Decimal  @default(0.90) // 10% discount for last minute
+  
+  // High season dates (JSON array of date ranges)
+  highSeasonDates   Json?     // [{"start": "2025-06-01", "end": "2025-08-31"}]
+  
+  // Guest management
+  autoGuestMessaging Boolean  @default(true)
+  checkInInstructions String? @db.Text
+  checkOutInstructions String? @db.Text
+  houseRules        String?   @db.Text
+  
+  // Cleaning management
+  autoCleaningSchedule Boolean @default(true)
+  cleaningDuration  Int       @default(120) // Minutes for cleaning
+  cleaningFee       Decimal?  // Fixed cleaning fee
+  
+  // Security & verification
+  requireIdVerification Boolean @default(true)
+  securityDeposit   Decimal?  // Security deposit amount
+  damageProtection  Boolean   @default(true)
+  
+  // Revenue management
+  channelCommissions Json?    // {"airbnb": 0.03, "booking": 0.15, "vrbo": 0.05}
+  revenueOptimization Boolean @default(true)
+  
+  // Automation rules
+  automationRules   Json?     // Complex automation rules in JSON
+  
+  // Webhook konfiguráció
+  webhookUrl        String?   // Webhook endpoint URL
+  webhookSecret     String?   // Webhook validation secret
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastBooking       DateTime?
+  totalBookings     Int       @default(0)
+  totalRevenue      Decimal   @default(0)
+  occupancyRate     Decimal?  // Current occupancy rate
+  avgDailyRate      Decimal?  // Average daily rate
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+  @@index([accountId])
+}
+
+// ========================================
+// IOT SMART LOCK SYSTEM - TTLock Integration
+// ========================================
+
+// Smart Lock konfigurációk (TTLock integration)
+model SmartLockConfig {
+  id                String    @id @default(cuid())
+  
+  // TTLock API konfiguráció
+  apiKey            String    // TTLock API Key (titkosítva)
+  apiSecret         String    // TTLock API Secret (titkosítva)
+  clientId          String    // TTLock Client ID
+  
+  // API beállítások
+  environment       String    @default("sandbox") // sandbox, production
+  apiVersion        String    @default("v1.3")
+  endpoint          String    @default("https://euapi.ttlock.com")
+  
+  // Webhook beállítások
+  webhookUrl        String?   // Webhook endpoint URL
+  webhookSecret     String?   // Webhook validation secret
+  
+  // Automatizáció beállítások
+  autoCodeGeneration Boolean  @default(true) // Automatikus kód generálás
+  codeValidityHours Int       @default(24)   // Kód érvényességi idő órában
+  maxSimultaneousCodes Int    @default(50)   // Max egyidejű aktív kódok
+  
+  // Notification beállítások
+  enableNotifications Boolean @default(true)
+  notificationTypes Json      @default("{\"unlock\": true, \"lock\": true, \"lowBattery\": true, \"tamper\": true}")
+  
+  // Metadata
+  isActive          Boolean   @default(false)
+  lastSync          DateTime?
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([isActive])
+}
+
+// Smart Lock eszközök
+model SmartLock {
+  id                String    @id @default(cuid())
+  
+  // Property kapcsolat
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // Platform és device info
+  platform          LockPlatform @default(TTLOCK) // Zár platform
+  externalId        String    @unique // Device ID (TTLock ID, Nuki ID, stb.)
+  lockName          String    // Zár neve
+  lockAlias         String?   // Zár beceneve
+  lockMac           String?   // MAC address
+  
+  // Device details
+  lockType          String    // Zár típusa
+  lockModel         String?   // Zár modell (pl. "Nuki Smart Lock 3.0", "TTLock Pro")
+  batteryLevel      Int?      @default(100) // Akkumulátor szint
+  lockStatus        LockStatus @default(UNKNOWN) // Zár állapota
+  signalStrength    Int?      // Jelerősség
+  
+  // Location details
+  location          String?   // Zár helye (pl. "Főbejárat", "Hátsó ajtó")
+  floor             Int?      // Emelet
+  
+  // Configuration
+  isActive          Boolean   @default(true)
+  isOnline          Boolean   @default(false)
+  lastHeartbeat     DateTime? // Utolsó életjel
+  
+  // Access management
+  accessCodes       AccessCode[]
+  accessLogs        AccessLog[]
+  accessMonitoring  AccessMonitoring[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([propertyId])
+  @@index([platform])
+  @@index([externalId])
+  @@index([lockStatus])
+}
+
+enum LockPlatform {
+  TTLOCK       // TTLock platform
+  NUKI         // Nuki platform
+  YALE         // Yale Connect
+  AUGUST       // August Home
+  SCHLAGE      // Schlage Encode
+}
+
+enum LockStatus {
+  LOCKED
+  UNLOCKED
+  UNKNOWN
+  MAINTENANCE
+  LOW_BATTERY
+  OFFLINE
+}
+
+// Access kódok kezelése
+model AccessCode {
+  id                String    @id @default(cuid())
+  
+  // Smart Lock kapcsolat
+  smartLockId       String
+  smartLock         SmartLock @relation(fields: [smartLockId], references: [id], onDelete: Cascade)
+  
+  // Property kapcsolat (gyorsabb lekérdezéshez)
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // TTLock passcode info
+  ttlockPasscodeId  String?   @unique // TTLock passcode ID
+  code              String    // Access code (titkosítva)
+  codeType          AccessCodeType
+  
+  // Access rights
+  grantedTo         String?   // Ki kapta (user ID, provider ID, guest name)
+  grantedToType     GranteeType
+  grantedBy         String    // Ki adta (user ID)
+  grantedByUser     User      @relation(fields: [grantedBy], references: [id])
+  
+  // Validity period
+  startDate         DateTime
+  endDate           DateTime
+  isRecurring       Boolean   @default(false)
+  recurringPattern  Json?     // {"days": [1,2,3,4,5], "times": ["09:00", "18:00"]}
+  
+  // Usage tracking
+  maxUsages         Int?      // Max használatok száma
+  currentUsages     Int       @default(0)
+  isActive          Boolean   @default(true)
+  
+  // Purpose and notes
+  purpose           String?   // Cél (pl. "Takarítás", "Karbantartás", "Vendég")
+  notes             String?   // Megjegyzések
+  
+  // Access logs and monitoring
+  accessLogs        AccessLog[]
+  accessRule        AccessRule? @relation(fields: [accessRuleId], references: [id])
+  accessRuleId      String?
+  accessMonitoring  AccessMonitoring[]
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  @@index([smartLockId])
+  @@index([propertyId])
+  @@index([grantedTo])
+  @@index([startDate, endDate])
+  @@index([isActive])
+}
+
+enum AccessCodeType {
+  PERMANENT         // Állandó kód (tulajdonos, manager)
+  TEMPORARY         // Ideiglenes kód (vendég, szolgáltató)
+  RECURRING         // Ismétlődő kód (takarítás, karbantartás)
+  EMERGENCY         // Vészhelyzeti kód
+  MASTER            // Master kód (admin)
+}
+
+enum GranteeType {
+  USER              // Rendszer felhasználó
+  PROVIDER          // Szolgáltató
+  TENANT            // Bérlő
+  GUEST             // Vendég
+  EMERGENCY         // Vészhelyzeti
+  SYSTEM            // Rendszer
+}
+
+// Access log - ki, mikor, hogyan nyitott/zárt
+model AccessLog {
+  id                String    @id @default(cuid())
+  
+  // Smart Lock kapcsolat
+  smartLockId       String
+  smartLock         SmartLock @relation(fields: [smartLockId], references: [id], onDelete: Cascade)
+  
+  // Property kapcsolat
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // Access Code kapcsolat (ha kóddal nyitott)
+  accessCodeId      String?
+  accessCode        AccessCode? @relation(fields: [accessCodeId], references: [id])
+  
+  // Event details
+  eventType         AccessEventType
+  accessMethod      AccessMethod
+  eventTimestamp    DateTime  @default(now())
+  
+  // Who accessed
+  accessedBy        String?   // Ki (user ID, provider ID, guest name)
+  accessedByType    GranteeType?
+  deviceInfo        Json?     // Device info (phone model, app version, etc.)
+  
+  // TTLock event data
+  ttlockEventId     String?   // TTLock event ID
+  batteryLevel      Int?      // Akkumulátor szint az esemény idején
+  signalStrength    Int?      // Jelerősség az esemény idején
+  
+  // Location and context
+  ipAddress         String?   // IP cím (ha app-ból)
+  gpsLocation       Json?     // GPS koordináták {"lat": 38.3452, "lng": -0.4810}
+  
+  // Result and status
+  success           Boolean   @default(true)
+  errorCode         String?   // Hibakód (ha sikertelen)
+  errorMessage      String?   // Hibaüzenet
+  
+  // Audit trail
+  notes             String?   // Admin megjegyzések
+  flagged           Boolean   @default(false) // Gyanús tevékenység
+  reviewedBy        String?   // Ki ellenőrizte (user ID)
+  reviewedAt        DateTime? // Mikor ellenőrizte
+  
+  createdAt         DateTime  @default(now())
+  
+  // Monitoring relationship
+  accessMonitoring  AccessMonitoring?
+  
+  @@index([smartLockId])
+  @@index([propertyId])
+  @@index([accessCodeId])
+  @@index([eventTimestamp])
+  @@index([accessedBy])
+  @@index([eventType])
+  @@index([flagged])
+}
+
+enum AccessEventType {
+  UNLOCK            // Nyitás
+  LOCK              // Zárás
+  UNLOCK_FAILED     // Sikertelen nyitás
+  LOCK_FAILED       // Sikertelen zárás
+  CODE_ADDED        // Kód hozzáadása
+  CODE_REMOVED      // Kód eltávolítása
+  BATTERY_LOW       // Alacsony akkumulátor
+  DEVICE_OFFLINE    // Eszköz offline
+  DEVICE_ONLINE     // Eszköz online
+  TAMPER_ALERT      // Illetéktelen hozzáférés
+  FIRMWARE_UPDATE   // Firmware frissítés
+  FACTORY_RESET     // Gyári beállítások
+}
+
+enum AccessMethod {
+  PASSCODE          // Kód megadása
+  MOBILE_APP        // Mobil app
+  KEYCARD           // Kulcskártya
+  FINGERPRINT       // Ujjlenyomat
+  BLUETOOTH         // Bluetooth kulcs
+  NFC               // NFC
+  REMOTE            // Távoli nyitás
+  MANUAL            // Kézi (kulcs)
+  EMERGENCY         // Vészhelyzeti
+  UNKNOWN           // Ismeretlen
+}
+
+enum ProviderType {
+  REGULAR           // Rendszeres szolgáltató (6 havonta megújítás)
+  OCCASIONAL        // Alkalmi szolgáltató (naptár alapú)
+  EMERGENCY         // Vészhelyzeti szolgáltató
+}
+
+enum TenantType {
+  LONG_TERM         // Hosszútávú bérlő (negyed éves megújítás)
+  SHORT_TERM        // Rövidtávú bérlő (14 napig, telefonszám alapú kód)
+  VACATION_RENTAL   // Vacation rental vendég
+}
+
+enum AccessRenewalStatus {
+  ACTIVE            // Aktív hozzáférés
+  PENDING_RENEWAL   // Megújításra vár
+  EXPIRED           // Lejárt
+  SUSPENDED         // Felfüggesztett
+}
+
+enum AccessTimeRestriction {
+  BUSINESS_HOURS    // Munkaidő (9:00-17:00)
+  EXTENDED_HOURS    // Kibővített (7:00-19:00)
+  DAYLIGHT_ONLY     // Csak nappal (6:00-20:00)
+  CUSTOM            // Egyedi időszak
+  NO_RESTRICTION    // Nincs korlátozás
+}
+
+// Automatikus hozzáférés kezelési szabályok
+model AccessRule {
+  id                String    @id @default(cuid())
+  
+  // Kapcsolat
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  
+  // Szolgáltató/bérlő info
+  providerId        String?   // Provider ID (ha szolgáltató)
+  provider          Provider? @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  tenantId          String?   // Tenant ID (ha bérlő)
+  tenant            Tenant?   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  
+  // Rule típus
+  ruleType          String    // "PROVIDER" vagy "TENANT"
+  providerType      ProviderType?
+  tenantType        TenantType?
+  
+  // Hozzáférési beállítások
+  timeRestriction   AccessTimeRestriction @default(BUSINESS_HOURS)
+  customTimeStart   String?   // "09:00" formátum
+  customTimeEnd     String?   // "17:00" formátum
+  allowedWeekdays   String    @default("1,2,3,4,5") // JSON: "1,2,3,4,5" (H-P)
+  
+  // Megújítási beállítások
+  renewalPeriodDays Int       @default(90) // 90 nap = negyed év
+  renewalStatus     AccessRenewalStatus @default(ACTIVE)
+  lastRenewalDate   DateTime  @default(now())
+  nextRenewalDate   DateTime  // Számított mező
+  
+  // Automatikus kód generálás (rövid távú bérlők)
+  autoGenerateCode  Boolean   @default(false)
+  codeGenerationRule String?  // "PHONE_LAST_5" vagy egyéb szabály
+  codeDeliveryDays  Int       @default(3) // 3 nappal a bérleti időszak előtt
+  
+  // Metadata
+  isActive          Boolean   @default(true)
+  notes             String?   // Admin megjegyzések
+  
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  // Generated access codes
+  accessCodes       AccessCode[]
+  accessMonitoring  AccessMonitoring[]
+  
+  @@index([propertyId])
+  @@index([providerId])
+  @@index([tenantId])
+  @@index([ruleType])
+  @@index([renewalStatus])
+  @@index([nextRenewalDate])
+}
+
+// Hozzáférés monitorozás és riporting
+model AccessMonitoring {
+  id                String    @id @default(cuid())
+  
+  // Kapcsolatok
+  propertyId        String
+  property          Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  smartLockId       String
+  smartLock         SmartLock @relation(fields: [smartLockId], references: [id], onDelete: Cascade)
+  accessLogId       String    @unique
+  accessLog         AccessLog @relation(fields: [accessLogId], references: [id], onDelete: Cascade)
+  
+  // Monitoring adatok
+  monitoringDate    DateTime  @default(now())
+  accessTime        DateTime  // Belépés időpontja
+  exitTime          DateTime? // Kilépés időpontja (ha elérhető)
+  duration          Int?      // Bent töltött idő percekben
+  
+  // Kinek a hozzáférése?
+  accessorType      String    // "PROVIDER", "TENANT", "GUEST", "ADMIN"
+  accessorId        String?   // Provider/Tenant/User ID
+  accessorName      String    // Név/azonosító
+  accessorPhone     String?   // Telefonszám
+  
+  // Engedély ellenőrzés
+  wasAuthorized     Boolean   @default(true)  // Volt-e engedélye?
+  ruleId            String?   // Melyik szabály alapján?
+  accessRule        AccessRule? @relation(fields: [ruleId], references: [id])
+  accessCodeId      String?   // Melyik kóddal?
+  accessCode        AccessCode? @relation(fields: [accessCodeId], references: [id])
+  
+  // Időkorlátozás ellenőrzés
+  withinTimeLimit   Boolean   @default(true)  // Időkorláton belül?
+  expectedTimeStart String?   // Elvárható kezdési idő
+  expectedTimeEnd   String?   // Elvárható befejezési idő
+  
+  // Riasztások
+  isViolation       Boolean   @default(false) // Szabálysértés?
+  violationType     String?   // "TIME_VIOLATION", "UNAUTHORIZED_ACCESS", stb.
+  alertsSent        Boolean   @default(false) // Küldtünk-e riasztást?
+  
+  // Metadata
+  notes             String?   // Monitoring megjegyzések
+  
+  createdAt         DateTime  @default(now())
+  
+  @@index([propertyId])
+  @@index([smartLockId])
+  @@index([accessTime])
+  @@index([accessorType])
+  @@index([accessorId])
+  @@index([wasAuthorized])
+  @@index([isViolation])
+  @@index([monitoringDate])
+}
