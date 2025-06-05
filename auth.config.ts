@@ -53,5 +53,5 @@ export default {
       }
     })
   ],
-  debug: true,
+  debug: false,
 } satisfies NextAuthConfig
