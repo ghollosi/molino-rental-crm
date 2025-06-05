@@ -23,7 +23,9 @@ export const tenantRouter = createTRPCRouter({
       const { page, limit, search, isActive } = input
       const skip = (page - 1) * limit
 
-      const where: any = {}
+      const where: any = {
+        isPrimary: true  // Only show primary tenants in the list
+      }
 
       if (search) {
         where.user = {

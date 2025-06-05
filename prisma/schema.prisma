@@ -148,6 +148,20 @@ model UploadedFile {
   @@map("uploaded_files")
 }
 
+model RateLimitToken {
+  id            String    @id @default(cuid())
+  token         String    @unique // Rate limit token (IP, user ID, etc.)
+  usage         Int       @default(0) // Current usage count
+  lastReset     DateTime  @default(now()) // Last reset time
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  @@map("rate_limit_tokens")
+  @@index([token])
+  @@index([lastReset])
+}
+
 model Owner {
   id            String    @id @default(cuid())
   userId        String    @unique

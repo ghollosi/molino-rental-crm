@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Checkbox } from '@/components/ui/checkbox'
 import { ArrowLeft, AlertCircle, Upload, X } from 'lucide-react'
 import { ImageUpload } from '@/components/ui/image-upload'
 import Link from 'next/link'
@@ -24,6 +25,11 @@ interface OwnerFormData {
   companyName?: string
   taxNumber?: string
   profilePhoto?: string
+  hasSeparateBilling: boolean
+  billingStreet?: string
+  billingCity?: string
+  billingPostalCode?: string
+  billingCountry?: string
 }
 
 export default function NewOwnerPage() {
@@ -31,10 +37,12 @@ export default function NewOwnerPage() {
   const [error, setError] = useState<string | null>(null)
   const [isCompany, setIsCompany] = useState(false)
   const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
+  const [hasSeparateBilling, setHasSeparateBilling] = useState(false)
 
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<OwnerFormData>({
     defaultValues: {
       isCompany: false,
+      hasSeparateBilling: false,
     }
   })
 
@@ -59,10 +67,15 @@ export default function NewOwnerPage() {
       companyName: data.isCompany ? data.companyName : undefined,
       taxNumber: data.isCompany ? data.taxNumber : undefined,
       profilePhoto: profilePhoto || undefined,
+      billingStreet: data.hasSeparateBilling ? data.billingStreet : undefined,
+      billingCity: data.hasSeparateBilling ? data.billingCity : undefined,
+      billingPostalCode: data.hasSeparateBilling ? data.billingPostalCode : undefined,
+      billingCountry: data.hasSeparateBilling ? data.billingCountry : undefined,
     })
   }
 
   const watchIsCompany = watch('isCompany')
+  const watchHasSeparateBilling = watch('hasSeparateBilling')
 
   return (
     <div className="container mx-auto py-6 px-4">
@@ -216,6 +229,71 @@ export default function NewOwnerPage() {
                   {...register('address')}
                   placeholder="1234 Budapest, Példa utca 12."
                 />
+              </div>
+
+              {/* Számlázási adatok szakasz */}
+              <div className="space-y-4 border-t pt-6">
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    id="hasSeparateBilling"
+                    checked={watchHasSeparateBilling}
+                    onCheckedChange={(checked) => {
+                      setHasSeparateBilling(checked as boolean)
+                      setValue('hasSeparateBilling', checked as boolean)
+                    }}
+                  />
+                  <Label htmlFor="hasSeparateBilling" className="text-sm font-medium">
+                    Számlázási adatok
+                  </Label>
+                </div>
+                <p className="text-sm text-gray-500">
+                  Ha be van jelölve, külön számlázási címet adhat meg. Ellenkező esetben a tulajdonos nevére lesznek kiállítva a számlák.
+                </p>
+
+                {watchHasSeparateBilling && (
+                  <div className="space-y-4 ml-6 p-4 border rounded-lg bg-gray-50">
+                    <h4 className="font-medium text-sm">Számlázási cím</h4>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="billingStreet">Utca, házszám</Label>
+                        <Input
+                          id="billingStreet"
+                          {...register('billingStreet')}
+                          placeholder="Számlázási utca, házszám"
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="billingCity">Város</Label>
+                        <Input
+                          id="billingCity"
+                          {...register('billingCity')}
+                          placeholder="Számlázási város"
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="billingPostalCode">Irányítószám</Label>
+                        <Input
+                          id="billingPostalCode"
+                          {...register('billingPostalCode')}
+                          placeholder="1234"
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="billingCountry">Ország</Label>
+                        <Input
+                          id="billingCountry"
+                          {...register('billingCountry')}
+                          placeholder="Magyarország"
+                          defaultValue="Magyarország"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

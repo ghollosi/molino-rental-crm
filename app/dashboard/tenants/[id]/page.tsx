@@ -25,6 +25,7 @@ import {
   AlertCircle,
   Trash2,
   Edit,
+  Eye,
   User,
   Users,
   FileText,
@@ -167,7 +168,7 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
           {tenant.coTenants && tenant.coTenants.length > 0 && (
             <span className="flex items-center gap-1">
               <Users className="w-4 h-4" />
-              {tenant.coTenants.length} albérlő
+              {tenant.coTenants.length} társbérlő
             </span>
           )}
         </div>
@@ -177,9 +178,8 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
         <TabsList className="w-full max-w-full overflow-x-auto flex-wrap h-auto">
           <TabsTrigger value="details" className="flex-shrink-0">Részletek</TabsTrigger>
           <TabsTrigger value="cotenants" className="flex-shrink-0">
-            Albérlők ({tenant.coTenants?.length || 0})
+            Albérlők / Társbérlők ({tenant.coTenants?.length || 0})
           </TabsTrigger>
-          <TabsTrigger value="documents" className="flex-shrink-0">Dokumentumok</TabsTrigger>
           <TabsTrigger value="contracts" className="flex-shrink-0">Szerződések</TabsTrigger>
           <TabsTrigger value="properties" className="flex-shrink-0">
             <Building className="h-4 w-4 mr-2" />
@@ -217,6 +217,36 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
                       <Phone className="w-4 h-4" />
                       {tenant.user.phone}
                     </p>
+                  </div>
+                )}
+                
+                {/* Dokumentumok/képek megjelenítése */}
+                {tenant.documents && tenant.documents.length > 0 && (
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-2">Dokumentumok</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {tenant.documents.map((docUrl, index) => (
+                        <div key={index} className="relative aspect-square">
+                          <img
+                            src={docUrl}
+                            alt={`Dokumentum ${index + 1}`}
+                            className="w-full h-full object-cover rounded border"
+                          />
+                          <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-opacity flex items-center justify-center rounded">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              asChild
+                              className="opacity-0 hover:opacity-100 transition-opacity text-white"
+                            >
+                              <a href={docUrl} target="_blank" rel="noopener noreferrer">
+                                <Download className="w-4 h-4" />
+                              </a>
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </CardContent>
@@ -295,38 +325,79 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
               {tenant.coTenants.map((coTenant) => (
                 <Card key={coTenant.id}>
                   <CardContent className="py-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                          <User className="w-5 h-5 text-blue-600" />
-                        </div>
-                        <div>
-                          <p className="font-medium">
-                            {coTenant.user.firstName} {coTenant.user.lastName}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {coTenant.user.email}
-                          </p>
-                          {coTenant.user.phone && (
-                            <p className="text-sm text-muted-foreground">
-                              {coTenant.user.phone}
+                    <div className="flex flex-col gap-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                            <User className="w-5 h-5 text-blue-600" />
+                          </div>
+                          <div>
+                            <p className="font-medium">
+                              {coTenant.user.firstName} {coTenant.user.lastName}
                             </p>
-                          )}
+                            <p className="text-sm text-muted-foreground">
+                              {coTenant.user.email}
+                            </p>
+                            {coTenant.user.phone && (
+                              <p className="text-sm text-muted-foreground">
+                                {coTenant.user.phone}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Badge variant={coTenant.isActive ? 'default' : 'secondary'}>
+                            {coTenant.isActive ? 'Aktív' : 'Inaktív'}
+                          </Badge>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            asChild
+                          >
+                            <Link href={`/dashboard/tenants/${coTenant.id}`}>
+                              <Eye className="w-4 h-4" />
+                            </Link>
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleRemoveCoTenant(coTenant.id)}
+                            disabled={removeCoTenant.isPending}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant={coTenant.isActive ? 'default' : 'secondary'}>
-                          {coTenant.isActive ? 'Aktív' : 'Inaktív'}
-                        </Badge>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleRemoveCoTenant(coTenant.id)}
-                          disabled={removeCoTenant.isPending}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
+                      
+                      {/* Társbérlő dokumentumai */}
+                      {coTenant.documents && coTenant.documents.length > 0 && (
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-2">Dokumentumok</p>
+                          <div className="grid grid-cols-3 gap-2">
+                            {coTenant.documents.map((docUrl, index) => (
+                              <div key={index} className="relative aspect-square">
+                                <img
+                                  src={docUrl}
+                                  alt={`${coTenant.user.firstName} dokumentum ${index + 1}`}
+                                  className="w-full h-full object-cover rounded border"
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-opacity flex items-center justify-center rounded">
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    asChild
+                                    className="opacity-0 hover:opacity-100 transition-opacity text-white"
+                                  >
+                                    <a href={docUrl} target="_blank" rel="noopener noreferrer">
+                                      <Download className="w-4 h-4" />
+                                    </a>
+                                  </Button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -335,58 +406,6 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
           )}
         </TabsContent>
 
-        <TabsContent value="documents" className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold">Dokumentumok</h3>
-          </div>
-
-          {(!tenant.documents || tenant.documents.length === 0) ? (
-            <Card>
-              <CardContent className="py-8">
-                <div className="text-center">
-                  <FileText className="mx-auto h-12 w-12 text-gray-400" />
-                  <p className="mt-2 text-sm text-gray-600">Nincsenek dokumentumok</p>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Dokumentumok a szerkesztés menüben tölthetők fel
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {tenant.documents.map((docUrl, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="aspect-square relative">
-                      <img
-                        src={docUrl}
-                        alt={`Dokumentum ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-opacity flex items-center justify-center">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          asChild
-                          className="opacity-0 hover:opacity-100 transition-opacity text-white"
-                        >
-                          <a href={docUrl} target="_blank" rel="noopener noreferrer">
-                            <Download className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="p-2">
-                      <p className="text-xs text-muted-foreground">
-                        Dokumentum {index + 1}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </TabsContent>
 
         <TabsContent value="contracts" className="space-y-4">
           <Card>

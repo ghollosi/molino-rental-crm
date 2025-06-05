@@ -8,17 +8,25 @@
    - Environments: .env.local, .env
 
  ✓ Starting...
- ✓ Ready in 1578ms
- ✓ Compiled /middleware in 330ms (311 modules)
+ ✓ Ready in 1608ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.2s (1057 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/6c495d6a6cbfc8f8.webpack.hot-update.json 404 in 2501ms
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1100ms (1354 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
 [33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
- ○ Compiling /dashboard/properties/[id] ...
- ✓ Compiled /dashboard/properties/[id] in 3.7s (2695 modules)
- ○ Compiling / ...
- GET /dashboard/properties/cmbg8zokv001njnzoks43jprl 200 in 4707ms
- ✓ Compiled /api/trpc/[trpc] in 3.2s (3006 modules)
- GET / 200 in 3951ms
- GET /dashboard/properties/cmbg8zokv001njnzoks43jprl 200 in 31ms
- GET /api/auth/session 200 in 2763ms
+ GET /_next/static/webpack/6c495d6a6cbfc8f8.webpack.hot-update.json 404 in 990ms
+ ○ Compiling /dashboard/tenants/[id] ...
+ ✓ Compiled /dashboard/tenants/[id] in 2.3s (2589 modules)
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 2358ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/6c495d6a6cbfc8f8.webpack.hot-update.json 404 in 450ms
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 533ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1016ms (2908 modules)
+ GET /api/auth/session 200 in 1768ms
  GET /api/auth/session 200 in 9ms
 === SESSION DEBUG ===
 Session user: {
@@ -27,75 +35,537 @@ Session user: {
   role: 'ADMIN',
   language: 'HU'
 }
-Database user: {
-  id: 'cmbg8zok30001jnzozdzjjx0i',
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,company.get,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 207 in 1990ms
+ ✓ Compiled /api/temp-files/[id] in 403ms (2910 modules)
+ GET /api/temp-files/1749137031231-194810438 404 in 767ms
+=== SESSION DEBUG ===
+Session user: {
   email: 'admin@molino.com',
-  firstName: 'Gabor',
-  lastName: 'Hollosi',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 233ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 68ms
+ ✓ Compiled / in 465ms (2916 modules)
+ GET / 200 in 648ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 225ms
+ ✓ Compiled in 941ms (2930 modules)
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 69ms
+ GET / 200 in 76ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 811ms (2933 modules)
+ GET /dashboard/tenants 200 in 912ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 257ms
+ GET / 200 in 78ms
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 41ms
+ GET /api/temp-files/1749137031231-194810438 404 in 32ms
+ GET / 200 in 37ms
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 223ms
+ GET /api/auth/session 200 in 21ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,company.get,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 207 in 78ms
+ GET /api/auth/session 200 in 51ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 63ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 73ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 73ms
+ GET / 200 in 31ms
+ GET / 200 in 70ms
+ GET / 200 in 33ms
+ GET / 200 in 39ms
+ GET / 200 in 36ms
+ GET / 200 in 44ms
+ GET / 200 in 34ms
+ GET / 200 in 58ms
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 105ms
+ GET /api/auth/session 200 in 25ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/auth/session 200 in 16ms
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,company.get,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 207 in 200ms
+ GET /api/temp-files/1749137031231-194810438 404 in 7ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 65ms
+ GET / 200 in 23ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 111ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 404 in 73ms
+ GET / 200 in 36ms
+ GET / 200 in 33ms
+ GET / 200 in 29ms
+ GET /dashboard/tenants/cmbjj213j000cjtx2z1911q19 200 in 107ms
+ GET /api/auth/session 200 in 33ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+❌ tRPC failed on tenant.getById: Tenant not found
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+ GET /api/trpc/user.getCurrentUser,company.get,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 207 in 153ms
+ GET /api/auth/session 200 in 116ms
+ GET / 200 in 38ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+❌ tRPC failed on tenant.getById: Tenant not found
+ GET /api/trpc/user.getCurrentUser,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 404 in 66ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+❌ tRPC failed on tenant.getById: Tenant not found
+ GET /api/trpc/user.getCurrentUser,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 404 in 71ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: null
+Error fetching current user: Error [TRPCError]: Session user not found in database. Please logout and login again.
+    at eval (src/server/routers/user.ts:29:16)
+  27 |         
+  28 |         if (!dbUser) {
+> 29 |           throw new TRPCError({
+     |                ^
+  30 |             code: 'NOT_FOUND',
+  31 |             message: 'Session user not found in database. Please logout and login again.',
+  32 |           }) {
+  cause: undefined,
+  code: 'NOT_FOUND'
+}
+❌ tRPC failed on user.getCurrentUser: Session user not found in database. Please logout and login again.
+❌ tRPC failed on tenant.getById: Tenant not found
+ GET /api/trpc/user.getCurrentUser,tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%22cmbjj213j000cjtx2z1911q19%22%7D%7D 404 in 74ms
+ GET / 200 in 73ms
+ GET /dashboard/tenants 200 in 17ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 317ms
+ GET / 200 in 45ms
+ GET /api/auth/csrf 200 in 68ms
+ POST /api/auth/signout 200 in 7ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1142ms (2941 modules)
+ GET /login 200 in 1432ms
+ GET /api/auth/session 200 in 80ms
+ GET /api/auth/session 200 in 6ms
+ GET / 200 in 33ms
+ GET /api/auth/providers 200 in 16ms
+ GET /api/auth/csrf 200 in 10ms
+ POST /api/auth/callback/credentials? 200 in 114ms
+ GET /api/auth/session 200 in 8ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1848ms (4074 modules)
+ GET /dashboard 200 in 2015ms
+ GET / 200 in 98ms
+ GET /dashboard 200 in 105ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbjkhk060001jt2stsu0h5kc',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbjkhk060001jt2stsu0h5kc',
+  email: 'admin@molino.com',
+  firstName: 'Admin',
+  lastName: 'Molino',
   phone: '+36 20 123 4567',
   role: 'ADMIN',
   language: 'HU'
 }
- GET /api/trpc/user.getCurrentUser,company.get,property.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%22cmbg8zokv001njnzoks43jprl%22%7D%7D 200 in 3067ms
- GET /api/trpc/contract.list,issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22propertyId%22%3A%22cmbg8zokv001njnzoks43jprl%22%7D%7D%7D 200 in 25ms
- HEAD / 200 in 39ms
- GET / 200 in 37ms
+ GET /api/trpc/user.getCurrentUser,company.get,analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%229%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2212%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2213%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22OPEN%22%7D%7D%2C%2214%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 298ms
+ GET /dashboard/tenants 200 in 26ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 21ms
  GET / 200 in 35ms
- GET / 200 in 36ms
- GET / 200 in 37ms
- GET / 200 in 38ms
- GET / 200 in 20ms
- GET / 200 in 55ms
- GET / 200 in 40ms
- GET / 200 in 37ms
- GET / 200 in 47ms
- GET / 200 in 31ms
- GET / 200 in 37ms
- GET / 200 in 32ms
  GET / 200 in 34ms
- GET / 200 in 37ms
- GET / 200 in 39ms
+ GET / 200 in 44ms
  GET / 200 in 32ms
- GET / 200 in 32ms
- GET / 200 in 32ms
- GET / 200 in 31ms
- GET / 200 in 37ms
- GET / 200 in 28ms
- GET / 200 in 28ms
- GET / 200 in 28ms
- GET / 200 in 27ms
- GET / 200 in 31ms
- GET / 200 in 26ms
- GET / 200 in 29ms
  GET / 200 in 33ms
- GET / 200 in 35ms
- GET / 200 in 28ms
- GET / 200 in 38ms
- GET / 200 in 29ms
- GET / 200 in 29ms
- GET / 200 in 29ms
  GET / 200 in 21ms
- GET / 200 in 29ms
- GET / 200 in 30ms
- GET / 200 in 29ms
- GET / 200 in 26ms
- GET / 200 in 27ms
- GET / 200 in 42ms
- GET / 200 in 29ms
- GET / 200 in 29ms
- GET / 200 in 33ms
- GET / 200 in 55ms
- GET / 200 in 57ms
- GET / 200 in 45ms
- GET / 200 in 36ms
- GET / 200 in 30ms
- GET / 200 in 45ms
+ GET / 200 in 54ms
  GET / 200 in 34ms
- GET / 200 in 35ms
- GET / 200 in 29ms
+ GET / 200 in 52ms
+ GET / 200 in 51ms
+ GET / 200 in 50ms
+ ○ Compiling /dashboard/tenants/new ...
+ ✓ Compiled /dashboard/tenants/new in 1593ms (3775 modules)
+ GET /dashboard/tenants/new 200 in 1770ms
+ GET /dashboard/tenants/new 200 in 12ms
+ ✓ Compiled /api/trpc/[trpc] in 302ms (2294 modules)
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22AVAILABLE%22%7D%7D%7D 200 in 975ms
+ GET / 200 in 282ms
+ GET / 200 in 42ms
+ GET / 200 in 62ms
+ GET / 200 in 64ms
+ GET / 200 in 47ms
+ ○ Compiling /api/upload ...
+ ✓ Compiled /api/upload in 980ms (4440 modules)
+✅ R2 Cloud Storage initialized successfully
+ POST /api/upload 200 in 1319ms
+ ✓ Compiled /api/files/[id] in 424ms (4442 modules)
+Error: Route "/api/files/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at GET (app/api/files/[id]/route.ts:10:26)
+   8 |   try {
+   9 |     const fileRecord = await db.uploadedFile.findUnique({
+> 10 |       where: { id: params.id }
+     |                          ^
+  11 |     })
+  12 |
+  13 |     if (!fileRecord) {
+ GET /api/files/cmbjkmh080001jtgwur0jmezx 200 in 1009ms
+ GET / 200 in 170ms
+ GET / 200 in 77ms
+ GET / 200 in 76ms
+✅ R2 Cloud Storage initialized successfully
+ POST /api/upload 200 in 192ms
+Error: Route "/api/files/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at GET (app/api/files/[id]/route.ts:10:26)
+   8 |   try {
+   9 |     const fileRecord = await db.uploadedFile.findUnique({
+> 10 |       where: { id: params.id }
+     |                          ^
+  11 |     })
+  12 |
+  13 |     if (!fileRecord) {
+ GET /api/files/cmbjkn9rf0003jtgwbab0o94n 200 in 56ms
+ GET / 200 in 27ms
+ POST /api/trpc/tenant.create?batch=1 200 in 495ms
+ GET /dashboard/tenants/cmbjknb6y0006jtgwp3xjwhvx 200 in 58ms
+ GET /api/trpc/tenant.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmbjknb6y0006jtgwp3xjwhvx%22%7D%7D 200 in 20ms
  GET / 200 in 40ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22tenantId%22%3A%22cmbjknb6y0006jtgwp3xjwhvx%22%2C%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 37ms
+ GET / 200 in 34ms
+ GET / 200 in 71ms
+ ○ Compiling /dashboard/contracts/[id] ...
+ ✓ Compiled /dashboard/contracts/[id] in 1666ms (4453 modules)
+ GET /dashboard/contracts/cmbjknb77000bjtgwyn1vj8oh 200 in 2431ms
+ GET /api/trpc/contract.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmbjknb77000bjtgwyn1vj8oh%22%7D%7D 200 in 232ms
+ GET / 200 in 119ms
+ GET / 200 in 42ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 1018ms (4462 modules)
+ GET /dashboard/properties 200 in 1122ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 206ms
+ GET / 200 in 100ms
+ GET / 200 in 42ms
+ GET / 200 in 34ms
+ GET / 200 in 50ms
+ GET / 200 in 36ms
+ ✓ Compiled in 838ms (4108 modules)
+ GET /dashboard/properties 200 in 37ms
+ GET / 200 in 71ms
+ GET / 200 in 44ms
+ GET / 200 in 55ms
+ GET / 200 in 32ms
  GET / 200 in 28ms
+ ✓ Compiled in 353ms (1818 modules)
+ GET /dashboard/properties 200 in 16ms
+ ✓ Compiled in 1172ms (4089 modules)
+ GET /dashboard/properties 200 in 1012ms
+ GET / 200 in 952ms
+ GET /dashboard/properties 200 in 11ms
+ GET / 200 in 51ms
+ GET / 200 in 25ms
+ ✓ Compiled in 603ms (2129 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET /dashboard/properties 200 in 13ms
  GET / 200 in 36ms
+ GET / 200 in 65ms
+ GET / 200 in 47ms
+ GET / 200 in 24ms
+ ✓ Compiled in 364ms (311 modules)
+[33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ GET / 200 in 25ms
+ GET / 200 in 52ms
+ GET / 200 in 53ms
+ GET / 200 in 60ms
+ GET / 200 in 46ms
  GET / 200 in 36ms
- GET / 200 in 33ms
- GET / 200 in 33ms
+ GET / 200 in 63ms
+ GET / 200 in 46ms

@@ -137,6 +137,10 @@ export const ownerRouter = createTRPCRouter({
       companyName: z.string().optional(),
       taxNumber: z.string().optional(),
       profilePhoto: z.string().optional(),
+      billingStreet: z.string().optional(),
+      billingCity: z.string().optional(),
+      billingPostalCode: z.string().optional(),
+      billingCountry: z.string().optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -182,6 +186,10 @@ export const ownerRouter = createTRPCRouter({
             userId: user.id,
             profilePhoto: input.profilePhoto,
             taxNumber: input.taxNumber,
+            billingStreet: input.billingStreet,
+            billingCity: input.billingCity,
+            billingPostalCode: input.billingPostalCode,
+            billingCountry: input.billingCountry,
           },
           include: {
             user: {

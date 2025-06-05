@@ -36,6 +36,11 @@ export default function EditOwnerPage() {
     taxNumber: '',
     companyName: '',
     isCompany: false,
+    hasSeparateBilling: false,
+    billingStreet: '',
+    billingCity: '',
+    billingPostalCode: '',
+    billingCountry: '',
   })
 
   // Frissítjük a form adatokat amikor betöltődik a tulajdonos
@@ -48,6 +53,11 @@ export default function EditOwnerPage() {
         taxNumber: owner.taxNumber || '',
         companyName: owner.companyName || '',
         isCompany: owner.isCompany || false,
+        hasSeparateBilling: !!(owner.billingStreet || owner.billingCity || owner.billingPostalCode || owner.billingCountry),
+        billingStreet: owner.billingStreet || '',
+        billingCity: owner.billingCity || '',
+        billingPostalCode: owner.billingPostalCode || '',
+        billingCountry: owner.billingCountry || '',
       })
     }
   }, [owner])
@@ -67,6 +77,10 @@ export default function EditOwnerPage() {
         taxNumber: formData.taxNumber || undefined,
         companyName: formData.isCompany ? formData.companyName : undefined,
         isCompany: formData.isCompany,
+        billingStreet: formData.hasSeparateBilling ? formData.billingStreet : undefined,
+        billingCity: formData.hasSeparateBilling ? formData.billingCity : undefined,
+        billingPostalCode: formData.hasSeparateBilling ? formData.billingPostalCode : undefined,
+        billingCountry: formData.hasSeparateBilling ? formData.billingCountry : undefined,
       },
     })
   }
@@ -177,6 +191,81 @@ export default function EditOwnerPage() {
                   setFormData({ ...formData, taxNumber: e.target.value })
                 }
               />
+            </div>
+
+            {/* Számlázási adatok szakasz */}
+            <div className="space-y-4 border-t pt-6">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="hasSeparateBilling"
+                  checked={formData.hasSeparateBilling}
+                  onCheckedChange={(checked) =>
+                    setFormData({ ...formData, hasSeparateBilling: checked as boolean })
+                  }
+                />
+                <Label htmlFor="hasSeparateBilling" className="text-sm font-medium">
+                  Számlázási adatok
+                </Label>
+              </div>
+              <p className="text-sm text-gray-500">
+                Ha be van jelölve, külön számlázási címet adhat meg. Ellenkező esetben a tulajdonos nevére lesznek kiállítva a számlák.
+              </p>
+
+              {formData.hasSeparateBilling && (
+                <div className="space-y-4 ml-6 p-4 border rounded-lg bg-gray-50">
+                  <h4 className="font-medium text-sm">Számlázási cím</h4>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="billingStreet">Utca, házszám</Label>
+                      <Input
+                        id="billingStreet"
+                        value={formData.billingStreet}
+                        onChange={(e) =>
+                          setFormData({ ...formData, billingStreet: e.target.value })
+                        }
+                        placeholder="Számlázási utca, házszám"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="billingCity">Város</Label>
+                      <Input
+                        id="billingCity"
+                        value={formData.billingCity}
+                        onChange={(e) =>
+                          setFormData({ ...formData, billingCity: e.target.value })
+                        }
+                        placeholder="Számlázási város"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="billingPostalCode">Irányítószám</Label>
+                      <Input
+                        id="billingPostalCode"
+                        value={formData.billingPostalCode}
+                        onChange={(e) =>
+                          setFormData({ ...formData, billingPostalCode: e.target.value })
+                        }
+                        placeholder="1234"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="billingCountry">Ország</Label>
+                      <Input
+                        id="billingCountry"
+                        value={formData.billingCountry}
+                        onChange={(e) =>
+                          setFormData({ ...formData, billingCountry: e.target.value })
+                        }
+                        placeholder="Magyarország"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="flex gap-4 pt-4">

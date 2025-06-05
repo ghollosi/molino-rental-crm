@@ -6,10 +6,11 @@ import { NextResponse } from "next/server"
 
 const { auth } = NextAuth(authConfig)
 
-// Rate limiting configuration
+// Rate limiting configuration - use database storage for production
 const limiter = rateLimit({
   interval: 60 * 1000, // 1 minute
   uniqueTokenPerInterval: 500, // Max 500 users per interval
+  useDatabaseStorage: true, // Enable persistent database storage
 })
 
 export default auth(async (req) => {
