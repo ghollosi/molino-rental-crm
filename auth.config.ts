@@ -33,9 +33,18 @@ export default {
           return null
         }
         
+        console.log('Password comparison:', {
+          inputPassword: password,
+          storedHash: user.password,
+          email: user.email
+        })
+        
         const isValidPassword = await compare(password, user.password)
         
+        console.log('Password valid:', isValidPassword)
+        
         if (!isValidPassword) {
+          console.log('Password validation failed')
           return null
         }
         
@@ -49,5 +58,5 @@ export default {
       }
     })
   ],
-  debug: process.env.NODE_ENV === "development",
+  debug: true,
 } satisfies NextAuthConfig
