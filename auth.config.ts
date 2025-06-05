@@ -21,7 +21,8 @@ export default {
           select: {
             id: true,
             email: true,
-            name: true,
+            firstName: true,
+            lastName: true,
             password: true,
             role: true,
             language: true,
@@ -46,7 +47,7 @@ export default {
         return {
           id: user.id,
           email: user.email,
-          name: user.name,
+          name: `${user.firstName || ''} ${user.lastName || ''}`.trim(),
           role: user.role,
           language: user.language,
         }

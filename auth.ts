@@ -39,7 +39,8 @@ export const {
         select: {
           id: true,
           email: true,
-          name: true,
+          firstName: true,
+          lastName: true,
           phone: true,
           role: true,
           language: true,
@@ -48,7 +49,7 @@ export const {
 
       if (!existingUser) return token
 
-      token.name = existingUser.name || existingUser.email?.split('@')[0] || 'User'
+      token.name = `${existingUser.firstName || ''} ${existingUser.lastName || ''}`.trim() || existingUser.email?.split('@')[0] || 'User'
       token.email = existingUser.email
       token.phone = existingUser.phone
       token.role = existingUser.role
