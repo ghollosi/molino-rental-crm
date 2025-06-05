@@ -8218,3 +8218,48 @@ If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-r
  GET / 200 in 774ms
  GET /dashboard 200 in 860ms
  ✓ Compiled in 2.5s (4028 modules)
+ GET / 200 in 297ms
+ GET / 200 in 45ms
+ GET / 200 in 34ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 554ms (2112 modules)
+ GET /api/auth/session 200 in 798ms
+Database rate limiting failed, falling back to memory: Error: PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in ``).
+If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+    at Object.check (src/lib/rate-limit.ts:25:19)
+    at eval (middleware.ts:23:62)
+  23 |           
+  24 |           // Clean up old entries
+> 25 |           await db.$executeRaw`
+     |                   ^
+  26 |             DELETE FROM "rate_limit_tokens" 
+  27 |             WHERE "lastReset" < ${windowStart}
+  28 |           ` {
+  
+}
+ GET / 200 in 156ms
+ GET /api/auth/session 200 in 132ms
+ GET / 200 in 55ms
+ GET / 200 in 94ms
+ GET / 200 in 79ms
+ GET / 200 in 46ms
+ GET / 200 in 66ms
+ GET / 200 in 39ms
+ GET / 200 in 52ms
+ GET / 200 in 62ms
+ GET / 200 in 55ms
+ ✓ Compiled in 700ms (1787 modules)
+ GET / 200 in 30ms
