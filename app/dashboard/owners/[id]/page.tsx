@@ -28,6 +28,7 @@ import {
   Edit
 } from 'lucide-react'
 import Link from 'next/link'
+import { ProfileImage } from '@/components/ui/image-grid'
 
 export default function OwnerDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter()
@@ -115,11 +116,21 @@ export default function OwnerDetailPage({ params }: { params: { id: string } }) 
               <CardTitle>Tulajdonos adatok</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold">{owner.user.name}</h3>
-                <Badge variant={owner.isCompany ? 'default' : 'secondary'} className="mt-1">
-                  {owner.isCompany ? 'Cég' : 'Magánszemély'}
-                </Badge>
+              <div className="flex items-center gap-4">
+                {owner.profilePhoto && (
+                  <ProfileImage
+                    src={owner.profilePhoto}
+                    alt="Profilkép"
+                    size="lg"
+                    clickable={true}
+                  />
+                )}
+                <div>
+                  <h3 className="text-lg font-semibold">{owner.user.firstName} {owner.user.lastName}</h3>
+                  <Badge variant={owner.isCompany ? 'default' : 'secondary'} className="mt-1">
+                    {owner.isCompany ? 'Cég' : 'Magánszemély'}
+                  </Badge>
+                </div>
               </div>
 
               {owner.companyName && (

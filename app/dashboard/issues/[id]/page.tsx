@@ -8,7 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, MapPin, Calendar, AlertTriangle, CheckCircle } from 'lucide-react'
+import { ArrowLeft, MapPin, Calendar, AlertTriangle, CheckCircle, Download } from 'lucide-react'
+import { ImageGrid } from '@/components/ui/image-grid'
 
 const statusColors = {
   OPEN: 'bg-red-500',
@@ -168,7 +169,7 @@ export default function IssueDetailPage() {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
                 <p className="text-sm text-gray-500">Bejelentő</p>
-                <p className="font-medium">{issue.reportedBy.name}</p>
+                <p className="font-medium">{issue.reportedBy.firstName} {issue.reportedBy.lastName}</p>
                 <p className="text-sm text-gray-500">{issue.reportedBy.email}</p>
               </div>
               <div className="space-y-2">
@@ -210,6 +211,20 @@ export default function IssueDetailPage() {
               <p className="text-sm text-gray-500">Kategória</p>
               <p className="font-medium">{issue.category}</p>
             </div>
+            
+            {/* Képek megjelenítése */}
+            {issue.photos && issue.photos.length > 0 && (
+              <div className="space-y-2">
+                <p className="text-sm text-gray-500">Csatolt képek</p>
+                <ImageGrid 
+                  images={issue.photos}
+                  title={`${issue.title} - csatolt képek`}
+                  columns={3}
+                  showDownload={true}
+                  showExpand={true}
+                />
+              </div>
+            )}
           </CardContent>
         </Card>
 

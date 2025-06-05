@@ -38,6 +38,7 @@ import Link from 'next/link'
 import { format } from 'date-fns'
 import { hu } from 'date-fns/locale'
 import { TenantPropertiesTab } from '@/components/tenant-property/tenant-properties-tab'
+import { ImageGrid, ProfileImage } from '@/components/ui/image-grid'
 
 export default function TenantDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
@@ -138,10 +139,11 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
       <div className="mb-6">
         <div className="flex items-center gap-4 mb-2">
           {tenant.profilePhoto && (
-            <img
+            <ProfileImage
               src={tenant.profilePhoto}
               alt="Profilkép"
-              className="w-16 h-16 rounded-full object-cover"
+              size="lg"
+              clickable={true}
             />
           )}
           <div>
@@ -224,29 +226,13 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
                 {tenant.documents && tenant.documents.length > 0 && (
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">Dokumentumok</p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {tenant.documents.map((docUrl, index) => (
-                        <div key={index} className="relative aspect-square">
-                          <img
-                            src={docUrl}
-                            alt={`Dokumentum ${index + 1}`}
-                            className="w-full h-full object-cover rounded border"
-                          />
-                          <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-opacity flex items-center justify-center rounded">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              asChild
-                              className="opacity-0 hover:opacity-100 transition-opacity text-white"
-                            >
-                              <a href={docUrl} target="_blank" rel="noopener noreferrer">
-                                <Download className="w-4 h-4" />
-                              </a>
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    <ImageGrid 
+                      images={tenant.documents}
+                      title={`${tenant.user.firstName} dokumentumai`}
+                      columns={2}
+                      showDownload={true}
+                      showExpand={true}
+                    />
                   </div>
                 )}
               </CardContent>
@@ -373,29 +359,13 @@ export default function TenantDetailPage({ params }: { params: Promise<{ id: str
                       {coTenant.documents && coTenant.documents.length > 0 && (
                         <div>
                           <p className="text-sm text-muted-foreground mb-2">Dokumentumok</p>
-                          <div className="grid grid-cols-3 gap-2">
-                            {coTenant.documents.map((docUrl, index) => (
-                              <div key={index} className="relative aspect-square">
-                                <img
-                                  src={docUrl}
-                                  alt={`${coTenant.user.firstName} dokumentum ${index + 1}`}
-                                  className="w-full h-full object-cover rounded border"
-                                />
-                                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-30 transition-opacity flex items-center justify-center rounded">
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    asChild
-                                    className="opacity-0 hover:opacity-100 transition-opacity text-white"
-                                  >
-                                    <a href={docUrl} target="_blank" rel="noopener noreferrer">
-                                      <Download className="w-4 h-4" />
-                                    </a>
-                                  </Button>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
+                          <ImageGrid 
+                            images={coTenant.documents}
+                            title={`${coTenant.user.firstName} dokumentumai`}
+                            columns={3}
+                            showDownload={true}
+                            showExpand={true}
+                          />
                         </div>
                       )}
                     </div>

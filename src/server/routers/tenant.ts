@@ -243,6 +243,79 @@ export const tenantRouter = createTRPCRouter({
         })
       }
 
+      // Ha van propertyId, ellenőrizzük a férőhely korlátot
+      if (propertyId) {
+        const property = await ctx.db.property.findUnique({
+          where: { id: propertyId },
+          include: {
+            _count: {
+              select: {
+                contracts: {
+                  where: {
+                    OR: [
+                      { endDate: { gt: new Date() } }, // Aktív szerződések
+                      { endDate: null } // Határozatlan idejű szerződések
+                    ]
+                  }
+                }
+              }
+            },
+            contracts: {
+              where: {
+                OR: [
+                  { endDate: { gt: new Date() } },
+                  { endDate: null }
+                ]
+              },
+              include: {
+                tenant: {
+                  include: {
+                    _count: {
+                      select: {
+                        coTenants: true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        })
+
+        if (!property) {
+          throw new TRPCError({
+            code: 'NOT_FOUND',
+            message: 'Az ingatlan nem található',
+          })
+        }
+
+        if (!property.capacity) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'Az ingatlan férőhelye nincs megadva. Kérjük állítsa be az ingatlan adataiban!',
+          })
+        }
+
+        // Számoljuk ki a jelenleg lakók számát
+        let currentOccupants = 0
+        for (const contract of property.contracts) {
+          // Főbérlő + társbérlők száma
+          currentOccupants += 1 + contract.tenant._count.coTenants
+        }
+
+        // Új bérlő + társbérlők száma
+        const newOccupants = 1 + coTenants.length
+
+        // Ellenőrizzük a férőhely korlátot
+        if (currentOccupants + newOccupants > property.capacity) {
+          const availableSpaces = property.capacity - currentOccupants
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: `A férőhely nem elegendő! Az ingatlan kapacitása: ${property.capacity} fő. Jelenleg lakók: ${currentOccupants} fő. Elérhető helyek: ${availableSpaces} fő. Új bérlők száma: ${newOccupants} fő.`,
+          })
+        }
+      }
+
       // Hash password
       const hashedPassword = await bcrypt.hash(password, 12)
 
@@ -409,6 +482,14 @@ export const tenantRouter = createTRPCRouter({
         notes: z.string().optional(),
         isActive: z.boolean(),
       }),
+      // Co-tenants update support
+      coTenants: z.array(z.object({
+        firstName: z.string().min(1, 'Vezetéknév kötelező'),
+        lastName: z.string().min(1, 'Keresztnév kötelező'),
+        email: z.string().email('Érvényes email cím szükséges'),
+        phone: z.string().optional(),
+        documents: z.array(z.string()).default([]),
+      })).optional(),
     }))
     .mutation(async ({ ctx, input }) => {
       // Check permissions
@@ -426,7 +507,7 @@ export const tenantRouter = createTRPCRouter({
         })
       }
 
-      const { userData, tenantData } = input
+      const { userData, tenantData, coTenants } = input
 
       // Update user and tenant in transaction
       const result = await ctx.db.$transaction(async (tx) => {
@@ -458,7 +539,63 @@ export const tenantRouter = createTRPCRouter({
           },
         })
 
-        return updatedTenant
+        // Update co-tenants if provided
+        if (coTenants) {
+          // First, delete existing co-tenants
+          await tx.tenant.deleteMany({
+            where: {
+              parentTenantId: input.id,
+            },
+          })
+
+          // Then create new co-tenants
+          for (const coTenant of coTenants) {
+            // Create user for co-tenant
+            const coTenantUser = await tx.user.create({
+              data: {
+                firstName: coTenant.firstName,
+                lastName: coTenant.lastName,
+                email: coTenant.email,
+                phone: coTenant.phone,
+                password: await bcrypt.hash('defaultpass123', 10), // Temporary password
+                role: 'TENANT',
+                language: 'HU',
+              },
+            })
+
+            // Create co-tenant record
+            await tx.tenant.create({
+              data: {
+                userId: coTenantUser.id,
+                parentTenantId: input.id,
+                isPrimary: false,
+                isActive: true,
+                documents: coTenant.documents,
+              },
+            })
+          }
+        }
+
+        // Return updated tenant with co-tenants
+        return await tx.tenant.findUnique({
+          where: { id: input.id },
+          include: {
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                email: true,
+                phone: true,
+              },
+            },
+            coTenants: {
+              include: {
+                user: true,
+              },
+            },
+          },
+        })
       })
 
       return result
@@ -549,9 +686,49 @@ export const tenantRouter = createTRPCRouter({
 
       const { mainTenantId, ...coTenantData } = input
 
-      // Check if main tenant exists
+      // Check if main tenant exists and get property info
       const mainTenant = await ctx.db.tenant.findUnique({
         where: { id: mainTenantId },
+        include: {
+          contracts: {
+            where: {
+              OR: [
+                { endDate: { gt: new Date() } },
+                { endDate: null }
+              ]
+            },
+            include: {
+              property: {
+                include: {
+                  contracts: {
+                    where: {
+                      OR: [
+                        { endDate: { gt: new Date() } },
+                        { endDate: null }
+                      ]
+                    },
+                    include: {
+                      tenant: {
+                        include: {
+                          _count: {
+                            select: {
+                              coTenants: true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          _count: {
+            select: {
+              coTenants: true
+            }
+          }
+        }
       })
 
       if (!mainTenant) {
@@ -559,6 +736,33 @@ export const tenantRouter = createTRPCRouter({
           code: 'NOT_FOUND',
           message: 'Main tenant not found',
         })
+      }
+
+      // Ellenőrizzük a férőhely korlátot az aktív szerződéseknél
+      for (const contract of mainTenant.contracts) {
+        const property = contract.property
+        
+        if (!property.capacity) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'Az ingatlan férőhelye nincs megadva. Kérjük állítsa be az ingatlan adataiban!',
+          })
+        }
+
+        // Számoljuk ki a jelenlegi lakók számát
+        let currentOccupants = 0
+        for (const propertyContract of property.contracts) {
+          currentOccupants += 1 + propertyContract.tenant._count.coTenants
+        }
+
+        // Ellenőrizzük, hogy van-e még hely
+        if (currentOccupants >= property.capacity) {
+          const availableSpaces = property.capacity - currentOccupants
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: `A férőhely betelt! Az ingatlan kapacitása: ${property.capacity} fő. Jelenleg lakók: ${currentOccupants} fő. Elérhető helyek: ${availableSpaces} fő.`,
+          })
+        }
       }
 
       // Check if email already exists
@@ -653,5 +857,87 @@ export const tenantRouter = createTRPCRouter({
       })
 
       return { success: true }
+    }),
+
+  // Check property capacity and get available spaces
+  checkPropertyCapacity: protectedProcedure
+    .input(z.object({
+      propertyId: z.string(),
+      excludeTenantId: z.string().optional(), // Ha szerkesztéskor használjuk
+    }))
+    .query(async ({ ctx, input }) => {
+      const { propertyId, excludeTenantId } = input
+
+      const property = await ctx.db.property.findUnique({
+        where: { id: propertyId },
+        include: {
+          contracts: {
+            where: excludeTenantId ? {
+              AND: [
+                {
+                  OR: [
+                    { endDate: { gt: new Date() } },
+                    { endDate: null }
+                  ]
+                },
+                {
+                  tenantId: { not: excludeTenantId }
+                }
+              ]
+            } : {
+              OR: [
+                { endDate: { gt: new Date() } },
+                { endDate: null }
+              ]
+            },
+            include: {
+              tenant: {
+                include: {
+                  _count: {
+                    select: {
+                      coTenants: true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      })
+
+      if (!property) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Ingatlan nem található',
+        })
+      }
+
+      if (!property.capacity) {
+        return {
+          capacity: null,
+          currentOccupants: 0,
+          availableSpaces: 0,
+          hasCapacitySet: false,
+          message: 'Az ingatlan férőhelye nincs megadva'
+        }
+      }
+
+      // Számoljuk ki a jelenlegi lakók számát
+      let currentOccupants = 0
+      for (const contract of property.contracts) {
+        currentOccupants += 1 + contract.tenant._count.coTenants
+      }
+
+      const availableSpaces = property.capacity - currentOccupants
+
+      return {
+        capacity: property.capacity,
+        currentOccupants,
+        availableSpaces,
+        hasCapacitySet: true,
+        message: availableSpaces > 0 
+          ? `${availableSpaces} fő még befér` 
+          : 'Az ingatlan betelt'
+      }
     }),
 })

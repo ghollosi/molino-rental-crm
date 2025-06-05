@@ -25,6 +25,7 @@ import { SimplePropertyCalendar } from '@/components/property/simple-property-ca
 import { PropertyProvidersTab } from '@/components/property-provider/property-providers-tab'
 import { PropertyTenantsTab } from '@/components/tenant-property/property-tenants-tab'
 import { SmartLockManager } from '@/components/property/smart-lock-manager'
+import { ImageGrid } from '@/components/ui/image-grid'
 
 export default function PropertyDetailPage() {
   const params = useParams()
@@ -178,16 +179,13 @@ export default function PropertyDetailPage() {
                 <CardTitle>Képek</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {property.photos.map((photo, index) => (
-                    <img
-                      key={index}
-                      src={photo}
-                      alt={`${property.street} - ${index + 1}`}
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  ))}
-                </div>
+                <ImageGrid 
+                  images={property.photos}
+                  title="Ingatlan képek"
+                  columns={3}
+                  showDownload={true}
+                  showExpand={true}
+                />
               </CardContent>
             </Card>
           )}
