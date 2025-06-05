@@ -13,47 +13,47 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Check if admin exists
-    const existingAdmin = await prisma.user.findUnique({
-      where: { email: 'admin@molino.com' }
-    })
-
     const hashedPassword = await bcrypt.hash('admin123', 10)
+    const adminEmail = 'admin@molino.com'
 
-    if (existingAdmin) {
-      // Update password
-      const updated = await prisma.user.update({
-        where: { email: 'admin@molino.com' },
-        data: {
-          password: hashedPassword,
-          role: 'ADMIN',
-          isActive: true,
-          updatedAt: new Date()
-        }
-      })
+    // Use raw SQL to avoid schema conflicts
+    // Check if admin exists
+    const existingUsers = await prisma.$queryRaw`
+      SELECT id, email, name, role FROM "User" WHERE email = ${adminEmail}
+    ` as any[]
+
+    if (existingUsers.length > 0) {
+      // Update existing admin
+      await prisma.$executeRaw`
+        UPDATE "User" 
+        SET password = ${hashedPassword}, role = 'ADMIN', "isActive" = true, "updatedAt" = NOW()
+        WHERE email = ${adminEmail}
+      `
       
       return NextResponse.json({ 
         message: 'Admin user password updated successfully',
-        email: updated.email,
-        role: updated.role
+        email: adminEmail,
+        role: 'ADMIN'
       })
     } else {
-      // Create new admin
-      const admin = await prisma.user.create({
-        data: {
-          email: 'admin@molino.com',
-          password: hashedPassword,
-          name: 'Admin User',
-          role: 'ADMIN',
-          language: 'HU',
-          isActive: true
-        }
-      })
+      // Generate CUID-like ID
+      const generateId = () => {
+        const timestamp = Date.now().toString(36)
+        const randomPart = Math.random().toString(36).substring(2, 15)
+        return `c${timestamp}${randomPart}`
+      }
+      const newUserId = generateId()
+
+      // Create new admin using raw SQL
+      await prisma.$executeRaw`
+        INSERT INTO "User" (id, email, password, name, role, language, "isActive", "createdAt", "updatedAt")
+        VALUES (${newUserId}, ${adminEmail}, ${hashedPassword}, 'Admin User', 'ADMIN', 'HU', true, NOW(), NOW())
+      `
 
       return NextResponse.json({ 
         message: 'Admin user created successfully',
-        email: admin.email,
-        role: admin.role
+        email: adminEmail,
+        role: 'ADMIN'
       })
     }
   } catch (error) {
