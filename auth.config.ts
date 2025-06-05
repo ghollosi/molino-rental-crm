@@ -30,23 +30,18 @@ export default {
         })
         
         if (!user || !user.isActive) {
+          console.log('User not found or inactive:', { email, found: !!user, active: user?.isActive })
           return null
         }
-        
-        console.log('Password comparison:', {
-          inputPassword: password,
-          storedHash: user.password,
-          email: user.email
-        })
         
         const isValidPassword = await compare(password, user.password)
         
-        console.log('Password valid:', isValidPassword)
-        
         if (!isValidPassword) {
-          console.log('Password validation failed')
+          console.log('Password validation failed for:', email)
           return null
         }
+        
+        console.log('Login successful for:', email)
         
         return {
           id: user.id,
