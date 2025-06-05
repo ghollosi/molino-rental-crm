@@ -73,5 +73,11 @@ export default auth(async (req) => {
 })
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    "/((?!.+\\.[\\w]+$|_next).*)", 
+    "/", 
+    "/(api|trpc)(.*)",
+    // Exclude problematic route group paths for build
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"
+  ],
 }

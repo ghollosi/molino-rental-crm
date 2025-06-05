@@ -5,12 +5,16 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "functions": {
-    "app/api/**/*.ts": {
+    "app/**/*.ts": {
+      "maxDuration": 30
+    },
+    "app/**/*.tsx": {
       "maxDuration": 30
     }
   },
   "env": {
-    "PRISMA_GENERATE_DATAPROXY": "true"
+    "PRISMA_GENERATE_DATAPROXY": "true",
+    "NEXT_PRIVATE_SKIP_VALIDATE_MANIFEST": "true"
   },
   "regions": ["fra1"],
   "redirects": [
@@ -19,5 +23,6 @@
       "destination": "/dashboard",
       "permanent": false
     }
-  ]
+  ],
+  "outputDirectory": ".next"
 }
