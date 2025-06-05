@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/src/lib/db'
 import bcrypt from 'bcryptjs'
 
 // IMPORTANT: Delete this file after using it!
