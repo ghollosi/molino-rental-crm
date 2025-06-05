@@ -43,8 +43,7 @@ export async function GET(request: Request) {
         data: {
           email: 'admin@molino.com',
           password: hashedPassword,
-          firstName: 'Admin',
-          lastName: 'User',
+          name: 'Admin User',
           role: 'ADMIN',
           language: 'HU',
           isActive: true
