@@ -4,57 +4,30 @@
 
    ▲ Next.js 15.3.2
    - Local:        http://localhost:3333
-   - Network:      http://192.168.2.90:3333
+   - Network:      http://192.168.2.197:3333
    - Environments: .env.local, .env
 
  ✓ Starting...
- ✓ Ready in 1478ms
- ✓ Compiled /middleware in 373ms (311 modules)
+ ✓ Ready in 1529ms
+ ✓ Compiled /middleware in 319ms (311 modules)
 [33m[auth][warn][debug-enabled][0m Read more: https://warnings.authjs.dev
+ ○ Compiling /api/health-check ...
+ ✓ Compiled /api/health-check in 640ms (410 modules)
+ GET /api/health-check 200 in 761ms
+ ○ Compiling /dashboard/owners ...
+ ✓ Compiled /dashboard/owners in 2.9s (1480 modules)
+ GET /dashboard/owners 200 in 3585ms
+ ✓ Compiled in 741ms (656 modules)
  ○ Compiling / ...
- ✓ Compiled / in 2.1s (1088 modules)
- GET / 200 in 2377ms
- ✓ Compiled in 365ms (487 modules)
- GET / 200 in 29ms
- GET / 200 in 23ms
- GET / 200 in 32ms
- GET / 200 in 35ms
- GET / 200 in 30ms
- GET / 200 in 30ms
- GET / 200 in 29ms
- GET / 200 in 32ms
+ ✓ Compiled / in 737ms (1472 modules)
+ GET / 200 in 959ms
  GET / 200 in 26ms
- GET / 200 in 29ms
- GET / 200 in 25ms
- GET / 200 in 26ms
- GET / 200 in 27ms
- GET / 200 in 26ms
- GET / 200 in 27ms
- GET / 200 in 29ms
- GET / 200 in 20ms
- GET / 200 in 26ms
- GET / 200 in 26ms
- GET / 200 in 30ms
- GET / 200 in 25ms
- GET / 200 in 29ms
- GET / 200 in 26ms
- GET / 200 in 30ms
- GET / 200 in 27ms
- GET / 200 in 32ms
- GET / 200 in 27ms
- GET / 200 in 39ms
- ○ Compiling /api/auth/[...nextauth] ...
- ✓ Compiled /api/auth/[...nextauth] in 1040ms (1243 modules)
- GET /api/auth/session 200 in 1990ms
- GET /api/auth/session 200 in 8ms
- GET / 200 in 144ms
- ○ Compiling /dashboard ...
- ✓ Compiled /dashboard in 2.1s (3850 modules)
- GET /dashboard 200 in 2766ms
- GET /api/auth/session 200 in 99ms
+ GET /dashboard/owners 200 in 253ms
  ○ Compiling /api/trpc/[trpc] ...
- ✓ Compiled /api/trpc/[trpc] in 1723ms (4000 modules)
- GET /api/auth/session 200 in 1975ms
+ ✓ Compiled /api/trpc/[trpc] in 1219ms (1774 modules)
+ GET / 200 in 592ms
+ GET /api/auth/session 200 in 2011ms
+ GET /api/auth/session 200 in 8ms
 === SESSION DEBUG ===
 Session user: {
   email: 'admin@molino.com',
@@ -71,47 +44,1213 @@ Database user: {
   role: 'ADMIN',
   language: 'HU'
 }
- GET /api/trpc/user.getCurrentUser,company.get?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 2539ms
- GET /api/trpc/analytics.dashboardStats,analytics.getFinancialSummary,issue.list,analytics.getOutstandingPayments,analytics.issuesByMonth,analytics.propertiesByStatus,analytics.revenueByMonth,analytics.issuesByCategory,property.list,contract.list,issue.list,issue.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A3%2C%22sortBy%22%3A%22createdAt%22%2C%22sortOrder%22%3A%22desc%22%7D%7D%2C%223%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%224%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%225%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%226%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%227%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%228%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%229%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2210%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%2211%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22OPEN%22%7D%7D%2C%2212%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 1913ms
- GET / 200 in 172ms
- GET / 200 in 36ms
- GET / 200 in 56ms
+ GET /api/trpc/user.getCurrentUser,company.get,owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 2107ms
+ ○ Compiling /dashboard/owners/new ...
+ ✓ Compiled /dashboard/owners/new in 829ms (1803 modules)
+ GET /dashboard/owners/new 200 in 915ms
+ GET / 200 in 83ms
+ GET / 200 in 30ms
+ GET / 200 in 32ms
+ GET / 200 in 32ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 21ms
+ GET / 200 in 30ms
+ GET / 200 in 28ms
+ GET / 200 in 28ms
+ GET / 200 in 27ms
+ GET / 200 in 26ms
+ GET / 200 in 28ms
+ ○ Compiling /dashboard/properties ...
+ ✓ Compiled /dashboard/properties in 1015ms (1494 modules)
+ GET /dashboard/properties 200 in 1126ms
+ ✓ Compiled /api/trpc/[trpc] in 178ms (1150 modules)
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 495ms
+ ○ Compiling /dashboard/properties/new ...
+ ✓ Compiled /dashboard/properties/new in 652ms (1857 modules)
+ GET /dashboard/properties/new 200 in 727ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 165ms
+ GET /dashboard/owners 200 in 31ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22isCompany%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22isCompany%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 14ms
+ GET / 200 in 91ms
+ GET /dashboard/owners/new 200 in 28ms
+ GET /dashboard/properties 200 in 34ms
+ GET / 200 in 33ms
+ GET /dashboard/properties/new 200 in 20ms
+ GET /dashboard/properties 200 in 20ms
+ GET / 200 in 28ms
+ ✓ Compiled /dashboard/properties/[id]/edit in 479ms (1870 modules)
+ GET /dashboard/properties/cmbg8zokv001njnzoks43jprl/edit 200 in 987ms
+ GET /api/trpc/property.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmbg8zokv001njnzoks43jprl%22%7D%7D 200 in 111ms
+ GET / 200 in 74ms
+ GET / 200 in 28ms
  GET / 200 in 46ms
- GET / 200 in 45ms
- GET / 200 in 51ms
- GET / 200 in 44ms
- GET / 200 in 52ms
- GET / 200 in 35ms
- GET / 200 in 51ms
- GET / 200 in 35ms
- GET / 200 in 39ms
+ GET / 200 in 30ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 20ms
+ GET / 200 in 32ms
+ GET / 200 in 32ms
+ GET / 200 in 29ms
+ GET / 200 in 30ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 23ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms
+ GET / 200 in 30ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 29ms
+ GET / 200 in 22ms
+ GET / 200 in 30ms
+ GET / 200 in 32ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,company.get,property.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%22cmbg8zokv001njnzoks43jprl%22%7D%7D 200 in 122ms
+ GET / 200 in 37ms
+ GET / 200 in 30ms
+ GET / 200 in 32ms
+ GET / 200 in 28ms
+ ○ Compiling /dashboard/tenants ...
+ ✓ Compiled /dashboard/tenants in 995ms (1879 modules)
+ GET /dashboard/tenants 200 in 1062ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 160ms
+ ○ Compiling /dashboard/tenants/new ...
+ ✓ Compiled /dashboard/tenants/new in 780ms (1888 modules)
+ GET / 200 in 449ms
+ GET /dashboard/tenants/new 200 in 902ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%2C%22status%22%3A%22AVAILABLE%22%7D%7D%7D 200 in 123ms
+ GET / 200 in 24ms
+ GET / 200 in 32ms
+ GET / 200 in 32ms
+ GET / 200 in 29ms
+ GET / 200 in 29ms
+ GET / 200 in 25ms
+ GET / 200 in 33ms
+ GET / 200 in 32ms
+ GET / 200 in 32ms
+ GET / 200 in 31ms
+ GET / 200 in 28ms
+ GET / 200 in 20ms
+ GET / 200 in 27ms
+ GET / 200 in 28ms
+ GET / 200 in 25ms
+ GET / 200 in 29ms
+ GET / 200 in 27ms
+ GET / 200 in 29ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 31ms
+ GET /dashboard/tenants 200 in 32ms
+ GET /api/trpc/tenant.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 19ms
+ GET / 200 in 27ms
+ GET / 200 in 31ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 27ms
+ GET / 200 in 29ms
+ GET / 200 in 28ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ ○ Compiling /dashboard/providers ...
+ ✓ Compiled /dashboard/providers in 989ms (1571 modules)
+ GET /dashboard/providers 200 in 1109ms
+ ✓ Compiled /api/trpc/[trpc] in 231ms (1190 modules)
+ GET /api/trpc/provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 792ms
+ ○ Compiling /dashboard/providers/new ...
+ ✓ Compiled /dashboard/providers/new in 732ms (1908 modules)
+ GET /dashboard/providers/new 200 in 791ms
+ GET / 200 in 61ms
+ GET / 200 in 29ms
+ ○ Compiling /dashboard/issues ...
+ ✓ Compiled /dashboard/issues in 603ms (1897 modules)
+ GET /dashboard/issues 200 in 650ms
+ GET /api/trpc/issue.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%2C%22priority%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%2C%22priority%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 148ms
+ GET /dashboard/providers 200 in 26ms
+ ○ Compiling /dashboard/providers/[id] ...
+ ✓ Compiled /dashboard/providers/[id] in 517ms (1897 modules)
+ GET /dashboard/providers/cmbg8zokp0017jnzow7keu7m8 200 in 973ms
+ GET / 200 in 72ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getById,issue.list,provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmbg8zokp0017jnzow7keu7m8%22%7D%2C%221%22%3A%7B%22json%22%3A%7B%22assignedToId%22%3A%22cmbg8zokp0017jnzow7keu7m8%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmbg8zokp0017jnzow7keu7m8%22%7D%7D%7D 207 in 94ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmbg8zokp0017jnzow7keu7m8%22%7D%7D%7D 404 in 15ms
+❌ tRPC failed on provider.getStats: No procedure found on path "provider.getStats"
+ GET /api/trpc/provider.getStats?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22id%22%3A%22cmbg8zokp0017jnzow7keu7m8%22%7D%7D%7D 404 in 14ms
+ GET /dashboard/issues 200 in 29ms
  GET / 200 in 36ms
+ ○ Compiling /dashboard/issues/[id] ...
+ ✓ Compiled /dashboard/issues/[id] in 611ms (1908 modules)
+ GET /dashboard/issues/cmbg8zol6002kjnzogdnaqi70 200 in 962ms
+ GET /api/trpc/issue.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmbg8zol6002kjnzogdnaqi70%22%7D%7D 200 in 81ms
+ ✓ Compiled /dashboard/issues/[id]/edit in 372ms (1912 modules)
+ GET /dashboard/issues/cmbg8zol6002kjnzogdnaqi70/edit 200 in 789ms
+ GET / 200 in 78ms
+ ○ Compiling /dashboard/issues/new ...
+ ✓ Compiled /dashboard/issues/new in 586ms (1927 modules)
+ GET /dashboard/issues/new 200 in 650ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 88ms
+ GET / 200 in 49ms
+ GET / 200 in 26ms
+ ○ Compiling /dashboard/offers ...
+ ✓ Compiled /dashboard/offers in 703ms (1934 modules)
+ GET /dashboard/offers 200 in 743ms
+ GET /api/trpc/offer.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 90ms
+ ○ Compiling /dashboard/offers/[id] ...
+ ✓ Compiled /dashboard/offers/[id] in 851ms (1947 modules)
+ GET / 200 in 540ms
+ GET /dashboard/offers/cmbidmklh00098z7ypehmqzum 200 in 1355ms
+ GET /api/trpc/offer.getById?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%22cmbidmklh00098z7ypehmqzum%22%7D%7D 200 in 85ms
+ ○ Compiling /dashboard/contracts ...
+ ✓ Compiled /dashboard/contracts in 766ms (1938 modules)
+ GET /dashboard/contracts 200 in 811ms
+ GET /api/trpc/contract.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 86ms
+ GET / 200 in 134ms
+ GET / 200 in 30ms
+ GET / 200 in 26ms
  GET / 200 in 38ms
- GET / 200 in 64ms
+ GET / 200 in 32ms
+ GET / 200 in 30ms
+ GET / 200 in 30ms
  GET / 200 in 34ms
+ GET / 200 in 35ms
+ GET / 200 in 33ms
+ GET / 200 in 32ms
+ GET / 200 in 30ms
+ GET / 200 in 26ms
+ ○ Compiling /dashboard/provider-matching ...
+ ✓ Compiled /dashboard/provider-matching in 1137ms (1608 modules)
+ GET / 200 in 713ms
+ GET /dashboard/provider-matching 200 in 1281ms
+ ✓ Compiled /api/trpc/[trpc] in 203ms (1179 modules)
+ GET /api/trpc/property.list,provider.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 423ms
+ GET / 200 in 100ms
+ GET / 200 in 48ms
+ GET / 200 in 32ms
+ GET / 200 in 43ms
+ GET / 200 in 42ms
+ GET / 200 in 24ms
+ GET / 200 in 46ms
+ GET / 200 in 31ms
+ GET / 200 in 37ms
+ GET / 200 in 42ms
+ GET / 200 in 36ms
+ GET / 200 in 77ms
+ GET / 200 in 39ms
+ GET / 200 in 27ms
+ GET / 200 in 42ms
+ GET / 200 in 44ms
+ GET / 200 in 26ms
+ GET / 200 in 27ms
+ GET / 200 in 21ms
  GET / 200 in 30ms
  GET / 200 in 28ms
  GET / 200 in 29ms
- GET / 200 in 49ms
- GET / 200 in 51ms
- GET / 200 in 42ms
- GET / 200 in 38ms
+ GET / 200 in 23ms
+ GET / 200 in 28ms
+ GET / 200 in 27ms
+ GET / 200 in 26ms
+ GET / 200 in 20ms
  GET / 200 in 29ms
- GET / 200 in 34ms
- GET / 200 in 36ms
- GET / 200 in 32ms
+ GET / 200 in 27ms
  GET / 200 in 30ms
- GET / 200 in 37ms
- GET / 200 in 40ms
+ ○ Compiling /dashboard/reports ...
+ ✓ Compiled /dashboard/reports in 1460ms (1613 modules)
+ GET /dashboard/reports 200 in 1546ms
+ ✓ Compiled /api/trpc/[trpc] in 221ms (1180 modules)
+ GET /api/trpc/analytics.dashboardStats,analytics.propertiesByStatus,analytics.issuesByPriority?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 716ms
+ GET / 200 in 87ms
+ ○ Compiling /dashboard/users ...
+ ✓ Compiled /dashboard/users in 667ms (1928 modules)
+ GET /dashboard/users 200 in 702ms
+ GET /api/trpc/user.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A20%2C%22search%22%3Anull%2C%22role%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22role%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 79ms
  GET / 200 in 50ms
+ ✓ Compiled /dashboard/settings/profile in 394ms (1926 modules)
+ GET /dashboard/settings/profile 200 in 458ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 77ms
+ GET / 200 in 56ms
+ ○ Compiling /dashboard/settings/company ...
+ ✓ Compiled /dashboard/settings/company in 570ms (1943 modules)
+ GET /dashboard/settings/company 200 in 632ms
+ GET /api/trpc/company.get?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 85ms
+ GET / 200 in 46ms
+ GET / 200 in 36ms
+ GET / 200 in 34ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 35ms
+ GET / 200 in 34ms
+ GET / 200 in 31ms
+ GET / 200 in 30ms
+ GET / 200 in 36ms
+ ○ Compiling /dashboard/settings/email ...
+ ✓ Compiled /dashboard/settings/email in 1255ms (1621 modules)
+ GET /dashboard/settings/email 200 in 1346ms
+ GET / 200 in 77ms
+ GET / 200 in 27ms
+ GET / 200 in 44ms
+ GET / 200 in 56ms
+ GET / 200 in 34ms
+ GET / 200 in 33ms
+ GET / 200 in 29ms
+ GET / 200 in 77ms
+ GET / 200 in 24ms
+ GET / 200 in 38ms
+ GET / 200 in 34ms
+ GET / 200 in 31ms
+ GET / 200 in 24ms
+ GET / 200 in 31ms
+ GET / 200 in 33ms
+ GET / 200 in 73ms
+ ○ Compiling /dashboard/settings/workflow ...
+ ✓ Compiled /dashboard/settings/workflow in 1312ms (1627 modules)
+ GET /dashboard/settings/workflow 200 in 1371ms
+ ✓ Compiled /_not-found in 441ms (1631 modules)
+ POST /api/cron/workflow 404 in 529ms
+ GET / 200 in 28ms
+ GET / 200 in 43ms
+ GET / 200 in 33ms
+ GET / 200 in 33ms
+ ✓ Compiled /api/trpc/[trpc] in 314ms (1170 modules)
+ GET /api/trpc/company.get?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 827ms
+ GET / 200 in 93ms
+ ○ Compiling /dashboard/settings/cloud-storage ...
+ ✓ Compiled /dashboard/settings/cloud-storage in 921ms (1956 modules)
+ GET /dashboard/settings/cloud-storage 200 in 979ms
+ ○ Compiling /api/cloud-storage ...
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+✅ R2 Cloud Storage initialized successfully
+Cloud storage GET error: TypeError: (0 , next_auth__WEBPACK_IMPORTED_MODULE_2__.getServerSession) is not a function
+    at GET (app/api/cloud-storage/route.ts:15:43)
+  13 | export async function GET(request: NextRequest) {
+  14 |   try {
+> 15 |     const session = await getServerSession(authOptions);
+     |                                           ^
+  16 |     
+  17 |     if (!session) {
+  18 |       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+ GET /api/cloud-storage?action=test 500 in 953ms
+Cloud storage GET error: TypeError: (0 , next_auth__WEBPACK_IMPORTED_MODULE_2__.getServerSession) is not a function
+    at GET (app/api/cloud-storage/route.ts:15:43)
+  13 | export async function GET(request: NextRequest) {
+  14 |   try {
+> 15 |     const session = await getServerSession(authOptions);
+     |                                           ^
+  16 |     
+  17 |     if (!session) {
+  18 |       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+ GET /api/cloud-storage?action=test 500 in 28ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET / 200 in 694ms
+ GET /dashboard/settings/rate-limit 200 in 1837ms
+ GET / 200 in 33ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET /dashboard/admin/integrations 200 in 1162ms
+ GET /api/trpc/integrationConfig.getAll,integrationConfig.get?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22type%22%3A%22ZOHO_BOOKS%22%7D%7D%7D 200 in 170ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET /dashboard/settings/zoho 200 in 610ms
+ GET /api/trpc/tenant.list,property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 144ms
+ GET / 200 in 48ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET /dashboard/settings/ai-pricing 200 in 969ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET / 200 in 1130ms
+ GET /dashboard/settings/smart-locks 200 in 1809ms
+ GET /api/trpc/smartLock.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A100%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 181ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET /dashboard/settings/access-automation 200 in 1328ms
+❌ tRPC failed on accessAutomation.getExpiringAccess: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessRules: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessViolations: Cannot read properties of undefined (reading 'accessMonitoring')
+ GET /api/trpc/accessAutomation.getTimeRestrictionOptions,accessAutomation.getWeekdayOptions,accessAutomation.getAccessRules,accessAutomation.getExpiringAccess,accessAutomation.getAccessViolations?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A20%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22daysAhead%22%3A7%2C%22propertyId%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%224%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A10%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 207 in 88ms
+❌ tRPC failed on accessAutomation.getExpiringAccess: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessRules: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessViolations: Cannot read properties of undefined (reading 'accessMonitoring')
+ GET /api/trpc/accessAutomation.getAccessRules,accessAutomation.getExpiringAccess,accessAutomation.getAccessViolations?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A20%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22daysAhead%22%3A7%2C%22propertyId%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A10%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 500 in 25ms
+❌ tRPC failed on accessAutomation.getExpiringAccess: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessRules: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessViolations: Cannot read properties of undefined (reading 'accessMonitoring')
+ GET /api/trpc/accessAutomation.getAccessRules,accessAutomation.getExpiringAccess,accessAutomation.getAccessViolations?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A20%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22daysAhead%22%3A7%2C%22propertyId%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A10%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 500 in 19ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET / 200 in 901ms
+ GET /dashboard/settings/access-logs 200 in 1455ms
+❌ tRPC failed on accessAutomation.getExpiringAccess: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessRules: Cannot read properties of undefined (reading 'accessRule')
+❌ tRPC failed on accessAutomation.getAccessViolations: Cannot read properties of undefined (reading 'accessMonitoring')
+ GET /api/trpc/accessAutomation.getAccessRules,accessAutomation.getExpiringAccess,accessAutomation.getAccessViolations?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A20%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22daysAhead%22%3A7%2C%22propertyId%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A10%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 500 in 182ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET /dashboard/settings/spanish-vat 200 in 1557ms
+ GET / 200 in 103ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ GET /dashboard/settings/payment-reconciliation 200 in 1761ms
+ GET /api/trpc/reconciliation.getStats,reconciliation.getLogs,reconciliation.getUnreconciledInvoices?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22dateFrom%22%3A%222025-05-06%22%2C%22dateTo%22%3A%222025-06-05%22%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22dateFrom%22%3A%222025-05-06%22%2C%22dateTo%22%3A%222025-06-05%22%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A5%7D%7D%7D 200 in 182ms
+ ⚠ ./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'getServerSession' is not exported from 'next-auth' (imported as 'getServerSession').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+
+./app/api/cloud-storage/route.ts
+Attempted import error: 'authOptions' is not exported from '@/lib/auth' (imported as 'authOptions').
+
+Import trace for requested module:
+./app/api/cloud-storage/route.ts
+ ✓ Compiled /dashboard/properties in 1325ms (1245 modules)
+ GET /dashboard/properties 200 in 1423ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 205ms
+ GET / 200 in 79ms
+ GET / 200 in 32ms
+ GET / 200 in 34ms
+ GET / 200 in 33ms
+ GET / 200 in 34ms
+ GET / 200 in 33ms
+ GET / 200 in 75ms
+ GET /dashboard/settings/smart-locks 200 in 43ms
+ GET /api/trpc/property.list,smartLock.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%221%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A100%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 176ms
+ GET / 200 in 28ms
+ GET / 200 in 49ms
+ GET / 200 in 40ms
+ GET / 200 in 48ms
+ GET / 200 in 28ms
+ GET / 200 in 34ms
+ GET / 200 in 28ms
+ GET / 200 in 51ms
  GET / 200 in 33ms
  GET / 200 in 30ms
- GET / 200 in 28ms
- GET / 200 in 37ms
- GET / 200 in 32ms
+ GET / 200 in 29ms
+ GET / 200 in 31ms
+ GET / 200 in 31ms
+ GET / 200 in 48ms
  GET / 200 in 30ms
- GET / 200 in 41ms
- GET / 200 in 37ms
- GET / 200 in 44ms
- GET / 200 in 56ms
+ GET / 200 in 31ms
+ GET / 200 in 24ms
+ GET / 200 in 35ms
+ GET / 200 in 32ms
+ GET / 200 in 43ms
+ GET / 200 in 35ms
+ GET / 200 in 39ms
+ ✓ Compiled in 1990ms (859 modules)
+ GET /dashboard/settings/smart-locks 200 in 27ms
+ GET / 200 in 63ms
+ ✓ Compiled in 923ms (859 modules)
+ GET / 200 in 32ms
+ GET /dashboard/settings/smart-locks 200 in 17ms
+ GET / 200 in 55ms
+ ✓ Compiled in 766ms (859 modules)
+ GET /dashboard/settings/smart-locks 200 in 18ms
+ GET / 200 in 22ms
+ ✓ Compiled in 851ms (859 modules)
+ GET /dashboard/settings/smart-locks 200 in 17ms
+ GET / 200 in 27ms
+ ✓ Compiled in 300ms (859 modules)
+ GET /dashboard/settings/smart-locks 200 in 15ms
+ GET / 200 in 28ms
+ GET / 200 in 116ms
+ ✓ Compiled in 281ms (859 modules)
+ GET /dashboard/settings/smart-locks 200 in 19ms
+ GET / 200 in 24ms
+ GET / 200 in 147ms
+ ✓ Compiled in 1236ms (1743 modules)
+ GET /dashboard/settings/smart-locks 200 in 122ms
+ GET / 200 in 85ms
+ GET / 200 in 26ms
+ GET / 200 in 59ms
+ GET / 200 in 32ms
+ GET / 200 in 121ms
+ ✓ Compiled in 1217ms (1743 modules)
+ GET /dashboard/settings/smart-locks 200 in 50ms
+ ✓ Compiled in 1088ms (1743 modules)
+ GET /dashboard/settings/smart-locks 200 in 31ms
+ GET / 200 in 95ms
+ GET / 200 in 49ms
+ GET /dashboard/settings/smart-locks 200 in 176ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/trpc/[trpc] in 1277ms (1052 modules)
+ ✓ Compiled (1202 modules)
+ GET /api/auth/session 200 in 2379ms
+=== SESSION DEBUG ===
+Session user: {
+  email: 'admin@molino.com',
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /dashboard/settings/smart-locks 200 in 86ms
+ GET /api/auth/session 200 in 73ms
+Database user: {
+  id: 'cmbg8zok30001jnzozdzjjx0i',
+  email: 'admin@molino.com',
+  firstName: 'Gabor',
+  lastName: 'Hollosi',
+  phone: '+36 20 123 4567',
+  role: 'ADMIN',
+  language: 'HU'
+}
+ GET /api/trpc/user.getCurrentUser,company.get,property.list,smartLock.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%2C%223%22%3A%7B%22json%22%3A%7B%22propertyId%22%3Anull%2C%22page%22%3A1%2C%22limit%22%3A100%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22propertyId%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 1916ms
+ GET /dashboard/properties 200 in 28ms
+ GET /api/trpc/property.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A10%2C%22search%22%3Anull%2C%22type%22%3Anull%2C%22status%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22search%22%3A%5B%22undefined%22%5D%2C%22type%22%3A%5B%22undefined%22%5D%2C%22status%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D 200 in 23ms
+ GET / 200 in 67ms
+ ○ Compiling /dashboard/properties/new ...
+ ✓ Compiled /dashboard/properties/new in 1292ms (1232 modules)
+ GET /dashboard/properties/new 200 in 1382ms
+ ✓ Compiled in 288ms (859 modules)
+ GET /dashboard/properties/new 200 in 16ms
+ GET /api/trpc/owner.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22page%22%3A1%2C%22limit%22%3A100%7D%7D%7D 200 in 144ms
+ GET / 200 in 144ms
+ GET / 200 in 62ms
+ GET / 200 in 39ms
+ GET / 200 in 54ms
+ GET / 200 in 33ms
+ GET / 200 in 35ms
+ GET / 200 in 69ms
+ GET / 200 in 75ms
  GET / 200 in 38ms
+ GET / 200 in 34ms
+ GET / 200 in 35ms
+ GET / 200 in 30ms
+ GET / 200 in 36ms
+ GET / 200 in 30ms
+ GET / 200 in 34ms
+ GET / 200 in 43ms
+ GET / 200 in 30ms
+ GET / 200 in 27ms
+ GET / 200 in 48ms
+ GET / 200 in 26ms
+ GET / 200 in 31ms
+ GET / 200 in 51ms
+ GET / 200 in 29ms

@@ -180,6 +180,7 @@ model Property {
   size          Float?    // m²
   rooms         Int?
   bedrooms      Int?      // New field for bedroom count
+  capacity      Int?      // Number of guests/occupants the property can accommodate
   floor         Int?
   rentAmount    Decimal?
   currency      String    @default("EUR")

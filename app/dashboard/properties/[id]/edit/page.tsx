@@ -50,6 +50,7 @@ export default function EditPropertyPage() {
     type: 'APARTMENT' as const,
     size: '',
     rooms: '',
+    capacity: '',
     floor: '',
     rentAmount: '',
     currency: 'HUF',
@@ -69,6 +70,7 @@ export default function EditPropertyPage() {
         type: property.type,
         size: property.size?.toString() || '',
         rooms: property.rooms?.toString() || '',
+        capacity: property.capacity?.toString() || '',
         floor: property.floor?.toString() || '',
         rentAmount: property.rentAmount?.toString() || '',
         currency: property.currency || 'HUF',
@@ -91,6 +93,7 @@ export default function EditPropertyPage() {
       type: formData.type,
       size: formData.size ? parseFloat(formData.size) : undefined,
       rooms: formData.rooms ? parseInt(formData.rooms) : undefined,
+      capacity: formData.capacity ? parseInt(formData.capacity) : undefined,
       floor: formData.floor ? parseInt(formData.floor) : undefined,
       rentAmount: formData.rentAmount ? parseFloat(formData.rentAmount) : undefined,
       currency: formData.currency,
@@ -171,7 +174,7 @@ export default function EditPropertyPage() {
               </Select>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
                 <Label htmlFor="size">Méret (m²)</Label>
                 <Input
@@ -190,6 +193,16 @@ export default function EditPropertyPage() {
                   type="number"
                   value={formData.rooms}
                   onChange={(e) => setFormData({ ...formData, rooms: e.target.value })}
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="capacity">Férőhelyek száma</Label>
+                <Input
+                  id="capacity"
+                  type="number"
+                  value={formData.capacity}
+                  onChange={(e) => setFormData({ ...formData, capacity: e.target.value })}
                 />
               </div>
 

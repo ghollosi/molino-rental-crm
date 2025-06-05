@@ -145,6 +145,12 @@ export default function PropertyDetailPage() {
                     <p className="font-medium">{property.rooms}</p>
                   </div>
                 )}
+                {property.capacity && (
+                  <div>
+                    <p className="text-sm text-gray-500">Férőhelyek száma</p>
+                    <p className="font-medium">{property.capacity} fő</p>
+                  </div>
+                )}
                 {property.floor !== null && property.floor !== undefined && (
                   <div>
                     <p className="text-sm text-gray-500">Emelet</p>

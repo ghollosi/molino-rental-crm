@@ -13,6 +13,7 @@ const PropertyCreateSchema = z.object({
   type: z.enum(['APARTMENT', 'HOUSE', 'OFFICE', 'COMMERCIAL']),
   size: z.number().positive().optional(),
   rooms: z.number().int().positive().optional(),
+  capacity: z.number().int().positive().optional(),
   floor: z.number().int().optional(),
   rentAmount: z.number().positive().optional(),
   currency: z.string().default('EUR'),

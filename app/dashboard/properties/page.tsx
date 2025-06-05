@@ -169,6 +169,7 @@ export default function PropertiesPage() {
                     <TableHead>Típus</TableHead>
                     <TableHead>Tulajdonos</TableHead>
                     <TableHead>Bérlő</TableHead>
+                    <TableHead>Férőhelyek</TableHead>
                     <TableHead>Bérleti díj</TableHead>
                     <TableHead>Státusz</TableHead>
                     <TableHead className="text-right">Műveletek</TableHead>
@@ -195,6 +196,9 @@ export default function PropertiesPage() {
                       </TableCell>
                       <TableCell>
                         {property.currentTenant?.user?.name || '-'}
+                      </TableCell>
+                      <TableCell>
+                        {property.capacity ? `${property.capacity} fő` : '-'}
                       </TableCell>
                       <TableCell>
                         {property.rentAmount

@@ -26,6 +26,7 @@ const propertySchema = z.object({
   type: z.enum(['APARTMENT', 'HOUSE', 'OFFICE', 'COMMERCIAL']),
   size: z.string().optional().transform(val => val ? parseFloat(val) : undefined),
   rooms: z.string().optional().transform(val => val ? parseInt(val) : undefined),
+  capacity: z.string().optional().transform(val => val ? parseInt(val) : undefined),
   floor: z.string().optional().transform(val => val ? parseInt(val) : undefined),
   rentAmount: z.string().optional().transform(val => val ? parseFloat(val) : undefined),
   currency: z.string().default('HUF'),
@@ -230,7 +231,7 @@ export default function NewPropertyPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="size">Méret (m²)</Label>
                 <Input
@@ -249,6 +250,16 @@ export default function NewPropertyPage() {
                   type="number"
                   placeholder="pl. 3"
                   {...register('rooms')}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="capacity">Férőhelyek száma</Label>
+                <Input
+                  id="capacity"
+                  type="number"
+                  placeholder="pl. 6"
+                  {...register('capacity')}
                 />
               </div>
 
