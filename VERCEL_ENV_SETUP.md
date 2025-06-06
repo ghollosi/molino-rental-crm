@@ -7,7 +7,7 @@ Go to: https://vercel.com/ghollosi/molino-rental-crm/settings/environment-variab
 **ADD THESE EXACTLY:**
 
 ```
-DATABASE_URL=postgresql://postgres.bwpuhldzbgxfjohjjnll:Kata_1979A@aws-0-eu-west-3.pooler.supabase.com:6543/postgres
+DATABASE_URL=postgresql://postgres.wymltaiembzuugxnaqzz:Gabo123kekw@aws-0-eu-central-2.pooler.supabase.com:6543/postgres
 
 NEXTAUTH_URL=https://molino-rental-crm-production.vercel.app
 

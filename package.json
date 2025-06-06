@@ -32,7 +32,10 @@
     "session:recover": "tsx src/scripts/session-recovery.ts recover",
     "checkpoint:create": "bash src/scripts/checkpoint.sh create",
     "checkpoint:restore": "bash src/scripts/checkpoint.sh restore",
-    "status": "tsx src/scripts/project-status.ts"
+    "status": "tsx src/scripts/project-status.ts",
+    "deploy:production": "./scripts/deploy-production.sh",
+    "setup:supabase": "tsx scripts/supabase-production-setup.ts",
+    "test:production": "tsx scripts/test-production.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",
