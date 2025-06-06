@@ -34,3 +34,31 @@ If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-r
  ✓ Compiled in 64ms (590 modules)
  ✓ Compiled in 92ms (590 modules)
  ✓ Compiled in 82ms (590 modules)
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.197:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ⚠ Invalid next.config.ts options detected: 
+ ⚠     Unrecognized key(s) in object: 'outputFileTracingExcludes' at "experimental"
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+ ⚠ `experimental.outputFileTracingExcludes` has been moved to `outputFileTracingExcludes`. Please update your next.config.ts file accordingly.
+ ✓ Ready in 1424ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.197:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1301ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.3.2
+   - Local:        http://localhost:3333
+   - Network:      http://192.168.2.197:3333
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1222ms

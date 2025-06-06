@@ -1,8 +1,8 @@
 import { z } from "zod"
 
 const envSchema = z.object({
-  // Database
-  DATABASE_URL: z.string().url(),
+  // Database - PostgreSQL connection strings are not standard URLs
+  DATABASE_URL: z.string().min(1),
   
   // NextAuth
   NEXTAUTH_URL: z.string().url(),

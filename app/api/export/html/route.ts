@@ -6,8 +6,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
-import { db } from '@/src/lib/db';
-import { generateOfferHTML, generateReportHTML } from '@/src/lib/pdf-simple';
+import { db } from '@/lib/db';
+import { generateOfferHTML, generateReportHTML } from '@/lib/pdf-simple';
 import { 
   generatePropertiesListHTML,
   generateOwnersListHTML,
@@ -15,7 +15,7 @@ import {
   generateIssuesListHTML,
   generateOffersListHTML,
   generateProvidersListHTML
-} from '@/src/lib/pdf-lists';
+} from '@/lib/pdf-lists';
 
 // POST metódus egyedi dokumentumokhoz (ajánlat, riport)
 export async function POST(request: NextRequest) {

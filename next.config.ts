@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  trailingSlash: false,
+  generateBuildId: () => 'build-' + Date.now(),
+  poweredByHeader: false,
 };
 
 export default nextConfig;
