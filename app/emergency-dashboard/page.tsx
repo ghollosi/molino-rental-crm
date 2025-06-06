@@ -86,7 +86,7 @@ export default function EmergencyDashboard() {
               </div>
             </div>
             
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button 
                 onClick={handleEmergencyLogin}
                 disabled={status === 'loading'}
@@ -100,6 +100,41 @@ export default function EmergencyDashboard() {
                 variant="outline"
               >
                 Test Database
+              </Button>
+
+              <Button 
+                onClick={async () => {
+                  try {
+                    const response = await fetch('/api/check-password', { method: 'POST' });
+                    const result = await response.json();
+                    setDashboardData(result);
+                  } catch (error) {
+                    setDashboardData({ error: 'Password check failed' });
+                  }
+                }}
+                variant="secondary"
+              >
+                Check Password
+              </Button>
+
+              <Button 
+                onClick={async () => {
+                  try {
+                    const response = await fetch('/api/fix-admin-password', { method: 'POST' });
+                    const result = await response.json();
+                    setDashboardData(result);
+                    if (result.success) {
+                      setMessage('Admin password fixed! Try login now.');
+                      setStatus('success');
+                    }
+                  } catch (error) {
+                    setDashboardData({ error: 'Password fix failed' });
+                  }
+                }}
+                variant="default"
+                className="bg-green-600 hover:bg-green-700"
+              >
+                Fix Admin Password
               </Button>
             </div>
 
