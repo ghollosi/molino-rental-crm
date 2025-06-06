@@ -120,21 +120,26 @@ export default function EmergencyDashboard() {
               <Button 
                 onClick={async () => {
                   try {
-                    const response = await fetch('/api/fix-admin-password', { method: 'POST' });
+                    const response = await fetch('/api/sql-fix-password', { method: 'POST' });
                     const result = await response.json();
                     setDashboardData(result);
                     if (result.success) {
-                      setMessage('Admin password fixed! Try login now.');
+                      setMessage('✅ Admin password fixed with raw SQL! Try login now.');
                       setStatus('success');
+                    } else {
+                      setMessage('❌ Password fix failed: ' + result.error);
+                      setStatus('error');
                     }
                   } catch (error) {
                     setDashboardData({ error: 'Password fix failed' });
+                    setMessage('❌ Connection error during password fix');
+                    setStatus('error');
                   }
                 }}
                 variant="default"
                 className="bg-green-600 hover:bg-green-700"
               >
-                Fix Admin Password
+                🔧 Fix Password (SQL)
               </Button>
             </div>
 
