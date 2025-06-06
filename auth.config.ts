@@ -26,8 +26,7 @@ export default {
               id: true,
               email: true,
               password: true,
-              name: true,
-              firstName: true,
+              firstName: true,  // Maps to 'name' column
               lastName: true,
               role: true,
               isActive: true,
@@ -48,8 +47,8 @@ export default {
           
           console.log('Login successful for:', email)
           
-          // Use firstName or name fallback
-          const displayName = user.firstName || user.name || user.email.split('@')[0]
+          // Use firstName (which is mapped to name column)
+          const displayName = user.firstName || user.email.split('@')[0]
           
           return {
             id: user.id,

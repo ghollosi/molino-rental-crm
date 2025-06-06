@@ -16,15 +16,14 @@ export async function POST(request: Request) {
 
     console.log('Debug auth - Finding user:', email);
 
-    // Get user directly
+    // Get user directly - firstName is mapped to 'name' column
     const user = await prisma.user.findUnique({
       where: { email },
       select: {
         id: true,
         email: true,
         password: true,
-        name: true,
-        firstName: true,
+        firstName: true,  // This maps to 'name' column
         lastName: true,
         role: true,
         isActive: true
@@ -52,8 +51,7 @@ export async function POST(request: Request) {
       user: {
         id: user.id,
         email: user.email,
-        name: user.name,
-        firstName: user.firstName,
+        firstName: user.firstName,  // This is actually the 'name' column
         lastName: user.lastName,
         role: user.role,
         isActive: user.isActive
