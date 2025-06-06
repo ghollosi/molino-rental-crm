@@ -37,6 +37,24 @@ export async function POST() {
     
     console.log('✅ User table created')
 
+    // Create other essential tables
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS "Company" (
+        "id" TEXT NOT NULL,
+        "name" TEXT NOT NULL,
+        "taxNumber" TEXT,
+        "bankAccount" TEXT,
+        "street" TEXT,
+        "city" TEXT,
+        "postalCode" TEXT,
+        "country" TEXT,
+        "settings" JSONB NOT NULL DEFAULT '{}',
+        "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT "Company_pkey" PRIMARY KEY ("id")
+      );
+    `)
+
     // Create admin user
     const hashedPassword = await bcrypt.hash('admin123', 12)
     
@@ -60,6 +78,19 @@ export async function POST() {
 
     console.log('✅ Admin user created')
     
+    // Create a default company
+    await client.query(`
+      INSERT INTO "Company" (id, name, settings, "createdAt", "updatedAt")
+      VALUES ($1, $2, $3, NOW(), NOW())
+      ON CONFLICT (id) DO NOTHING
+    `, [
+      'comp_molino_001',
+      'Molino RENTAL Kft.',
+      JSON.stringify({ currency: 'HUF', language: 'HU', timezone: 'Europe/Budapest' })
+    ])
+
+    console.log('✅ Default company created')
+    
     await client.end()
     
     return NextResponse.json({ 
@@ -67,7 +98,9 @@ export async function POST() {
       message: 'Database setup complete! You can now login with admin@molino.com / admin123',
       details: {
         userTable: 'created',
-        adminUser: 'created'
+        companyTable: 'created',
+        adminUser: 'created',
+        defaultCompany: 'created'
       }
     })
     
