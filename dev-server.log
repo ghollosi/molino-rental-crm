@@ -29,3 +29,4 @@ If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-r
  ✓ Compiled /api/health-check in 1450ms (410 modules)
  GET /api/health-check 200 in 1575ms
  ✓ Compiled in 280ms (590 modules)
+ ✓ Compiled in 128ms (590 modules)

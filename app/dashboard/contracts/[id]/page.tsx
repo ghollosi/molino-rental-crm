@@ -307,23 +307,26 @@ export default function ContractDetailPage() {
                   <Button
                     onClick={() => {
                       const content = contract.content || ''
-                      const html = `
-                        <html>
-                        <head>
-                          <meta charset="UTF-8">
-                          <title>Szerződés - ${contract.id}</title>
-                          <style>
-                            body { font-family: Arial, sans-serif; margin: 40px; }
-                            pre { white-space: pre-wrap; font-family: inherit; }
-                          </style>
-                        </head>
-                        <body>
-                          <pre>${content}</pre>
-                          <script>window.print();</script>
-                        </body>
-                        </html>
-                      `
-                      const blob = new Blob([html], { type: 'text/html' })
+                      // Generate HTML for printing - use createElement to avoid JSX parsing issues
+                      const htmlContent = [
+                        '<!DOCTYPE html>',
+                        '<' + 'html>',
+                        '<head>',
+                        '<meta charset="UTF-8">',
+                        `<title>Szerződés - ${contract.id}</title>`,
+                        '<style>',
+                        'body { font-family: Arial, sans-serif; margin: 40px; }',
+                        'pre { white-space: pre-wrap; font-family: inherit; }',
+                        '</style>',
+                        '</head>',
+                        '<body>',
+                        `<pre>${content}</pre>`,
+                        '<script>window.print();</script>',
+                        '</body>',
+                        '</' + 'html>'
+                      ].join('\n')
+                      
+                      const blob = new Blob([htmlContent], { type: 'text/html' })
                       const url = URL.createObjectURL(blob)
                       window.open(url, '_blank')
                     }}
