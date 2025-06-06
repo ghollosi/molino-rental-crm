@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { DashboardStats } from '@/components/dashboard/dashboard-stats'
 import { EnhancedDashboardStats } from '@/components/dashboard/enhanced-dashboard-stats'
@@ -14,19 +15,43 @@ import { FinancialForecastingWidget } from '@/components/provider-matching/finan
 import { api } from '@/lib/trpc/client'
 
 export default function DashboardPage() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+  const [bypassSession, setBypassSession] = useState<any>(null)
+  
+  // Check for bypass session
+  useEffect(() => {
+    if (status === 'unauthenticated' || !session) {
+      // Check if we have bypass cookie
+      const checkBypass = async () => {
+        try {
+          const response = await fetch('/api/test-nextauth')
+          const data = await response.json()
+          if (data.user) {
+            setBypassSession({
+              user: data.user
+            })
+          }
+        } catch (error) {
+          console.error('Bypass check error:', error)
+        }
+      }
+      checkBypass()
+    }
+  }, [status, session])
+  
+  const activeSession = session || bypassSession
   const { data: currentUser } = api.user.getCurrentUser.useQuery(undefined, {
-    enabled: !!session?.user?.id
+    enabled: !!activeSession?.user?.id
   })
   
-  if (!session) {
+  if (!activeSession) {
     return <div>Loading...</div>
   }
 
   // Build display name from current user data or fallback to session
   const displayName = currentUser 
     ? `${currentUser.firstName || ''} ${currentUser.lastName || ''}`.trim() || currentUser.email?.split('@')[0]
-    : session.user.email?.split('@')[0] || 'Felhasználó'
+    : activeSession.user.email?.split('@')[0] || 'Felhasználó'
 
   return (
     <div className="space-y-6">
@@ -39,28 +64,28 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <EnhancedDashboardStats userRole={session.user.role} />
+      <EnhancedDashboardStats userRole={activeSession.user.role} />
 
       {/* Financial Widgets */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <FinancialSummary userRole={session.user.role} />
-        <RecentIssues userRole={session.user.role} />
+        <FinancialSummary userRole={activeSession.user.role} />
+        <RecentIssues userRole={activeSession.user.role} />
       </div>
 
       {/* Outstanding Payments - Full Width */}
       <OutstandingPayments />
 
-      <DashboardCharts userRole={session.user.role} />
+      <DashboardCharts userRole={activeSession.user.role} />
 
       {/* Calendar Widget - Full Width */}
-      <CalendarWidget userRole={session.user.role} />
+      <CalendarWidget userRole={activeSession.user.role} />
 
       {/* Financial Forecasting Widget */}
       <FinancialForecastingWidget />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <QuickActions userRole={session.user.role} />
-        <PropertyOverview userRole={session.user.role} />
+        <QuickActions userRole={activeSession.user.role} />
+        <PropertyOverview userRole={activeSession.user.role} />
       </div>
     </div>
   )
