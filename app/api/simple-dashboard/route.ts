@@ -1,7 +1,13 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+// Singleton pattern for Prisma client
+declare global {
+  var __prisma: PrismaClient | undefined;
+}
+
+const prisma = globalThis.__prisma || new PrismaClient();
+if (process.env.NODE_ENV === 'development') globalThis.__prisma = prisma;
 
 export async function GET() {
   try {
@@ -42,5 +48,8 @@ export async function GET() {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
+  } finally {
+    // Disconnect Prisma after request
+    await prisma.$disconnect();
   }
 }
