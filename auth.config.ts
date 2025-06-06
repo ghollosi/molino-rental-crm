@@ -1,8 +1,8 @@
 import type { NextAuthConfig } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { compare } from "bcryptjs"
-import { prisma } from "@/lib/db"
 import { loginSchema } from "@/lib/validations/auth"
+import { PrismaClient } from "@prisma/client"
 
 export default {
   providers: [
@@ -16,36 +16,49 @@ export default {
         
         const { email, password } = validatedFields.data
         
-        const user = await prisma.user.findUnique({
-          where: { email },
-          select: {
-            id: true,
-            email: true,
-            password: true,
-            role: true,
-            isActive: true,
+        // Create new Prisma instance for each auth attempt
+        const prisma = new PrismaClient()
+        
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email },
+            select: {
+              id: true,
+              email: true,
+              password: true,
+              name: true,
+              firstName: true,
+              lastName: true,
+              role: true,
+              isActive: true,
+            }
+          })
+        
+          if (!user || !user.isActive) {
+            console.log('User not found or inactive:', { email, found: !!user, active: user?.isActive })
+            return null
           }
-        })
-        
-        if (!user || !user.isActive) {
-          console.log('User not found or inactive:', { email, found: !!user, active: user?.isActive })
-          return null
-        }
-        
-        const isValidPassword = await compare(password, user.password)
-        
-        if (!isValidPassword) {
-          console.log('Password validation failed for:', email)
-          return null
-        }
-        
-        console.log('Login successful for:', email)
-        
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.email.split('@')[0],
-          role: user.role,
+          
+          const isValidPassword = await compare(password, user.password)
+          
+          if (!isValidPassword) {
+            console.log('Password validation failed for:', email)
+            return null
+          }
+          
+          console.log('Login successful for:', email)
+          
+          // Use firstName or name fallback
+          const displayName = user.firstName || user.name || user.email.split('@')[0]
+          
+          return {
+            id: user.id,
+            email: user.email,
+            name: displayName,
+            role: user.role,
+          }
+        } finally {
+          await prisma.$disconnect()
         }
       }
     })

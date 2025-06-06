@@ -105,16 +105,23 @@ export default function EmergencyDashboard() {
               <Button 
                 onClick={async () => {
                   try {
-                    const response = await fetch('/api/check-password', { method: 'POST' });
+                    const response = await fetch('/api/debug-auth', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        email: credentials.email,
+                        password: credentials.password
+                      })
+                    });
                     const result = await response.json();
                     setDashboardData(result);
                   } catch (error) {
-                    setDashboardData({ error: 'Password check failed' });
+                    setDashboardData({ error: 'Debug auth failed' });
                   }
                 }}
                 variant="secondary"
               >
-                Check Password
+                🔍 Debug Auth
               </Button>
 
               <Button 
