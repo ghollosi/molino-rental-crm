@@ -52,7 +52,8 @@ export default auth(async (req) => {
 
   // Check for bypass cookie first
   const bypassCookie = req.cookies.get('session-bypass')
-  const isBypassAuthenticated = bypassCookie?.value === 'admin-authenticated'
+  const authBypassCookie = req.cookies.get('auth-bypass')
+  const isBypassAuthenticated = bypassCookie?.value === 'admin-authenticated' || authBypassCookie?.value === 'true'
   
   const isLoggedIn = !!req.auth || isBypassAuthenticated
   const isAuthRoute = req.nextUrl.pathname.startsWith("/login") || 
