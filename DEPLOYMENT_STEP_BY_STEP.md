@@ -147,7 +147,7 @@ molino-rental-crm-super-secret-key-2025
 
 ```
 RESEND_API_KEY
-re_YUHrniX6_PAbF5mXFSUqJK86DoYS8haeF
+<RESEND_API_KEY – revoked 2026-10-24, set in hosting env>
 ```
 
 ```

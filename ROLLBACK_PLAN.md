@@ -132,7 +132,7 @@ npx tsx scripts/supabase-production-setup.ts
    DATABASE_URL=postgresql://postgres.wymltaiembzuugxnaqzz:Gabo123kekw@aws-0-eu-central-2.pooler.supabase.com:6543/postgres
    NEXTAUTH_URL=https://molino-rental-crm.vercel.app
    NEXTAUTH_SECRET=molino-rental-crm-super-secret-key-2025
-   RESEND_API_KEY=re_YUHrniX6_PAbF5mXFSUqJK86DoYS8haeF
+   RESEND_API_KEY=<RESEND_API_KEY – revoked 2026-10-24, set in hosting env>
    R2_ACCESS_KEY_ID=062db13eb2d227445539332b737c5c41
    R2_SECRET_ACCESS_KEY=27b5077b94cc85ab79adb43495af8edb78fd40a85d7b3770c21a36d9e9c5a2b2
    R2_BUCKET=molino-rental-uploads

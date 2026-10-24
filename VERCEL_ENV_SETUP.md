@@ -13,7 +13,7 @@ NEXTAUTH_URL=https://molino-rental-crm-production.vercel.app
 
 NEXTAUTH_SECRET=molino-rental-crm-super-secret-key-2025
 
-RESEND_API_KEY=re_YUHrniX6_PAbF5mXFSUqJK86DoYS8haeF
+RESEND_API_KEY=<RESEND_API_KEY – revoked 2026-10-24, set in hosting env>
 
 R2_ACCESS_KEY_ID=062db13eb2d227445539332b737c5c41
 
